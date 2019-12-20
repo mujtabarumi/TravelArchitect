@@ -22,16 +22,15 @@
     <link rel="stylesheet" type="text/css" href="assets/css/dummy.html" id="select-style">
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
+    <!-- make site yellow -->
+    <link href="assets/css/color/yellow.css" rel="stylesheet">
     <link href="assets/css/light.css" rel="stylesheet" media="screen">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600' rel='stylesheet' type='text/css'>
-    <!-- make site yellow -->
-<!--    <link href="assets/css/color/yellow.css" rel="stylesheet">-->
     <link href="assets/css/sharenet.css" rel="stylesheet">
 
 </head>
 <body class="load-full-screen">
-
 <!-- BEGIN: PRELOADER -->
 <div id="loader" class="load-full-screen">
     <div class="loading-animation">
@@ -43,33 +42,15 @@
 </div>
 <!-- END: PRELOADER -->
 
-<!-- BEGIN: COLOR SWITCHER -->
-<div class="cswitcher">
-    <div id="color-switcher">
-        <h6>CHOOSE COLOR</h6>
-        <ul>
-            <li class="green" data-path="assets/css/color/green.css"></li>
-            <li class="light-green" data-path="assets/css/color/light-green.css"></li>
-            <li class="red" data-path="assets/css/dummy.html"></li>
-            <li class="blue" data-path="assets/css/color/blue.css"></li>
-            <li class="brown" data-path="assets/css/color/brown.css"></li>
-            <li class="purple" data-path="assets/css/color/purple.css"></li>
-            <li class="orange" data-path="assets/css/color/orange.css"></li>
-            <li class="yellow" data-path="assets/css/color/yellow.css"></li>
-        </ul>
-    </div>
-</div>
-<span id="stoggle"><i class="fa fa-cog"></i></span>
-<!-- END: COLOR SWITCHER -->
-
 <!-- BEGIN: SITE-WRAPPER -->
 <div class="site-wrapper">
     <div class="row header-top">
         <div class="container clear-padding">
             <div class="navbar-contact">
-                <div class=" text-right clear-padding">
+                <div class=" text-right clear-padding user-logged">
                     <a href="#" class="transition-effect">
-                        <i class="fa fa-sign-in"></i>Log In
+                        <img src="assets/images/user.jpg" alt="cruise">
+                        Hi, Lenore
                     </a>
                     <a href="#" class="transition-effect">
                         <i class="fa fa-sign-out"></i>Sign Out
@@ -95,19 +76,17 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <!-- BEGIN: LOGO -->
-                            <a class="navbar-brand logo" href="index.html">Travel Architect</a>
+                            <a class="navbar-brand clear-padding logo" href="index.html">
+                                <img src="assets/images/logo.png" alt="logo">
+                            </a>
                         </div>
                         <!-- BEGIN: NAVIGATION -->
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="mega">
-                                    <a href="#"><i class="fa fa-home"></i> HOME</a>
+                                    <a href="index.html"><i class="fa fa-home"></i> HOME</a>
                                     <div class="clearfix"></div>
                                 </li>
-<!--                                <li class="mega">-->
-<!--                                    <a  href="#"><i class="fa fa-plane"></i> FLIGHTS</a>-->
-<!--                                    <div class="clearfix"></div>-->
-<!--                                </li>-->
                                 <li class="dropdown mega">
                                     <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-plane"></i> FLIGHTS <i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown-menu mega-menu">
@@ -126,7 +105,7 @@
                                     <div class="clearfix"></div>
                                 </li>
                                 <li class="mega">
-                                    <a href="#"><i class="fa fa-bank"></i> HOLIDAY</a>
+                                    <a href="holidays-list.html"><i class="fa fa-bank"></i> HOLIDAY</a>
                                     <div class="clearfix"></div>
                                 </li>
                                 <li class="dropdown mega">
@@ -160,6 +139,7 @@
             <!-- END: HEADER -->
         </div>
     </div>
+
     <div class="row">
         <div id="room-gallery" class="carousel slide bg-slider" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -209,6 +189,16 @@
             </a>
         </div>
     </div>
+    <!--share button -->
+    <div class="social-div">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+    </div>
+    <!-- end share button -->
+
     <!-- BEGIN: SEARCH SECTION -->
     <div class="row bottom-search">
         <div class="container clear-padding">
@@ -499,126 +489,224 @@
         </div>
     </div>
     <!-- END: SEARCH SECTION -->
-
     <!-- START: PRODUCT SECTION-->
     <section class="home-topdestinations">
         <div class="container clear-padding">
             <div class="section-title text-center">
-                <h2>Recommended Holidays</h2><br>
+                <h2>Holidays in popular cities</h2><br>
                 <strong class="mr-0"><a href="#" target="_blank">See all <i class="fa fa-angle-right"></i></a></strong>
             </div>
             <div class="row block-container">
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text"><p>Kuala Lumpur </p>
-                                    </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city overlay">
+                                <div class="text"><p>Kuala Lumpur </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Bangkok</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Paro</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="block hw fh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Hanoi</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="block fw fh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Bali</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Langkawi</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6"><div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
                             <div class="city">
-                                <div class="text">
-                                    <p>Singapore</p>
+                                <div class="text"><p>Kuala Lumpur </p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
+                            <div class="city">
+                                <div class="text"><p>Kuala Lumpur </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Kathmandu</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Agra</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="block hw fh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Maldives</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">
-                                <div class="city">
-                                    <div class="text">
-                                        <p>Shimla</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-12">-->
+<!--                            <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text"><p>Kuala Lumpur </p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Bangkok</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Paro</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-6">-->
+<!--                            <div class="block hw fh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Hanoi</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-12">-->
+<!--                            <div class="block fw fh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Bali</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Langkawi</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-6"><div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                            <div class="city">-->
+<!--                                <div class="text">-->
+<!--                                    <p>Singapore</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Kathmandu</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="block hw hh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Agra</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-6">-->
+<!--                            <div class="block hw fh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Maldives</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-12">-->
+<!--                            <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">-->
+<!--                                <div class="city">-->
+<!--                                    <div class="text">-->
+<!--                                        <p>Shimla</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </section>
@@ -675,7 +763,7 @@
                         </div>
                     </div>
                     <div class="room-grid-view wow slideInUp" data-wow-delay="0.3s">
-                        <img src="assets/images/offer3.jpg" alt="cruise">
+                        <img src="assets/images/offer4.jpg" alt="cruise">
                         <div class="room-info">
                             <div class="post-title">
                                 <h5>POST TITLE GOES HERE</h5>
@@ -763,6 +851,47 @@
         </div>
     </section>
     <!-- END: RECENT BLOG POST -->
+
+    <!--contact us -->
+    <section id="contact-us">
+        <div class="row contactDiv">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>CONTACT US</h2>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <iframe class="contact-map" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJG1usnet4BTkRzQqb_Ys-JOg&amp;key=AIzaSyB6hgZM-ruUqTPVUjXGUR-vv7WRqc4MXjY"></iframe>
+                </div>
+                <div class="col-md-6 col-sm-6 contact-form">
+                    <div class="col-md-12">
+                        <h2>DROP A MESSAGE</h2>
+                        <h5>Drop Us a Message</h5>
+                    </div>
+                    <form >
+                        <div class="col-md-6 col-sm-6">
+                            <input type="text" name="name" required class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input type="email" name="email" required class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-12">
+                            <input type="text" name="message-title" required class="form-control" placeholder="Message Title">
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-12">
+                            <textarea class="form-control" rows="5" id="comment" placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-default submit-review">SEND YOUR MESSAGE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end contact us -->
 
     <!-- START: FOOTER -->
     <section id="footer">

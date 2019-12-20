@@ -56,7 +56,10 @@
     border-radius: 4px;
     overflow: hidden;
     background-size: cover;
-    background-position: center center; }
+    background-position: center center;
+    transition: transform .2s; /* Animation */
+    border: 2px solid transparent;
+}
 .home-topdestinations .block-container .block.hh {
     height: 120px; }
 @media (max-width: 991px) {
@@ -89,12 +92,15 @@
     width: 100%;
     height: 50%;
     z-index: 1;
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.21) 20%, rgba(0, 0, 0, 0.37) 82%, rgba(0, 0, 0, 0.4) 100%);
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.21) 20%, rgba(0, 0, 0, 0.37) 82%, rgba(0, 0, 0, 0.4) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.01)), color-stop(20%, rgba(0, 0, 0, 0.21)), color-stop(82%, rgba(0, 0, 0, 0.37)), to(rgba(0, 0, 0, 0.4)));
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.21) 20%, rgba(0, 0, 0, 0.37) 82%, rgba(0, 0, 0, 0.4) 100%); }
+}
 .home-topdestinations .city .text {
     position: relative;
     z-index: 1; }
 .home-topdestinations .city .text p {
     font-weight: bold; }
+
+.home-topdestinations .block-container .block:hover {
+    /*background: #00adef !important;*/
+    transform: scale(1.1);
+    border: 2px solid #ffde59;
+}
