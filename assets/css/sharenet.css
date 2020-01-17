@@ -104,3 +104,9 @@
     transform: scale(1.1);
     border: 2px solid #ffde59;
 }
+.search-button {
+    background-color: #5271ff !important;
+}
+.search-button:hover {
+    background-color: #ffde59 !important;
+}

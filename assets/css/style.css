@@ -1,64 +1,3 @@
-/**
-*
-* Author: Limpid Themes
-* Last Modified: 09-06-2015
-* Description: Stylesheet used by CRUISE template
-*
-**/
-
-/*********************************************************
-	TABLE OF CONTENTS
-	1. GENERAL STYLES
-	2. PRELOADER 
-	3. SUPERSIZED SLIDER
-	4. NAVIGATION TRANSPARENT MENU 
-	5. LIGHT MENU 
-	6. HOMEPAGE SEARCH BOX
-	7. HOMEPAGE (INDEX-1, INDEX-2, INDEX-3, INDEX-4 ETC.) 
-	8. HOTEL.HTML
-	9. FLIGHT.HTML
-	10. HOLIDAY.HTML
-	11. CAR.HTML
-	12. CRUISE.HTML
-	13. HOTEL-GRID.HTML
-	14. HOTEL-LIST.HTML & HOTEL-LIST-2.html
-	15. FLIGHT.LIST.HTML
-	16. HOTEL-LIST-2.HTML
-	17. HOLIDAYS-GRID.HTML
-	18. HOLIDAYS-GRID-2.HTML
-	19. CRUISE-LIST.HTML
-	20. HOTEL-DETAILED.HTML
-	21. HOTEL-DETAILED-2.HTML
-	22. HOLIDAY-DETAIL.HTML
-	23. FLIGHT-BOOKING.HTML
-	24. HOTEL-BOOKING.HTML
-	25. HOTEL-BOOKING-2.HTML
-	26. THANK-YOU.HTML
-	27. BLOG
-	28. SINGLE BLOG
-	29. CONTACT-US.HTML
-	30. ABOUT-US.HTML
-	31. USER-PROFILE.HTML
-	32. COMING-SOON.HTML
-	33. 404.HTML
-	34. LOADING.HTML
-	35. HOTEL-INDEX.HTML
-	36. HOTEL-INDEX-2.HTML
-	37. HOLIDAY-INDEX.HTML
-	38. HOLIDAY-INDEX-2.HTML
-	39. CAR-INDEX.HTML
-	40. CAR-LIST.HTML
-	41. CAR-DETAILED.HTML
-	42. CAR-DETAILED-2.HTML
-	43. MAIN FOOTER
-	44. GALLERY.HTML
-	45. LOGIN.HTML
-	46. TYPOGRAPHY.HTML
-	47. CRUISE-DETAIL.HTML
-	48. LIST VIEW AND GRID VIEW SWITCH
-**********************************************************/
-
-
 /*********************************************************
 			1. GENERAL STYLES 
 **********************************************************/
@@ -71,12 +10,18 @@ body, html {
 }
 a {
 	text-decoration: none;
+	color: #14277d;
 }
 a:hover {
 	text-decoration: none;
+	color: #ffde59;
+
 }
 a:focus {
 	outline: none;
+}
+ul {
+	list-style: none;
 }
 a:active {
 	text-decoration: none;
@@ -101,7 +46,7 @@ h5 {
 	background: #ffffff;
 }
 .dark-row {
-	background: #07253F;
+	background: #14277d;
 	padding: 60px 0;
 	color: #ffffff;
 }
@@ -787,9 +732,12 @@ h5 {
 	border: 1px solid transparent;
 }
 .search-section .tab-content {
-	color: #07253F;
-	background: #fff;
-	padding: 30px 15px;
+	/*color: #07253F;*/
+	color: #fff;
+	/*background: #fff;*/
+	background: #14277d;
+	/*padding: 30px 15px;*/
+	padding: 10px 10px;
 }
 .search-section label {
 	font-size: 12px;
@@ -801,7 +749,8 @@ h5 {
     border: 1px solid #BEC4C8;
     border-radius: 0;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #07253F;
+    /*color: #07253F;*/
+	color: #fff;
     display: block;
     font-size: 15px;
     height: 40px;
@@ -840,7 +789,8 @@ h5 {
 	/*color: #F9BF3B;*/
 }
 .search-section .search-col-padding {
-	padding-top: 15px;
+	/*padding-top: 15px;*/
+	padding-top: 10px;
 }
 .search-section option {
 	color: #07253F;
@@ -857,7 +807,8 @@ h5 {
 	color: #ffffff;
 }
 .ui-datepicker-calendar a:hover {
-	color: #00ADEF;
+	/*color: #00ADEF;*/
+	color: #ffde59;
 }
 .ui-datepicker-calendar td {
 	padding: 10px 5px;
@@ -921,13 +872,15 @@ h5 {
 	background: #07253F !important;
 }
 .bootstrap-select.btn-group .dropdown-menu li a:hover {
-	color: #00ADEF;
+	/*color: #00ADEF;*/
+	color: #ffde59;
 }
 .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
 	width: 100%;
 }
 .btn:hover {
-	color: #00ADEF;
+	/*color: #00ADEF;*/
+	color: #ffde59;
 }
 .search-button {
 	background: #f9676b;
@@ -986,7 +939,7 @@ h5 {
 .bg-slider .carousel-caption {
 	color: #fff;
 	text-shadow: none;
-	top: 30%;
+	top: 5%;
 	z-index: 0;
 }
 .bg-slider .carousel-caption h2 {
@@ -1010,7 +963,8 @@ h5 {
 }
 .bg-slider .carousel-caption a:hover {
 	color: #fff;
-	background: #f9676b;
+	/*background: #f9676b;*/
+	background: #ffde59;
 	border: 2px solid transparent;
 }
 .bg-slider .carousel-indicators {
@@ -7434,6 +7388,74 @@ h5 {
 }
 .social-div li a i {
     font-size: 16px;
+}
+.carousel-inner {
+	max-height: 300px;
+}
+.holiday-custom {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 8px;
+	color: #fff;
+	height: 420px;
+}
+.holiday-custom .text {
+
+}
+.holiday-custom .text .top {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	padding: 10px;
+	text-align: right;
+}
+.holiday-custom .text .bottom {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 16px;
+}
+.holiday-custom .text .bottom span {
+	font-size: .75rem;
+}
+.holiday-custom .text .bottom h4 {
+	 color: inherit;
+	 margin-top: 2px;
+	 margin-bottom: 8px;
+
+}
+.holiday-custom .text .bottom p {
+	font-weight: 600;
+	margin: 0;
+	line-height: 1.4;
+
+}
+.holiday-custom .text .top ul li {
+	align-items: center;
+	margin-left: 16px;
+}
+.holiday-custom .text .top ul li img {
+	margin-right: 6px;
+	width: 24px;
+}
+.holiday-custom .text .top ul li span {
+	 font-weight: 600;
+}
+.holiday-custom .text .top ul li:first-child {
+	margin-right: auto;
+	margin-left: 0;
+	box-shadow: 0 0 black;
+}
+.holiday-custom .text .top ul, .holiday-custom .text .top ul li {
+	display: flex;
+	justify-content: flex-end;
+    padding: 0px;
 }
 
 
