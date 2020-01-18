@@ -65,6 +65,25 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Package
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('package.add')}}" class="nav-link">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Add Package
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
 
             </ul>
