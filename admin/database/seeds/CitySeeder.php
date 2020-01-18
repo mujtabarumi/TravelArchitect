@@ -20,9 +20,10 @@ class CitySeeder extends Seeder
         $db = env('DB_DATABASE','');
         $user = env('DB_USERNAME','');
         $password = env('DB_PASSWORD','');
+        $mysql =env('mysql_path','');
 
         if($engine == "mysql") {
-            $command = "mysql -h ".$host." --port ".$port." -u ".$user." -p".$password." ".$db." < ".$sqlFile;
+            $command = $mysql." -h ".$host." --port ".$port." -u ".$user." -p".$password." ".$db." < ".$sqlFile;
 //            echo $command;
             exec($command);
 

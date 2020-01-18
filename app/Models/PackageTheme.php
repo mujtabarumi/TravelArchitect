@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class PackageTheme extends Model
 {
-    protected $fillable = ['name', 'state_id'];
-
+    protected $table='package_themes';
     public $timestamps = false;
 }

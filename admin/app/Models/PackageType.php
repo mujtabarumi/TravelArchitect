@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class PackageType extends Model
 {
-    protected $fillable = ['name', 'state_id'];
-
+    protected $table='package_types';
     public $timestamps = false;
 }

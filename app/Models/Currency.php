@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Currency extends Model
 {
-    protected $fillable = ['name', 'state_id'];
-
     public $timestamps = false;
+    protected $fillable = ["country","name","code","symbol"];
 }
