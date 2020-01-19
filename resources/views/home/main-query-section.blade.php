@@ -44,14 +44,14 @@
                             <div class="col-md-3 col-sm-3 search-col-padding">
                                 <label>Leaving From</label>
                                 <div class="input-group">
-                                    <input type="text" name="departure_city" class="form-control" required placeholder="E.g. London">
+                                    <input type="text" id="From" name="departure_city" class="form-control" required placeholder="E.g. London">
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-3 search-col-padding">
                                 <label>Leaving To</label>
                                 <div class="input-group">
-                                    <input type="text" name="destination_city" class="form-control" required placeholder="E.g. New York">
+                                    <input type="text" id="To" name="destination_city" class="form-control" required placeholder="E.g. New York">
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
                             </div>

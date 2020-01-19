@@ -53,8 +53,9 @@
 <link href="{{asset("/assets/css/light.css")}}" rel="stylesheet">
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600' rel='stylesheet' type='text/css'>
+
 <link href="{{asset("/assets/css/sharenet.css")}}" rel="stylesheet">
 
-
+{{--<link href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css' rel='stylesheet' type='text/css'>--}}
 @stack('styles')
 

@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layout.view');
-})->name('home');
+//Route::get('/', function () {
+//    return view('layout.view');
+//})->name('home');
+
+Route::get('/','HomeController@index')->name('home');
+Route::post('search/autocomplete', 'HomeController@autocomplete');

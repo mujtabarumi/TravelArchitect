@@ -6,6 +6,11 @@
 
         ]
     ])
+<style>
+    .ui-autocomplete-input  a.sbiAnchor.ui-state-hover{
+        background: blue;
+    }
+</style>
 </head>
 
 <body class="load-full-screen">
@@ -29,5 +34,62 @@
 
     ]
 ])
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        src = "search/autocomplete";
+
+        $( "#To" ).autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'POST',
+                    url: src,
+                    data: {
+                        term : request.term
+                    },
+                    success: function(data) {
+                        response(data);
+
+                    }
+                });
+            },
+            minLength: 1,
+            select: function(event, ui) {
+                $('#To').val(ui.item.value);
+            }
+        });
+
+        $( "#From" ).autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'POST',
+                    url: src,
+                    data: {
+                        term : request.term
+                    },
+                    success: function(data) {
+                        response(data);
+
+                    }
+                });
+            },
+            minLength: 1,
+            select: function(event, ui) {
+                $('#From').val(ui.item.value);
+            }
+        });
+    });
+
+
+
+</script>
 </body>
 </html>
