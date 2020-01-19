@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class UserType extends Model
 {
-    protected $fillable = ['name', 'state_id'];
-
+    protected $table='user_types';
     public $timestamps = false;
 }

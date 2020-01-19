@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class VisaGuide extends Model
 {
-    protected $fillable = ['name', 'state_id'];
-
+    protected $table='visa_guides';
     public $timestamps = false;
 }

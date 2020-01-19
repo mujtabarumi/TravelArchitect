@@ -23,3 +23,5 @@ Route::post('/noticeboard-insert','NoticeBoardController@insert')->name('noticeb
 Route::post('/noticeboard-getlist','NoticeBoardController@getNBdata')->name('noticeboard.getdata');
 Route::post('/noticeboard-edit','NoticeBoardController@edit')->name('noticeboard.edit');
 
+/* Rumi */
+Route::get('/Package/add','PackageController@getPackageCreateFrom')->name('package.add');

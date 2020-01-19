@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CountrySeeder extends Seeder
+class StateSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class CountrySeeder extends Seeder
     public function run()
     {
         $appPath = base_path('database/seeds/sqls');
-        $sqlFile = $appPath.'/countries.sql';
+        $sqlFile = $appPath.'/states.sql';
 
         $engine = env('DB_CONNECTION','');
         $host = env('DB_HOST','');
@@ -20,15 +20,16 @@ class CountrySeeder extends Seeder
         $db = env('DB_DATABASE','');
         $user = env('DB_USERNAME','');
         $password = env('DB_PASSWORD','');
+        $mysql =env('mysql_path','');
 
         if($engine == "mysql") {
-            $command = "mysql -h ".$host." --port ".$port." -u ".$user." -p".$password." ".$db." < ".$sqlFile;
+            $command = $mysql." -h ".$host." --port ".$port." -u ".$user." -p".$password." ".$db." < ".$sqlFile;
 //            echo $command;
             exec($command);
 
         }
         else {
-            echo "\033[01;31m You are not using mysql db! so country data seed not possible. \033[0m".PHP_EOL;
+            echo "\033[01;31m You are not using mysql db! so state data seed not possible. \033[0m".PHP_EOL;
         }
 
     }
