@@ -12,7 +12,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{url('public')}}/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="../../../../code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet" href="{{url('public')}}/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
@@ -31,11 +31,18 @@
 
 {{--    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">--}}
 
-
-    <link rel="stylesheet" href="{{url('public/assets/plugins/toastr/toastr.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous" />
-    @toastr_css
+
+    <!-- Rumi added -->
+    <link rel="stylesheet" href="{{url('public/assets/libs/multiselect/multi-select.css')}}">
+    <link rel="stylesheet" href="{{url('public/assets/libs/switchery/switchery.min.css')}}">
+    <link rel="stylesheet" href="{{url('public/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}">
+    <link rel="stylesheet" href="{{url('public/assets/libs/bootstrap-datepicker/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{url('public/assets/libs/select2/select2.min.css')}}">
+    <link rel="stylesheet" href="{{url('public/assets/libs/toastr/toastr.min.css')}}">
+
     @yield('css')
+    @stack('styles')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

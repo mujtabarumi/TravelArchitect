@@ -25,3 +25,13 @@ Route::post('/noticeboard-edit','NoticeBoardController@edit')->name('noticeboard
 
 /* Rumi */
 Route::get('/Package/add','PackageController@getPackageCreateFrom')->name('package.add');
+
+Route::prefix('ajax')->group(function (){
+    Route::get('/package/type','GlobalSearchController@searchPackageType')->name('ajax.package.type');
+    Route::get('/package/theme','GlobalSearchController@searchPackageTheme')->name('ajax.package.theme');
+    Route::get('/country','GlobalSearchController@searchCountry')->name('ajax.country');
+    Route::get('/country/code','GlobalSearchController@searchCountryCode')->name('ajax.country_with_code');
+    Route::get('/state/{country}','GlobalSearchController@searchState')->name('ajax.state');
+    Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
+
+});

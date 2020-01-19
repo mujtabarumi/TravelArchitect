@@ -24,8 +24,6 @@
 @include('partials.footer')
 
 </div>
-<!-- END: SITE-WRAPPER -->
-
 @include('partials.scripts',[
     'scripts' => [
 
