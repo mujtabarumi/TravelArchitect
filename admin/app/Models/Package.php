@@ -43,4 +43,9 @@ class Package extends Model
         return $this->hasMany(PackageItinerary::class);
     }
 
+    public function address()
+    {
+        return $this->morphOne(Address::class,'model');
+    }
+
 }

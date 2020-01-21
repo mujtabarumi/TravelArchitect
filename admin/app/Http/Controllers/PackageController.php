@@ -60,8 +60,7 @@ class PackageController extends Controller
         return view('package.create', compact('tabs','packageData', 'currentStep','tabData'));
     }
 
-//    public function packageCreate(PackageRequest $request)
-    public function packageCreate(Request $request)
+    public function packageCreate(PackageRequest $request)
     {
         $package = null;
 

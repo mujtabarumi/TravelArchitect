@@ -22,13 +22,14 @@
                                                 @php
                                                     $tabClass = [];
                                                     $isDisabled = data_get($tab,'disabled',true);
-                                                    $tabLink = $isDisabled ? 'javascript:void(0)' : route('package.add', ['step' => $key] );
+                                                    $tabLink = $isDisabled ? 'javascript:void(0)' : route('package.edit', ['package' => $package->id, 'step' => $key] );
                                                     if ($key == $currentStep) {
-                                                        $tabClass[] = 'active';
-                                                    }
+                                                            $tabClass[] = 'active';
+                                                        }
                                                     if ($isDisabled) {
                                                         $tabClass[] = 'disabled';
                                                     }
+                                                    if($key <= request()->get('step')) $tabClass[] = 'completed';
                                                 @endphp
                                                 <a href="{{  $tabLink  }}"
                                                    class="nav-link rounded-0 pt-2 pb-2 {{ implode(" ",$tabClass) }}">
@@ -44,7 +45,7 @@
                                         <ul class="list-inline wizard mb-0">
                                             @if($currentStep > \App\Enums\PackageStep::BASIC_INFORMATION)
                                                 <li class="previous list-inline-item">
-                                                    <a href="" class="btn btn-outline-secondary">{{__("Back")}}</a>
+                                                    <a  href="{{ route('package.edit', ['package' => $package->id, 'step' => $currentStep - 1]) }}" class="btn btn-outline-secondary">{{__("Back")}}</a>
                                                 </li>
                                             @endif
                                             <li class="next list-inline-item float-right">

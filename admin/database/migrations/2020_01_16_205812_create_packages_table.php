@@ -22,16 +22,16 @@ class CreatePackagesTable extends Migration
             $table->longText('additional_info')->nullable();
             $table->unsignedBigInteger('package_type_id');
             $table->unsignedBigInteger('city_id');
-            $table->string('theme_map')->nullable();
+            $table->json('theme_map')->nullable();
             $table->integer('duration')->nullable();
-            $table->double('budget',7,2)->nullable();
-            $table->tinyInteger('recommended')->default(0);
-            $table->tinyInteger('popular')->default(0);
-            $table->tinyInteger('air_price_included')->default(0);
+            $table->integer('budget')->nullable();
+            $table->boolean('recommended')->default(0);
+            $table->boolean('popular')->default(0);
+            $table->boolean('air_price_included')->default(0);
             $table->date('departure_date')->nullable();
             $table->date('valid_from')->nullable();
             $table->date('valid_till')->nullable();
-            $table->tinyInteger('is_everyday_departs')->default(0);
+            $table->boolean('is_everyday_departs')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

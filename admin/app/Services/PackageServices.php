@@ -32,10 +32,9 @@ class PackageServices
 
     public function savePackagePost($packageData, $user) {
 
-        $this->saveAddressIfNew($packageData);
-        $data = Arr::only($packageData,['title','package_type','package_theme','valid_from','valid_till','recommended','address',
+        $data = Arr::only($packageData,['title','package_type','valid_from','valid_till','recommended','address',
         'popular','is_everyday_departs','departure_date','air_price_included','budget']);
-
+        $address = $this->serializeAddressData(data_get($data,'address'));
         $this->removeSomekeyFromArray($data,['address']);
         $this->parseCarbonData($data, [
             'valid_from' => "Y-m-d",
@@ -43,44 +42,15 @@ class PackageServices
             'departure_date' => "Y-m-d",
         ]);
         $data['city_id'] = data_get($packageData,'address.city');
+        $data['theme_map'] = json_encode(data_get($packageData,'package_theme'));
         $data['package_type_id'] = $packageData['package_type'];
         $data['created_by'] = $user->id;
         $data['updated_by'] = $user->id;
 
         $package = Package::create($data);
+        $package->address()->create($address);
 
         return $package;
-    }
-
-    public function saveAddressIfNew(&$data)
-    {
-        $requestData = Arr::only($data,['address']);
-
-        if (!blank(data_get($requestData,'address'))) {
-            $countryId = data_get($requestData,'address.country');
-            $stateId = data_get($requestData,'address.state');
-            $cityId = data_get($requestData,'address.city');
-
-            $country = Country::find($countryId);
-            $state = State::find($stateId);
-            $city = City::find($cityId);
-
-            if (blank($state) && !blank($stateId)) {
-                $state = State::create([
-                    'name' => $stateId,
-                    'country_id' =>  $country->id
-                ]);
-                $data['address']['state'] = $state->id;
-            }
-
-            if (blank($city) && !blank($cityId)) {
-                $city = City::create([
-                    'name' => $cityId,
-                    'state_id' => $state->id
-                ]);
-                $data['address']['city'] = $city->id;
-            }
-        }
     }
 
     public function removeSomekeyFromArray(&$data, $array)
@@ -104,16 +74,29 @@ class PackageServices
         $BASIC_INFORMATION = [];
 
         if (blank($step) || $step == PackageStep::BASIC_INFORMATION) {
-            $BASIC_INFORMATION = $package->only(['title','package_type_id','package_theme','valid_from','valid_till','recommended','address',
+            $BASIC_INFORMATION = $package->only(['title','package_type_id','theme_map','valid_from','valid_till','recommended','address',
                 'popular','is_everyday_departs','departure_date','air_price_included','budget']);
             $BASIC_INFORMATION['valid_from'] = $package->valid_from->format('Y/m/d');
             $BASIC_INFORMATION['valid_till'] = $package->valid_till->format('Y/m/d');
-            $BASIC_INFORMATION['departure_date'] = $package->departure_date->format('Y/m/d');
+            if (!blank($package->departure_date)) {
+                $BASIC_INFORMATION['departure_date'] = $package->departure_date->format('Y/m/d');
+            } else {
+                $BASIC_INFORMATION['departure_date'] = null;
+            }
+
 
         }
 
         return [
             PackageStep::BASIC_INFORMATION => $BASIC_INFORMATION
+        ];
+    }
+
+    public function serializeAddressData($addressData){
+        return [
+            'country_id' => data_get($addressData, 'country'),
+            'state_id' => data_get($addressData, 'state'),
+            'city_id' => data_get($addressData, 'city')
         ];
     }
 }

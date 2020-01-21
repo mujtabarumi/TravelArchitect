@@ -64,8 +64,6 @@ function addMultipleSelect2Ajax($el, $url, $changeCallback, data) {
             $($element).change($changeCallback)
         }
 
-        // $($element).hasClass('select2') && $($element).select2('destroy');
-
         return $($element).select2({
             ...data,
             placeholder: placeHolder,
@@ -79,7 +77,7 @@ function addMultipleSelect2Ajax($el, $url, $changeCallback, data) {
                 processResults: function (data) {
                     return {
                         results: $.map(data, function (obj, index) {
-                            return {id: obj.id, text: obj.name};
+                            return {id: obj.name, text: obj.name};
                         })
                     };
                 }
