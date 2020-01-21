@@ -17,8 +17,8 @@ class CreatePackagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->longText('details')->nullable();
-            $table->longText('inclusion')->nullable();
-            $table->longText('exclusion')->nullable();
+            $table->json('inclusion')->nullable();
+            $table->json('exclusion')->nullable();
             $table->longText('additional_info')->nullable();
             $table->unsignedBigInteger('package_type_id');
             $table->unsignedBigInteger('city_id');
@@ -32,6 +32,8 @@ class CreatePackagesTable extends Migration
             $table->date('valid_from')->nullable();
             $table->date('valid_till')->nullable();
             $table->boolean('is_everyday_departs')->default(0);
+            $table->tinyInteger('status')->default(\App\Enums\PackageStatus::DRAFT);
+            $table->tinyInteger('steps')->default(\App\Enums\PackageStep::BASIC_INFORMATION);
 
             $table->timestamps();
             $table->softDeletes();

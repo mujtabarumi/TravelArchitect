@@ -35,7 +35,9 @@ class Package extends Model
         'valid_till',
         'is_everyday_departs',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'status',
+        'steps'
     ];
 
     public function itineraries()

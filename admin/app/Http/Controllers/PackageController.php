@@ -19,7 +19,7 @@ class PackageController extends Controller
             'disabled' => false
         ],
         PackageStep::DETAILS => [
-            "title" => "Information",
+            "title" => "Details",
             "step" => "step-2",
             'disabled' => false
         ],
@@ -76,15 +76,10 @@ class PackageController extends Controller
 
         $packageSteps = Self::PACKAGE_CREATE_STEPS;
         $stepKeys = array_keys($packageSteps);
+
         $maxStep = max($stepKeys);
         $nextStep = $package->steps + 1;
         $currentStep = $request->get('step', ($package->steps < $maxStep) ? $nextStep : PackageStep::BASIC_INFORMATION);
-
-//        $applyTabs = config('job.post.apply.steps')[JobApplyStep::PERSONAL_INFORMATIONS]['tabs'];
-//
-//        $applyAllRules = config('job.apply.fields');
-//
-//        $applyRules = data_get($post, "meta.apply_rules", []);
 
         if (!isset($packageSteps[$currentStep])) {
             $currentStep += 1;
@@ -105,7 +100,34 @@ class PackageController extends Controller
         }
 
         $tabData = data_get($packageData, $currentStep, []);
+
         return view('package.edit', compact('packageData', 'currentStep', 'tabs', 'tabData', 'package'));
 
     }
+
+    public function updatePackagePost(PackageRequest $request, Package $package) {
+
+        $packageSteps = Self::PACKAGE_CREATE_STEPS;
+        $maxStep = max(array_keys($packageSteps));
+        $step = $request->get('step', PackageStep::BASIC_INFORMATION);
+
+        switch ($step) {
+            case PackageStep::BASIC_INFORMATION:
+                $this->packageService->updateBasicInformation($package, $request);
+                break;
+
+            case PackageStep::DETAILS:
+                $this->packageService->updateDescription($package, $request);
+                break;
+
+        }
+
+        $nextStep = $this->packageService->changePackageStep($package, $step, $maxStep);
+
+        return redirect()->route('package.edit', ['package' => $package->id, 'step' => $nextStep])->with('success', __('Job Post Updated Successfully. :)'));
+
+    }
+
+
+
 }

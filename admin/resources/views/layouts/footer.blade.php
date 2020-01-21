@@ -43,6 +43,7 @@
 <script src="{{url('public/assets/libs/moment/moment.js')}}"></script>
 <script src="{{url('public/assets/libs/switchery/switchery.min.js')}}"></script>
 <script src="{{url('public/assets/libs/katex/katex.min.js')}}"></script>
+<script src="{{url('public/assets/libs/quill/quill.min.js')}}"></script>
 <script src="{{url('public/assets/libs/jquery-mask-plugin/jquery.mask.min.js')}}"></script>
 
 <script>

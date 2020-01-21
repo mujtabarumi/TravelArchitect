@@ -35,7 +35,7 @@
 @endif
 
 @stack('pre-styles')
-
+{{--<link href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css' rel='stylesheet' type='text/css'>--}}
 <!-- STYLES -->
 <link href="{{asset("/assets/css/animate.min.css")}}" rel="stylesheet">
 <link href="{{asset("/assets/css/bootstrap-select.min.css")}}" rel="stylesheet">
@@ -56,6 +56,6 @@
 
 <link href="{{asset("/assets/css/sharenet.css")}}" rel="stylesheet">
 
-{{--<link href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css' rel='stylesheet' type='text/css'>--}}
+
 @stack('styles')
 

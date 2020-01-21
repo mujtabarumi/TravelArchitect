@@ -27,6 +27,7 @@ Route::post('/noticeboard-edit','NoticeBoardController@edit')->name('noticeboard
 Route::get('/Package/add','PackageController@getPackageCreateFrom')->name('package.add');
 Route::post('/Package/add','PackageController@packageCreate')->name('package.add');
 Route::get('{package}/edit','PackageController@getPackageEditFrom')->name('package.edit');
+Route::post('{package}/edit','PackageController@updatePackagePost')->name('package.edit');
 
 Route::prefix('ajax')->group(function (){
     Route::get('/package/type','GlobalSearchController@searchPackageType')->name('ajax.package.type');

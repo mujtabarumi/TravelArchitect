@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="{{url('public/assets/libs/bootstrap-datepicker/bootstrap-datepicker.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/libs/select2/select2.min.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/libs/toastr/toastr.min.css')}}">
+    <link rel="stylesheet" href="{{url('public/assets/libs/quill/quill.core.css')}}">
+    <link rel="stylesheet" href="{{url('public/assets/libs/quill/quill.bubble.css')}}">
+    <link rel="stylesheet" href="{{url('public/assets/libs/quill/quill.snow.css')}}">
 
     @yield('css')
     @stack('styles')
