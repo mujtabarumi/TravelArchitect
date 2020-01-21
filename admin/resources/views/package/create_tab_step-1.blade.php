@@ -100,7 +100,7 @@
             <div class="form-group mb-3">
                 <label class="col-form-label" for="expiry_date">{{__("Valid Till")}}*</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" name="valid_till" autocomplete="off" value="{{ $valid_till }}" placeholder="{{__("yyyy/mm/dd")}}" id="valid_till">
+                    <input type="text" class="form-control date" name="valid_till" autocomplete="off" value="{{ $valid_till }}" placeholder="{{__("yyyy/mm/dd")}}" id="valid_till">
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="ti-notepad"></i></span>
                     </div>
@@ -112,7 +112,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group mb-3">
-                <div class="title-from-input d-flex justify-content-between">
+                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">
                     <label class="col-form-label">{{__("Country")}}</label>
                 </div>
                 <select class="form-control select2" id="country" name="address[country]" data-placeholder="{{__("Select Country")}}">
@@ -130,7 +130,7 @@
                     <label>{{__("State")}}</label> <small class="pull-right">
                         <a href="javascript:void(0)" id="addState"
                            data-meta-modal="#create_meta_data"
-                           data-meta-modal-url=""
+                           data-meta-modal-url="{{ route('save.meta.data') }}"
                            data-meta-modal-title="{{__("Create new state")}}"
                            data-meta-modal-placeholder="{{__("New state")}}"
                            data-meta-modal-type="state"
@@ -158,7 +158,7 @@
                     <label>{{__("City")}}</label> <small class="pull-right">
                         <a href="javascript:void(0)" id="addCity"
                            data-meta-modal="#create_meta_data"
-                           data-meta-modal-url=""
+                           data-meta-modal-url="{{ route('save.meta.data') }}"
                            data-meta-modal-title="{{__("Create new city")}}"
                            data-meta-modal-placeholder="{{__("New city")}}"
                            data-meta-modal-type="city"
@@ -184,8 +184,7 @@
                 <label class="col-form-label">{{__("Quick Infos")}}</label>
                 @component('components.input-validation-error',['field' => 'recommended']) @endcomponent
                 @component('components.input-validation-error',['field' => 'popular']) @endcomponent
-                @component('components.input-validation-error',['field' => 'is_everyday_departs']) @endcomponent
-                @component('components.input-validation-error',['field' => 'air_price_included']) @endcomponent
+
             </div>
             <div class="table table-responsive quick-info">
                 <table class="table">
@@ -216,6 +215,7 @@
                 <div style="float: right" class="form-check">
                     <input type="checkbox" class="form-check-input" name="is_everyday_departs" id="is_everyday_departs">
                     <label class="form-check-label" for="is_everyday_departs">{{__("Is Everyday Departs")}}</label>
+                    @component('components.input-validation-error',['field' => 'is_everyday_departs']) @endcomponent
                 </div>
                 <div class="input-group">
                     <input type="text" class="form-control date" name="departure_date" autocomplete="off" value="{{ $departure_date }}" placeholder="{{__("yyyy/mm/dd")}}" id="departure_date">
@@ -232,6 +232,7 @@
                 <div style="float: right" class="form-check">
                     <input type="checkbox" class="form-check-input" name="air_price_included" id="air_price_included">
                     <label class="form-check-label" for="air_price_included">{{__("Is Air Price Included")}}</label>
+                    @component('components.input-validation-error',['field' => 'air_price_included']) @endcomponent
                 </div>
                 <div class="input-group">
                     <input type="number" class="form-control" name="budget" autocomplete="off" value="{{ $departure_date }}" placeholder="{{__("Budget")}}" id="budget">
@@ -254,7 +255,8 @@
 
             $('.date').datepicker({
                 autoclose : true,
-                startDate :date
+                startDate :date,
+                format: 'yyyy/mm/dd',
             });
             addSelect2Ajax('#package_type','{{route('ajax.package.type')}}', null, {
                 'tags' : true

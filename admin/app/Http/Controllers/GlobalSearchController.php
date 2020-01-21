@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Country;
 use App\Models\PackageTheme;
+use App\Models\State;
 use App\Services\AddressService;
 use App\Services\PackageServices;
 use Illuminate\Http\Request;
@@ -71,4 +73,52 @@ class GlobalSearchController extends Controller
         return response()->json($data);
 
     }
+
+    public function saveMetaData(Request $request) {
+
+    $this->validate($request,[
+        "name" => "required",
+        "type" => "required"
+    ]);
+
+    $name = $request->get('name');
+    $type = $request->get('type');
+    $modelId = null;
+    $text = null;
+    $parentId = $request->get('parent_id');
+
+    switch ($type) {
+
+        case 'state':
+            $country = Country::findOrFail($parentId);
+
+            $model = State::firstOrCreate([ 'name' => $name, 'country_id' => $country->id]);
+
+            if (!blank($model)) {
+                $modelId = $model->id;
+                $text = $model->name;
+            }
+            break;
+
+        case 'city':
+            $state = State::findOrFail($parentId);
+
+            $model = City::firstOrCreate([ 'name' => $name, 'state_id' => $state->id]);
+
+            if (!blank($model)) {
+                $modelId = $model->id;
+                $text = $model->name;
+            }
+            break;
+
+    }
+
+    return response()->json([
+        "success" => true,
+        "data" => [
+            'text' => $text,
+            'value' => $modelId
+        ]
+    ], 200);
+}
 }

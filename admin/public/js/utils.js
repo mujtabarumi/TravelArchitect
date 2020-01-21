@@ -1,6 +1,3 @@
-/*
-*  Select2 Ajax with dependent functionality
-* */
 
 function addSelect2Ajax($element, $url, $changeCallback, data) {
     var placeHolder = $($element).data('placeholder');
@@ -8,8 +5,6 @@ function addSelect2Ajax($element, $url, $changeCallback, data) {
     if (typeof $changeCallback == 'function') {
         $($element).change($changeCallback)
     }
-
-    // $($element).hasClass('select2') && $($element).select2('destroy');
 
     return $($element).select2({
         ...data,
@@ -174,7 +169,7 @@ const ModalMetaData = {
                         toastr.success("Successfully added");
                         myObj.resetModalAttr(thisElement);
                     }
-                });
+                })
             } else {
                 toastr.error("Please type a valid name");
             }

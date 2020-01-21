@@ -43,6 +43,7 @@
 
     @yield('css')
     @stack('styles')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

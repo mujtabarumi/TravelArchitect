@@ -97,6 +97,13 @@ if(!function_exists('getNextKey')){
         return isset($keys[array_search($search,$keys)+1]) ? $keys[array_search($search,$keys)+1] : $keys[array_search($search,$keys)];
     }
 }
+function isValidPackageStep($stepEnum,$step) {
+    return is_numeric($step)
+        && in_array(
+            $step,
+            array_values(getEnumConstants($stepEnum))
+        );
+}
 
 
 

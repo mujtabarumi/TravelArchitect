@@ -10,10 +10,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Create Package</h3>
+                            <h3 class="card-title">Update Package</h3>
                         </div>
                         <div class="card-body">
-                            <form method="post" autocomplete="off" action="{{ route('package.add') }}">
+                            <form method="post" autocomplete="off" action="">
                                 @csrf
                                 <div id="tab-wrapper">
                                     <ul class="nav nav-pills bg-light nav-justified form-wizard-header mb-4">

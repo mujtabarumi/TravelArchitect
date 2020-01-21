@@ -25,6 +25,8 @@ Route::post('/noticeboard-edit','NoticeBoardController@edit')->name('noticeboard
 
 /* Rumi */
 Route::get('/Package/add','PackageController@getPackageCreateFrom')->name('package.add');
+Route::post('/Package/add','PackageController@packageCreate')->name('package.add');
+Route::get('{package}/edit','PackageController@getPackageEditFrom')->name('package.edit');
 
 Route::prefix('ajax')->group(function (){
     Route::get('/package/type','GlobalSearchController@searchPackageType')->name('ajax.package.type');
@@ -33,5 +35,6 @@ Route::prefix('ajax')->group(function (){
     Route::get('/country/code','GlobalSearchController@searchCountryCode')->name('ajax.country_with_code');
     Route::get('/state/{country}','GlobalSearchController@searchState')->name('ajax.state');
     Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
+    Route::post('/save/meta-data','GlobalSearchController@saveMetaData')->name('save.meta.data');
 
 });

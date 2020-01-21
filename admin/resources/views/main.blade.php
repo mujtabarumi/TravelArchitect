@@ -12,5 +12,6 @@
         @yield('content')
     </div>
 </div>
+@include('layouts._modal-create-meta-data')
 
 @include('layouts.footer')
