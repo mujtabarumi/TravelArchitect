@@ -23,7 +23,7 @@ class CreatePackagesTable extends Migration
             $table->unsignedBigInteger('package_type_id');
             $table->unsignedBigInteger('city_id');
             $table->json('theme_map')->nullable();
-            $table->integer('duration')->nullable();
+            $table->string('duration')->nullable();
             $table->integer('budget')->nullable();
             $table->boolean('recommended')->default(0);
             $table->boolean('popular')->default(0);
@@ -35,7 +35,8 @@ class CreatePackagesTable extends Migration
             $table->tinyInteger('status')->default(\App\Enums\PackageStatus::DRAFT);
             $table->tinyInteger('steps')->default(\App\Enums\PackageStep::BASIC_INFORMATION);
 
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->softDeletes();
 
             $table->foreign('package_type_id')->references('id')->on('package_types');

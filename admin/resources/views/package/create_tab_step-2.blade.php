@@ -2,6 +2,12 @@
     $inclusions = json_decode(old('inclusion',data_get($tabData,'inclusion')));
     $exclusions = json_decode(old('exclusion',data_get($tabData,'exclusion')));
     $details = old('details',data_get($tabData,'details'));
+    if (empty($inclusions)) {
+        $inclusions = [];
+    }
+    if (empty($exclusions)) {
+        $exclusions = [];
+    }
 @endphp
 
 <div class="tab-pane active" id="step2">
@@ -15,35 +21,33 @@
             </div>
         </div> <!-- end col -->
     </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="inclusion">{{__("Inclusion")}}</label>
+                <select data-placeholder="Add inclusions here" class="form-control select2" multiple id="inclusion" name="inclusion[]">
+                    @foreach($inclusions as $inclusion)
+                        <option value="{{$inclusion}}" selected> {{$inclusion}} </option>
+                    @endforeach
+                </select>
+                @component('components.input-validation-error',['field' => 'inclusion']) @endcomponent
+            </div>
+        </div> <!-- end col -->
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="exclusion">{{__("Exclusion")}}</label>
+                <select data-placeholder="Add exclusions here" class="form-control select2" multiple id="exclusion" name="exclusion[]">
+                    @foreach($exclusions as $exclusion)
+                        <option value="{{$exclusion}}" selected> {{$exclusion}} </option>
+                    @endforeach
+                </select>
+                @component('components.input-validation-error',['field' => 'exclusion']) @endcomponent
+            </div>
+        </div> <!-- end col -->
+    </div>
 </div>
-
-<div class="row">
-    <div class="col-12">
-        <div class="form-group">
-            <label for="inclusion">{{__("Inclusion")}}</label>
-            <select data-placeholder="Add inclusions here" class="form-control select2" multiple id="inclusion" name="inclusion[]">
-                @foreach($inclusions as $inclusion)
-                    <option value="{{$inclusion}}" selected> {{$inclusion}} </option>
-                @endforeach
-            </select>
-            @component('components.input-validation-error',['field' => 'inclusion']) @endcomponent
-        </div>
-    </div> <!-- end col -->
-</div>
-<div class="row">
-    <div class="col-12">
-        <div class="form-group">
-            <label for="exclusion">{{__("Exclusion")}}</label>
-            <select data-placeholder="Add exclusions here" class="form-control select2" multiple id="exclusion" name="exclusion[]">
-                @foreach($exclusions as $exclusion)
-                    <option value="{{$exclusion}}" selected> {{$exclusion}} </option>
-                @endforeach
-            </select>
-            @component('components.input-validation-error',['field' => 'exclusion']) @endcomponent
-        </div>
-    </div> <!-- end col -->
-</div>
-
 @push('scripts')
     <script>
         $(function () {

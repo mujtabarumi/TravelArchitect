@@ -8,7 +8,7 @@ use App\Http\Requests\PackageRequest;
 use App\Models\Package;
 use App\Services\PackageServices;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\Self_;
+
 
 class PackageController extends Controller
 {
@@ -118,6 +118,13 @@ class PackageController extends Controller
 
             case PackageStep::DETAILS:
                 $this->packageService->updateDescription($package, $request);
+                break;
+
+            case PackageStep::ITINERARIES:
+                $this->packageService->updateItineraries($package, $request);
+                break;
+            case PackageStep::MEDIA:
+                $this->packageService->updateMedia($package, $request);
                 break;
 
         }

@@ -6,12 +6,15 @@ use App\Enums\PackageStep;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Package;
+use App\Models\PackageItinerary;
+use App\Models\PackageItineraryInclude;
 use App\Models\PackageType;
 use App\Models\State;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Spatie\MediaLibrary\Models\Media;
 
 class PackageServices
 {
@@ -73,6 +76,7 @@ class PackageServices
     {
         $BASIC_INFORMATION = [];
         $DETAILS = [];
+        $ITINERARIES = [];
 
         if (blank($step) || $step == PackageStep::BASIC_INFORMATION) {
             $BASIC_INFORMATION = $package->only(['title','package_type_id','theme_map','valid_from','valid_till','recommended','address',
@@ -89,12 +93,16 @@ class PackageServices
         }
 
         if (blank($step) || $step == PackageStep::DETAILS) {
-            $DETAILS = $package->only('details','inclusion','exclusion');
+            $DETAILS = $package->only(['details','inclusion','exclusion']);
+        }
+        if (blank($step) || $step == PackageStep::ITINERARIES) {
+            $ITINERARIES['itineraries'] = $package->itineraries->pluck('id')->all();
         }
 
         return [
             PackageStep::BASIC_INFORMATION => $BASIC_INFORMATION,
-            PackageStep::DETAILS => $DETAILS
+            PackageStep::DETAILS => $DETAILS,
+            PackageStep::ITINERARIES => $ITINERARIES
         ];
     }
 
@@ -142,6 +150,102 @@ class PackageServices
 
 
         return $package;
+    }
+    public function updateItineraries(Package $package, $request)
+    {
+
+        PackageItineraryInclude::whereIn('package_itinerary_id',$package->itineraries->pluck('id')->all())->delete();
+        PackageItinerary::where('package_id',$package->id)->delete();
+        foreach ($request->get('itinerary') as $iti) {
+            $dataItinerary = [
+                'title' => $iti['title'],
+                'details' => $iti['details'],
+                'package_id' => $package->id
+            ];
+
+            $it = PackageItinerary::create($dataItinerary);
+
+            if (array_key_exists('includes', $iti)) {
+                foreach ($iti['includes'] as $inc) {
+                    $dataIncludes = [
+                        'text' => $inc,
+                        'package_itinerary_id' => $it->id
+                    ];
+                    PackageItineraryInclude::create($dataIncludes);
+                }
+
+            }
+        }
+
+        return $package;
+    }
+
+    public function updateMedia(Package $package, $request) {
+
+        if($request->hasFile('cover_photo')){
+
+            $this->addFileMediaToCollection($package, 'cover_photo', $request->file('cover_photo'));
+           // $package->addMediaFromRequest('cover_photo')->toMediaCollection('cover_photo');
+        }
+
+        $slider = $package->getMedia('slider_images');
+
+        if($request->hasFile('showcase_case_1')){
+            $image1 = $slider->where('order_column', 1)->first();
+
+            if (!blank($image1)) {
+                $image1->delete();
+            }
+
+            $showcase_photo_1 = $request->file('showcase_case_1');
+            $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_1, 1);
+        }
+
+
+        if($request->hasFile('showcase_case_2')){
+            $image2 = $slider->where('order_column', 2)->first();
+
+            if (!blank($image2)) {
+                $image2->delete();
+            }
+
+            $showcase_photo_2 = $request->file('showcase_case_2');
+            $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_2, 2);
+        }
+
+        if($request->hasFile('showcase_case_3')){
+            $image3 = $slider->where('order_column', 3)->first();
+
+            if (!blank($image3)) {
+                $image3->delete();
+            }
+
+            $showcase_photo_3 = $request->file('showcase_case_3');
+            $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_3, 3);
+        }
+
+        if($request->hasFile('showcase_case_4')){
+            $image4 = $slider->where('order_column', 4)->first();
+
+            if (!blank($image4)) {
+                $image4->delete();
+            }
+
+            $showcase_photo_4 = $request->file('showcase_case_4');
+            $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_4, 4);
+        }
+
+
+    }
+
+    public function addFileMediaToCollection($model, $collectionName, $file, $order = null)
+    {
+        $media = $model->addMedia($file)->toMediaCollection($collectionName);
+        if (!blank($order) && ($media instanceof Media)) {
+            $media->update([
+                'order_column' => $order
+            ]);
+        }
     }
 
     public function changePackageStep($package, $currentStep, $maxStep)

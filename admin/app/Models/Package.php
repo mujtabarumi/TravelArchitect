@@ -4,11 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 
-class Package extends Model
+
+class Package extends Model implements HasMedia
 {
     protected $table='packages';
+
+    use HasMediaTrait;
     use SoftDeletes;
+
+    const PACKAGE_COVER_COLLECTION = 'cover_photo';
 
     protected $dates = [
         'valid_from',
@@ -48,6 +55,23 @@ class Package extends Model
     public function address()
     {
         return $this->morphOne(Address::class,'model');
+    }
+
+    public function getImageAttribute()
+    {
+
+        $packageImage = $this->getMedia(self::PACKAGE_COVER_COLLECTION)->last();
+
+        if (blank($packageImage)) {
+            return asset('assets/images/bg-image9.jpg');
+        }
+
+        return $packageImage->getUrl();
+    }
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('cover_photo')->singleFile();
+        $this->addMediaCollection('slider_images')->singleFile();
     }
 
 }

@@ -23,7 +23,7 @@ class PackageRequest extends FormRequest
             'air_price_included' => 'boolean|nullable',
             'title' => 'required|string|max:255',
             'budget' => 'required|numeric|digits_between:0,999999999',
-            'duration' => 'required|numeric|digits_between:1,999999999',
+            'duration' => 'required|string|max:255',
             'address.country' => 'nullable|numeric',
             'address.state'   => 'nullable|numeric',
             'address.city' => 'required|numeric',

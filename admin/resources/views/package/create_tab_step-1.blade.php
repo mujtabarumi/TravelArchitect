@@ -255,7 +255,7 @@
                 <div class="form-group col-md-6 mb-3">
                     <label class="col-form-label" for="duration">{{__("Duration Days")}}*</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" min="1" required name="duration" autocomplete="off" value="{{ $duration }}" placeholder="{{__("Duration in days")}}" id="duration">
+                        <input type="text" class="form-control" required name="duration" autocomplete="off" value="{{ $duration }}" placeholder="{{__("Duration")}}" id="duration">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="ti-notepad"></i></span>
                         </div>
