@@ -82,6 +82,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('package.listing')}}" class="nav-link">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Package list
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

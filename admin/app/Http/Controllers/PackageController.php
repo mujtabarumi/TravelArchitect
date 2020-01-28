@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PackageStatus;
 use App\Enums\PackageStep;
 use App\Enums\PackageType;
 use App\Http\Requests\PackageRequest;
 use App\Models\Package;
 use App\Services\PackageServices;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 
@@ -24,7 +26,7 @@ class PackageController extends Controller
             'disabled' => false
         ],
         PackageStep::ITINERARIES => [
-            "title" => "Itenerary",
+            "title" => "Itinerary",
             "step" => "step-3",
             'disabled' => false
         ],
@@ -130,9 +132,103 @@ class PackageController extends Controller
         }
 
         $nextStep = $this->packageService->changePackageStep($package, $step, $maxStep);
+        $status = $request->get('status');
+        $tabRoutes = config('packages.tabRoutes', []);
 
-        return redirect()->route('package.edit', ['package' => $package->id, 'step' => $nextStep])->with('success', __('Job Post Updated Successfully. :)'));
+        switch ($status) {
+            case PackageStatus::PUBLISHED:
 
+                if (Carbon::now()->gte($package->valid_till)) {
+                    return redirect()->back()->with('error', __("Expire date should be bigger then today"));
+                }
+
+                $package->update([
+                    'status' => PackageStatus::PUBLISHED
+                ]);
+
+                return redirect()->route('package.listing', [$tabRoutes[PackageStatus::PUBLISHED]])->with('success', __('Package Published successfully'));
+
+            case PackageStatus::ARCHIVED:
+
+                $package->update([
+                    'status' => PackageStatus::ARCHIVED
+                ]);
+
+                return redirect()->route('package.listing', [$tabRoutes[PackageStatus::ARCHIVED]])
+                    ->with('success', __('Package Archived successfully'));
+
+            case PackageStatus::REPUBLISHED:
+
+                if (Carbon::now()->gte($package->valid_till)) {
+                    return redirect()->back()->with('error', __("Expire date should be bigger then today"));
+                }
+
+                $package->update([
+                    'status' => PackageStatus::PUBLISHED
+                ]);
+                return redirect()->route('package.listing', [$tabRoutes[PackageStatus::PUBLISHED]])
+                    ->with('success', __('Package Republished successfully'));
+        }
+
+        return redirect()->route('package.edit', ['package' => $package->id, 'step' => $nextStep])
+            ->with('success', __('Package Updated Successfully. :)'));
+
+    }
+
+    public function packageListing(Request $request, $param)
+    {
+        $tabRoutes = config('packages.tabRoutes');
+
+        if ($status = $this->isValidTabRoute($tabRoutes, $param)) {
+
+            $search = $request->get('search');
+
+            $query = Package::with(['itineraries',]);
+//                ->withCount(['applicants' => function($q)
+//                    {
+//                        $q->where('status', PackageStatus::COMPLETE);
+//                    }])
+//                ->where('company_id', session()->get('company_id'));
+
+            if (!blank($status)) {
+                $query->where('status', $status);
+            }
+
+            if (!blank($search)) {
+                $query->where('title', 'like', "%$search%");
+            }
+
+            $packages = $query->latest()->paginate(10)->appends($request->all());
+
+            return view('package.listing', compact('packages', 'status', 'search', 'tabRoutes', 'param'));
+        }
+        else {
+            return redirect()->back();
+        }
+    }
+
+    private function isValidTabRoute($tabRoutes, $param)
+    {
+        return (array_search($param, $tabRoutes));
+    }
+
+    public function duplicatePackage(Request $request, Package $package)
+    {
+        $newPackage = null;
+        \DB::transaction(function() use ($package, &$newPackage) {
+            $newPackage = $this->packageService->duplicatePackage($package, auth()->user());
+        });
+
+        $draft = config('packages.tabRoutes')[PackageStatus::DRAFT];
+
+        return redirect()->to(route('package.listing', [$draft]))
+            ->with('success', __('Package duplicated successfully and saved as draft. :)'));
+    }
+
+    public function deletePackage(Package $package, Request $request)
+    {
+        $package->delete();
+        return redirect()->back()->with('success', __('Package deleted successfully. :) '));
     }
 
 

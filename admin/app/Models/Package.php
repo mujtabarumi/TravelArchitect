@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\Models\Media;
 
 
 class Package extends Model implements HasMedia
@@ -72,6 +74,45 @@ class Package extends Model implements HasMedia
     {
         $this->addMediaCollection('cover_photo')->singleFile();
         $this->addMediaCollection('slider_images')->singleFile();
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('popular')
+            ->width(270)
+            ->height(120);
+
+        $this->addMediaConversion('recommended')
+            ->width(265)
+            ->height(420);
+
+        $this->addMediaConversion('slider')
+            ->width(742)
+            ->height(300);
+
+        $this->addMediaConversion('banner')
+            ->width(1350)
+            ->height(230);
+
+    }
+
+    /*
+     *  All attributes are starts form here
+     * */
+
+    public function getIsExpiredAttribute()
+    {
+        return Carbon::now()->format('Y-m-d') > $this->valid_till->format('Y-m-d');
+    }
+
+    public function getIsRecommendedAttribute()
+    {
+        return $this->recommended == 1;
+    }
+
+    public function getIsPopularAttribute()
+    {
+        return $this->popular == 1;
     }
 
 }

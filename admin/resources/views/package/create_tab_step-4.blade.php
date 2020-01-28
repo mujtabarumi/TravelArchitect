@@ -66,7 +66,7 @@
                         $cover = $package->getMedia('cover_photo')->first();
                     @endphp
                     <div class="package-cover-image placeholder">
-                        <img id="package_cover_photo_preview" src="@if($cover) {{$cover->getUrl()}} @else {{url('public/packageImages/package-fallback.jpg')}} @endif" alt="package cover image">
+                        <img id="package_cover_photo_preview" src="@if($cover) {{url('public'."/".$cover->getUrl())}} @else {{url('public/packageImages/package-fallback.jpg')}} @endif" alt="package cover image">
                         <!--Uploaded image -->
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">
                             {{__("Update Cover Image")}}
@@ -97,7 +97,7 @@
                 <div class="col-md-6 col-lg-6 col-xl-6 mb-3 mb-lg-0">
                     <div class="company-details__showcase-single @if(!$slider1) placeholder @endif">
                         <!-- Use Class 'placeholder' also, only when any image is not uploaded -->
-                        <img id="package_showcase_case_1_preview" src="{{ $slider1 ? $slider1->getUrl() : url('public/packageImages/package-fallback.jpg')}}" alt="">
+                        <img style="width: 500px;height: 300px;" id="package_showcase_case_1_preview" @if($slider1) src="{{url('public'."/".$slider1->getUrl())}}" @else src="{{ url('public/packageImages/package-fallback.jpg')}}" @endif alt="">
                         <!--Uploaded image -->
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">
                             {{__("Change Photo")}}
@@ -107,7 +107,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-6 mb-3 mb-lg-0">
                     <div class="company-details__showcase-single @if(!$slider2) placeholder @endif">
-                        <img id="package_showcase_case_2_preview" src="{{ $slider2 ? $slider2->getUrl() : url('public/packageImages/package-fallback.jpg')}}" alt="">
+                        <img style="width: 500px;height: 300px;" id="package_showcase_case_2_preview" src="@if($slider2) {{ url('public'."/".$slider2->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
                         <!--Uploaded image -->
 
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">
@@ -120,7 +120,7 @@
             <div class="row mt-2">
                 <div class="col-md-6 col-lg-6 col-xl-6 mb-3 mb-lg-0">
                     <div class="company-details__showcase-single @if(!$slider3) placeholder @endif">
-                        <img id="package_showcase_case_3_preview" src="{{ $slider3 ? $slider3->getUrl() : url('public/packageImages/package-fallback.jpg')}}" alt="">
+                        <img style="width: 500px;height: 300px;" id="package_showcase_case_3_preview" src="@if($slider3) {{ url('public'."/".$slider3->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
                         <!--Uploaded image -->
 
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-6 mb-3 mb-lg-0">
                     <div class="company-details__showcase-single @if(!$slider4) placeholder @endif">
-                        <img id="package_showcase_case_4_preview" src="{{ $slider4 ? $slider4->getUrl() : url('public/packageImages/package-fallback.jpg')}}" alt="">
+                        <img style="width: 500px;height: 300px;" id="package_showcase_case_4_preview" src="@if($slider4) {{ url('public'."/".$slider4->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
                         <!--placeHolder image -->
 
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">

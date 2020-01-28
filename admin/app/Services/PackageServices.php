@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\PackageStatus;
 use App\Enums\PackageStep;
 use App\Models\City;
 use App\Models\Country;
@@ -156,6 +157,7 @@ class PackageServices
 
         PackageItineraryInclude::whereIn('package_itinerary_id',$package->itineraries->pluck('id')->all())->delete();
         PackageItinerary::where('package_id',$package->id)->delete();
+
         foreach ($request->get('itinerary') as $iti) {
             $dataItinerary = [
                 'title' => $iti['title'],
@@ -262,5 +264,58 @@ class PackageServices
         }
 
         return $nextStep;
+    }
+
+    public function duplicatePackage($packageData, $user)
+    {
+        $data = $packageData->toArray();
+        $data['status'] = PackageStatus::DRAFT;
+
+        $this->removeSomekeyFromArray($data, ['id','created_at', 'updated_at', 'deleted_at']);
+
+        // Package Save
+        $package = Package::create($data);
+
+        // Address Save
+        if ($packageData->address()->count()) {
+            $address = $packageData->address->toArray();
+            $this->removeSomekeyFromArray($address, ['id', 'country', 'state', 'city']);
+            $package->address()->create($address);
+        }
+
+        // itineraries Mapping
+        if ($packageData->itineraries()->count()) {
+            $itineraries = $packageData->itineraries()->pluck('id')->toArray();
+
+            foreach ($itineraries as $iti) {
+
+               $newIti = PackageItinerary::find($iti);
+
+                $dataItinerary = [
+                    'title' => $newIti['title'],
+                    'details' => $newIti['details'],
+                    'package_id' => $package->id
+                ];
+
+                $it = PackageItinerary::create($dataItinerary);
+
+                $newItiInc = $newIti->itineraryIncludes()->pluck('id')->toArray();
+
+                foreach ($newItiInc as $inc) {
+
+                    $inc = PackageItineraryInclude::find($inc);
+
+                    $dataIncludes = [
+                        'text' => $inc,
+                        'package_itinerary_id' => $it->id
+                    ];
+                    PackageItineraryInclude::create($dataIncludes);
+                }
+
+            }
+
+        }
+
+        return $package;
     }
 }
