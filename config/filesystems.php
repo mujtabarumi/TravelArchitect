@@ -54,6 +54,11 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'media' => [
+            'driver' => 'local',
+            'root'   => public_path('media'),
+            'url'    => config('travelarchitect.app.ADMIN_URL')."/public/media",
+        ],
 
         's3' => [
             'driver' => 's3',

@@ -184,6 +184,8 @@ class PackageServices
 
     public function updateMedia(Package $package, $request) {
 
+
+
         if($request->hasFile('cover_photo')){
 
             $this->addFileMediaToCollection($package, 'cover_photo', $request->file('cover_photo'));
@@ -201,10 +203,12 @@ class PackageServices
 
             $showcase_photo_1 = $request->file('showcase_case_1');
             $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_1, 1);
+//            $package->addMediaFromRequest('slider_images')->toMediaCollection('slider_images');
         }
 
 
         if($request->hasFile('showcase_case_2')){
+
             $image2 = $slider->where('order_column', 2)->first();
 
             if (!blank($image2)) {
@@ -213,6 +217,7 @@ class PackageServices
 
             $showcase_photo_2 = $request->file('showcase_case_2');
             $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_2, 2);
+            //$package->addMediaFromRequest('slider_images')->toMediaCollection('slider_images');
         }
 
         if($request->hasFile('showcase_case_3')){
@@ -243,6 +248,7 @@ class PackageServices
     public function addFileMediaToCollection($model, $collectionName, $file, $order = null)
     {
         $media = $model->addMedia($file)->toMediaCollection($collectionName);
+        //dd($media);
         if (!blank($order) && ($media instanceof Media)) {
             $media->update([
                 'order_column' => $order
