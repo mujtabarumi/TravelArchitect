@@ -13,7 +13,7 @@
                             <h3 class="card-title">Update Package</h3>
                         </div>
                         <div class="card-body">
-                            <form method="post" autocomplete="off" action="">
+                            <form method="post" autocomplete="off" enctype="multipart/form-data" action="{{ route('package.edit',$package->id) }}">
                                 @csrf
                                 <div id="tab-wrapper">
                                     <ul class="nav nav-pills bg-light nav-justified form-wizard-header mb-4">
@@ -49,6 +49,13 @@
                                                 </li>
                                             @endif
                                             <li class="next list-inline-item float-right">
+                                                @if($package->steps >= \App\Enums\PackageStep::ITINERARIES && $package->status == \App\Enums\PackageStatus::DRAFT)
+                                                    <button type="submit" id="publishBtn" name="status" value="{{ \App\Enums\PackageStatus::PUBLISHED }}" class="btn btn-success">{{__("Publish")}}</button>
+                                                @elseif($package->status == \App\Enums\PackageStatus::PUBLISHED)
+                                                    <button type="submit" name="status" value="{{ \App\Enums\PackageStatus::ARCHIVED }}" class="btn btn-outline-primary">{{__("Mark As Archive")}}</button>
+                                                @elseif($package->status == \App\Enums\PackageStatus::ARCHIVED)
+                                                    <button type="submit" id="publishBtn" name="status" value="{{ \App\Enums\PackageStatus::REPUBLISHED }}" class="btn btn-success">{{__("Publish Again")}}</button>
+                                                @endif
                                                 <button type="submit" class="btn btn-primary">{{__("Save and continue")}}</button>
                                             </li>
                                         </ul>

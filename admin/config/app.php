@@ -59,6 +59,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
     ],
 

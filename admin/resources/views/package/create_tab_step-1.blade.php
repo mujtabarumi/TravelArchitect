@@ -220,7 +220,7 @@
         <div class="col-md-6">
             <div class="form-group mb-3">
                 <label class="col-form-label" for="departure_date">{{__("Departure Date")}}</label>
-                <div style="float: right" class="form-check">
+                <div style="float: right" class="form-check mt-2">
                     <input type="checkbox" class="form-check-input" value="1" {{ oldOrElse('is_everyday_departs', $tabData) == 1 ? 'checked' : "" }} name="is_everyday_departs" id="is_everyday_departs">
                     <label class="form-check-label" for="is_everyday_departs">{{__("Is Everyday Departs")}}</label>
                     @component('components.input-validation-error',['field' => 'is_everyday_departs']) @endcomponent
@@ -235,20 +235,34 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="form-group mb-3">
-                <label class="col-form-label" for="departure_date">{{__("Budget")}}*</label>
-                <div style="float: right" class="form-check">
-                    <input type="checkbox" class="form-check-input" value="1" {{ oldOrElse('air_price_included', $tabData) == 1 ? 'checked' : "" }} name="air_price_included" id="air_price_included">
-                    <label class="form-check-label" for="air_price_included">{{__("Is Air Price Included")}}</label>
-                    @component('components.input-validation-error',['field' => 'air_price_included']) @endcomponent
-                </div>
-                <div class="input-group">
-                    <input type="number" class="form-control" required name="budget" autocomplete="off" value="{{ $budget }}" placeholder="{{__("Budget")}}" id="budget">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="ti-notepad"></i></span>
+            <div class="row">
+
+                <div class="form-group col-md-6 mb-3">
+                    <label class="col-form-label" for="departure_date">{{__("Budget")}}*</label>
+                    <div style="float: right" class="form-check mt-2">
+                        <input type="checkbox" class="form-check-input" value="1" {{ oldOrElse('air_price_included', $tabData) == 1 ? 'checked' : "" }} name="air_price_included" id="air_price_included">
+                        <label class="form-check-label" for="air_price_included">{{__("Is Air Price Included")}}</label>
+                        @component('components.input-validation-error',['field' => 'air_price_included']) @endcomponent
                     </div>
-                </div><!-- input-group -->
-                @component('components.input-validation-error',['field' => 'budget']) @endcomponent
+                    <div class="input-group">
+                        <input type="number" class="form-control" required name="budget" autocomplete="off" value="{{ $budget }}" placeholder="{{__("Budget")}}" id="budget">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="ti-notepad"></i></span>
+                        </div>
+                    </div><!-- input-group -->
+                    @component('components.input-validation-error',['field' => 'budget']) @endcomponent
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <label class="col-form-label" for="duration">{{__("Duration Days")}}*</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" required name="duration" autocomplete="off" value="{{ $duration }}" placeholder="{{__("Duration")}}" id="duration">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="ti-notepad"></i></span>
+                        </div>
+                    </div><!-- input-group -->
+                    @component('components.input-validation-error',['field' => 'duration']) @endcomponent
+                </div>
+
             </div>
         </div>
     </div>

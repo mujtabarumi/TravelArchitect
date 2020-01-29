@@ -13,7 +13,7 @@
                             <h3 class="card-title">Create Package</h3>
                         </div>
                         <div class="card-body">
-                            <form method="post" autocomplete="off" action="{{ route('package.add') }}">
+                            <form method="post" autocomplete="off" enctype="multipart/form-data" action="{{ route('package.add') }}">
                                 @csrf
                                 <div id="tab-wrapper">
                                     <ul class="nav nav-pills bg-light nav-justified form-wizard-header mb-4">

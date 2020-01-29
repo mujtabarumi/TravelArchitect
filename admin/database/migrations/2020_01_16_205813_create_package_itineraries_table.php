@@ -16,9 +16,11 @@ class CreatePackageItinerariesTable extends Migration
         Schema::create('package_itineraries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->nullable();
-            $table->string('details')->nullable();
+            $table->longText('details')->nullable();
             $table->unsignedBigInteger('package_id');
-            $table->timestamps();
+
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 
             $table->foreign('package_id')->references('id')->on('packages');
         });

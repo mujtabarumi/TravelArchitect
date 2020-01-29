@@ -24,9 +24,17 @@ Route::post('/noticeboard-getlist','NoticeBoardController@getNBdata')->name('not
 Route::post('/noticeboard-edit','NoticeBoardController@edit')->name('noticeboard.edit');
 
 /* Rumi */
-Route::get('/Package/add','PackageController@getPackageCreateFrom')->name('package.add');
-Route::post('/Package/add','PackageController@packageCreate')->name('package.add');
-Route::get('{package}/edit','PackageController@getPackageEditFrom')->name('package.edit');
+Route::prefix('package')->group(function (){
+
+    Route::get('add','PackageController@getPackageCreateFrom')->name('package.add');
+    Route::post('add','PackageController@packageCreate')->name('package.add');
+    Route::get('{package}/edit','PackageController@getPackageEditFrom')->name('package.edit');
+    Route::post('{package}/edit','PackageController@updatePackagePost')->name('package.edit');
+    Route::get('{param?}','PackageController@packageListing')->name('package.listing')->defaults('param', 'published');
+    Route::get('{package}/duplicate','PackageController@duplicatePackage')->name('package.duplicate');
+    Route::get('{package}/delete','PackageController@deletePackage')->name('package.delete');
+
+});
 
 Route::prefix('ajax')->group(function (){
     Route::get('/package/type','GlobalSearchController@searchPackageType')->name('ajax.package.type');

@@ -9,9 +9,15 @@ class PackageItinerary extends Model
     protected $table='package_itineraries';
     public $timestamps = false;
 
+    protected $fillable = [
+        'title',
+        'details',
+        'package_id'
+    ];
+
     public function package()
     {
-        return $this->belongsTo(Package::class);
+        return $this->belongsTo(Package::class,'package_id');
     }
 
     public function itineraryIncludes()
