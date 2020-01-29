@@ -30,14 +30,16 @@
                 <div class="tab-content">
                     <!-- BEGIN: FLIGHT SEARCH -->
                     <div role="tabpanel" class="tab-pane active" id="flight">
-                        <form >
+
+                        <form  action="{{route('insertsearchflight')}}" method="post">
+                        {{csrf_field()}}
                             <!--                                <div class="col-md-12 product-search-title">Book Flight Tickets</div>-->
                             <div class="col-md-12 search-col-padding">
                                 <label class="radio-inline">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="One Way"> One Way
+                                    <input type="radio" name="triptype" id="inlineRadio1" value="One Way"> One Way
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Round Trip"> Round Trip
+                                    <input type="radio" name="triptype" id="inlineRadio2" value="Round Trip"> Round Trip
                                 </label>
                             </div>
                             <div class="clearfix"></div>
@@ -80,14 +82,38 @@
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>Class</label><br>
-                                <select class="selectpicker">
+                                <select class="selectpicker" name="classpicker">
                                     <option>Business</option>
                                     <option>Economy</option>
                                 </select>
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-md-12 search-col-padding">
-                                <button type="submit" class="search-button btn transition-effect">Search Flights</button>
+                                <button id="open-box" type="button" class="search-button btn transition-effect">Search Flights</button>
+                            </div>
+
+
+                            <div class="shot-overlay" style="display:none;">
+                                <a href="#" id="close-box" class="close-overlay">Close</a>
+                                <div class="close-outside" style="display:none;"></div>
+                                <div class="overlay-content" style="background-color: #FFDE59">
+                                    <div class="main-content">
+                                        Share your details to get the query: <br><br>
+                                        <div class="form-group search-col-padding">
+                                            <label>Name</label>
+                                            <input class="form-control" type="text" name="name">
+                                        </div>
+                                        <div class="form-group search-col-padding">
+                                            <label>Phone</label>
+                                            <input class="form-control" type="number" name="phone">
+                                        </div>
+                                        <div class="form-group search-col-padding">
+                                            <label>Email</label>
+                                            <input class="form-control"type="email" name="email">
+                                        </div>
+                                        <button class="btn btn-success" type="submit">Submit</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="clearfix"></div>
                         </form>
@@ -288,3 +314,23 @@
     </div>
 </div>
 <!-- END: SEARCH SECTION -->
+
+
+
+
+
+    </div>
+
+
+<script>
+    $(document).ready(function(){
+        $('#open-box, #close-box').click(function(){
+            $(".shot-overlay, .close-outside").toggle();
+            $("body").toggleClass("noscroll");
+        });
+        $('.close-outside').click(function(){
+            $(".shot-overlay, .close-outside").toggle();
+            $("body").toggleClass("noscroll");
+        });
+    });
+</script>

@@ -44,6 +44,8 @@
 <link href="{{asset("/assets/css/bootstrap.min.css")}}" rel="stylesheet" media="screen">
 <link href="{{asset("/assets/css/flexslider.css")}}" rel="stylesheet" media="screen">
 <link href="{{asset("/assets/css/style.css")}}" rel="stylesheet" media="screen">
+<link href="{{asset("/assets/css/modal.css")}}" rel="stylesheet" >
+
 <!-- LIGHT -->
 
 <link href="{{asset("/assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet">
@@ -55,6 +57,7 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600' rel='stylesheet' type='text/css'>
 
 <link href="{{asset("/assets/css/sharenet.css")}}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 {{--<link href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css' rel='stylesheet' type='text/css'>--}}
 @stack('styles')

@@ -17,3 +17,5 @@
 
 Route::get('/','HomeController@index')->name('home');
 Route::post('search/autocomplete', 'HomeController@autocomplete');
+
+Route::post('search/insertflightquery', 'SearchController@insertsearchflights')->name('insertsearchflight');

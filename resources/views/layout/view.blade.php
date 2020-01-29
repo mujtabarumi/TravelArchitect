@@ -7,13 +7,15 @@
         ]
     ])
 <style>
-    .ui-autocomplete-input  a.sbiAnchor.ui-state-hover{
+    .ui-autocomplete-input  a.sbiAnchor.ui-state-hover {
         background: blue;
     }
+
 </style>
 </head>
 
 <body class="load-full-screen">
+
 @include('partials.loader')
 <!-- BEGIN: SITE-WRAPPER -->
 <div class="site-wrapper">
