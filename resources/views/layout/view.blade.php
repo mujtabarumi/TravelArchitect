@@ -17,7 +17,7 @@
 <body class="load-full-screen">
 
 @include('partials.loader')
-<!-- BEGIN: SITE-WRAPPER -->
+
 <div class="site-wrapper">
 @include('partials.top-header')
 <div class="clearfix"></div>
@@ -26,7 +26,7 @@
 @include('partials.social-share')
 @include('home.main-query-section')
 @include('home.holiday-top-destination')
-@include('home.recomanded-holidays')
+@include('home.recomanded-holidays',['recommendedHolidays' => $recommendedHolidays])
 @include('partials.contact-us-form')
 @include('partials.footer')
 
