@@ -76,10 +76,10 @@
                 <div class="col-md-12 text-center we-accept">
                     <h4>We Accept</h4>
                     <ul>
-                        <li><img src="assets/images/card/mastercard.png" alt="cruise"></li>
-                        <li><img src="assets/images/card/visa.png" alt="cruise"></li>
-                        <li><img src="assets/images/card/american-express.png" alt="cruise"></li>
-                        <li><img src="assets/images/card/mastercard.png" alt="cruise"></li>
+                        <li><img src="{{url('/assets/images/card/mastercard.png')}}" alt="cruise"></li>
+                        <li><img src="{{url('assets/images/card/visa.png')}}" alt="cruise"></li>
+                        <li><img src="{{url('assets/images/card/american-express.png')}}" alt="cruise"></li>
+                        <li><img src="{{url('assets/images/card/mastercard.png')}}" alt="cruise"></li>
                     </ul>
                 </div>
             </div>

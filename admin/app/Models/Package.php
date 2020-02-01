@@ -80,19 +80,23 @@ class Package extends Model implements HasMedia
     {
         $this->addMediaConversion('popular')
             ->width(270)
-            ->height(120);
+            ->height(120)
+            ->sharpen(10);
 
         $this->addMediaConversion('recommended')
             ->width(265)
-            ->height(420);
+            ->height(420)
+            ->sharpen(10);
 
         $this->addMediaConversion('slider')
             ->width(742)
-            ->height(300);
+            ->height(300)
+            ->sharpen(10);
 
         $this->addMediaConversion('banner')
             ->width(1350)
-            ->height(230);
+            ->height(230)
+            ->sharpen(10);
 
     }
 

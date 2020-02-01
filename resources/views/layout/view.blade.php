@@ -23,7 +23,7 @@
 @include('home.main-slider')
 @include('partials.social-share')
 @include('home.main-query-section')
-@include('home.holiday-top-destination')
+@include('home.holiday-top-destination', ['popularHolidays' => $popularHolidays])
 @include('home.recomanded-holidays',['recommendedHolidays' => $recommendedHolidays])
 @include('partials.contact-us-form')
 @include('partials.footer')

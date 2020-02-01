@@ -15,5 +15,12 @@
 //    return view('layout.view');
 //})->name('home');
 
+    /*
+    * Package related routes starts from here
+    * */
+    Route::prefix('package')->group(function (){
+        Route::get('{package}/details','PackageController@getPackageDetails')->name('package.details');
+    });
+
 Route::get('/','HomeController@index')->name('home');
 Route::post('search/autocomplete', 'HomeController@autocomplete');
