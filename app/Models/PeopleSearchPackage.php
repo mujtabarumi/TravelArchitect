@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class PeopleSearchPackage extends Model
 {
     protected $table='people_search_packages';
-
-    use SoftDeletes;
+    public $primaryKey = 'id';
+    //use SoftDeletes;
     /**
      *  Get user
      */

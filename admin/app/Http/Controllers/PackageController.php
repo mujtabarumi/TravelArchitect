@@ -42,7 +42,7 @@ class PackageController extends Controller
     {
 
         $this->packageService = $packageService;
-        $this->lastStep = max(getEnumConstants(PackageStep::class));
+       // $this->lastStep = max(getEnumConstants(PackageStep::class));
 
     }
 

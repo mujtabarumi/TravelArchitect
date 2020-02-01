@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PeopleSearchFlight extends Model
 {
     protected $table='people_search_flights';
-
+    public $primaryKey = 'id';
     use SoftDeletes;
     /**
      *  Get user
