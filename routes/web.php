@@ -22,8 +22,12 @@
         Route::get('{package}/details','PackageController@getPackageDetails')->name('package.details');
     });
 
+    Route::prefix('ajax')->group(function (){
+        Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
+    });
+
 Route::get('/','HomeController@index')->name('home');
-Route::post('search/autocomplete', 'HomeController@autocomplete');
+Route::post('search/autocomplete', 'HomeController@autocomplete')->name('search/autocomplete');
 
 
 Route::post('search/insertflightquery', 'SearchController@insertsearchflights')->name('insertsearchflight');

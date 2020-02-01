@@ -36,21 +36,21 @@ class AddressService
     public function searchCity($keyword, $countryId=null, $stateId=null)
     {
 
-        if(blank($countryId) && blank($stateId)){
-            return collect();
-        }
-
+//        if(blank($countryId) && blank($stateId)){
+//            return collect();
+//        }
+//
         $query = City::query();
-        $query->join('states',function ($q) use ($countryId, $stateId){
-            $q->on('states.id','cities.state_id');
-            $q->when($countryId,function ($q) use ($countryId) {
-                $q->where('states.country_id',$countryId);
-            });
-
-            $q->when($stateId,function ($q) use ($stateId) {
-                $q->where('states.id',$stateId);
-            });
-        });
+//        $query->join('states',function ($q) use ($countryId, $stateId){
+//            $q->on('states.id','cities.state_id');
+//            $q->when($countryId,function ($q) use ($countryId) {
+//                $q->where('states.country_id',$countryId);
+//            });
+//
+//            $q->when($stateId,function ($q) use ($stateId) {
+//                $q->where('states.id',$stateId);
+//            });
+//        });
 
 
         return $query

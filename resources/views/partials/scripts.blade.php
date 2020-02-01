@@ -29,6 +29,7 @@
 <script src="{{asset("/assets/plugins/wow.min.js")}}"></script>
 <script type="text/javascript" src="{{asset("/assets/plugins/supersized.3.1.3.min.js")}}"></script>
 <script src="{{asset("/assets/js/js.js")}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
 @stack('scripts')
 

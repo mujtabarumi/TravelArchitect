@@ -1,3 +1,23 @@
+<style>
+    .select2-container--default .select2-selection--single {
+        background-color: transparent !important;
+        border: 1px solid #BEC4C8;
+        border-radius: 0;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        /*color: #07253F;*/
+        color: #fff;
+        display: block;
+        font-size: 15px;
+        height: 40px;
+        line-height: 1.42857;
+        padding: 6px 12px;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        width: 100%;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #fff;
+    }
+</style>
 <!-- BEGIN: SEARCH SECTION -->
 <div class="row bottom-search">
     <div class="container clear-padding">
@@ -46,14 +66,20 @@
                             <div class="col-md-3 col-sm-3 search-col-padding">
                                 <label>Leaving From</label>
                                 <div class="input-group">
-                                    <input type="text" id="From" name="departure_city" class="form-control" required placeholder="E.g. London">
+                                    <select class="form-control select2"required id="From" name="departure_city" data-placeholder="E.g. London">
+
+                                    </select>
+{{--                                    <input type="text" id="From" name="departure_city" class="form-control" required placeholder="E.g. London">--}}
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-3 search-col-padding">
                                 <label>Leaving To</label>
                                 <div class="input-group">
-                                    <input type="text" id="To" name="destination_city" class="form-control" required placeholder="E.g. New York">
+                                    <select class="form-control search select2" required id="To" name="destination_city" data-placeholder="E.g. New York">
+
+                                    </select>
+{{--                                    <input type="text" id="To" name="destination_city" class="form-control" required placeholder="E.g. New York">--}}
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
                             </div>
