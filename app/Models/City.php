@@ -9,4 +9,5 @@ class City extends Model
     protected $fillable = ['name', 'state_id'];
 
     public $timestamps = false;
+
 }

@@ -30,6 +30,18 @@ class PackageController extends Controller
         return view('package.details', compact('package'));
     }
 
+    public function getAllPackageLists(Request $request) {
+
+        $allPackages = Package::where('status',PackageStatus::PUBLISHED);
+
+        $allPackages = $allPackages->latest()->paginate(1)->appends($request->all());
+
+        return view('package.lists', compact('allPackages'));
+
+
+
+    }
+
 
 
 }

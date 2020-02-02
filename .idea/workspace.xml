@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2a87f-d6c9-4199-94d9-dedb7210e7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GlobalSearchController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/main.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/package/lists.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/package/package_search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/package/package_search_filter.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/app/Models/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Models/Package.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/database/migrations/2020_01_16_205812_create_packages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/database/migrations/2020_01_16_205812_create_packages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PackageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PackageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Package.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/AddressService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AddressService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/main-query-section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/main-query-section.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/holiday-top-destination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/holiday-top-destination.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/head.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/package/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -135,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
+    <property name="last_opened_file_path" value="D:/EasyJobs-app" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -199,7 +206,8 @@
       <workItem from="1580445711387" duration="681000" />
       <workItem from="1580548590202" duration="260000" />
       <workItem from="1580577811666" duration="3174000" />
-      <workItem from="1580581022559" duration="4995000" />
+      <workItem from="1580581022559" duration="8657000" />
+      <workItem from="1580657286303" duration="14691000" />
     </task>
     <servers />
   </component>

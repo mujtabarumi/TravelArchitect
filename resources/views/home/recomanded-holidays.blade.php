@@ -19,7 +19,7 @@
                     @endphp
             <div class="owl-carousel" id="post-list">
                 <div class="room-grid-view wow slideInUp" data-wow-delay="0.{{$loop->iteration}}s">
-                            <div class="holiday-custom" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('recommended'))}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif">
+                   <div onclick="location.href = '{{route('package.details',['package' => $reco->id])}}' ;" class="holiday-custom" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('recommended'))}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif">
                             <div class="text">
                                 <div class="top">
                                     <ul>
@@ -69,7 +69,7 @@
 
                             </div>
                             <div class="clearfix"></div>
-                    </div>
+                   </div>
 
                 </div>
             </div>

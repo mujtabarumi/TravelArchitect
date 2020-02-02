@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
@@ -40,6 +41,7 @@ class Package extends Model implements HasMedia
         'popular',
         'air_price_included',
         'departure_date',
+        'departure_from',
         'valid_from',
         'valid_till',
         'is_everyday_departs',
@@ -81,19 +83,28 @@ class Package extends Model implements HasMedia
     {
         $this->addMediaConversion('popular')
             ->width(270)
-            ->height(120);
+            ->height(120)
+            ->sharpen(10);
 
         $this->addMediaConversion('recommended')
             ->width(265)
-            ->height(420);
+            ->height(420)
+            ->sharpen(10);
 
         $this->addMediaConversion('slider')
             ->width(742)
-            ->height(300);
+            ->height(300)
+            ->sharpen(10);
 
         $this->addMediaConversion('banner')
             ->width(1350)
-            ->height(230);
+            ->height(230)
+            ->sharpen(10);
+
+        $this->addMediaConversion('search-list')
+            ->width(235)
+            ->height(196)
+            ->sharpen(10);
 
     }
 

@@ -1,133 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @include('partials.head',[
-        'styles' => [
-
-        ]
-    ])
-<style>
-    .ui-autocomplete-input  a.sbiAnchor.ui-state-hover {
-        background: blue;
-    }
-
-</style>
-</head>
-
-<body class="load-full-screen">
-
-@include('partials.loader')
-
-<div class="site-wrapper">
-@include('partials.top-header')
-<div class="clearfix"></div>
-@include('partials.top-menu')
-@include('home.main-slider')
-
-@include('home.main-query-section')
-@include('home.holiday-top-destination', ['popularHolidays' => $popularHolidays])
-@include('home.recomanded-holidays',['recommendedHolidays' => $recommendedHolidays])
-@include('partials.contact-us-form')
-@include('partials.footer')
-
-</div>
-@include('partials.scripts',[
-    'scripts' => [
-
-    ]
-])
-
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<script type="text/javascript">
-
-    $(document).ready(function(){
-        // src = "search/autocomplete";
-
-        // $( "#To" ).autocomplete({
-        //     source: function(request, response) {
-        //         $.ajax({
-        //             headers: {
-        //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //             },
-        //             type: 'POST',
-        //             url: src,
-        //             data: {
-        //                 term : request.term
-        //             },
-        //             success: function(data) {
-        //                 response(data);
-        //
-        //             }
-        //         });
-        //     },
-        //     minLength: 1,
-        //     select: function(event, ui) {
-        //         $('#To').val(ui.item.value);
-        //     }
-        // });
-
-        addSelect2Ajax('#From','{{route('ajax.city')}}', null, {
-            'tags' : true
-        });
-        addSelect2Ajax('#To','{{route('ajax.city')}}', null, {
-            'tags' : true
-        });
-
-        // $( "#From" ).autocomplete({
-        //     source: function(request, response) {
-        //         $.ajax({
-        //             headers: {
-        //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //             },
-        //             type: 'POST',
-        //             url: src,
-        //             data: {
-        //                 term : request.term
-        //             },
-        //             success: function(data) {
-        //                 response(data);
-        //
-        //             }
-        //         });
-        //     },
-        //     minLength: 1,
-        //     select: function(event, ui) {
-        //         $('#From').val(ui.item.value);
-        //     }
-        // });
-    });
-
-    function addSelect2Ajax($element, $url, $changeCallback, data) {
-        var placeHolder = $($element).data('placeholder');
-
-        if (typeof $changeCallback == 'function') {
-            $($element).change($changeCallback)
+@extends('layout.main')
+@push('styles')
+    <style>
+        .ui-autocomplete-input  a.sbiAnchor.ui-state-hover {
+            background: blue;
         }
 
-        return $($element).select2({
-            ...data,
-            placeholder: placeHolder,
-            ajax: {
-                url: $url,
-                data: function (params) {
-                    return {
-                        keyword: params.term,
-                    }
-                },
-                processResults: function (data) {
-                    return {
-                        results: $.map(data, function (obj, index) {
-                            return {id: obj.id, text: obj.name};
-                        })
-                    };
-                }
-            }
+    </style>
+@endpush
+@section('content')
+    @include('home.main-slider')
+    @include('home.main-query-section')
+    @include('home.holiday-top-destination', ['popularHolidays' => $popularHolidays])
+    @include('home.recomanded-holidays',['recommendedHolidays' => $recommendedHolidays])
+@endsection
+
+
+@push('scripts')
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            addSelect2Ajax('#From','{{route('ajax.city')}}', null, {
+                'tags' : false
+            });
+            addSelect2Ajax('#To','{{route('ajax.city')}}', null, {
+                'tags' : false
+            });
+
         });
+    </script>
+@endpush
 
-    }
-
-
-
-</script>
-</body>
-</html>
