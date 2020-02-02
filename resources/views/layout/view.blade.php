@@ -15,7 +15,10 @@
 </head>
 
 <body class="load-full-screen">
-
+<div class="fb-customerchat"
+     attribution=setup_tool
+     page_id="123516397846973">
+</div>
 @include('partials.loader')
 
 <div class="site-wrapper">
@@ -93,5 +96,6 @@
 
 
 </script>
+
 </body>
 </html>

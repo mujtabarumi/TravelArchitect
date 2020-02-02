@@ -1,6 +1,7 @@
 <!-- START: FOOTER -->
 <section id="footer">
     <footer>
+
         <div class="row main-footer-sub">
             <div class="container clear-padding">
                 <div class="col-md-7 col-sm-7">
