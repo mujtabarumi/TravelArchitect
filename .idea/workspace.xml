@@ -2,24 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2a87f-d6c9-4199-94d9-dedb7210e7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/main.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/package/lists.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/package/package_search.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/package/package_search_filter.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/29/80109873_172638007470848_204573144894144512_o.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/29/conversions/80109873_172638007470848_204573144894144512_o-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/29/conversions/80109873_172638007470848_204573144894144512_o-popular.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/29/conversions/80109873_172638007470848_204573144894144512_o-recommended.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/29/conversions/80109873_172638007470848_204573144894144512_o-search-list.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/29/conversions/80109873_172638007470848_204573144894144512_o-slider.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/30/71644075_1000252183648480_8457193632670154752_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/30/conversions/71644075_1000252183648480_8457193632670154752_n-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/30/conversions/71644075_1000252183648480_8457193632670154752_n-popular.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/30/conversions/71644075_1000252183648480_8457193632670154752_n-recommended.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/30/conversions/71644075_1000252183648480_8457193632670154752_n-search-list.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/30/conversions/71644075_1000252183648480_8457193632670154752_n-slider.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/app/Models/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Models/Package.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/database/migrations/2020_01_16_205812_create_packages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/database/migrations/2020_01_16_205812_create_packages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/media/28/68950116_2488258564584548_8968019313231396864_o.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/media/28/conversions/68950116_2488258564584548_8968019313231396864_o-banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/media/28/conversions/68950116_2488258564584548_8968019313231396864_o-popular.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/media/28/conversions/68950116_2488258564584548_8968019313231396864_o-recommended.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/media/28/conversions/68950116_2488258564584548_8968019313231396864_o-slider.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PackageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PackageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Package.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/AddressService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AddressService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/holiday-top-destination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/holiday-top-destination.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/PackageServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PackageServices.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/package/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/package/lists.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/lists.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/package/package_search_filter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/package_search_filter.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +152,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/EasyJobs-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -208,6 +218,8 @@
       <workItem from="1580577811666" duration="3174000" />
       <workItem from="1580581022559" duration="8657000" />
       <workItem from="1580657286303" duration="14691000" />
+      <workItem from="1580834594198" duration="202000" />
+      <workItem from="1580834827502" duration="10030000" />
     </task>
     <servers />
   </component>

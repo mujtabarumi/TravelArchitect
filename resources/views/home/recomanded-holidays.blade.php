@@ -42,7 +42,7 @@
                                     @if (!blank($package_costs))
                                         @foreach($package_costs as $pa)
                                             @if($loop->first)
-                                                <span>Price starts from ({{$pa->person}})</span><br>
+                                                <span>Price starts from ({{$pa->person}} person)</span><br>
                                                 <span>BDT {{$pa->cost}}</span>
                                             @endif
                                         @endforeach

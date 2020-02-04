@@ -66,16 +66,16 @@
                     <div class="carousel-inner" role="listbox">
 
                         <div class="item active">
-                            <img src="@if($slider1) {{url('admin'."/".$slider1->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-1">
+                            <img style="height: 900px;width: 1920px" src="@if($slider1) {{url('admin'."/".$slider1->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-1">
                         </div>
                         <div class="item">
-                            <img src="@if($slider2) {{url('admin'."/".$slider2->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-2">
+                            <img style="height: 900px;width: 1920px" src="@if($slider2) {{url('admin'."/".$slider2->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-2">
                         </div>
                         <div class="item">
-                            <img src="@if($slider3) {{url('admin'."/".$slider3->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-3">
+                            <img style="height: 900px;width: 1920px" src="@if($slider3) {{url('admin'."/".$slider3->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-3">
                         </div>
                         <div class="item">
-                            <img src="@if($slider3) {{url('admin'."/".$slider3->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-4">
+                            <img style="height: 900px;width: 1920px" src="@if($slider4) {{url('admin'."/".$slider3->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-4">
                         </div>
 
 

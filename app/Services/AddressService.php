@@ -53,11 +53,11 @@ class AddressService
 //            });
 //        });
 
-        $query->leftJoin('states','states.id','cities.state_id');
-//            ->leftJoin('countries','countries.id','states.country_id');
+        $query->leftJoin('states','states.id','cities.state_id')
+            ->leftJoin('countries','countries.id','states.country_id');
 
         return $query
-            ->select('cities.*',DB::raw("CONCAT(cities.name,', ',states.name) as name"))
+            ->select('cities.*',DB::raw("CONCAT(cities.name,', ',countries.name) as name"))
             ->where('cities.name','like',"%$keyword%")
             ->take($this->searchLimit)
             ->orderBy('cities.name', 'ASC')

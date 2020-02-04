@@ -6,7 +6,9 @@ use App\Enums\PackageStatus;
 use App\Enums\PackageStep;
 use App\Enums\PackageType;
 use App\Http\Requests\PackageRequest;
+use App\Models\Country;
 use App\Models\Package;
+use App\Models\PackageTheme;
 use App\Services\PackageServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -34,9 +36,17 @@ class PackageController extends Controller
 
         $allPackages = Package::where('status',PackageStatus::PUBLISHED);
 
-        $allPackages = $allPackages->latest()->paginate(1)->appends($request->all());
+        $allthemes = PackageTheme::all();
 
-        return view('package.lists', compact('allPackages'));
+        $allPackagedCountry = Country::select('countries.*')->leftJoin('states','states.country_id','countries.id')
+            ->leftJoin('cities','cities.state_id','states.id')
+            ->whereIn('cities.id',$allPackages->pluck('city_id'))->distinct('countries.id')->get();
+
+       // dd($allPackagedCountry);
+
+        $allPackages = $allPackages->latest()->paginate(10)->appends($request->all());
+
+        return view('package.lists', compact('allPackages','allthemes','allPackagedCountry'));
 
 
 

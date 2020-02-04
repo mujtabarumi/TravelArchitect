@@ -59,10 +59,10 @@
                             $package_meta = json_decode($package->meta);
                             $package_costs = data_get($package_meta,'package_cost',[]);
                         @endphp
-                    <div  class="hotel-list-view">
+                    <div onclick="location.href='{{route('package.details',['package' => $package->id])}}';" style="cursor: pointer;" class="hotel-list-view">
                         <div class="wrapper">
                             <div class="col-md-4 col-sm-6 switch-img clear-padding">
-                                <img src="@if($slider1) {{url('admin'."/".$slider1->getUrl('search-list'))}} @else {{url('assets/images/tour3.jpg')}} @endif" alt="{{$package->title}}">
+                                <img style="height: 133px;width: 200px" src="@if($slider1) {{url('admin'."/".$slider1->getUrl('search-list'))}} @else {{url('assets/images/tour3.jpg')}} @endif" alt="{{$package->title}}">
                             </div>
                             <div class="col-md-6 col-sm-6 hotel-info">
                                 <div>
@@ -91,7 +91,7 @@
                             </div>
                             <div class="clearfix visible-sm-block"></div>
                             <div class="col-md-2 rating-price-box text-center clear-padding">
-{{--                                <div class="rating-box">--}}
+                                <div class="rating-box">
 {{--                                    <div class="tripadvisor-rating">--}}
 {{--                                        <img src="assets/images/tripadvisor.png" alt="cruise"><span>4.5/5.0</span>--}}
 {{--                                    </div>--}}
@@ -99,27 +99,13 @@
 {{--                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>--}}
 {{--                                        <span>128 Guest Reviews.</span>--}}
 {{--                                    </div>--}}
-{{--                                    <div class="price">--}}
-
-{{--                                        @if (!blank($package_costs))--}}
-{{--                                            @foreach($package_costs as $pa)--}}
-{{--                                                @if($loop->first)--}}
-{{--                                                    <h5>BDT {{$pa->cost}}/{{$pa->person}} Person</h5>--}}
-{{--                                                @endif--}}
-{{--                                            @endforeach--}}
-{{--                                        @else--}}
-{{--                                            <h5>BDT {{$package->budget}}</h5>--}}
-{{--                                        @endif--}}
-
-{{--                                    </div>--}}
-{{--                                </div>--}}
-                                <div class="room-book-box">
-                                    <div class="price   ">
+                                    <div class="price">
 
                                         @if (!blank($package_costs))
                                             @foreach($package_costs as $pa)
                                                 @if($loop->first)
-                                                    <h5>BDT {{$pa->cost}} / <br>{{$pa->person}} Person</h5>
+                                                    <h5>Starts From</h5>
+                                                    <h5>BDT {{$pa->cost}}<br>{{$pa->person}} Person</h5>
                                                 @endif
                                             @endforeach
                                         @else
@@ -127,8 +113,23 @@
                                         @endif
 
                                     </div>
-
                                 </div>
+{{--                                <div class="room-book-box">--}}
+{{--                                    <div class="price">--}}
+
+{{--                                        @if (!blank($package_costs))--}}
+{{--                                            @foreach($package_costs as $pa)--}}
+{{--                                                @if($loop->first)--}}
+{{--                                                    <h5>BDT {{$pa->cost}} / <br>{{$pa->person}} Person</h5>--}}
+{{--                                                @endif--}}
+{{--                                            @endforeach--}}
+{{--                                        @else--}}
+{{--                                            <h5>BDT {{$package->budget}}</h5>--}}
+{{--                                        @endif--}}
+
+{{--                                    </div>--}}
+
+{{--                                </div>--}}
                                 <div class="room-book-box">
                                     <div class="book">
                                         <a href="#">BOOK</a>

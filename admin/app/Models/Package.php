@@ -99,8 +99,8 @@ class Package extends Model implements HasMedia
             ->sharpen(10);
 
         $this->addMediaConversion('search-list')
-            ->width(235)
-            ->height(196)
+            ->width(200)
+            ->height(133)
             ->sharpen(10);
 
     }
