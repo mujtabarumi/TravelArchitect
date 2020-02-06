@@ -129,7 +129,7 @@ class PackageServices
         $data['updated_by'] = auth()->user()->id;
         $data['city_id'] = data_get($package,'address.city');
         $data['theme_map'] = json_encode(data_get($request,'package_theme'));
-        $data['package_type_id'] = $package['package_type'];
+        $data['package_type_id'] = data_get($request,'package_type');
 
         $addressData = [
             'country_id' => data_get($request,'address.country'),

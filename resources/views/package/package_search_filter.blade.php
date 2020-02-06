@@ -56,10 +56,10 @@
         </div>
         <div class="filter">
             <h5><i class="fa fa-pagelines"></i>Theme</h5>
-            <select class="selectpicker">
+            <select id="search_themes" class="selectpicker">
                 <option>Any</option>
                 @foreach($allthemes as $themes)
-                <option value="{{$themes->id}}">{{$themes->name}}</option>
+                <option value="{{$themes->name}}">{{$themes->name}}</option>
                 @endforeach
             </select>
         </div>
@@ -102,6 +102,30 @@
                 closeOnSelect : true,
 
             });
+
+            $( "#search_themes" ).change(function() {
+                alert($(this).val());
+                filter_package();
+
+            });
+
+            function filter_package() {
+
+                var data = {
+                    'package_themes': $( "#search_themes" ).val(),
+                };
+
+                $.ajax({
+                    type: "GET",
+                    url: "{{route('package.lists')}}",
+                    data: data,
+                    cache: false,
+                    success: function(data){
+                        console.log(data);
+                    }
+                });
+            }
+
         });
     </script>
 @endpush
