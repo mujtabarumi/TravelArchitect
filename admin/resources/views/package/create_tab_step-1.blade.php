@@ -51,7 +51,7 @@
     <div class="row">
         <div class="col-12">
             <div class="form-group mb-3">
-                <label class="col-form-label" for="job_title">{{__("Package Title")}}*<i class="fa fa-cube"></i></label>
+                <label class="col-form-label" for="job_title">{{__("Package Title")}}*</label>
                 <input type="text" class="form-control"  id="job_title" value="{{ $title }}" name="title" placeholder="{{__("Package title")}}">
                 @component('components.input-validation-error',['field' => 'title']) @endcomponent
                 <div class="d-flex mt-2">

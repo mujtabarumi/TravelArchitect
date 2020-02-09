@@ -14,7 +14,7 @@
             </thead>
             <tbody>
             @foreach($packages as $package)
-                @if($package->status == \App\Enums\PackageStatus::ARCHIVED)
+                @if($package->status == \App\Enums\PackageStatus::DRAFT)
                     <tr>
                         <td>
                             {{ $package->title }}
