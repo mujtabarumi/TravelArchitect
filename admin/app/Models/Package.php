@@ -24,6 +24,9 @@ class Package extends Model implements HasMedia
         'valid_till',
         'departure_date'
     ];
+    protected $casts = [
+        'meta' => 'array',
+    ];
 
     protected $fillable = [
         'title',

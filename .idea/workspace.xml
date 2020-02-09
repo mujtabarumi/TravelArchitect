@@ -2,43 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2a87f-d6c9-4199-94d9-dedb7210e7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/public/media/31/68950116_2488258564584548_8968019313231396864_o.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/31/conversions/68950116_2488258564584548_8968019313231396864_o-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/31/conversions/68950116_2488258564584548_8968019313231396864_o-popular.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/31/conversions/68950116_2488258564584548_8968019313231396864_o-recommended.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/31/conversions/68950116_2488258564584548_8968019313231396864_o-search-list.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/31/conversions/68950116_2488258564584548_8968019313231396864_o-slider.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/32/80109873_172638007470848_204573144894144512_o.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/32/conversions/80109873_172638007470848_204573144894144512_o-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/32/conversions/80109873_172638007470848_204573144894144512_o-popular.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/32/conversions/80109873_172638007470848_204573144894144512_o-recommended.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/32/conversions/80109873_172638007470848_204573144894144512_o-search-list.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/32/conversions/80109873_172638007470848_204573144894144512_o-slider.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/33/300-300-(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/33/conversions/300-300-(2)-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/33/conversions/300-300-(2)-popular.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/33/conversions/300-300-(2)-recommended.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/33/conversions/300-300-(2)-search-list.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/33/conversions/300-300-(2)-slider.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/34/Scan-(300-80)-(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/34/conversions/Scan-(300-80)-(2)-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/34/conversions/Scan-(300-80)-(2)-popular.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/34/conversions/Scan-(300-80)-(2)-recommended.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/34/conversions/Scan-(300-80)-(2)-search-list.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/34/conversions/Scan-(300-80)-(2)-slider.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/35/80862130_2267466693353812_3714644333010354176_o.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/35/conversions/80862130_2267466693353812_3714644333010354176_o-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/35/conversions/80862130_2267466693353812_3714644333010354176_o-popular.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/35/conversions/80862130_2267466693353812_3714644333010354176_o-recommended.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/35/conversions/80862130_2267466693353812_3714644333010354176_o-search-list.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/media/35/conversions/80862130_2267466693353812_3714644333010354176_o-slider.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/app/Models/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Models/Package.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/app/Services/PackageServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Services/PackageServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PackageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PackageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/AddressService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AddressService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/package/package_search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/package_search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/package/package_search_filter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/package_search_filter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-1.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-3.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -230,6 +201,7 @@
       <workItem from="1580834594198" duration="202000" />
       <workItem from="1580834827502" duration="10193000" />
       <workItem from="1580912284666" duration="12793000" />
+      <workItem from="1581239766872" duration="16068000" />
     </task>
     <servers />
   </component>

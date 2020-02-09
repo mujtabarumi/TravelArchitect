@@ -5,7 +5,6 @@ $itineraries = [];
         $itineraries = \App\Models\PackageItinerary::find($selectedIteneraries);
     }
 
-
 @endphp
 <style>
     /* Thick red border */
@@ -18,41 +17,49 @@ $itineraries = [];
         <div class="tab-pane active" id="step3">
             @if(!blank($itineraries))
                 @foreach($itineraries as $itenerary)
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group mb-3">
-                                <label class="col-form-label" for="itinerary_title">{{__("Title")}}*</label>
-                                <input type="text" class="form-control" required id="itinerary_title" value="{{ $itenerary->title }}" name="itinerary[{{$loop->index}}][title]" placeholder="{{__("title")}}">
-                                @component('components.input-validation-error',['field' => 'itinerary[{{$loop->index}}][title]']) @endcomponent
-                                <div class="d-flex mt-2">
-                                    <span class="text-blue text-uppercase mr-2">{{__("tips")}}:</span>
-                                    <p class="text-muted mb-0">{{__("Title")}}</p>
+                    <div id="itineraryDiv{{$loop->index}}" class="">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label" for="itinerary_title">{{__("Title")}}*</label>
+                                    @if($loop->index != 0)
+                                    <button class="btn btn-danger btn-sm removeItinerary" id="RemoveItinerary" data-div-id="{{$loop->index}}" style="float: right">Remove</button>
+                                    @endif
+                                    <input type="text" class="form-control" required id="itinerary_title" value="{{ $itenerary->title }}" name="itinerary[{{$loop->index}}][title]" placeholder="{{__("title")}}">
+                                    @component('components.input-validation-error',['field' => 'itinerary[{{$loop->index}}][title]']) @endcomponent
+                                    <div class="d-flex mt-2">
+                                        <span class="text-blue text-uppercase mr-2">{{__("tips")}}:</span>
+                                        <p class="text-muted mb-0">{{__("Title")}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group mb-3">
-                                <label class="col-form-label" for="details">{{__("Itinerary Details")}}*</label>
-                                <div id="snow-editor{{$loop->index}}" style="height: 300px;width: 100%">{!! $itenerary->details !!}</div> <!-- end Snow-editor-->
-                                <textarea id="details{{$loop->index}}" class="details" name="itinerary[{{$loop->index}}][details]" style="visibility: hidden; height: 0; width: 0; overflow: hidden"></textarea>
-                                @component('components.input-validation-error',['field' => 'itinerary[{{$loop->index}}][details]']) @endcomponent
-                            </div>
-                        </div> <!-- end col -->
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="inclusion">{{__("Itinerary Includes")}}</label>
-                                <select data-placeholder="Add inclusions here" class="form-control select2" multiple id="inclusion" name="itinerary[{{$loop->index}}][includes][]">
-                                    @foreach($itenerary->itineraryIncludes as $include)
-                                        <option selected value="{{$include->id}}">{{$include->text}}</option>
-                                    @endforeach
-                                </select>
-                                @component('components.input-validation-error',['field' => 'itinerary[{{$loop->index}}][includes][]']) @endcomponent
-                            </div>
-                        </div> <!-- end col -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label" for="details">{{__("Itinerary Details")}}*</label>
+                                    <div id="snow-editor{{$loop->index}}" style="height: 300px;width: 100%">{!! $itenerary->details !!}</div> <!-- end Snow-editor-->
+                                    <textarea id="details{{$loop->index}}" class="details" name="itinerary[{{$loop->index}}][details]" style="visibility: hidden; height: 0; width: 0; overflow: hidden"></textarea>
+                                    @component('components.input-validation-error',['field' => 'itinerary[{{$loop->index}}][details]']) @endcomponent
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="inclusion">{{__("Itinerary Includes")}}</label>
+                                    <select data-placeholder="Add inclusions here" class="form-control select2" multiple id="inclusion{{$loop->index}}" name="itinerary[{{$loop->index}}][includes][]">
+                                        @foreach($itenerary->itineraryIncludes as $include)
+                                            <option selected value="{{$include->text}}">{{$include->text}}</option>
+                                        @endforeach
+                                    </select>
+                                    @component('components.input-validation-error',['field' => 'itinerary[{{$loop->index}}][includes][]']) @endcomponent
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                        <hr id="line{{$loop->index}}">
+
                     </div>
                 @endforeach
             @else
@@ -90,14 +97,15 @@ $itineraries = [];
                         </div>
                     </div> <!-- end col -->
                 </div>
+                <hr id="line0">
             @endif
-            <hr id="line0">
+
             <div id="itineraryWrapper"></div>
 
         </div>
     </div>
     <div class="card-footer">
-        <button class="btn btn-danger btn-sm" id="addMoreItinerary" style="float: right">Add More</button>
+        <button class="btn btn-info btn-sm" id="addMoreItinerary" style="float: right">Add More</button>
     </div>
 </div>
 
@@ -143,44 +151,51 @@ $itineraries = [];
                 ["clean"]
             ];
 
-            $('form').submit(function (e) {
-                for (var i =0; i<=index; i++) {
-                    $('#details'+index).val($('#snow-editor'+index).find('.ql-editor').html());
-                }
-            });
-
             var itineraryWrapper = $('#itineraryWrapper');
             var btnRemoveItinerary = '.ti-close';
 
             @if(!blank($itineraries))
                 var index = "{{$itineraries->count()}}";
+
+                for(var i = 0; i < index; i++) {
+
+                    new Quill("#snow-editor"+i, {
+                        theme: "snow",
+                        modules: {
+                            toolbar: editorToolbar
+                        }
+                    });
+
+                    $('#inclusion'+i).select2({
+                        tags: true,
+                        tokenSeparators: [',']
+                    });
+                }
             @else
                 var index = 0;
+                $('#line'+(index-1)).hide();
             @endif
 
-            var details = new Quill("#snow-editor"+index, {
-                    theme: "snow",
-                    modules: {
-                        toolbar: editorToolbar
-                    }
-                });
-
-            $('.select2').select2({
-                tags: true,
-                tokenSeparators: [',']
+            $('form').submit(function (e) {
+                for (var i =0; i < index; i++) {
+                    $('#details'+i).val($('#snow-editor'+i).find('.ql-editor').html());
+                }
             });
-            $('#line'+index).hide();
+
+            $('#line'+(index-1)).hide();
+
             $('#addMoreItinerary').click(function () {
 
-                $('#line'+index).show();
-                index++;
+                $('#line'+(index-1)).show();
 
                 $(itineraryWrapper).append(
                     `
+                <div id="itineraryDiv${index}" class="">
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group mb-3">
                             <label class="col-form-label" for="job_title">Title*</label>
+                            <button class="btn btn-danger btn-sm removeItinerary" onclick="removeItinerary(this)" id="RemoveItinerary" data-div-id="${index}" style="float: right">Remove</button>
                             <input type="text" class="form-control" required id="job_title" value="" name="itinerary[${index}][title]" placeholder="title">
 
                             <div class="d-flex mt-2">
@@ -212,10 +227,13 @@ $itineraries = [];
                     </div>
                 </div>
                 <hr id="line${index}">
+                </div>
             `
                 );
+
                 $('#line'+index).hide();
-                var details = new Quill("#snow-editor"+index, {
+
+                new Quill("#snow-editor"+index, {
                     theme: "snow",
                     modules: {
                         toolbar: editorToolbar
@@ -226,16 +244,19 @@ $itineraries = [];
                     tags: true,
                     tokenSeparators: [',']
                 });
-                {{--$.ajax({--}}
-                {{--    url: "{{route('')}}",--}}
-                {{--    data: "",--}}
-                {{--    type: "POST",--}}
-                {{--    success: function(data){--}}
-                {{--        --}}
-                {{--    },--}}
-                {{--    error:function(msg){}--}}
-                {{--});--}}
+                index++;
+            });
+
+            $('.removeItinerary').click(function () {
+                event.preventDefault();
+                var divId = $(this).data('div-id');
+                $('#itineraryDiv'+divId).remove();
             });
         });
+        function removeItinerary(x) {
+
+            var divId = $(x).data('div-id');
+            $('#itineraryDiv'+divId).remove();
+        }
     </script>
 @endpush

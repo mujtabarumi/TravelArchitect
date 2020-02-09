@@ -256,9 +256,6 @@
                     <label class="col-form-label" for="duration">{{__("Duration Days")}}*</label>
                     <div class="input-group">
                         <input type="text" class="form-control" required name="duration" autocomplete="off" value="{{ $duration }}" placeholder="{{__("Duration")}}" id="duration">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="ti-notepad"></i></span>
-                        </div>
                     </div><!-- input-group -->
                     @component('components.input-validation-error',['field' => 'duration']) @endcomponent
                 </div>
