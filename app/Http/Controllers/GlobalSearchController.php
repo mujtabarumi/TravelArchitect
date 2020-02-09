@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\PackageTheme;
-use App\Models\PeopleSearchFlight;
 use App\Models\State;
 use App\Services\AddressService;
 use App\Services\PackageServices;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
 
 class GlobalSearchController extends Controller
 {
@@ -66,6 +64,7 @@ class GlobalSearchController extends Controller
     public function searchCity(Request $request, $countryId=null, $stateId=null){
         $addressService = app(AddressService::class);
         $keyword = $request->get('keyword');
+
         $data = $addressService->searchCity($keyword, $countryId, $stateId)->map(function ($city){
             return [
                 'id' => $city->id,
@@ -123,52 +122,4 @@ class GlobalSearchController extends Controller
         ]
     ], 200);
 }
-
-        public function searchflight(){
-
-            return view('search.flight');
-        }
-        public function searchflightgetdata(){
-
-            $model = PeopleSearchFlight::select('people_search_flights.id as searchId','a.name as departurefrom','b.name as departureto', 'departure_from', 'departure_to', 'trip_type', 'departure_date', 'return_date', 'adult_travelers_count', 'child_travelers_count', 'class_type', 'user_id', 'people_search_flights.name as searchname', 'people_search_flights.email as searchemail', 'people_search_flights.mobile_number as searchmobile',  'people_search_flights.created_at as searchcreate_at' , 'users.name as username')
-                ->leftjoin('users','user_id','users.id' )
-                ->leftjoin('cities as a','departure_from','a.id' )
-                ->leftjoin('cities as b','departure_to','b.id' )
-                ->get();
-            return DataTables::of($model)
-
-
-                ->addColumn('name', function(PeopleSearchFlight $name) {
-                //    return $name->searchname ?? $name->username;
-                   if ($name->user_id == ""){
-                       return $name->searchname;
-                   }else{
-                      return $name->username;
-                   }
-                })
-                ->addColumn('action', function(PeopleSearchFlight $action) {
-                    return
-                        '<div class="btn-group">
-					<button type="button" class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">Action<span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
-					<div class="dropdown-menu" role="menu" x-placement="top-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-1px, -3px, 0px);">
-                        <a class="dropdown-item" href="javascript:void(0)" data-panel-id='.$action->searchId.' onclick="searchflightView(this)"><i class="fa fa-eye"></i> View</a>
-                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)" data-panel-id='.$action->searchId.' onclick="searchflightDelete(this)"><i class="fa fa-trash"></i> Delete</a>
-                      </div>
-				</div>';
-                })
-                ->rawColumns(['name','action'])
-                ->toJson();
-        }
-
-        public function searchflightview(Request $r){
-            $model = PeopleSearchFlight::select('people_search_flights.id as searchId', 'a.name as departurefrom','b.name as departureto','departure_from', 'departure_to', 'trip_type', 'departure_date', 'return_date', 'adult_travelers_count', 'child_travelers_count', 'class_type', 'user_id', 'people_search_flights.name as searchname', 'people_search_flights.email as searchemail', 'people_search_flights.mobile_number as searchmobile',  'people_search_flights.created_at as searchcreate_at' , 'users.name as username', 'users.email as useremail','users.mobile_number as usermobile')
-                ->leftjoin('users','user_id','users.id' )
-                ->leftjoin('cities as a','departure_from','a.id' )
-                ->leftjoin('cities as b','departure_to','b.id' )
-                ->where('people_search_flights.id', $r->id)
-                ->first();
-
-            return view('search.viewflight', compact('model'));
-        }
 }

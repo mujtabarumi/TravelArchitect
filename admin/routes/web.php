@@ -46,3 +46,8 @@ Route::prefix('ajax')->group(function (){
     Route::post('/save/meta-data','GlobalSearchController@saveMetaData')->name('save.meta.data');
 
 });
+
+
+Route::get('/Search/flight','GlobalSearchController@searchflight')->name('search.flight');
+Route::post('/Search/flight','GlobalSearchController@searchflightgetdata')->name('search.flight.getdata');
+Route::post('/Search/flight/view','GlobalSearchController@searchflightview')->name('search.flight.view');

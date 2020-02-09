@@ -37,6 +37,7 @@
 @stack('pre-styles')
 {{--<link href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css' rel='stylesheet' type='text/css'>--}}
 <!-- STYLES -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 <link href="{{asset("/assets/css/animate.min.css")}}" rel="stylesheet">
 <link href="{{asset("/assets/css/bootstrap-select.min.css")}}" rel="stylesheet">
 <link href="{{asset("/assets/css/owl.carousel.css")}}" rel="stylesheet">
@@ -61,6 +62,7 @@
 <!—- ShareThis BEGIN -—>
 <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5e35298602ce8300122c7875&product=sticky-share-buttons"></script>
 <!—- ShareThis END -—>
+
 
 
 @stack('styles')

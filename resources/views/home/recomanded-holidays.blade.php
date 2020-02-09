@@ -13,13 +13,13 @@
                         $package_meta = json_decode($reco->meta);
                         $package_costs = data_get($package_meta,'package_cost',[]);
                         $package_places = data_get($package_meta,'places',[]);
-/*                        dd(url('admin'."/".$slider1->getUrl())) */
+                       // dd(url('admin'."/".$slider1->getUrl()))
                         //dd(data_get($reco,'meta.package_costing'));
                      //   dd(data_get($package_meta,'package_cost',[]));
                     @endphp
             <div class="owl-carousel" id="post-list">
                 <div class="room-grid-view wow slideInUp" data-wow-delay="0.{{$loop->iteration}}s">
-                            <div class="holiday-custom" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl())}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif">
+                            <div class="holiday-custom" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('recommended'))}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif">
                             <div class="text">
                                 <div class="top">
                                     <ul>
