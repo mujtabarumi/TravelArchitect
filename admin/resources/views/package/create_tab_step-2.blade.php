@@ -4,6 +4,8 @@
     $details = old('details',data_get($tabData,'details'));
 
     $package_costs = data_get($tabData,'meta.package_cost',[]);
+    $package_places = data_get($tabData,'meta.places',[]);
+    dd($package_places);
 
     if (empty($inclusions)) {
         $inclusions = [];
@@ -51,27 +53,39 @@
         </div> <!-- end col -->
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="form-group mb-3">
                 <label class="col-form-label" for="expiry_date">{{__("Package Cost")}}</label>
                 <div class="input-group">
-                    <input type="number" min="1" class="form-control col-md-3" name="" id="person" autocomplete="off" placeholder=" person number " >
-                    &nbsp;&nbsp;<input type="number" min="1" class="form-control col-md-3" id="cost" name="" autocomplete="off" placeholder="cost">
+                    <input type="number" min="1" class="form-control col-md-4" name="" id="person" autocomplete="off" placeholder=" person number " >
+                    &nbsp;&nbsp;<input type="number" min="1" class="form-control col-md-4" id="cost" name="" autocomplete="off" placeholder="cost">
                     &nbsp;&nbsp;<button class="btn btn-info btn-sm" id="addPacakageCost" style="float: right">Add More</button>
                 </div><!-- input-group -->
                 @component('components.input-validation-error',['field' => 'meta.package_cost.person']) @endcomponent
             </div>
+            <ul class="mt-1" id="package-costWrapper">
+                @foreach($package_costs as $p_c)
+                    <li class="package-cost-list">
+                        <span>{{ $p_c['person'] }}</span><b> Person - Cost: </b><span>{{$p_c['cost']}}</span>
+                        <input type="hidden" value="{{ $p_c['person'] }}" name="meta[package_cost][{{$loop->index}}][person]">
+                        <input type="hidden" value="{{$p_c['cost']}}" name="meta[package_cost][{{$loop->index}}][cost]">
+                        <i class="ti-close pointer ml-1"></i>
+                    </li>
+                @endforeach
+            </ul>
         </div>
-        <ul class="mt-1" id="package-costWrapper">
-            @foreach($package_costs as $p_c)
-                <li class="package-cost-list">
-                    <span>{{ $p_c['person'] }}</span><b> Person - Cost: </b><span>{{$p_c['cost']}}</span>
-                    <input type="hidden" value="{{ $p_c['person'] }}" name="meta[package_cost][{{$loop->index}}][person]">
-                    <input type="hidden" value="{{$p_c['cost']}}" name="meta[package_cost][{{$loop->index}}][cost]">
-                    <i class="ti-close pointer ml-1"></i>
-                </li>
-            @endforeach
-        </ul>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="exclusion">{{__("Places")}}</label>
+                <select data-placeholder="Add places here" class="form-control select2" multiple id="places" name="meta[places][]">
+                    @foreach($exclusions as $exclusion)
+                        <option value="{{$exclusion}}" selected> {{$exclusion}} </option>
+                    @endforeach
+                </select>
+                @component('components.input-validation-error',['field' => 'meta.places']) @endcomponent
+            </div>
+        </div>
+
 {{--        <div class="col-md-3">--}}
 {{--            <div class="form-group mb-3">--}}
 {{--                <label class="col-form-label" for="expiry_date">{{__("Cost")}}</label>--}}
