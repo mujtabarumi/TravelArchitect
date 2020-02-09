@@ -29,6 +29,7 @@ class CreatePackagesTable extends Migration
             $table->boolean('popular')->default(0);
             $table->boolean('air_price_included')->default(0);
             $table->date('departure_date')->nullable();
+            $table->string('departure_from')->nullable();
             $table->date('valid_from')->nullable();
             $table->date('valid_till')->nullable();
             $table->boolean('is_everyday_departs')->default(0);

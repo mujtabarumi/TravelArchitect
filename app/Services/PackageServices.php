@@ -53,7 +53,7 @@ class PackageServices
     public function addFileMediaToCollection($model, $collectionName, $file, $order = null)
     {
         $media = $model->addMedia($file)->toMediaCollection($collectionName);
-        //dd($media);
+
         if (!blank($order) && ($media instanceof Media)) {
             $media->update([
                 'order_column' => $order

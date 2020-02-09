@@ -94,7 +94,7 @@ class PackageServices
         }
 
         if (blank($step) || $step == PackageStep::DETAILS) {
-            $DETAILS = $package->only(['details','inclusion','exclusion']);
+            $DETAILS = $package->only(['details','inclusion','exclusion','meta']);
         }
         if (blank($step) || $step == PackageStep::ITINERARIES) {
             $ITINERARIES['itineraries'] = $package->itineraries->pluck('id')->all();
@@ -126,10 +126,11 @@ class PackageServices
         $data['valid_till'] = Carbon::parse($data['valid_till'])->format('Y-m-d');
         $data['departure_date'] = Carbon::parse($data['departure_date'])->format('Y-m-d');
 
-        $data['updated_by'] = auth()->user()->id;
-        $data['city_id'] = data_get($package,'address.city');
+        $data['updated_by'] = auth()->user('id');
+
+        $data['city_id'] = data_get($request,'address.city');
         $data['theme_map'] = json_encode(data_get($request,'package_theme'));
-        $data['package_type_id'] = $package['package_type'];
+        $data['package_type_id'] = data_get($request,'package_type');
 
         $addressData = [
             'country_id' => data_get($request,'address.country'),
@@ -139,52 +140,80 @@ class PackageServices
 
 
         $package->address->update($addressData);
+
         return $package->update($data);
     }
 
     public function updateDescription(Package $package, $request)
     {
+
+        $meta = $package->meta;
+
+        $meta['package_cost'] = data_get($request,'meta.package_cost',[]);
+
         $package->fill($request->only(['details']));
         $package->inclusion = json_encode(data_get($request,'inclusion'));
         $package->exclusion = json_encode(data_get($request,'exclusion'));
+        $package->meta = $meta;
         $package->save();
-
 
         return $package;
     }
     public function updateItineraries(Package $package, $request)
     {
 
-        PackageItineraryInclude::whereIn('package_itinerary_id',$package->itineraries->pluck('id')->all())->delete();
-        PackageItinerary::where('package_id',$package->id)->delete();
+       // dd($request->all());
+        $oldItineraryIds = $package->itineraries->pluck('id')->toArray();
 
+//        PackageItineraryInclude::whereIn('package_itinerary_id',$package->itineraries->pluck('id')->all())->delete();
+//        PackageItinerary::where('package_id',$package->id)->delete();
+//
+        $count = 0;
         foreach ($request->get('itinerary') as $iti) {
             $dataItinerary = [
                 'title' => $iti['title'],
                 'details' => $iti['details'],
                 'package_id' => $package->id
             ];
-
-            $it = PackageItinerary::create($dataItinerary);
+            if (array_key_exists($count,$oldItineraryIds)) {
+              //  dd(1);
+                $it = PackageItinerary::updateOrCreate(['id' => $oldItineraryIds[$count]],$dataItinerary);
+            } else {
+               // dd(2);
+                $it = PackageItinerary::create($dataItinerary);
+            }
 
             if (array_key_exists('includes', $iti)) {
+                $itiIncIds = $it->itineraryIncludes()->pluck('id')->toArray();
+               // dd($itiIncIds);
+
+                $incCount = 0;
                 foreach ($iti['includes'] as $inc) {
                     $dataIncludes = [
                         'text' => $inc,
                         'package_itinerary_id' => $it->id
                     ];
-                    PackageItineraryInclude::create($dataIncludes);
+
+                    if (array_key_exists($incCount,$itiIncIds)) {
+                        //  dd(1);
+                        PackageItineraryInclude::updateOrCreate(['id' => $itiIncIds[$incCount]],$dataIncludes);
+                    } else {
+                        // dd(2);
+                        PackageItineraryInclude::create($dataIncludes);
+                    }
+//
+//                    PackageItineraryInclude::create($dataIncludes);
+                    $incCount++;
                 }
 
             }
+            $count++;
         }
 
         return $package;
     }
 
     public function updateMedia(Package $package, $request) {
-
-
 
         if($request->hasFile('cover_photo')){
 

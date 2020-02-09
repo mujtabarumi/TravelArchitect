@@ -6,20 +6,22 @@
                 <h2>Recommended Holidays</h2>
             </div>
             @if(!empty($recommendedHolidays))
+
                 @foreach($recommendedHolidays as $reco)
                     @php
-                        $recoImage = $reco->getMedia('slider_images');
-                        $slider1  = $recoImage->where('order_column', 1)->first();
-                        $package_meta = json_decode($reco->meta);
-                        $package_costs = data_get($package_meta,'package_cost',[]);
-                        $package_places = data_get($package_meta,'places',[]);
-                       // dd(url('admin'."/".$slider1->getUrl()))
-                        //dd(data_get($reco,'meta.package_costing'));
-                     //   dd(data_get($package_meta,'package_cost',[]));
+                            $recoImage = $reco->getMedia('slider_images');
+                            $slider1  = $recoImage->where('order_column', 1)->first();
+                            $package_meta = json_decode($reco->meta);
+                            $package_costs = data_get($package_meta,'package_cost',[]);
+
+                            $package_places = data_get($package_meta,'places',[]);
+                           // dd(url('admin'."/".$slider1->getUrl()))
+                            //dd(data_get($reco,'meta.package_costing'));
+                         //   dd(data_get($package_meta,'package_cost',[]));
                     @endphp
             <div class="owl-carousel" id="post-list">
                 <div class="room-grid-view wow slideInUp" data-wow-delay="0.{{$loop->iteration}}s">
-                            <div class="holiday-custom" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('recommended'))}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif">
+                   <div onclick="location.href = '{{route('package.details',['package' => $reco->id])}}' ;" class="holiday-custom" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('recommended'))}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif">
                             <div class="text">
                                 <div class="top">
                                     <ul>
@@ -42,7 +44,7 @@
                                     @if (!blank($package_costs))
                                         @foreach($package_costs as $pa)
                                             @if($loop->first)
-                                                <span>Price starts from ({{$pa->person}})</span><br>
+                                                <span>Price starts from ({{$pa->person}} person)</span><br>
                                                 <span>BDT {{$pa->cost}}</span>
                                             @endif
                                         @endforeach
@@ -53,13 +55,13 @@
                                                 {{$reco->title}}
                                             </p>
                                             <p>
-                                                <small>
-                                                    <i class="fa fa-map-marker">
-                                                        @if (!blank($package_places))
+                                                @if (!blank($package_places))
+                                                    <small>
+                                                        <i class="fa fa-map-marker">
                                                             {{implode(' - ',$package_places)}}
-                                                        @endif
                                                         </i>
-                                                </small>
+                                                    </small>
+                                                @endif
                                             </p>
 
                                             </span>
@@ -69,7 +71,7 @@
 
                             </div>
                             <div class="clearfix"></div>
-                    </div>
+                   </div>
 
                 </div>
             </div>

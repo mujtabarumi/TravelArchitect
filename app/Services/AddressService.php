@@ -2,10 +2,13 @@
 
 namespace App\Services;
 
+use App\Enums\PackageStatus;
 use App\Models\Address;
 use App\Models\Country;
+use App\Models\Package;
 use App\Models\State;
 use App\Models\City;
+use Illuminate\Support\Facades\DB;
 
 class AddressService
 {
@@ -52,9 +55,22 @@ class AddressService
 //            });
 //        });
 
+//        $query->leftJoin('states','states.id','cities.state_id')
+//            ->leftJoin('countries','countries.id','states.country_id');
+//
+//        $query
+//            ->select('cities.*',DB::raw("CONCAT(cities.name,', ',countries.name) as name"))
+//            ->where('cities.name','like',"%$keyword%")
+//            ->take($this->searchLimit)
+//            ->orderBy('cities.name', 'ASC')
+//            ->get();
 
-        return $query
-            ->select('cities.*')
+        $allPackages = Package::where('status',PackageStatus::PUBLISHED);
+
+        return $allPackagedCountry = Country::select('cities.*',DB::raw("CONCAT(cities.name,', ',countries.name) as name"))
+            ->leftJoin('states','states.country_id','countries.id')
+            ->leftJoin('cities','cities.state_id','states.id')
+            ->whereIn('cities.id',$allPackages->pluck('city_id'))->distinct('countries.id')
             ->where('cities.name','like',"%$keyword%")
             ->take($this->searchLimit)
             ->orderBy('cities.name', 'ASC')

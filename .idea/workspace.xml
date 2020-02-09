@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="68cf206c-d7e4-41ba-a353-d8e9ebcbf352" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/admin/public/media/28/68950116_2488258564584548_8968019313231396864_o.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/admin/public/media/28/conversions/68950116_2488258564584548_8968019313231396864_o-banner.jpg" afterDir="false" />
@@ -37,6 +38,17 @@
       <change beforePath="$PROJECT_DIR$/resources/views/partials/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/head.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
+    <list default="true" id="40c2a87f-d6c9-4199-94d9-dedb7210e7c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/app/Models/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Models/Package.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/app/Services/PackageServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Services/PackageServices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-1.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-3.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" afterDir="false" />
+>>>>>>> f1ea88841e1fe0813cd4cebc8529f580df359453
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -384,9 +396,13 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../jabp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+=======
+    <property name="last_opened_file_path" value="D:/EasyJobs-app" />
+>>>>>>> f1ea88841e1fe0813cd4cebc8529f580df359453
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
@@ -417,6 +433,7 @@
       <created>1580542599671</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1580542599671</updated>
       <workItem from="1580542600862" duration="3486000" />
       <workItem from="1580663011209" duration="2878000" />
@@ -424,6 +441,31 @@
       <workItem from="1581100069471" duration="1211000" />
       <workItem from="1581189711850" duration="5134000" />
       <workItem from="1581261174302" duration="3182000" />
+=======
+      <updated>1579295292137</updated>
+      <workItem from="1579295300323" duration="2296000" />
+      <workItem from="1579329363141" duration="15413000" />
+      <workItem from="1579449300538" duration="546000" />
+      <workItem from="1579454689105" duration="1167000" />
+      <workItem from="1579455887641" duration="13092000" />
+      <workItem from="1579531698933" duration="10389000" />
+      <workItem from="1579613260456" duration="26465000" />
+      <workItem from="1580055044599" duration="11287000" />
+      <workItem from="1580132096354" duration="28803000" />
+      <workItem from="1580218102608" duration="21070000" />
+      <workItem from="1580317705722" duration="13083000" />
+      <workItem from="1580400091516" duration="4982000" />
+      <workItem from="1580408533801" duration="5281000" />
+      <workItem from="1580445711387" duration="681000" />
+      <workItem from="1580548590202" duration="260000" />
+      <workItem from="1580577811666" duration="3174000" />
+      <workItem from="1580581022559" duration="8657000" />
+      <workItem from="1580657286303" duration="14691000" />
+      <workItem from="1580834594198" duration="202000" />
+      <workItem from="1580834827502" duration="10193000" />
+      <workItem from="1580912284666" duration="12793000" />
+      <workItem from="1581239766872" duration="16068000" />
+>>>>>>> f1ea88841e1fe0813cd4cebc8529f580df359453
     </task>
     <servers />
   </component>

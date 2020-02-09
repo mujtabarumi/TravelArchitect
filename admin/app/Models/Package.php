@@ -24,6 +24,9 @@ class Package extends Model implements HasMedia
         'valid_till',
         'departure_date'
     ];
+    protected $casts = [
+        'meta' => 'array',
+    ];
 
     protected $fillable = [
         'title',
@@ -96,6 +99,11 @@ class Package extends Model implements HasMedia
         $this->addMediaConversion('banner')
             ->width(1350)
             ->height(230)
+            ->sharpen(10);
+
+        $this->addMediaConversion('search-list')
+            ->width(200)
+            ->height(133)
             ->sharpen(10);
 
     }
