@@ -90,7 +90,7 @@ $itineraries = [];
                     <div class="col-12">
                         <div class="form-group">
                             <label for="inclusion">{{__("Itinerary Includes")}}</label>
-                            <select data-placeholder="Add inclusions here" class="form-control select2" multiple id="inclusion" name="itinerary[0][includes][]">
+                            <select data-placeholder="Add inclusions here" class="form-control select2" multiple id="inclusion0" name="itinerary[0][includes][]">
 
                             </select>
                             @component('components.input-validation-error',['field' => 'itinerary[0][includes][]']) @endcomponent
@@ -156,6 +156,7 @@ $itineraries = [];
 
             @if(!blank($itineraries))
                 var index = "{{$itineraries->count()}}";
+                $('#line'+(index-1)).hide();
 
                 for(var i = 0; i < index; i++) {
 
@@ -173,7 +174,20 @@ $itineraries = [];
                 }
             @else
                 var index = 0;
-                $('#line'+(index-1)).hide();
+                $('#line'+index).hide();
+
+            new Quill("#snow-editor"+index, {
+                theme: "snow",
+                modules: {
+                    toolbar: editorToolbar
+                }
+            });
+
+            $('#inclusion'+index).select2({
+                tags: true,
+                tokenSeparators: [',']
+            });
+
             @endif
 
             $('form').submit(function (e) {
@@ -182,12 +196,8 @@ $itineraries = [];
                 }
             });
 
-            $('#line'+(index-1)).hide();
-
             $('#addMoreItinerary').click(function () {
-
-                $('#line'+(index-1)).show();
-
+                index++;
                 $(itineraryWrapper).append(
                     `
                 <div id="itineraryDiv${index}" class="">
@@ -232,6 +242,7 @@ $itineraries = [];
                 );
 
                 $('#line'+index).hide();
+                $('#line'+(index-1)).show();
 
                 new Quill("#snow-editor"+index, {
                     theme: "snow",
@@ -244,7 +255,7 @@ $itineraries = [];
                     tags: true,
                     tokenSeparators: [',']
                 });
-                index++;
+
             });
 
             $('.removeItinerary').click(function () {

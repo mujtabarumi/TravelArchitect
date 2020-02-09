@@ -5,7 +5,6 @@
 
     $package_costs = data_get($tabData,'meta.package_cost',[]);
     $package_places = data_get($tabData,'meta.places',[]);
-    dd($package_places);
 
     if (empty($inclusions)) {
         $inclusions = [];
@@ -57,8 +56,8 @@
             <div class="form-group mb-3">
                 <label class="col-form-label" for="expiry_date">{{__("Package Cost")}}</label>
                 <div class="input-group">
-                    <input type="number" min="1" class="form-control col-md-4" name="" id="person" autocomplete="off" placeholder=" person number " >
-                    &nbsp;&nbsp;<input type="number" min="1" class="form-control col-md-4" id="cost" name="" autocomplete="off" placeholder="cost">
+                    <input type="number" min="1" class="form-control col-md-5" name="" id="person" autocomplete="off" placeholder=" person number " >
+                    &nbsp;&nbsp;<input type="number" min="1" class="form-control col-md-5" id="cost" name="" autocomplete="off" placeholder="cost">
                     &nbsp;&nbsp;<button class="btn btn-info btn-sm" id="addPacakageCost" style="float: right">Add More</button>
                 </div><!-- input-group -->
                 @component('components.input-validation-error',['field' => 'meta.package_cost.person']) @endcomponent
@@ -75,11 +74,11 @@
             </ul>
         </div>
         <div class="col-md-6">
-            <div class="form-group">
-                <label for="exclusion">{{__("Places")}}</label>
+            <div class="form-group mb-3">
+                <label class="col-form-label" for="exclusion">{{__("Places")}}</label>
                 <select data-placeholder="Add places here" class="form-control select2" multiple id="places" name="meta[places][]">
-                    @foreach($exclusions as $exclusion)
-                        <option value="{{$exclusion}}" selected> {{$exclusion}} </option>
+                    @foreach($package_places as $p_p)
+                        <option value="{{$p_p}}" selected> {{$p_p}} </option>
                     @endforeach
                 </select>
                 @component('components.input-validation-error',['field' => 'meta.places']) @endcomponent

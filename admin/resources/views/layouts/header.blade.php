@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-
-<!-- Mirrored from adminlte.io/themes/dev/AdminLTE/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Dec 2019 11:19:47 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>JABP</title>
+    <title>Travel Architect</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -43,6 +41,8 @@
     <link rel="stylesheet" href="{{url('public/assets/libs/quill/quill.core.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/libs/quill/quill.bubble.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/libs/quill/quill.snow.css')}}">
+
+    <link rel="stylesheet" href="{{url('public/assets/themify-icons/themify-icons.css')}}">
 
     @yield('css')
     @stack('styles')

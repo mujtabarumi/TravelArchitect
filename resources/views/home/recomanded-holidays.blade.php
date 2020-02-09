@@ -5,8 +5,9 @@
             <div class="section-title text-center">
                 <h2>Recommended Holidays</h2>
             </div>
-            @if(!empty($recommendedHolidays))
 
+            @if(!empty($recommendedHolidays))
+                <div class="owl-carousel" id="post-list">
                 @foreach($recommendedHolidays as $reco)
                     @php
                             $recoImage = $reco->getMedia('slider_images');
@@ -19,7 +20,7 @@
                             //dd(data_get($reco,'meta.package_costing'));
                          //   dd(data_get($package_meta,'package_cost',[]));
                     @endphp
-            <div class="owl-carousel" id="post-list">
+
                 <div class="room-grid-view wow slideInUp" data-wow-delay="0.{{$loop->iteration}}s">
                    <div onclick="location.href = '{{route('package.details',['package' => $reco->id])}}' ;" class="holiday-custom" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('recommended'))}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif">
                             <div class="text">
@@ -74,8 +75,9 @@
                    </div>
 
                 </div>
+                    @endforeach
             </div>
-                @endforeach
+
             @endif
 {{--                <div class="room-grid-view wow slideInUp" data-wow-delay="0.2s">--}}
 {{--                    <div class="holiday-custom" style="background-image: url('assets/images/holiday-slide4.jpg');">--}}

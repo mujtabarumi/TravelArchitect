@@ -38,6 +38,7 @@ class PackageServices
 
         $data = Arr::only($packageData,['title','package_type','valid_from','valid_till','recommended','address','duration',
         'popular','is_everyday_departs','departure_date','air_price_included','budget']);
+
         $address = $this->serializeAddressData(data_get($data,'address'));
         $this->removeSomekeyFromArray($data,['address']);
         $this->parseCarbonData($data, [
@@ -150,6 +151,7 @@ class PackageServices
         $meta = $package->meta;
 
         $meta['package_cost'] = data_get($request,'meta.package_cost',[]);
+        $meta['places'] = data_get($request,'meta.places',[]);
 
         $package->fill($request->only(['details']));
         $package->inclusion = json_encode(data_get($request,'inclusion'));

@@ -202,12 +202,14 @@
                             <label class="form-check-label" for="recommended">{{__("Is Recomanded")}}</label>
                         </td>
                         <td class="border-right">
+                            <input type='hidden' value='0' name='recommended'>
                             <input type="checkbox" {{ oldOrElse('recommended', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="recommended" id="recommended">
                         </td>
                         <td>
                             <label class="form-check-label" for="popular">{{__("Is Popular")}}</label>
                         </td>
                         <td>
+                            <input type='hidden' value='0' name='popular'>
                             <input type="checkbox" {{ oldOrElse('popular', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="popular" id="popular">
                         </td>
                     </tr>
@@ -221,6 +223,7 @@
             <div class="form-group mb-3">
                 <label class="col-form-label" for="departure_date">{{__("Departure Date")}}</label>
                 <div style="float: right" class="form-check mt-2">
+                    <input type='hidden' value='0' name='is_everyday_departs'>
                     <input type="checkbox" class="form-check-input" value="1" {{ oldOrElse('is_everyday_departs', $tabData) == 1 ? 'checked' : "" }} name="is_everyday_departs" id="is_everyday_departs">
                     <label class="form-check-label" for="is_everyday_departs">{{__("Is Everyday Departs")}}</label>
                     @component('components.input-validation-error',['field' => 'is_everyday_departs']) @endcomponent
@@ -240,6 +243,7 @@
                 <div class="form-group col-md-6 mb-3">
                     <label class="col-form-label" for="departure_date">{{__("Budget")}}*</label>
                     <div style="float: right" class="form-check mt-2">
+                        <input type='hidden' value='0' name='air_price_included'>
                         <input type="checkbox" class="form-check-input" value="1" {{ oldOrElse('air_price_included', $tabData) == 1 ? 'checked' : "" }} name="air_price_included" id="air_price_included">
                         <label class="form-check-label" for="air_price_included">{{__("Is Air Price Included")}}</label>
                         @component('components.input-validation-error',['field' => 'air_price_included']) @endcomponent
@@ -253,7 +257,7 @@
                     @component('components.input-validation-error',['field' => 'budget']) @endcomponent
                 </div>
                 <div class="form-group col-md-6 mb-3">
-                    <label class="col-form-label" for="duration">{{__("Duration Days")}}*</label>
+                    <label class="col-form-label" for="duration">{{__("Duration")}}*</label>
                     <div class="input-group">
                         <input type="text" class="form-control" required name="duration" autocomplete="off" value="{{ $duration }}" placeholder="{{__("Duration")}}" id="duration">
                     </div><!-- input-group -->

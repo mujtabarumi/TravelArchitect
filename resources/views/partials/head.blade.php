@@ -59,6 +59,9 @@
 
 <link href="{{asset("/assets/css/sharenet.css")}}" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!—- ShareThis BEGIN -—>
+<script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5e35298602ce8300122c7875&product=sticky-share-buttons"></script>
+<!—- ShareThis END -—>
 
 
 

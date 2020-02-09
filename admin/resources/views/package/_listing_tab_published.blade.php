@@ -6,24 +6,25 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <ul class="nav nav-pills card-header-pills">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Information</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Itinerary</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Media</a>
-                            </li>
+{{--                        <ul class="nav nav-pills card-header-pills">--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link active" href="#">Information</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link " href="#">Details</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link " href="#">Itinerary</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link " href="#">Media</a>--}}
+{{--                            </li>--}}
 
-                        </ul>
+{{--                        </ul>--}}
+                        <h4 class="card-title"><b>{{ $package->title }}</b></h4>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">{{ $package->title }}</h4>
+{{--                        <h4 class="card-title">{{ $package->title }}</h4>--}}
                         <p class="card-text">
                             <div class="job-list-meta">
                                 <h6 class="job-list-category"><b>City:</b> {{ $package->address->city->name }}</h6>

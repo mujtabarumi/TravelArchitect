@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="https://techcloudltd.com/">Tech Cloud Ltd</a>.</strong>
+    <strong>Copyright &copy; {{date("Y")}} <a href="#">Travel Architect</a>.</strong>
     All rights reserved.
 
 </footer>
