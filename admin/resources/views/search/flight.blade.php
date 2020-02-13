@@ -13,7 +13,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Noticeboard</h3>
+                            <h3 class="card-title">Flight</h3>
                             <button class="float-right btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-lg"> Create</button>
                         </div>
 

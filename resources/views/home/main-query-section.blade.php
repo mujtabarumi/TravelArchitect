@@ -185,10 +185,10 @@
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>Package Type(Optional)</label><br>
                                 <select class="selectpicker" name="package_type">
-                                    <option value="1">Group</option>
-                                    <option value="2">Family</option>
-                                    <option value="3">Individual</option>
-                                    <option value="4"> Honeymoon</option>
+                                    <option value="Group">Group</option>
+                                    <option value="Family">Family</option>
+                                    <option value="Individual">Individual</option>
+                                    <option value="Honeymoon"> Honeymoon</option>
                                 </select>
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">
@@ -330,10 +330,10 @@
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>Package Type(Optional)</label><br>
                                 <select class="selectpicker" name="package_type">
-                                    <option value="1">Group</option>
-                                    <option value="2">Family</option>
-                                    <option value="3">Individual</option>
-                                    <option value="4"> Honeymoon</option>
+                                    <option value="Group">Group</option>
+                                    <option value="Family">Family</option>
+                                    <option value="Individual">Individual</option>
+                                    <option value="Honeymoon"> Honeymoon</option>
                                 </select>
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">

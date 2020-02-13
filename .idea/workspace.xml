@@ -2,394 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2a87f-d6c9-4199-94d9-dedb7210e7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/Italic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/agenda.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/alarm-clock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/alert.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/align-center.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/align-justify.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/align-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/align-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/anchor.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/android.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/angle-double-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/angle-double-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/angle-double-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/angle-double-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/angle-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/angle-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/angle-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/angle-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/announcement.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/apple.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/archive.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-circle-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-circle-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-circle-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-circle-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-top-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-top-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrows-corner.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrows-horizontal.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/arrows-vertical.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/back-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/back-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/bag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/bar-chart-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/bar-chart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/basketball.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/bell.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/blackboard.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/bolt-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/bolt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/book.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/bookmark-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/bookmark.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/briefcase.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/brush-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/brush.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/camera.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/car.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/check-box.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/check.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/clip.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/clipboard.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/close.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/cloud-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/cloud-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/cloud.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/comment-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/comment.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/comments-smiley.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/comments.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-backward.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-eject.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-forward.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-pause.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-play.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-record.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-shuffle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-skip-backward.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-skip-forward.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/control-stop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/credit-card.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/crown.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/css3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/cup.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/cut.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/dashboard.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/desktop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/direction-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/direction.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/download.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/dribbble.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/dropbox-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/dropbox.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/drupal.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/email.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/envelope.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/eraser.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/exchange-vertical.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/export.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/eye.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/face-sad.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/face-smile.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/facebook.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/file.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/files.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/filter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/flag-alt-2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/flag-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/flag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/flickr-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/flickr.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/folder.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/fullscreen.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/gallery.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/game.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/gift.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/github.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/google.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/hand-drag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/hand-open.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/hand-point-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/hand-point-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/hand-point-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/hand-point-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/hand-stop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/harddrive.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/harddrives.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/headphone-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/headphone.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/heart-broken.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/heart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/help-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/help.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/home.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/html5.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/hummer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/id-badge.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/image.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/import.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/infinite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/info-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/info.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/ink-pen.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/instagram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/joomla.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/jsfiddle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/key.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layers-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layers.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-accordion-list.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-accordion-merged.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-accordion-separated.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-column2-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-column2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-column3-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-column3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-column4-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-column4.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-cta-btn-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-cta-btn-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-cta-center.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-cta-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-cta-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-grid2-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-grid2-thumb.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-grid2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-grid3-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-grid3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-grid4-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-grid4.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-line-solid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-list-large-image.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-list-post.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-list-thumb-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-list-thumb.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-center-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-center.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-left-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-overlay-alt-2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-overlay-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-overlay.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-right-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-media-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-menu-full.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-menu-separated.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-menu-v.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-placeholder.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-sidebar-2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-sidebar-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-sidebar-none.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-sidebar-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-slider-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-slider.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-tab-min.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-tab-v.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-tab-window.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-tab.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-width-default-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-width-default.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout-width-full.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/layout.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/light-bulb.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/line-dashed.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/line-dotted.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/line-double.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/link.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/linkedin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/linux.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/list-ol.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/list.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/location-arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/location-pin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/lock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/loop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/magnet.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/map-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/map.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/marker-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/marker.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/medall-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/medall.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/menu-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/microphone-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/microphone.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/microsoft-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/microsoft.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/minus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/mobile.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/money.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/more-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/more.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/mouse-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/mouse.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/music-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/music.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/na.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/new-window.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/notepad.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/package.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/paint-bucket.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/paint-roller.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/palette.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/panel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/paragraph.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pencil-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pencil-alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pencil.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pie-chart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pin-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pin2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pinterest-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pinterest.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/plug.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/plus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/power-off.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/printer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/pulse.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/quote-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/quote-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/receipt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/reddit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/reload.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/rocket.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/rss-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/rss.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/ruler-alt-2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/ruler-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/ruler-pencil.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/ruler.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/save-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/save.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/server.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/settings.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/share-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/share.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/sharethis-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/sharethis.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shield.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shift-left-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shift-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shift-right-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shift-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shine.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shopping-cart-full.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shopping-cart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/shortcode.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/signal.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/skype.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/slice.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/smallcap.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/soundcloud.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/split-h.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/split-v-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/split-v.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/spray.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/stack-overflow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/stamp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/stats-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/stats-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/support.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/tablet.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/tag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/target.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/text.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/themify-favicon-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/themify-favicon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/themify-logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/thought.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/thumb-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/thumb-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/ticket.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/time.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/timer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/trash.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/trello.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/truck.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/tumblr-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/tumblr.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/twitter-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/twitter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/underline.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/unlink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/unlock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/upload.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/uppercase.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/user.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/vector.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/video-camera.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/video-clapper.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/view-grid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/view-list-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/view-list.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/vimeo-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/vimeo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/volume.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/wallet.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/wand.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/wheelchair.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/widget-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/widget.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/widgetized.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/window.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/wordpress.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/world.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/write.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/yahoo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/youtube.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/zip.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/zoom-in.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/SVG/zoom-out.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/Themify IconFonts 5-23-2014.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/demo-files/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/fonts/themify.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/fonts/themify.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/fonts/themify.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/fonts/themify.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/ie7/ie7.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/ie7/ie7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/public/assets/themify-icons/themify-icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/resources/views/search/flight.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/resources/views/search/viewflight.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/resources/views/search/holiday.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/resources/views/search/tour.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/resources/views/search/viewholiday.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/resources/views/search/viewtour.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/app/Http/Controllers/GlobalSearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Http/Controllers/GlobalSearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/app/Services/PackageServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Services/PackageServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/event/eventList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/event/eventList.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/layouts/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/layouts/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/layouts/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/layouts/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/app/Models/PeopleSearchPackage.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Models/PeopleSearchPackage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/_listing_tab_published.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/_listing_tab_published.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/create_tab_step-3.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/resources/views/search/flight.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/search/flight.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/head.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/main-query-section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/main-query-section.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -404,8 +29,123 @@
       <executable />
     </execution>
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/home/main-query-section.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="335" column="60" selection-start-line="335" selection-start-column="60" selection-end-line="335" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/app/Http/Controllers/GlobalSearchController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="274" column="36" selection-start-line="274" selection-start-column="36" selection-end-line="274" selection-end-column="36" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/scripts.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/resources/views/search/viewholiday.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/resources/views/search/tour.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1936">
+              <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/resources/views/layouts/sidebar.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="740">
+              <caret line="60" column="91" selection-start-line="60" selection-start-column="91" selection-end-line="60" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/resources/views/search/viewtour.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="828">
+              <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/resources/views/search/holiday.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="158" column="30" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/resources/views/search/flight.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/admin/resources/views/layouts/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/admin/routes/web.php" />
+        <option value="$PROJECT_DIR$/admin/app/Models/PeopleSearchPackage.php" />
+        <option value="$PROJECT_DIR$/resources/views/home/main-query-section.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" />
+        <option value="$PROJECT_DIR$/admin/resources/views/search/viewholiday.blade.php" />
+        <option value="$PROJECT_DIR$/admin/resources/views/search/flight.blade.php" />
+        <option value="$PROJECT_DIR$/admin/resources/views/search/viewtour.blade.php" />
+        <option value="$PROJECT_DIR$/admin/resources/views/search/holiday.blade.php" />
+        <option value="$PROJECT_DIR$/admin/resources/views/search/tour.blade.php" />
+        <option value="$PROJECT_DIR$/admin/app/Http/Controllers/GlobalSearchController.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" />
+      </list>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -506,9 +246,145 @@
       <path value="$PROJECT_DIR$/vendor/league/glide" />
     </include_path>
   </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/TravelArchitect.iml" />
+        <option value="$PROJECT_DIR$/.idea/php.xml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
   <component name="ProjectId" id="1WXUAWrY9xXdgrinyXLD1J0Mx7r" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TravelArchitect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TravelArchitect" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -583,8 +459,36 @@
       <workItem from="1580834827502" duration="10193000" />
       <workItem from="1580912284666" duration="12793000" />
       <workItem from="1581239766872" duration="24203000" />
+      <workItem from="1581612851731" duration="13108000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="13108000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -595,8 +499,28 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
@@ -604,5 +528,142 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/search/viewflight.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="13" lean-forward="true" selection-end-line="70" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/layouts/navbar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2046" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/app/Models/PeopleSearchPackage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="44" />
+          <folding>
+            <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/app/Http/Controllers/PackageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="56" column="51" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/app/Models/Package.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1856">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SearchController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/app/Services/PackageServices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/package/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1452" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/package/create_tab_step-1.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3872">
+          <caret line="84" column="46" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/search/flight.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/search/viewtour.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/main-query-section.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="335" column="60" selection-start-line="335" selection-start-column="60" selection-end-line="335" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/search/holiday.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="158" column="30" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/search/tour.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1936">
+          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/layouts/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="60" column="91" selection-start-line="60" selection-start-column="91" selection-end-line="60" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/views/search/viewholiday.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/app/Http/Controllers/GlobalSearchController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="274" column="36" selection-start-line="274" selection-start-column="36" selection-end-line="274" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/scripts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
