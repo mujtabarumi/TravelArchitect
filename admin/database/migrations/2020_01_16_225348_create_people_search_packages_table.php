@@ -26,7 +26,10 @@ class CreatePeopleSearchPackagesTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('mobile_number', 20)->nullable();
-            $table->timestamps();
+
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
             $table->softDeletes();
 
             $table->foreign('departure_from')->references('id')->on('cities');

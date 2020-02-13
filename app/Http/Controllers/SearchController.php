@@ -25,9 +25,11 @@ class SearchController extends Controller
         $flight->adult_travelers_count = $r->adult_count;
         $flight->child_travelers_count = $r->child_count;
         $flight->class_type = $r->classpicker;
+
         if (!empty(Auth::user()->id)) {
             $flight->user_id = Auth()->user('id');
         }
+
         $flight->name = $r->name;
         $flight->email = $r->email;
         $flight->mobile_number = $r->phone;

@@ -17,7 +17,7 @@ class CreatePeopleSearchFlightsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('departure_from');
             $table->unsignedBigInteger('departure_to');
-            $table->integer('trip_type');
+            $table->string('trip_type');
             $table->date('departure_date')->nullable();
             $table->date('return_date')->nullable();
             $table->integer('adult_travelers_count')->nullable();
@@ -28,6 +28,9 @@ class CreatePeopleSearchFlightsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('mobile_number', 20)->nullable();
+
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->softDeletes();
 
             $table->foreign('departure_from')->references('id')->on('cities');
