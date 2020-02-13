@@ -111,7 +111,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('package.listing')}}" class="nav-link">
+                            <a href="{{route('search.holiday')}}" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Holiday
@@ -119,7 +119,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('package.listing')}}" class="nav-link">
+                            <a href="{{route('search.tour')}}" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                    Tour

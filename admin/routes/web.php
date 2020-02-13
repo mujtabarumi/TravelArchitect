@@ -51,3 +51,11 @@ Route::prefix('ajax')->group(function (){
 Route::get('/Search/flight','GlobalSearchController@searchflight')->name('search.flight');
 Route::post('/Search/flight','GlobalSearchController@searchflightgetdata')->name('search.flight.getdata');
 Route::post('/Search/flight/view','GlobalSearchController@searchflightview')->name('search.flight.view');
+
+Route::get('/Search/holiday','GlobalSearchController@searchholiday')->name('search.holiday');
+Route::post('/Search/holiday','GlobalSearchController@searchholidaygetdata')->name('search.holiday.getdata');
+Route::post('/Search/holiday/view','GlobalSearchController@searchholidayview')->name('search.holiday.view');
+
+Route::get('/Search/tour','GlobalSearchController@searchtour')->name('search.tour');
+Route::post('/Search/tour','GlobalSearchController@searchtourgetdata')->name('search.tour.getdata');
+Route::post('/Search/tour/view','GlobalSearchController@searchtourview')->name('search.tour.view');
