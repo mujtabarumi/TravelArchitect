@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2a87f-d6c9-4199-94d9-dedb7210e7c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/database/seeds/UserSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/database/seeds/UserTypeSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/database/migrations/2020_01_16_231157_create_people_search_flights_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/database/migrations/2020_01_16_231157_create_people_search_flights_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/package/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/scripts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/database/migrations/2020_01_18_134920_create_media_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +200,7 @@
       <workItem from="1580834827502" duration="10193000" />
       <workItem from="1580912284666" duration="12793000" />
       <workItem from="1581239766872" duration="24475000" />
-      <workItem from="1581613209016" duration="5501000" />
+      <workItem from="1581613209016" duration="8360000" />
     </task>
     <servers />
   </component>
