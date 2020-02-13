@@ -21,7 +21,7 @@ class CreatePeopleSearchPackagesTable extends Migration
             $table->integer('duration')->nullable();
             $table->string('theme_type')->nullable();
             $table->unsignedBigInteger('package_type_id')->nullable();
-            $table->double('budget',7,2)->nullable();
+            $table->integer('budget')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();

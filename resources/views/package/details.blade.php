@@ -109,9 +109,11 @@
                             <h4 class="tab-heading">Inclusion</h4>
 
                             <p class="inc">
-                                @foreach($inclutions as $inc)
-                                    <i class="fa fa-check-circle"></i>{{$inc}}<br>
-                                @endforeach
+                                @if(!blank($inclutions))
+                                    @foreach($inclutions as $inc)
+                                        <i class="fa fa-check-circle"></i>{{$inc}}<br>
+                                    @endforeach
+                                @endif
                                 {{--                                <i class="fa fa-check-circle"></i> Welcome drinks at hotel<br>--}}
                                 {{--                                <i class="fa fa-check-circle"></i> Stay in 3 star hotel<br>--}}
                                 {{--                                <i class="fa fa-check-circle"></i> Guided tour<br>--}}
@@ -124,9 +126,13 @@
                             </p>
                             <h4 class="tab-heading">Exclusion</h4>
                             <p class="inc">
-                                @foreach($exclutions as $exc)
-                                    <i class="fa fa-check-circle"></i>{{$exc}}<br>
-                                @endforeach
+                                @if(!blank($exclutions))
+
+                                    @foreach($exclutions as $exc)
+                                        <i class="fa fa-check-circle"></i>{{$exc}}<br>
+                                    @endforeach
+
+                                @endif
                                 {{--                                <i class="fa fa-times-circle-o"></i> Travel insurance<br>--}}
                                 {{--                                <i class="fa fa-times-circle-o"></i> Increase in airfare<br>--}}
                                 {{--                                <i class="fa fa-times-circle-o"></i> Airport fees<br>--}}

@@ -12,16 +12,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //clean it up
-//        $this->truncateAllTables();
-//
-//        $this->call(CountrySeeder::class);
-//        echo "Country seed complete.".PHP_EOL;
-//
-//        $this->call(StateSeeder::class);
-//        echo "State seed complete.".PHP_EOL;
-//
-//        $this->call(CitySeeder::class);
-//        echo "City seed complete.".PHP_EOL;
+        $this->truncateAllTables();
+
+        $this->call(CountrySeeder::class);
+        echo "Country seed complete.".PHP_EOL;
+
+        $this->call(StateSeeder::class);
+        echo "State seed complete.".PHP_EOL;
+
+        $this->call(CitySeeder::class);
+        echo "City seed complete.".PHP_EOL;
+
+        $this->call(UserTypeSeeder::class);
+        echo "User Type seed complete.".PHP_EOL;
+
+        $this->call(UserSeeder::class);
+        echo "User seed complete.".PHP_EOL;
 
     }
     private function truncateAllTables() {
@@ -35,6 +41,9 @@ class DatabaseSeeder extends Seeder
         \App\Models\Country::truncate();
         \App\Models\State::truncate();
         \App\Models\City::truncate();
+        \App\Models\UserType::truncate();
+        \App\Models\User::truncate();
+
         DB::statement("SET foreign_key_checks=1");
         echo "Old data delete complete.".PHP_EOL;
 
