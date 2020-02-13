@@ -14,8 +14,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-
-
         $data = [
             'name' => 'Jhon Travel',
             'email' => 'travelAdmin@gmail.com',
@@ -24,7 +22,6 @@ class UserSeeder extends Seeder
             'status' => 1,
         ];
         User::create($data);
-
 
     }
 }

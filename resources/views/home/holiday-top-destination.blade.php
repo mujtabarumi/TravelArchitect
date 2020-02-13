@@ -2,8 +2,8 @@
 <section class="home-topdestinations">
     <div class="container clear-padding">
         <div class="section-title text-center">
-            <h2>Holidays in popular cities</h2><br>
-            <strong class="mr-0"><a href="{{route('package.lists')}}" target="_blank">See all <i class="fa fa-angle-right"></i></a></strong>
+            <h2 style="align-content: center">Holidays in popular cities</h2>
+            <strong class="mr-0"><a style="float: right" href="{{route('package.lists')}}" target="_blank">See all <i class="fa fa-angle-right"></i></a></strong>
         </div>
         <div class="row block-container">
             <div class="row">
@@ -19,7 +19,8 @@
                         @endphp
 
                         <div class="col-md-3">
-                            <div onclick="location.href = '{{route('package.details',['package' => $ph->id])}}' ;" class="block fw hh" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('popular'))}}') @else url('{{url('assets/images/tour1.jpg')}}') @endif;
+                            <div onclick="location.href = '{{route('package.details',['package' => $ph->id])}}' ;" class="block fw hh"
+                                 style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('popular'))}}') @else url('{{url('assets/images/tour1.jpg')}}') @endif;
                                 background-repeat: no-repeat;
                                 ">
                                 <div class="city overlay">

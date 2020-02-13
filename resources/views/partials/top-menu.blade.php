@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <!-- BEGIN: LOGO -->
-                        <a class="navbar-brand clear-padding logo" href="index.html">
+                        <a class="navbar-brand clear-padding logo" href="{{route('home')}}">
                             <img src="{{asset("/assets/images/logo.png")}}" alt="logo">
                         </a>
                     </div>
@@ -25,42 +25,13 @@
                                 <a href="{{route('home')}}"><i class="fa fa-home"></i> HOME</a>
                                 <div class="clearfix"></div>
                             </li>
-                            <li class="dropdown mega">
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-plane"></i> FLIGHTS <i class="fa fa-caret-down"></i></a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="col-md-3 col-sm-3 desc">
-                                        <h4>FLIGHTS</h4>
-                                    </li>
-                                    <li class="col-md-3 col-sm-4 links">
-                                        <h5>PAGES</h5>
-                                        <ul>
-                                            <li><a href="flight-list-2.html">FLIGHT LIST 2</a></li>
-                                            <li><a href="flight-booking.html">FLIGHT BOOKING</a></li>
-                                        </ul>
-                                    </li>
+                            <li class="mega">
 
-                                </ul>
+                                <a href="{{route('package.lists',['packageType' => \App\Enums\PackageType::HOLIDAY])}}"><i class="fa fa-suitcase"></i> HOLIDAY</a>
                                 <div class="clearfix"></div>
                             </li>
                             <li class="mega">
-                                <a href="holidays-list.html"><i class="fa fa-bank"></i> HOLIDAY</a>
-                                <div class="clearfix"></div>
-                            </li>
-                            <li class="dropdown mega">
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-facebook-f"></i> TOURS <i class="fa fa-caret-down"></i></a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="col-md-3 col-sm-3 desc">
-                                        <h4>TOURS</h4>
-                                    </li>
-                                    <li class="col-md-3 col-sm-4 links">
-                                        <h5>PAGES</h5>
-                                        <ul>
-                                            <li><a href="holidays-list.html">TOUR LIST</a></li>
-                                            <li><a href="holiday-detail.html">TOUR DETAIL 2</a></li>
-                                            <li><a href="holiday-booking-2.html">TOUR BOOKING 2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <a href="{{route('package.lists',['package-type' => \App\Enums\PackageType::TOUR])}}"><i class="fa fa-globe"></i> TOURS</a>
                                 <div class="clearfix"></div>
                             </li>
                             <li class="dropdown mega">
@@ -68,7 +39,7 @@
                                 <div class="clearfix"></div>
                             </li>
                             <li class="dropdown mega">
-                                <a href="contact-us.html"><i class="fa fa-cc-visa"></i> Contact Us</a>
+                                <a href="#contact-us"><i class="fa fa-envelope"></i> Contact Us</a>
                                 <div class="clearfix"></div>
                             </li>
                         </ul>

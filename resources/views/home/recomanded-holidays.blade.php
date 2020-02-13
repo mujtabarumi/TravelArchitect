@@ -22,7 +22,9 @@
                     @endphp
 
                 <div class="room-grid-view wow slideInUp" data-wow-delay="0.{{$loop->iteration}}s">
-                   <div onclick="location.href = '{{route('package.details',['package' => $reco->id])}}' ;" class="holiday-custom" style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('recommended'))}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif">
+                   <div onclick="location.href = '{{route('package.details',['package' => $reco->id])}}' ;" class="holiday-custom"
+                        style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('recommended'))}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif;
+                            background-repeat: no-repeat;">
                             <div class="text">
                                 <div class="top">
                                     <ul>

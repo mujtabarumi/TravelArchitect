@@ -29,6 +29,12 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         echo "User seed complete.".PHP_EOL;
 
+        $this->call(PackageTypeSeeder::class);
+        echo "package Type seed complete.".PHP_EOL;
+
+        $this->call(PackageThemeSeeder::class);
+        echo "package Type seed complete.".PHP_EOL;
+
     }
     private function truncateAllTables() {
 
@@ -43,6 +49,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\City::truncate();
         \App\Models\UserType::truncate();
         \App\Models\User::truncate();
+        \App\Models\PackageType::truncate();
+        \App\Models\PackageTheme::truncate();
 
         DB::statement("SET foreign_key_checks=1");
         echo "Old data delete complete.".PHP_EOL;

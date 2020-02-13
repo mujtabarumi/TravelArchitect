@@ -13,7 +13,7 @@
                     <h2>DROP A MESSAGE</h2>
                     <h5>Drop Us a Message</h5>
                 </div>
-                <form >
+                <form method="post" action="#">
                     <div class="col-md-6 col-sm-6">
                         <input type="text" name="name" required class="form-control" placeholder="Your Name">
                     </div>

@@ -20,7 +20,7 @@
     * */
     Route::prefix('package')->group(function (){
         Route::get('{package}/details','PackageController@getPackageDetails')->name('package.details');
-        Route::get('package-lists','PackageController@getAllPackageLists')->name('package.lists');
+        Route::get('package-lists/{packageType?}','PackageController@getAllPackageLists')->name('package.lists');
     });
 
     Route::prefix('ajax')->group(function (){

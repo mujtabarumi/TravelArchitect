@@ -2,12 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2a87f-d6c9-4199-94d9-dedb7210e7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/database/seeds/UserSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/database/seeds/UserTypeSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/database/seeds/PackageThemeSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/database/seeds/PackageTypeSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/1/conversions/mekong-delta-travel-banner-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/1/conversions/mekong-delta-travel-banner-popular.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/1/conversions/mekong-delta-travel-banner-recommended.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/1/conversions/mekong-delta-travel-banner-search-list.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/1/conversions/mekong-delta-travel-banner-slider.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/1/mekong-delta-travel-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/2/conversions/photo-1469854523086-cc02fe5d8800-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/2/conversions/photo-1469854523086-cc02fe5d8800-popular.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/2/conversions/photo-1469854523086-cc02fe5d8800-recommended.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/2/conversions/photo-1469854523086-cc02fe5d8800-search-list.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/2/conversions/photo-1469854523086-cc02fe5d8800-slider.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/2/photo-1469854523086-cc02fe5d8800.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/3/conversions/images-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/3/conversions/images-popular.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/3/conversions/images-recommended.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/3/conversions/images-search-list.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/3/conversions/images-slider.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/3/images.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/4/conversions/pexels-photo-59519-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/4/conversions/pexels-photo-59519-popular.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/4/conversions/pexels-photo-59519-recommended.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/4/conversions/pexels-photo-59519-search-list.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/4/conversions/pexels-photo-59519-slider.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/4/pexels-photo-59519.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/5/conversions/travel-1-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/5/conversions/travel-1-popular.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/5/conversions/travel-1-recommended.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/5/conversions/travel-1-search-list.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/5/conversions/travel-1-slider.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/public/media/5/travel-1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/database/migrations/2020_01_18_134920_create_media_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/app/Http/Controllers/PackageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/app/Http/Controllers/PackageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/database/migrations/2020_01_16_205812_create_packages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/database/migrations/2020_01_16_205812_create_packages_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/resources/views/package/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/resources/views/package/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PackageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PackageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/holiday-top-destination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/holiday-top-destination.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/recomanded-holidays.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/contact-us-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/contact-us-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/head.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/top-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/top-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -200,7 +240,7 @@
       <workItem from="1580834827502" duration="10193000" />
       <workItem from="1580912284666" duration="12793000" />
       <workItem from="1581239766872" duration="24475000" />
-      <workItem from="1581613209016" duration="8360000" />
+      <workItem from="1581613209016" duration="18108000" />
     </task>
     <servers />
   </component>

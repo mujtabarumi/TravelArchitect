@@ -63,7 +63,12 @@
 <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5e35298602ce8300122c7875&product=sticky-share-buttons"></script>
 <!—- ShareThis END -—>
 
+<style>
+    #st-2 {
+        top: 350px !important;
+    }
 
+</style>
 
 @stack('styles')
 

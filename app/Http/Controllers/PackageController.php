@@ -33,7 +33,7 @@ class PackageController extends Controller
         return view('package.details', compact('package'));
     }
 
-    public function getAllPackageLists(Request $request) {
+    public function getAllPackageLists(Request $request,$packageType = null) {
 
         $allPackages = Package::where('status',PackageStatus::PUBLISHED);
 
@@ -46,7 +46,13 @@ class PackageController extends Controller
 
 
         $package_budget = $request->get('package_budget');
-        $package_types = $request->get('package_types');
+
+        if (!blank($packageType)) {
+            $package_types = $packageType;
+        } else {
+            $package_types = $request->get('package_types');
+        }
+
         $package_themes = $request->get('package_themes');
 
         if (!blank($package_budget) && $package_budget !="") {

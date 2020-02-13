@@ -72,14 +72,22 @@
                                                 </li>
                                             @endif
                                             <li class="next list-inline-item float-right">
-                                                @if($package->steps >= \App\Enums\PackageStep::ITINERARIES && $package->status == \App\Enums\PackageStatus::DRAFT)
+                                                @if($package->steps == \App\Enums\PackageStep::MEDIA && $package->status == \App\Enums\PackageStatus::DRAFT)
                                                     <button type="submit" id="publishBtn" name="status" value="{{ \App\Enums\PackageStatus::PUBLISHED }}" class="btn btn-success">{{__("Publish")}}</button>
                                                 @elseif($package->status == \App\Enums\PackageStatus::PUBLISHED)
                                                     <button type="submit" name="status" value="{{ \App\Enums\PackageStatus::ARCHIVED }}" class="btn btn-outline-primary">{{__("Mark As Archive")}}</button>
                                                 @elseif($package->status == \App\Enums\PackageStatus::ARCHIVED)
                                                     <button type="submit" id="publishBtn" name="status" value="{{ \App\Enums\PackageStatus::REPUBLISHED }}" class="btn btn-success">{{__("Publish Again")}}</button>
                                                 @endif
-                                                <button type="submit" class="btn btn-primary">{{__("Save and continue")}}</button>
+
+{{--                                                @if($package->steps == \App\Enums\PackageStep::MEDIA)--}}
+{{--                                                    <button type="submit" class="btn btn-primary">{{__("Save")}}</button>--}}
+{{--                                                @else--}}
+{{--                                                    <button type="submit" class="btn btn-primary">{{__("Save and continue")}}</button>--}}
+{{--                                                @endif--}}
+
+                                                    <button type="submit" class="btn btn-primary">{{__("Save and continue")}}</button>
+
                                             </li>
                                         </ul>
 
