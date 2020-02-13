@@ -22,7 +22,7 @@ class CreatePeopleSearchFlightsTable extends Migration
             $table->date('return_date')->nullable();
             $table->integer('adult_travelers_count')->nullable();
             $table->integer('child_travelers_count')->nullable();
-            $table->integer('class_type')->nullable();
+            $table->string('class_type')->nullable();
 
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name')->nullable();

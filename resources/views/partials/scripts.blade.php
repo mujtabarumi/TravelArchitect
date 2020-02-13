@@ -22,6 +22,7 @@
 {{--<!-- /GetButton.io widget -->--}}
 
 <!-- GetButton.io widget -->
+
 <script type="text/javascript">
     (function () {
         var options = {
@@ -67,7 +68,7 @@
     }
 </script>
 <!-- /GetButton.io widget -->
->>>>>>> f1ea88841e1fe0813cd4cebc8529f580df359453
+
 <!-- Load Scripts -->
 <script src="{{asset("/assets/js/respond.js")}}"></script>
 <script src="{{asset("/assets/js/jquery.js")}}"></script>
