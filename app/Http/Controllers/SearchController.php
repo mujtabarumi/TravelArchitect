@@ -43,7 +43,7 @@ class SearchController extends Controller
         $holiday->departure_to = $r->pack_destination_city_to;
         $holiday->duration = $r->holiday_duration;
         $holiday->departure_date = Carbon::parse($r->package_start)->format('Y-m-d');
-        $holiday->theme_type = json_encode($r->package_type);
+        $holiday->theme_type = json_encode(array($r->package_type));
         $holiday->package_type_id ='1';
         $holiday->budget = $r->package_budget;
         if (!empty(Auth::user()->id)) {
@@ -64,7 +64,7 @@ class SearchController extends Controller
         $tour->departure_to = $r->pack_destination_city_to;
         $tour->duration = $r->holiday_duration;
         $tour->departure_date = Carbon::parse($r->package_start)->format('Y-m-d');
-        $tour->theme_type = json_encode($r->package_type);
+        $tour->theme_type = json_encode(array($r->package_type));
         $tour->package_type_id ='2';
         $tour->budget = $r->package_budget;
         if (!empty(Auth::user()->id)) {
