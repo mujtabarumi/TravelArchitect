@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewSearchPackage;
 use App\Models\PeopleSearchFlight;
 use App\Models\PeopleSearchPackage;
 use Carbon\Carbon;
@@ -34,18 +35,24 @@ class SearchController extends Controller
         $flight->email = $r->email;
         $flight->mobile_number = $r->phone;
         $flight->save();
+
+
+        event(new NewSearchPackage($flight));
+
         return back();
 
     }
 
     public function insertsearchholiday(Request $r){
 
+        //dd(json_encode($r->package_type));
+
         $holiday = new PeopleSearchPackage();
         $holiday->departure_from = $r->pack_departure_city_from;
         $holiday->departure_to = $r->pack_destination_city_to;
         $holiday->duration = $r->holiday_duration;
         $holiday->departure_date = Carbon::parse($r->package_start)->format('Y-m-d');
-        $holiday->theme_type = json_encode(array($r->package_type));
+        $holiday->theme_type = json_encode($r->package_type);
         $holiday->package_type_id ='1';
         $holiday->budget = $r->package_budget;
         if (!empty(Auth::user()->id)) {
@@ -55,6 +62,9 @@ class SearchController extends Controller
         $holiday->email = $r->email;
         $holiday->mobile_number = $r->phone;
         $holiday->save();
+
+        event(new NewSearchPackage($holiday));
+
         return back();
     }
 
@@ -66,7 +76,7 @@ class SearchController extends Controller
         $tour->departure_to = $r->pack_destination_city_to;
         $tour->duration = $r->holiday_duration;
         $tour->departure_date = Carbon::parse($r->package_start)->format('Y-m-d');
-        $tour->theme_type = json_encode(array($r->package_type));
+        $tour->theme_type = json_encode($r->package_type);
         $tour->package_type_id ='2';
         $tour->budget = $r->package_budget;
         if (!empty(Auth::user()->id)) {
@@ -76,6 +86,9 @@ class SearchController extends Controller
         $tour->email = $r->email;
         $tour->mobile_number = $r->phone;
         $tour->save();
+
+        event(new NewSearchPackage($tour));
+
         return back();
     }
 

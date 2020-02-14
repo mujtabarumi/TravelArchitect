@@ -20,6 +20,25 @@
     .select2-container {
         width: 100% !important;
     }
+    .select2-container--default .select2-selection--multiple {
+        background-color: transparent !important;
+        border: 1px solid #BEC4C8;
+        border-radius: 0;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        /*color: #07253F;*/
+        color: #fff;
+        display: block;
+        font-size: 15px;
+        height: 40px;
+        line-height: 1.42857;
+        padding: 6px 12px;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        width: 100% !important;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #007bff;
+        border-color: #006fe6;
+    }
 
 </style>
 <!-- BEGIN: SEARCH SECTION -->
@@ -194,13 +213,19 @@
                                 </select>
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">
-                                <label>Package Type(Optional)</label><br>
-                                <select class="selectpicker" name="package_type">
-                                    <option value="Group">Group</option>
-                                    <option value="Family">Family</option>
-                                    <option value="Individual">Individual</option>
-                                    <option value="Honeymoon"> Honeymoon</option>
+                                <label>Package Theme(Optional)</label><br>
+                                <select class="form-control search select2" multiple required id="package_type_holiday" name="package_type[]">
+                                    @foreach($packageThemes as $p_t)
+                                        <option value="{{$p_t->name}}">{{$p_t->name}}</option>
+                                    @endforeach
+
                                 </select>
+{{--                                <select class="selectpicker" name="package_type">--}}
+{{--                                    <option value="Group">Group</option>--}}
+{{--                                    <option value="Family">Family</option>--}}
+{{--                                    <option value="Individual">Individual</option>--}}
+{{--                                    <option value="Honeymoon"> Honeymoon</option>--}}
+{{--                                </select>--}}
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>Budget(Optional)</label><br>
@@ -284,13 +309,19 @@
                                 </select>
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">
-                                <label>Package Type(Optional)</label><br>
-                                <select class="selectpicker" name="package_type">
-                                    <option value="Group">Group</option>
-                                    <option value="Family">Family</option>
-                                    <option value="Individual">Individual</option>
-                                    <option value="Honeymoon"> Honeymoon</option>
+                                <label>Package Theme(Optional)</label><br>
+                                <select class="form-control search select2" required id="package_type_tour" multiple name="package_type[]">
+                                    @foreach($packageThemes as $p_t)
+                                        <option value="{{$p_t->name}}">{{$p_t->name}}</option>
+                                    @endforeach
                                 </select>
+
+{{--                                <select class="selectpicker" name="package_type">--}}
+{{--                                    <option value="Group">Group</option>--}}
+{{--                                    <option value="Family">Family</option>--}}
+{{--                                    <option value="Individual">Individual</option>--}}
+{{--                                    <option value="Honeymoon"> Honeymoon</option>--}}
+{{--                                </select>--}}
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>Budget(Optional)</label><br>
@@ -369,8 +400,16 @@
         addSelect2Ajax('#pack_departure_city_from_tour','{{route('ajax.city')}}', null, {
             'tags' : false
         });
+
         addSelect2Ajax('#pack_destination_city_to_tour','{{route('ajax.city')}}', null, {
             'tags' : false
+        });
+
+        $('#package_type_holiday').select2({
+            tags: false
+        });
+        $('#package_type_tour').select2({
+            tags: false,
         });
 
     });

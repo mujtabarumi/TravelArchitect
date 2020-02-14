@@ -62,7 +62,7 @@
 <!—- ShareThis BEGIN -—>
 <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5e35298602ce8300122c7875&product=sticky-share-buttons"></script>
 <!—- ShareThis END -—>
-
+<link rel="stylesheet" href="{{url('public/assets/libs/toastr/toastr.min.css')}}">
 <style>
     #st-2 {
         top: 350px !important;

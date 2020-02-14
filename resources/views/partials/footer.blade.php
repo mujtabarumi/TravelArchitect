@@ -5,7 +5,8 @@
         <div class="row main-footer-sub">
             <div class="container clear-padding">
                 <div class="col-md-7 col-sm-7">
-                    <form >
+                    <form method="post" action="{{route('coming-soon')}}">
+                        @csrf
                         <label>SUBSCRIBE TO OUR NEWSLETTER</label>
                         <div class="clearfix"></div>
                         <div class="col-md-9 col-sm-8 col-xs-6 clear-padding">
@@ -61,17 +62,20 @@
                 <div class="col-md-3 col-sm-6 links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><a href="#">Flights</a></li>
-                        <li><a href="#">Tours</a></li>
-                        <li><a href="#">Holidays</a></li>
+
+                        <li><a href="{{route('package.lists',['package-type' => \App\Enums\PackageType::TOUR])}}">Tours</a></li>
+                        <li><a href="{{route('package.lists',['packageType' => \App\Enums\PackageType::HOLIDAY])}}">Holidays</a></li>
 
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6 contact-box">
                     <h4>Contact Us</h4>
-                    <p><i class="fa fa-home"></i> Street #156 Burbank, Studio City Hollywood, California USA</p>
-                    <p><i class="fa fa-phone"></i> +91 1234567890</p>
-                    <p><i class="fa fa-envelope-o"></i> support@domain.com</p>
+                    <p><i class="fa fa-home"></i>
+                        Navana Cordelia, Road:17, House: 61 (Level: 3), Block: C, Banani,
+                        Dhaka, Bangladesh
+                    </p>
+                    <p><i class="fa fa-phone"></i> +880 1730-206887</p>
+                    <p><i class="fa fa-envelope-o"></i>travelarchitectbd@gmail.com</p>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-md-12 text-center we-accept">
@@ -85,17 +89,18 @@
                 </div>
             </div>
         </div>
+
         <div class="main-footer-nav row">
             <div class="container clear-padding">
                 <div class="col-md-6 col-sm-6">
-                    <p>Copyright &copy; 2019 TravelArchitect.com. All Rights Reserved.</p>
+                    <p>Copyright &copy; {{ date('Y') }} {{ config('app.name') }}. {{__('All rights reserved.')}}</p>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <ul>
-                        <li><a href="#">FLIGHTS</a></li>
-                        <li><a href="#">TOURS</a></li>
-                        <li><a href="#">CARS</a></li>
-                        <li><a href="#">HOTELS</a></li>
+
+                        <li><a href="{{route('package.lists',['package-type' => \App\Enums\PackageType::TOUR])}}">Tours</a></li>
+                        <li><a href="{{route('package.lists',['packageType' => \App\Enums\PackageType::HOLIDAY])}}">Holidays</a></li>
+
                     </ul>
                 </div>
                 <div class="go-up">

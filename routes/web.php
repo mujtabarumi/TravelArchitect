@@ -25,6 +25,7 @@
 
     Route::prefix('ajax')->group(function (){
         Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
+        Route::get('/package-themes','GlobalSearchController@searchPackageThemes')->name('ajax.packageTheme');
     });
 
 Route::get('/','HomeController@index')->name('home');
@@ -34,4 +35,11 @@ Route::post('search/autocomplete', 'HomeController@autocomplete')->name('search/
 Route::post('search/insertflightquery', 'SearchController@insertsearchflights')->name('insertsearchflight');
 Route::post('search/insertholidayquery', 'SearchController@insertsearchholiday')->name('insertsearchholiday');
 Route::post('search/inserttourquery', 'SearchController@insertsearchtours')->name('insertsearchtours');
+
+
+Route::post('contact-us', 'EmailController@contactUs')->name('contactUs');
+
+Route::match(array('GET', 'POST'), 'coming-soon', function () {
+    return redirect()->back()->with('warning', 'This feature will be available soon');
+})->name('coming-soon');
 

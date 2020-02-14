@@ -1,6 +1,14 @@
 @extends('layout.main')
 @push('styles')
+<style>
+    .product-grid-view img {
+        margin: 15px 20px;
+    }
+    .hotel-list-view img {
+        margin: 10px;
+    }
 
+</style>
 @endpush
 
 @section('content')
@@ -132,7 +140,7 @@
 {{--                                </div>--}}
                                 <div class="room-book-box">
                                     <div class="book">
-                                        <a href="#">BOOK</a>
+                                        <a href="{{route('coming-soon')}}">BOOK</a>
                                     </div>
                                 </div>
                             </div>

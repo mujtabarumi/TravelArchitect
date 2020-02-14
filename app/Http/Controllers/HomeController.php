@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\PackageStatus;
 use App\Models\City;
 use App\Models\Package;
+use App\Models\PackageTheme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -18,7 +19,9 @@ class HomeController extends Controller
         $popularHolidays = Package::where('popular',1)->where('status',PackageStatus::PUBLISHED)->take(15)->get();
         $recommendedHolidays = Package::where('recommended',1)->where('status',PackageStatus::PUBLISHED)->take(12)->get();
 
-        return view('layout.view',compact('popularHolidays','recommendedHolidays'));
+        $packageThemes = PackageTheme::all();
+
+        return view('layout.view',compact('popularHolidays','recommendedHolidays','packageThemes'));
     }
 
     public function autocomplete(){

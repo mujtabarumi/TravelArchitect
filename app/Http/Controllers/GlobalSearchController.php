@@ -77,49 +77,51 @@ class GlobalSearchController extends Controller
 
     public function saveMetaData(Request $request) {
 
-    $this->validate($request,[
-        "name" => "required",
-        "type" => "required"
-    ]);
+        $this->validate($request,[
+            "name" => "required",
+            "type" => "required"
+        ]);
 
-    $name = $request->get('name');
-    $type = $request->get('type');
-    $modelId = null;
-    $text = null;
-    $parentId = $request->get('parent_id');
+        $name = $request->get('name');
+        $type = $request->get('type');
+        $modelId = null;
+        $text = null;
+        $parentId = $request->get('parent_id');
 
-    switch ($type) {
+        switch ($type) {
 
-        case 'state':
-            $country = Country::findOrFail($parentId);
+            case 'state':
+                $country = Country::findOrFail($parentId);
 
-            $model = State::firstOrCreate([ 'name' => $name, 'country_id' => $country->id]);
+                $model = State::firstOrCreate([ 'name' => $name, 'country_id' => $country->id]);
 
-            if (!blank($model)) {
-                $modelId = $model->id;
-                $text = $model->name;
-            }
-            break;
+                if (!blank($model)) {
+                    $modelId = $model->id;
+                    $text = $model->name;
+                }
+                break;
 
-        case 'city':
-            $state = State::findOrFail($parentId);
+            case 'city':
+                $state = State::findOrFail($parentId);
 
-            $model = City::firstOrCreate([ 'name' => $name, 'state_id' => $state->id]);
+                $model = City::firstOrCreate([ 'name' => $name, 'state_id' => $state->id]);
 
-            if (!blank($model)) {
-                $modelId = $model->id;
-                $text = $model->name;
-            }
-            break;
+                if (!blank($model)) {
+                    $modelId = $model->id;
+                    $text = $model->name;
+                }
+                break;
 
+        }
+
+        return response()->json([
+            "success" => true,
+            "data" => [
+                'text' => $text,
+                'value' => $modelId
+            ]
+        ], 200);
     }
 
-    return response()->json([
-        "success" => true,
-        "data" => [
-            'text' => $text,
-            'value' => $modelId
-        ]
-    ], 200);
-}
+
 }

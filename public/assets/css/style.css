@@ -1,5 +1,5 @@
 /*********************************************************
-			1. GENERAL STYLES 
+			1. GENERAL STYLES
 **********************************************************/
 body, html {
 	font-family: 'Open Sans', sans-serif;
@@ -2273,7 +2273,6 @@ h5 {
 .hotel-list-view  img{
 	max-width: 100%;
 	min-height: 200px;
-	padding: 15px;
 }
 .hotel-list-view .hotel-info {
 	border-right: 1px solid #e6e6e6;
@@ -7049,7 +7048,7 @@ h5 {
 .element-tab .nav > li > a:focus {
 	background-color: transparent;
 	border: none;
-} 
+}
 .element-tab .tab-style1 {
 	border: none;
 }
@@ -7073,7 +7072,7 @@ h5 {
 	-webkit-transform: rotate(45deg);
     width: 15px;
 }
-.tab-style1  > li.active > a, 
+.tab-style1  > li.active > a,
 .tab-style1  > li.active > a:focus,
 .tab-style1  > li.active > a:hover {
 	color: #fff;
@@ -7309,12 +7308,12 @@ h5 {
 	font-weight: 700;
 }
 .product-grid-view .room-book-box .book  {
-	float: left;
+    margin: auto;
     padding: 10px 0;
     width: 40%;
 }
 .product-grid-view .room-book-box .book a {
-	background: #f2676b;
+	background: #ffde59 !important;
 	color: #ffffff;
     font-weight: bold;
     padding: 5px 15px;

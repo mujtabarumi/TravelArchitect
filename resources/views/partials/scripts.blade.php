@@ -107,6 +107,41 @@
 <script type="text/javascript" src="{{asset("/assets/plugins/supersized.3.1.3.min.js")}}"></script>
 <script src="{{asset("/assets/js/js.js")}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script src="{{url('public/assets/libs/toastr/toastr.min.js')}}"></script>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+    @if(session()->has('success'))
+    toastr.success('{{session('success')}}');
+    @endif
+    @if(session()->has('error'))
+    toastr.error('{{session('error')}}');
+    @endif
+    @if(session()->has('warning'))
+    toastr.warning('{{session('warning')}}');
+    @endif
+</script>
 
 @stack('scripts')
 

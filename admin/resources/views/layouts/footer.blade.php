@@ -4,7 +4,7 @@
 
 </footer>
 
-</div>
+
 
 
 <script src="{{url('public')}}/assets/plugins/jquery/jquery.min.js"></script>

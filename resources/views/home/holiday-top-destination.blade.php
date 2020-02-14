@@ -3,7 +3,7 @@
     <div class="container clear-padding">
         <div class="section-title text-center">
             <h2 style="align-content: center">Holidays in popular cities</h2>
-            <strong class="mr-0"><a style="float: right" href="{{route('package.lists')}}" target="_blank">See all <i class="fa fa-angle-right"></i></a></strong>
+            <strong class="mr-0"><a style="float: right" href="{{route('package.lists')}}">See all <i class="fa fa-angle-right"></i></a></strong>
         </div>
         <div class="row block-container">
             <div class="row">

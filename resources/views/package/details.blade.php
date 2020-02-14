@@ -1,7 +1,9 @@
 @extends('layout.main')
 @push('styles')
     <style>
-
+        .carousel-inner {
+            max-height: 500px !important;
+        }
 
     </style>
 @endpush
@@ -66,16 +68,16 @@
                     <div class="carousel-inner" role="listbox">
 
                         <div class="item active">
-                            <img style="height: 100%;width: 100%;" src="@if($slider1) {{url('admin'."/".$slider1->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-1">
+                            <img style="height: 500px;width: 100%;opacity: 1;object-fit: cover;" src="@if($slider1) {{url('admin'."/".$slider1->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-1">
                         </div>
                         <div class="item">
-                            <img style="height: 100%;width: 100%;" src="@if($slider2) {{url('admin'."/".$slider2->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-2">
+                            <img style="height: 500px;width: 100%;opacity: 1;object-fit: cover;" src="@if($slider2) {{url('admin'."/".$slider2->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-2">
                         </div>
                         <div class="item">
-                            <img style="height: 100%;width: 100%;" src="@if($slider3) {{url('admin'."/".$slider3->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-3">
+                            <img style="height: 500px;width: 100%;opacity: 1;object-fit: cover;" src="@if($slider3) {{url('admin'."/".$slider3->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-3">
                         </div>
                         <div class="item">
-                            <img style="height: 100%;width: 100%;" src="@if($slider4) {{url('admin'."/".$slider3->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-4">
+                            <img style="height: 500px;width: 100%;opacity: 1;object-fit: cover;" src="@if($slider4) {{url('admin'."/".$slider3->getUrl())}} @else {{url('/assets/images/holiday-slide4.jpg')}} @endif" alt="{{$package->title}} Slider-4">
                         </div>
 
 
@@ -409,7 +411,7 @@
 
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-6 book">
-                                <a href="#">BOOK NOW</a>
+                                <a href="{{route('coming-soon')}}">BOOK NOW</a>
                             </div>
                         </div>
                     </div>
@@ -417,7 +419,8 @@
                     <div class="sidebar-booking-box">
                         <h3 class="text-center">MAKE A BOOKING</h3>
                         <div class="booking-box-body">
-                            <form >
+                            <form method="post" action="{{route('coming-soon')}}">
+                                @csrf
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label>Start</label>
                                     <div class="input-group margin-bottom-sm">
@@ -501,9 +504,9 @@
                         <h4><i class="fa fa-phone"></i> Need Assistance</h4>
                         <div class="assitance-body text-center">
                             <h5>Need Help? Call us or drop a message. Our agents will be in touch shortly.</h5>
-                            <h2>+91 1234567890</h2>
+                            <h2>+880 1730-206887</h2>
                             <h3>Or</h3>
-                            <a href="mailto:info@yourdomain.com"><i class="fa fa-envelope-o"></i> Email Us</a>
+                            <a href="mailto:travelarchitectbd@gmail.com"><i class="fa fa-envelope-o"></i> Email Us</a>
                         </div>
                     </div>
                     {{--                    <div class="review sidebar-item">--}}
