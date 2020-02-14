@@ -87,6 +87,7 @@ function addMultipleSelect2Ajax($el, $url, $changeCallback, data) {
     });
 
 }
+
 const ModalMetaData = {
     selector: "[data-meta-modal]",
 

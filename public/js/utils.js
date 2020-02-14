@@ -28,65 +28,6 @@ function addSelect2Ajax($element, $url, $changeCallback, data) {
 
 }
 
-function addSelect2AjaxExp($element, $url, $changeCallback, data) {
-    var placeHolder = $($element).data('placeholder');
-
-    if (typeof $changeCallback == 'function') {
-        $($element).change($changeCallback)
-    }
-
-    return $($element).select2({
-        ...data,
-        placeholder: placeHolder,
-        ajax: {
-            url: $url,
-            data: function (params) {
-                return {
-                    keyword: params.term,
-                }
-            },
-            processResults: function (data) {
-                return {
-                    results: $.map(data, function (obj, index) {
-                        return {id: obj.value, text: obj.text};
-                    })
-                };
-            }
-        }
-    });
-
-}
-
-function addMultipleSelect2Ajax($el, $url, $changeCallback, data) {
-    $($el).each(function (index, $element) {
-        var placeHolder = $($element).data('placeholder');
-        if (typeof $changeCallback == 'function') {
-            $($element).change($changeCallback)
-        }
-
-        return $($element).select2({
-            ...data,
-            placeholder: placeHolder,
-            ajax: {
-                url: $url,
-                data: function (params) {
-                    return {
-                        keyword: params.term,
-                    }
-                },
-                processResults: function (data) {
-                    return {
-                        results: $.map(data, function (obj, index) {
-                            return {id: obj.name, text: obj.name};
-                        })
-                    };
-                }
-            }
-        });
-
-    });
-
-}
 const ModalMetaData = {
     selector: "[data-meta-modal]",
 

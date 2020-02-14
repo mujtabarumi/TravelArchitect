@@ -16,14 +16,5 @@
 
 @push('scripts')
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            addSelect2Ajax('#From','{{route('ajax.city')}}', null, {
-                'tags' : false
-            });
-            addSelect2Ajax('#To','{{route('ajax.city')}}', null, {
-                'tags' : false
-            });
-        });
-    </script>
+
 @endpush

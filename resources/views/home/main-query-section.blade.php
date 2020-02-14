@@ -12,11 +12,15 @@
         line-height: 1.42857;
         padding: 6px 12px;
         transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-        width: 100%;
+        width: 100% !important;
     }
     .select2-container--default .select2-selection--single .select2-selection__rendered {
         color: #fff;
     }
+    .select2-container {
+        width: 100% !important;
+    }
+
 </style>
 <!-- BEGIN: SEARCH SECTION -->
 <div class="row bottom-search">
@@ -154,14 +158,21 @@
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>From</label>
                                 <div class="input-group">
-                                    <input type="text" name="pack_departure_city_from" class="form-control" required placeholder="E.g. New York">
+{{--                                    <input type="text" name="pack_departure_city_from" class="form-control" required placeholder="E.g. New York">--}}
+                                    <select class="form-control select2" id="pack_departure_city_from" required name="pack_departure_city_from" data-placeholder="E.g. London">
+
+                                    </select>
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>I Want To Go</label>
                                 <div class="input-group">
-                                    <input type="text" name="pack_destination_city_to" class="form-control" required placeholder="E.g. New York">
+{{--                                    <input type="text" name="pack_destination_city_to" class="form-control" required placeholder="E.g. New York">--}}
+                                    <select class="form-control select2" id="pack_destination_city_to" required name="pack_destination_city_to" data-placeholder="E.g. London">
+
+                                    </select>
+
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
                             </div>
@@ -230,67 +241,6 @@
                     </div>
                     <!-- END: HOLIDAYS -->
 
-                    <!-- START: CAR SEARCH -->
-{{--                    <div role="tabpanel" class="tab-pane" id="taxi">--}}
-{{--                        <form >--}}
-{{--                            <div class="col-md-12 product-search-title">Search Perfect Car</div>--}}
-{{--                            <div class="col-md-4 col-sm-4 search-col-padding">--}}
-{{--                                <label>Pick Up Location</label>--}}
-{{--                                <div class="input-group">--}}
-{{--                                    <input type="text" name="departure-city" class="form-control" required placeholder="E.g. New York">--}}
-{{--                                    <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-4 col-sm-4 search-col-padding">--}}
-{{--                                <label>Drop Off Location</label>--}}
-{{--                                <div class="input-group">--}}
-{{--                                    <input type="text" name="destination-city" class="form-control" required placeholder="E.g. New York">--}}
-{{--                                    <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-4 col-sm-4 search-col-padding">--}}
-{{--                                <label>Pick Up Date</label>--}}
-{{--                                <div class="input-group">--}}
-{{--                                    <input type="text" id="car_start" class="form-control" placeholder="MM/DD/YYYY">--}}
-{{--                                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="clearfix"></div>--}}
-{{--                            <div class="col-md-4 col-sm-4 search-col-padding">--}}
-{{--                                <label>Pick Off Date</label>--}}
-{{--                                <div class="input-group">--}}
-{{--                                    <input type="text" id="car_end" class="form-control" placeholder="MM/DD/YYYY">--}}
-{{--                                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-4 col-sm-4 search-col-padding">--}}
-{{--                                <label>Car Brnad(Optional)</label><br>--}}
-{{--                                <select class="selectpicker" name="brand">--}}
-{{--                                    <option>BMW</option>--}}
-{{--                                    <option>Audi</option>--}}
-{{--                                    <option>Mercedes</option>--}}
-{{--                                    <option>Suzuki</option>--}}
-{{--                                    <option>Honda</option>--}}
-{{--                                    <option>Hyundai</option>--}}
-{{--                                    <option>Toyota</option>--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-4 col-sm-4 search-col-padding">--}}
-{{--                                <label>Car Type(Optional)</label><br>--}}
-{{--                                <select class="selectpicker" name="car_type">--}}
-{{--                                    <option>Limo</option>--}}
-{{--                                    <option>Sedan</option>--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
-{{--                            <div class="clearfix"></div>--}}
-{{--                            <div class="col-md-12 search-col-padding">--}}
-{{--                                <button type="submit" class="search-button btn transition-effect">Search Cars</button>--}}
-{{--                            </div>--}}
-{{--                            <div class="clearfix"></div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-                    <!-- END: CAR SEARCH -->
-
                     <!-- START: CRUISE SEARCH -->
                     <div role="tabpanel" class="tab-pane" id="cruise">
                         <form action="{{route('insertsearchtours')}}" method="post">
@@ -299,14 +249,20 @@
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>From</label>
                                 <div class="input-group">
-                                    <input type="text" name="pack_departure_city_from" class="form-control" required placeholder="E.g. New York">
+{{--                                    <input type="text" name="pack_departure_city_from" class="form-control" required placeholder="E.g. New York">--}}
+                                    <select class="form-control select2" id="pack_departure_city_from_tour" required name="pack_departure_city_from" data-placeholder="E.g. London">
+
+                                    </select>
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 search-col-padding">
                                 <label>I Want To Go</label>
                                 <div class="input-group">
-                                    <input type="text" name="pack_destination_city_to" class="form-control" required placeholder="E.g. New York">
+{{--                                    <input type="text" name="pack_destination_city_to" class="form-control" required placeholder="E.g. New York">--}}
+                                    <select class="form-control select2" id="pack_destination_city_to_tour" required name="pack_destination_city_to" data-placeholder="E.g. London">
+
+                                    </select>
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
                             </div>
@@ -386,10 +342,6 @@
 
 
 
-
-    </div>
-
-
 <script>
     $(document).ready(function(){
         $('#open-box, #close-box').click(function(){
@@ -400,5 +352,26 @@
             $(".shot-overlay, .close-outside").toggle();
             $("body").toggleClass("noscroll");
         });
+
+        addSelect2Ajax('#From','{{route('ajax.city')}}', null, {
+            'tags' : false
+        });
+        addSelect2Ajax('#To','{{route('ajax.city')}}', null, {
+            'tags' : false
+        });
+
+        addSelect2Ajax('#pack_departure_city_from','{{route('ajax.city')}}', null, {
+            'tags' : false
+        });
+        addSelect2Ajax('#pack_destination_city_to','{{route('ajax.city')}}', null, {
+            'tags' : false
+        });
+        addSelect2Ajax('#pack_departure_city_from_tour','{{route('ajax.city')}}', null, {
+            'tags' : false
+        });
+        addSelect2Ajax('#pack_destination_city_to_tour','{{route('ajax.city')}}', null, {
+            'tags' : false
+        });
+
     });
 </script>
