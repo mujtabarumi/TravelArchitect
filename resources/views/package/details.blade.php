@@ -12,6 +12,7 @@
         $package_meta = json_decode($package->meta);
         $package_places = data_get($package_meta,'places',[]);
 
+        $cover_image = $package->getMedia('cover_photo')->first();
         $p_pImage = $package->getMedia('slider_images');
         $slider1  = $p_pImage->where('order_column', 1)->first();
         $slider2  = $p_pImage->where('order_column', 2)->first();
@@ -32,19 +33,18 @@
     @endphp
 
     <!-- START: PAGE TITLE -->
-    <div class="row page-title">
+    <div style="background-repeat: no-repeat;background-size: cover;background-image: @if($cover_image) url('{{url('admin'."/".$cover_image->getUrl())}}') @else url('{{url('assets/images/bg-image16.jpg')}}') @endif;" class="row page-title">
         <div class="container clear-padding text-center">
             <h3>{{strtoupper($package->title)}}</h3>
             <h4>{{$package->duration}}</h4>
             @if (!blank($package_places))
                 <span>
                     @foreach($package_places as $p_p)
-                        @if($loop->first)
-                            {{$p_p}}
-                        @endif
-                        <i class="fa fa-long-arrow-right"></i> {{$p_p}} <i class="fa fa-long-arrow-right"></i>
+
                         @if($loop->last)
                             {{$p_p}}
+                        @else
+                            {{$p_p}} <i class="fa fa-long-arrow-right"></i>
                         @endif
                     @endforeach
                 </span>

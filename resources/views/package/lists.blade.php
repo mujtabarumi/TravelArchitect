@@ -64,13 +64,16 @@
                             $p_image = $package->getMedia('slider_images');
                             $slider1  = $p_image->where('order_column', 1)->first();
                             $inclutions = json_decode(data_get($package, 'inclusion'));
+                            if (blank($inclutions)) {
+                             $inclutions = [];
+                            }
                             $package_meta = json_decode($package->meta);
                             $package_costs = data_get($package_meta,'package_cost',[]);
                         @endphp
                     <div onclick="location.href='{{route('package.details',['package' => $package->id])}}';" style="cursor: pointer;" class="hotel-list-view">
                         <div class="wrapper">
                             <div class="col-md-4 col-sm-6 switch-img clear-padding">
-                                <img style="height: 133px;width: 200px" src="@if($slider1) {{url('admin'."/".$slider1->getUrl('search-list'))}} @else {{url('assets/images/tour3.jpg')}} @endif" alt="{{$package->title}}">
+                                <img style="height: 133px;width: 200px" src="@if($slider1) {{url('admin'."/".$slider1->getUrl())}} @else {{url('assets/images/tour3.jpg')}} @endif" alt="{{$package->title}}">
                             </div>
                             <div class="col-md-6 col-sm-6 hotel-info">
                                 <div>
@@ -83,6 +86,7 @@
                                     </div>
                                     <div class="hotel-facility">
                                         <p>
+
                                             @foreach($inclutions as $inc)
                                                 <i class="fa fa-asterisk"></i>{{$inc}}
                                             @endforeach

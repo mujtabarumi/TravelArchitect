@@ -12,6 +12,7 @@ use App\Models\PackageItineraryInclude;
 use App\Models\PackageType;
 use App\Models\State;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -215,30 +216,90 @@ class PackageServices
         return $package;
     }
 
-    public function updateMedia(Package $package, $request) {
+//    public function updateMedia(Package $package, $request) {
+//
+//        if($request->hasFile('cover_photo')){
+//
+//            $this->addFileMediaToCollection($package, 'cover_photo', $request->file('cover_photo'));
+//           // $package->addMediaFromRequest('cover_photo')->toMediaCollection('cover_photo');
+//        }
+//
+//        $slider = $package->getMedia('slider_images');
+//
+//        if($request->hasFile('showcase_case_1')){
+//            $image1 = $slider->where('order_column', 1)->first();
+//
+//            if (!blank($image1)) {
+//                $image1->delete();
+//            }
+//
+//            $showcase_photo_1 = $request->file('showcase_case_1');
+//            $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_1, 1);
+////            $package->addMediaFromRequest('slider_images')->toMediaCollection('slider_images');
+//        }
+//
+//
+//        if($request->hasFile('showcase_case_2')){
+//
+//            $image2 = $slider->where('order_column', 2)->first();
+//
+//            if (!blank($image2)) {
+//                $image2->delete();
+//            }
+//
+//            $showcase_photo_2 = $request->file('showcase_case_2');
+//            $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_2, 2);
+//            //$package->addMediaFromRequest('slider_images')->toMediaCollection('slider_images');
+//        }
+//
+//        if($request->hasFile('showcase_case_3')){
+//            $image3 = $slider->where('order_column', 3)->first();
+//
+//            if (!blank($image3)) {
+//                $image3->delete();
+//            }
+//
+//            $showcase_photo_3 = $request->file('showcase_case_3');
+//            $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_3, 3);
+//        }
+//
+//        if($request->hasFile('showcase_case_4')){
+//            $image4 = $slider->where('order_column', 4)->first();
+//
+//            if (!blank($image4)) {
+//                $image4->delete();
+//            }
+//
+//            $showcase_photo_4 = $request->file('showcase_case_4');
+//            $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_4, 4);
+//        }
+//
+//
+//    }
 
-        if($request->hasFile('cover_photo')){
+    public function savePackageImages(Request $request, Package $package) {
 
-            $this->addFileMediaToCollection($package, 'cover_photo', $request->file('cover_photo'));
-           // $package->addMediaFromRequest('cover_photo')->toMediaCollection('cover_photo');
+        if($request->get('cover_photo')){
+
+            $this->addFileMediaToCollection($package, 'cover_photo', $request->get('cover_photo'));
         }
 
         $slider = $package->getMedia('slider_images');
 
-        if($request->hasFile('showcase_case_1')){
+        if($request->get('package_showcase_case_1')){
             $image1 = $slider->where('order_column', 1)->first();
 
             if (!blank($image1)) {
                 $image1->delete();
             }
 
-            $showcase_photo_1 = $request->file('showcase_case_1');
+            $showcase_photo_1 = $request->get('package_showcase_case_1');
             $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_1, 1);
-//            $package->addMediaFromRequest('slider_images')->toMediaCollection('slider_images');
+
         }
 
 
-        if($request->hasFile('showcase_case_2')){
+        if($request->get('package_showcase_case_2')){
 
             $image2 = $slider->where('order_column', 2)->first();
 
@@ -246,40 +307,39 @@ class PackageServices
                 $image2->delete();
             }
 
-            $showcase_photo_2 = $request->file('showcase_case_2');
+            $showcase_photo_2 = $request->get('package_showcase_case_2');
             $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_2, 2);
-            //$package->addMediaFromRequest('slider_images')->toMediaCollection('slider_images');
+
         }
 
-        if($request->hasFile('showcase_case_3')){
+        if($request->get('package_showcase_case_3')){
             $image3 = $slider->where('order_column', 3)->first();
 
             if (!blank($image3)) {
                 $image3->delete();
             }
 
-            $showcase_photo_3 = $request->file('showcase_case_3');
+            $showcase_photo_3 = $request->get('package_showcase_case_3');
             $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_3, 3);
         }
 
-        if($request->hasFile('showcase_case_4')){
+        if($request->get('package_showcase_case_4')){
             $image4 = $slider->where('order_column', 4)->first();
 
             if (!blank($image4)) {
                 $image4->delete();
             }
 
-            $showcase_photo_4 = $request->file('showcase_case_4');
+            $showcase_photo_4 = $request->get('package_showcase_case_4');
             $this->addFileMediaToCollection($package, 'slider_images', $showcase_photo_4, 4);
         }
-
 
     }
 
     public function addFileMediaToCollection($model, $collectionName, $file, $order = null)
     {
         $media = $model->addMedia($file)->toMediaCollection($collectionName);
-        //dd($media);
+
         if (!blank($order) && ($media instanceof Media)) {
             $media->update([
                 'order_column' => $order

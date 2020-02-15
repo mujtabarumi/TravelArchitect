@@ -17,7 +17,7 @@ class CreatePeopleSearchFlightsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('departure_from');
             $table->unsignedBigInteger('departure_to');
-            $table->string('trip_type');
+            $table->string('trip_type')->nullable();
             $table->date('departure_date')->nullable();
             $table->date('return_date')->nullable();
             $table->integer('adult_travelers_count')->nullable();

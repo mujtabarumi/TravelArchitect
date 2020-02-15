@@ -44,6 +44,7 @@ Route::prefix('ajax')->group(function (){
     Route::get('/state/{country}','GlobalSearchController@searchState')->name('ajax.state');
     Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
     Route::post('/save/meta-data','GlobalSearchController@saveMetaData')->name('save.meta.data');
+    Route::post('/save/settings/image','PackageController@savePackageImage')->name('save.settings.image');
 
 });
 

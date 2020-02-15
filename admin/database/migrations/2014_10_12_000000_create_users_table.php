@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('marital_status')->nullable();
             $table->string('spouse_name')->nullable();
             $table->string('occupation')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

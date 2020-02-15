@@ -20,8 +20,9 @@
 
                         <div class="col-md-3">
                             <div onclick="location.href = '{{route('package.details',['package' => $ph->id])}}' ;" class="block fw hh"
-                                 style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl('popular'))}}') @else url('{{url('assets/images/tour1.jpg')}}') @endif;
-                                background-repeat: no-repeat;
+                                 style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl())}}') @else url('{{url('assets/images/tour1.jpg')}}') @endif;
+                                     background-repeat: no-repeat;
+                                     background-size: cover;
                                 ">
                                 <div class="city overlay">
                                     <div class="text"><p> {{$ph->address->city->name}} </p>

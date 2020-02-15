@@ -10,6 +10,7 @@ use App\Models\Package;
 use App\Services\PackageServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\Models\Media;
 
 
 class PackageController extends Controller
@@ -126,7 +127,7 @@ class PackageController extends Controller
                 $this->packageService->updateItineraries($package, $request);
                 break;
             case PackageStep::MEDIA:
-                $this->packageService->updateMedia($package, $request);
+               // $this->packageService->updateMedia($package, $request);
                 break;
 
         }
@@ -230,6 +231,43 @@ class PackageController extends Controller
         $package->delete();
         return redirect()->back()->with('success', __('Package deleted successfully. :) '));
     }
+
+    public function savePackageImage(Request $request)
+    {
+        $this->validate($request, [
+            'target' => 'required',
+            'file' => ['required','image'],
+            'package_id' => 'required|numeric'
+        ]);
+
+        if ($request->hasFile('file')) {
+            $request->request->add([ $request->get('target') => $request->file('file')]);
+            $request->offsetUnset('file');
+            $request->offsetUnset('target');
+
+            $package = Package::findOrFail($request->get('package_id'));
+
+            $service = $this->packageService->savePackageImages($request, $package);
+
+
+        }
+
+        return response()->json([
+            'success' => true
+        ], 200);
+    }
+
+    public function addFileMediaToCollection($model, $collectionName, $file, $order = null)
+    {
+        $media = $model->addMedia($file)->toMediaCollection($collectionName);
+        //dd($media);
+        if (!blank($order) && ($media instanceof Media)) {
+            $media->update([
+                'order_column' => $order
+            ]);
+        }
+    }
+
 
 
 

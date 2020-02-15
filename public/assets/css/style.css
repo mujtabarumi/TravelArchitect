@@ -3073,10 +3073,9 @@ h5 {
 			20. hotel-detailed.html CSS Start
 *********************************************************************************/
 .page-title {
-	background: url('../images/bg-image16.jpg');
+
 	padding: 60px 0px;
-	background-attachment: fixed;
-	background-size: contain;
+
 	color: #ffffff;
 }
 .page-title h3 {

@@ -79,34 +79,39 @@ class Package extends Model implements HasMedia
         $this->addMediaCollection('slider_images');
     }
 
-    public function registerMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('popular')
-            ->width(270)
-            ->height(120)
-            ->sharpen(10);
-
-        $this->addMediaConversion('recommended')
-            ->width(265)
-            ->height(420)
-            ->sharpen(10);
-
-        $this->addMediaConversion('slider')
-            ->width(742)
-            ->height(300)
-            ->sharpen(10);
-
-        $this->addMediaConversion('banner')
-            ->width(1350)
-            ->height(230)
-            ->sharpen(10);
-
-        $this->addMediaConversion('search-list')
-            ->width(200)
-            ->height(133)
-            ->sharpen(10);
-
-    }
+//    public function registerMediaConversions(Media $media = null)
+//    {
+//        $this->addMediaConversion('popular')
+//            ->width(270)
+//            ->height(120)
+//            ->nonQueued()
+//            ->performOnCollections('slider_images');
+//
+//        $this->addMediaConversion('recommended')
+//            ->width(265)
+//            ->height(420)
+//            ->nonQueued()
+//            ->performOnCollections('slider_images');
+//
+//        $this->addMediaConversion('slider')
+//            ->width(740)
+//            ->height(500)
+//            ->nonQueued()
+//            ->performOnCollections('slider_images');
+//
+//        $this->addMediaConversion('banner')
+//            ->width(1348)
+//            ->height(230)
+//            ->nonQueued()
+//            ->performOnCollections('cover_photo');
+//
+//        $this->addMediaConversion('search-list')
+//            ->width(200)
+//            ->height(133)
+//            ->nonQueued()
+//            ->performOnCollections('slider_images');
+//
+//    }
 
     /*
      *  All attributes are starts form here
