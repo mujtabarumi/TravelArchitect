@@ -28,7 +28,7 @@ function addSelect2Ajax($element, $url, $changeCallback, data) {
 
 }
 
-function addSelect2AjaxExp($element, $url, $changeCallback, data) {
+function addSelect2AjaxAddress($element, $url, $changeCallback, data) {
     var placeHolder = $($element).data('placeholder');
 
     if (typeof $changeCallback == 'function') {
@@ -48,7 +48,7 @@ function addSelect2AjaxExp($element, $url, $changeCallback, data) {
             processResults: function (data) {
                 return {
                     results: $.map(data, function (obj, index) {
-                        return {id: obj.value, text: obj.text};
+                        return {id: obj.id, text: obj.name};
                     })
                 };
             }

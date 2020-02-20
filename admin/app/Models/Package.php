@@ -49,7 +49,8 @@ class Package extends Model implements HasMedia
         'created_at',
         'updated_at',
         'status',
-        'steps'
+        'steps',
+        'meta'
     ];
 
     public function itineraries()

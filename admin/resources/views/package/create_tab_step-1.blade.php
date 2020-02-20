@@ -7,26 +7,47 @@
         $packageTheme = json_decode($packageTheme);
     }
     $budget = oldOrElse('budget', $tabData);
-    $recommended = oldOrElse('recommended', $tabData);
-    $popular = oldOrElse('popular', $tabData);
+
     $air_price_included = oldOrElse('air_price_included', $tabData);
     $departure_date = oldOrElse('departure_date', $tabData);
     $valid_from = oldOrElse('valid_from', $tabData);
     $valid_till = oldOrElse('valid_till', $tabData);
     $is_everyday_departs = oldOrElse('is_everyday_departs', $tabData);
 
-    $countryId = old('address.country', data_get($tabData,'address.country_id'));
-    $stateId = old('address.state',data_get($tabData,'address.state_id'));
-    $cityId = old('address.city',data_get($tabData,'address.city_id'));
-
-    $selectedCountry = null;
-    $selectedState = null;
-    $selectedCity = null;
     $selectedPackageType = null;
 
     if (!blank($packageTypeId)) {
         $selectedPackageType = \App\Models\PackageType::find($packageTypeId);
     }
+
+    $package_address = old('meta.address', data_get($tabData,'meta.address',[]));
+
+    $selectedCountries = array();
+
+    $selectedCities = array();
+
+    if (!blank($package_address)) {
+        $country = data_get($package_address,'country',[]);
+        $city = data_get($package_address,'city',[]);
+        if (!blank($country)) {
+            foreach ($country as $co) {
+                $dataCo = \App\Models\Country::find($co);
+                array_push($selectedCountries,$dataCo);
+            }
+        }
+        if (!blank($city)) {
+            foreach ($city as $ci) {
+                $dataCi = \App\Models\City::find($ci);
+                array_push($selectedCities,$dataCi);
+            }
+        }
+    }
+
+  /*  $countryId = old('address.country', data_get($tabData,'address.country_id'));
+    $stateId = old('address.state',data_get($tabData,'address.state_id'));
+    $cityId = old('address.city',data_get($tabData,'address.city_id'));
+
+
 
     if (!blank($countryId)) {
         $selectedCountry = \App\Models\Country::find($countryId);
@@ -34,7 +55,7 @@
             $selectedState = $selectedCountry->states->where('id',$stateId)->first();
 
         }
-    }
+    }*/
 
 @endphp
 @push('styles')
@@ -117,107 +138,107 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group mb-3">
-                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">
-                    <label class="col-form-label">{{__("Country")}}</label>
-                </div>
-                <select class="form-control select2" id="country" name="address[country]" data-placeholder="{{__("Select Country")}}">
-                    @if(!blank($selectedCountry))
-                        <option value="{{ $selectedCountry->id }}"> {{ $selectedCountry->name }}</option>
-                    @endif
-                </select>
-                @component('components.input-validation-error',['field' => 'address.country']) @endcomponent
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group mb-3">
+{{--    <div class="row">--}}
+{{--        <div class="col-md-6">--}}
+{{--            <div class="form-group mb-3">--}}
+{{--                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">--}}
+{{--                    <label class="col-form-label">{{__("Country")}}</label>--}}
+{{--                </div>--}}
+{{--                <select class="form-control select2" id="country" name="address[country]" data-placeholder="{{__("Select Country")}}">--}}
+{{--                    @if(!blank($selectedCountry))--}}
+{{--                        <option value="{{ $selectedCountry->id }}"> {{ $selectedCountry->name }}</option>--}}
+{{--                    @endif--}}
+{{--                </select>--}}
+{{--                @component('components.input-validation-error',['field' => 'address.country']) @endcomponent--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-6">--}}
+{{--            <div class="form-group mb-3">--}}
 
-                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">
-                    <label>{{__("State")}}</label> <small class="pull-right">
-                        <a href="javascript:void(0)" id="addState"
-                           data-meta-modal="#create_meta_data"
-                           data-meta-modal-url="{{ route('save.meta.data') }}"
-                           data-meta-modal-title="{{__("Create new state")}}"
-                           data-meta-modal-placeholder="{{__("New state")}}"
-                           data-meta-modal-type="state"
-                           data-meta-option-id="#state"
-                           data-meta-parent="country"
-                           data-meta-parent-id="#country"
-                           class="text-primary add-category"><i class="ti ti-plus"></i>{{__("Add State")}}</a>
-                    </small>
-                </div>
+{{--                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">--}}
+{{--                    <label>{{__("State")}}</label> <small class="pull-right">--}}
+{{--                        <a href="javascript:void(0)" id="addState"--}}
+{{--                           data-meta-modal="#create_meta_data"--}}
+{{--                           data-meta-modal-url="{{ route('save.meta.data') }}"--}}
+{{--                           data-meta-modal-title="{{__("Create new state")}}"--}}
+{{--                           data-meta-modal-placeholder="{{__("New state")}}"--}}
+{{--                           data-meta-modal-type="state"--}}
+{{--                           data-meta-option-id="#state"--}}
+{{--                           data-meta-parent="country"--}}
+{{--                           data-meta-parent-id="#country"--}}
+{{--                           class="text-primary add-category"><i class="ti ti-plus"></i>{{__("Add State")}}</a>--}}
+{{--                    </small>--}}
+{{--                </div>--}}
 
 
-                <select class="form-control select2" id="state" name="address[state]" data-placeholder="{{__("Select State")}}">
-                    @if(!blank($selectedState))
-                        <option value="{{ $selectedState->id }}">{{ $selectedState->name }}</option>
-                    @endif
-                </select>
-                @component('components.input-validation-error',['field' => 'address.state']) @endcomponent
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group mb-3">
-                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">
-                    <label>{{__("City")}}*</label> <small class="pull-right">
-                        <a href="javascript:void(0)" id="addCity"
-                           data-meta-modal="#create_meta_data"
-                           data-meta-modal-url="{{ route('save.meta.data') }}"
-                           data-meta-modal-title="{{__("Create new city")}}"
-                           data-meta-modal-placeholder="{{__("New city")}}"
-                           data-meta-modal-type="city"
-                           data-meta-option-id="#city"
-                           data-meta-parent="state"
-                           data-meta-parent-id="#state"
-                           class="text-primary add-category"><i class="ti ti-plus"></i>{{__("Add City")}}</a>
-                    </small>
-                </div>
+{{--                <select class="form-control select2" id="state" name="address[state]" data-placeholder="{{__("Select State")}}">--}}
+{{--                    @if(!blank($selectedState))--}}
+{{--                        <option value="{{ $selectedState->id }}">{{ $selectedState->name }}</option>--}}
+{{--                    @endif--}}
+{{--                </select>--}}
+{{--                @component('components.input-validation-error',['field' => 'address.state']) @endcomponent--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="row">--}}
+{{--        <div class="col-md-6">--}}
+{{--            <div class="form-group mb-3">--}}
+{{--                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">--}}
+{{--                    <label>{{__("City")}}*</label> <small class="pull-right">--}}
+{{--                        <a href="javascript:void(0)" id="addCity"--}}
+{{--                           data-meta-modal="#create_meta_data"--}}
+{{--                           data-meta-modal-url="{{ route('save.meta.data') }}"--}}
+{{--                           data-meta-modal-title="{{__("Create new city")}}"--}}
+{{--                           data-meta-modal-placeholder="{{__("New city")}}"--}}
+{{--                           data-meta-modal-type="city"--}}
+{{--                           data-meta-option-id="#city"--}}
+{{--                           data-meta-parent="state"--}}
+{{--                           data-meta-parent-id="#state"--}}
+{{--                           class="text-primary add-category"><i class="ti ti-plus"></i>{{__("Add City")}}</a>--}}
+{{--                    </small>--}}
+{{--                </div>--}}
 
-                <select class="form-control select2" required id="city" name="address[city]" data-placeholder="{{__("Select City")}}">
-                    @if(!blank($selectedState) && !blank($cityId))
-                        @foreach($selectedState->cities as $city)
-                            <option value="{{ $city->id }}" {{ ($city->id == $cityId) ? "selected" : "" }}>{{ $city->name }}</option>
-                        @endforeach
-                    @endif
-                </select>
-                @component('components.input-validation-error',['field' => 'address.city']) @endcomponent
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="title-from-input d-flex justify-content-between">
-                <label class="col-form-label">{{__("Quick Infos")}}</label>
-                @component('components.input-validation-error',['field' => 'recommended']) @endcomponent
-                @component('components.input-validation-error',['field' => 'popular']) @endcomponent
+{{--                <select class="form-control select2" required id="city" name="address[city]" data-placeholder="{{__("Select City")}}">--}}
+{{--                    @if(!blank($selectedState) && !blank($cityId))--}}
+{{--                        @foreach($selectedState->cities as $city)--}}
+{{--                            <option value="{{ $city->id }}" {{ ($city->id == $cityId) ? "selected" : "" }}>{{ $city->name }}</option>--}}
+{{--                        @endforeach--}}
+{{--                    @endif--}}
+{{--                </select>--}}
+{{--                @component('components.input-validation-error',['field' => 'address.city']) @endcomponent--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-6">--}}
+{{--            <div class="title-from-input d-flex justify-content-between">--}}
+{{--                <label class="col-form-label">{{__("Quick Infos")}}</label>--}}
+{{--                @component('components.input-validation-error',['field' => 'recommended']) @endcomponent--}}
+{{--                @component('components.input-validation-error',['field' => 'popular']) @endcomponent--}}
 
-            </div>
-            <div class="table table-responsive quick-info">
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>
-                            <label class="form-check-label" for="recommended">{{__("Is Recomanded")}}</label>
-                        </td>
-                        <td class="border-right">
-                            <input type='hidden' value='0' name='recommended'>
-                            <input type="checkbox" {{ oldOrElse('recommended', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="recommended" id="recommended">
-                        </td>
-                        <td>
-                            <label class="form-check-label" for="popular">{{__("Is Popular")}}</label>
-                        </td>
-                        <td>
-                            <input type='hidden' value='0' name='popular'>
-                            <input type="checkbox" {{ oldOrElse('popular', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="popular" id="popular">
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+{{--            </div>--}}
+{{--            <div class="table table-responsive quick-info">--}}
+{{--                <table class="table">--}}
+{{--                    <tbody>--}}
+{{--                    <tr>--}}
+{{--                        <td>--}}
+{{--                            <label class="form-check-label" for="recommended">{{__("Is Recomanded")}}</label>--}}
+{{--                        </td>--}}
+{{--                        <td class="border-right">--}}
+{{--                            <input type='hidden' value='0' name='recommended'>--}}
+{{--                            <input type="checkbox" {{ oldOrElse('recommended', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="recommended" id="recommended">--}}
+{{--                        </td>--}}
+{{--                        <td>--}}
+{{--                            <label class="form-check-label" for="popular">{{__("Is Popular")}}</label>--}}
+{{--                        </td>--}}
+{{--                        <td>--}}
+{{--                            <input type='hidden' value='0' name='popular'>--}}
+{{--                            <input type="checkbox" {{ oldOrElse('popular', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="popular" id="popular">--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                    </tbody>--}}
+{{--                </table>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="row">
         <div class="col-md-6">
             <div class="form-group mb-3">
@@ -267,6 +288,39 @@
             </div>
         </div>
     </div>
+{{-- address --}}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">
+                    <label>Country*</label>
+                </div>
+                <select class="form-control select2" id="country" name="meta[address][country][]" multiple data-placeholder="{{__("Select Country")}}">
+                    @if(!blank($selectedCountries))
+                        @foreach($selectedCountries as $sco)
+                            <option selected value="{{$sco->id}}">{{$sco->name}}</option>
+                        @endforeach
+                    @endif
+                </select>
+                @component('components.input-validation-error',['field' => 'meta.address.country']) @endcomponent
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">
+                    <label>city*</label>
+                </div>
+                <select class="form-control select2" id="city" name="meta[address][city][]" multiple data-placeholder="{{__("Select City")}}">
+                    @if(!blank($selectedCities))
+                        @foreach($selectedCities as $sci)
+                            <option selected value="{{$sci->id}}">{{$sci->name}}</option>
+                        @endforeach
+                    @endif
+                </select>
+                @component('components.input-validation-error',['field' => 'meta.address.city']) @endcomponent
+            </div>
+        </div>
+    </div>
 </div>
 
 @push('scripts')
@@ -281,25 +335,32 @@
                 startDate :date,
                 format: 'yyyy/mm/dd',
             });
+
             addSelect2Ajax('#package_type','{{route('ajax.package.type')}}', null, {
                 'tags' : true
             });
             addMultipleSelect2Ajax('#package_theme','{{route('ajax.package.theme')}}', null, {
                 'tags' : true
             });
-
-            addSelect2Ajax('#country', "{{ route('ajax.country') }}", function (e) {
-                var countryId = $(this).val();
-                $('#state').val("").trigger("change");
-                $('#city').val("").trigger("change");
-                var stateRoute = "{{ route('ajax.state',':id') }}".replace(':id',countryId);
-                addSelect2Ajax('#state', stateRoute, function (e) {
-                    var stateId = $(this).val();
-                    $('#city').val("").trigger("change");
-                    var cityRoute = "{{ route('ajax.city',[':country',':state']) }}".replace(":country",countryId).replace(':state',stateId);
-                    addSelect2Ajax('#city',cityRoute,null,{ 'tags' : true });
-                },{ 'tags' : true })
+            addSelect2AjaxAddress('#country','{{route('ajax.country')}}', null, {
+                'tags' : false,"multiple" : true
             });
+            addSelect2AjaxAddress('#city','{{route('ajax.allCity')}}', null, {
+                'tags' : false,"multiple" : true
+            });
+
+            {{--addSelect2Ajax('#country', "{{ route('ajax.country') }}", function (e) {--}}
+            {{--    var countryId = $(this).val();--}}
+            {{--    $('#state').val("").trigger("change");--}}
+            {{--    $('#city').val("").trigger("change");--}}
+            {{--    var stateRoute = "{{ route('ajax.state',':id') }}".replace(':id',countryId);--}}
+            {{--    addSelect2Ajax('#state', stateRoute, function (e) {--}}
+            {{--        var stateId = $(this).val();--}}
+            {{--        $('#city').val("").trigger("change");--}}
+            {{--        var cityRoute = "{{ route('ajax.city',[':country',':state']) }}".replace(":country",countryId).replace(':state',stateId);--}}
+            {{--        addSelect2Ajax('#city',cityRoute,null,{ 'tags' : true });--}}
+            {{--    },{ 'tags' : true })--}}
+            {{--});--}}
         })
     </script>
 @endpush
