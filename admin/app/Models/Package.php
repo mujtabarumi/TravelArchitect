@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\PackageStatus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -77,6 +78,7 @@ class Package extends Model implements HasMedia
     public function registerMediaCollections()
     {
         $this->addMediaCollection('cover_photo')->singleFile();
+        $this->addMediaCollection('recomanded_images')->singleFile();
         $this->addMediaCollection('slider_images');
     }
 
@@ -132,5 +134,6 @@ class Package extends Model implements HasMedia
     {
         return $this->popular == 1;
     }
+
 
 }

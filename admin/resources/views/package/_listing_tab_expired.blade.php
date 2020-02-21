@@ -1,6 +1,6 @@
-<div role="tabpanel" class="tab-pane fade show active" id="draft_jobs">
+<div role="tabpanel" class="tab-pane fade show active" id="archived_jobs">
     @include('package._listing_search_add')
-    <div class="table-responsive bg-white mt-3 mb-4 draft_jobs">
+    <div class="table-responsive bg-white mt-3 mb-4 archived_jobs">
         <table class="table table-bordered mb-0">
             <thead>
             <tr>
@@ -8,7 +8,6 @@
                 <th style="width: 30%">{{__("Location")}}</th>
                 <th style="width: 15%">{{__("Duration")}}</th>
                 <th style="width: 10%">{{__("Budget")}}</th>
-                <th style="width: 15%">{{__("Expiry Date")}}</th>
                 <th style="width: 5%">{{__("Action")}}</th>
             </tr>
             </thead>
@@ -18,7 +17,6 @@
                     $package_address = data_get($package,'meta.address',[]);
                     $selectedCountries = array();
                     $selectedCities = array();
-
                     if (!blank($package_address)) {
                             $country = data_get($package_address,'country',[]);
                             $city = data_get($package_address,'city',[]);
@@ -37,8 +35,7 @@
                         }
 
                 @endphp
-
-                @if($package->status == \App\Enums\PackageStatus::DRAFT)
+                @if($package->status == \App\Enums\PackageStatus::EXPIRED)
                     <tr>
                         <td class="text-center">
                             {{ $package->title }}
@@ -65,13 +62,9 @@
                                     @endif
                                 @endforeach
                             @endif
-
                         </td>
                         <td class="text-center">{{ $package->duration }} </td>
                         <td class="text-center">{{ $package->budget }} </td>
-                        <td class="text-center">
-                            {{ $package->valid_till->format(config('travelarchitect.user.date_format')) }}
-                        </td>
                         <td class="text-center">
                             <div class="dropdown">
                                 <a href="javascript:void;" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-settings"></i></a>
@@ -93,6 +86,7 @@
         @endif
     </div>
 </div>
+
 @push('scripts')
     <script>
         $(function () {
@@ -108,9 +102,8 @@
 @endpush
 @push('styles')
     <style>
-        .draft_jobs table thead tr th {
+        .archived_jobs table thead tr th {
             text-align: center;
         }
-
     </style>
 @endpush
