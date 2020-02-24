@@ -130,6 +130,17 @@
                     </ul>
                 </li>
 
+                <li class="nav-item ">
+                    <a href="{{route('visaguide')}}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                           Visa Guide
+
+                        </p>
+                    </a>
+
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

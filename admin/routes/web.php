@@ -60,3 +60,9 @@ Route::post('/Search/holiday/view','GlobalSearchController@searchholidayview')->
 Route::get('/Search/tour','GlobalSearchController@searchtour')->name('search.tour');
 Route::post('/Search/tour','GlobalSearchController@searchtourgetdata')->name('search.tour.getdata');
 Route::post('/Search/tour/view','GlobalSearchController@searchtourview')->name('search.tour.view');
+
+Route::get('/visaguide','VisaGuideController@visaguide')->name('visaguide');
+Route::post('/visaguide/getdata','VisaGuideController@visaguidegetdata')->name('visaguide.getdata');
+Route::post('/visaguide/view','VisaGuideController@visaguideview')->name('visaguide.view');
+Route::get('/visaguide/add','VisaGuideController@visaguideadd')->name('visaguide.add');
+Route::post('/visaguide/insert','VisaGuideController@visaguideinsert')->name('visaguide.insert');
