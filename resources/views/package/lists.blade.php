@@ -5,7 +5,8 @@
         margin: 15px 20px;
     }
     .hotel-list-view img {
-        margin: 10px;
+        margin: 10px 15px;
+        padding: 0px !important;
     }
 
 </style>
@@ -61,28 +62,67 @@
                 <div class="switchable col-md-12 clear-padding">
                     @foreach($allPackages as $package)
                         @php
-                            $p_image = $package->getMedia('slider_images');
-                            $slider1  = $p_image->where('order_column', 1)->first();
+                            $p_image = $package->getMedia('list_images')->first();
+
                             $inclutions = json_decode(data_get($package, 'inclusion'));
                             if (blank($inclutions)) {
                              $inclutions = [];
                             }
                             $package_meta = json_decode($package->meta);
                             $package_costs = data_get($package_meta,'package_cost',[]);
+                            $package_address = data_get($package_meta,'address');
+                            $package_address_city = data_get($package_address,'city',[]);
+                            $package_address_country = data_get($package_address,'country',[]);
+
+                            $addressCountry = \App\Models\Country::select('countries.*')
+                                                ->whereIn('countries.id',$package_address_country)
+                                                ->distinct('countries.id')
+                                                ->orderBy('countries.name', 'ASC')
+                                                ->get();
+                            $addressCity = \App\Models\City::whereIn('id',$package_address_city)
+                                                ->distinct('id')
+                                                ->orderBy('name', 'ASC')
+                                                ->get();
+
                         @endphp
                     <div onclick="location.href='{{route('package.details',['package' => $package->id])}}';" style="cursor: pointer;" class="hotel-list-view">
                         <div class="wrapper">
                             <div class="col-md-4 col-sm-6 switch-img clear-padding">
-                                <img style="height: 133px;width: 200px" src="@if($slider1) {{url('admin'."/".$slider1->getUrl())}} @else {{url('assets/images/tour3.jpg')}} @endif" alt="{{$package->title}}">
+                                <img style="height: 200px;width: 200px" src="@if($p_image) {{url('admin'."/".$p_image->getUrl())}} @else {{url('assets/images/tour3.jpg')}} @endif" alt="{{$package->title}}">
                             </div>
                             <div class="col-md-6 col-sm-6 hotel-info">
                                 <div>
                                     <div class="hotel-header">
                                         <h5>{{$package->title}}</h5>
-                                        <p><i class="fa fa-map-marker">
+                                        <p>
+                                            <i class="fa fa-map-marker">
 
-                                            </i>{{$package->address->city->name.", ".$package->address->country->name}} &nbsp;
-                                            <i class="fa fa-calendar"></i>{{$package->duration}}</p>
+                                            </i>
+                                            @if(!blank($addressCountry))
+                                                @foreach($addressCountry as $ac)
+                                                    @if(!$loop->last)
+                                                        {{$ac->name}},
+                                                    @else
+                                                        {{$ac->name}}
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </p>
+                                        <p>
+                                            <i class="fa fa-map-marker">
+
+                                            </i>
+                                            @if(!blank($addressCity))
+                                                @foreach($addressCity as $acity)
+                                                    @if(!$loop->last)
+                                                        {{$acity->name}},
+                                                    @else
+                                                        {{$acity->name}}
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </p>
+                                        <p><i class="fa fa-calendar"></i>{{$package->duration}}</p>
                                     </div>
                                     <div class="hotel-facility">
                                         <p>

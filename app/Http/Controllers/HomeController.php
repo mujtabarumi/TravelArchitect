@@ -17,7 +17,8 @@ class HomeController extends Controller
     public function index(){
 
 
-        $popularHolidays = Package::where('popular',1)->where('status',PackageStatus::PUBLISHED)->take(15)->get();
+        $popularHolidays = Package::where('popular',1)->where('status',PackageStatus::PUBLISHED)->take(15)->get(); //not done
+
         $recommendedHolidays = Package::where('package_type_id',PackageType::HOLIDAY)->where('recommended',1)->where('status',PackageStatus::PUBLISHED)->take(12)->get();
         $recommendedTours = Package::where('package_type_id',PackageType::TOUR)->where('recommended',1)->where('status',PackageStatus::PUBLISHED)->take(12)->get();
 

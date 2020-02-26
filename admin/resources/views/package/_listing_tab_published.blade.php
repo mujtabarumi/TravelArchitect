@@ -7,7 +7,7 @@
                     <div class="alert alert-danger">{{__("No record found")}}</div>
                 @endif
                     @foreach($packages as $package)
-                        <div class="col-md-6">
+                        <div class="col-md-4">
 
                             @php
                                 $package_address = data_get($package,'meta.address',[]);

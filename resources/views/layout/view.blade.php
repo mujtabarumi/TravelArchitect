@@ -4,6 +4,9 @@
         .ui-autocomplete-input  a.sbiAnchor.ui-state-hover {
             background: blue;
         }
+        .top-offer {
+            padding: 30px 0 !important;
+        }
     </style>
 @endpush
 @section('content')

@@ -39,7 +39,7 @@ class SearchController extends Controller
 
         event(new NewSearchPackage($flight));
 
-        return back();
+        return back()->with('success', 'Your Query has submitted, Please Wait for the response :)');
 
     }
 
@@ -65,7 +65,7 @@ class SearchController extends Controller
 
         event(new NewSearchPackage($holiday));
 
-        return back();
+        return back()->with('success', 'Your Query has submitted, Please Wait for the response :)');
     }
 
     public function insertsearchtours(Request $r) {
@@ -89,7 +89,7 @@ class SearchController extends Controller
 
         event(new NewSearchPackage($tour));
 
-        return back();
+        return back()->with('success', 'Your Query has submitted, Please Wait for the response :)');
     }
 
 

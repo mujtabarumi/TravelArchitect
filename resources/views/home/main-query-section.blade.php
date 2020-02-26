@@ -183,7 +183,7 @@
                                 <label>From</label>
                                 <div class="input-group">
 {{--                                    <input type="text" name="pack_departure_city_from" class="form-control" required placeholder="E.g. New York">--}}
-                                    <select disabled class="form-control" id="pack_departure_city_from" required name="pack_departure_city_from" data-placeholder="E.g. London">
+                                    <select readonly class="form-control" id="pack_departure_city_from" required name="pack_departure_city_from" data-placeholder="E.g. London">
                                         @if(!blank($countryBD))
                                             @foreach($countryBD as $bd)
                                                 <option selected value="{{$bd->id}}">{{$bd->name}}</option>
@@ -284,7 +284,7 @@
                                 <label>From</label>
                                 <div class="input-group">
 {{--                                    <input type="text" name="pack_departure_city_from" class="form-control" required placeholder="E.g. New York">--}}
-                                    <select class="form-control" disabled id="pack_departure_city_from_tour" required name="pack_departure_city_from" data-placeholder="E.g. London">
+                                    <select class="form-control" readonly id="pack_departure_city_from_tour" required name="pack_departure_city_from" data-placeholder="E.g. London">
                                         @if(!blank($countryBD))
                                             @foreach($countryBD as $bd)
                                                 <option selected value="{{$bd->id}}">{{$bd->name}}</option>
