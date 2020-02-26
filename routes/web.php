@@ -25,6 +25,7 @@
 
     Route::prefix('ajax')->group(function (){
         Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
+        Route::get('/BD-city-search','GlobalSearchController@searchFromBdAllCity')->name('ajax.AllBdCity');
         Route::get('/package-themes','GlobalSearchController@searchPackageThemes')->name('ajax.packageTheme');
     });
 

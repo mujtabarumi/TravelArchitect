@@ -36,6 +36,11 @@ class PackageController extends Controller
             "step" => "step-4",
             'disabled' => false
         ],
+        PackageStep::ADDITIONAL => [
+            "title" => "Additional",
+            "step" => "step-5",
+            'disabled' => false
+        ],
     ];
     private $packageService;
 
@@ -129,6 +134,9 @@ class PackageController extends Controller
             case PackageStep::MEDIA:
                 $this->packageService->updateMediaRelatedInfo($package, $request);
                 break;
+            case PackageStep::ADDITIONAL:
+                $this->packageService->updateAdditionalInfo($package, $request);
+                break;
 
         }
 
@@ -200,7 +208,7 @@ class PackageController extends Controller
                 $query->where('title', 'like', "%$search%");
             }
 
-            $packages = $query->latest()->paginate(10)->appends($request->all());
+            $packages = $query->latest()->paginate(12)->appends($request->all());
 
             return view('package.listing', compact('packages', 'status', 'search', 'tabRoutes', 'param'));
         }

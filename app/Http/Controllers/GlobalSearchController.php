@@ -75,6 +75,20 @@ class GlobalSearchController extends Controller
 
     }
 
+    public function searchFromBdAllCity(Request $request)
+    {
+        $addressService = app(AddressService::class);
+        $keyword = $request->get('keyword');
+        $data = $addressService->searchFromBdAllCity($keyword)->map(function ($city){
+            return [
+                'id' => $city->id,
+                'name' => $city->name
+            ];
+        });
+        return response()->json($data);
+
+    }
+
     public function saveMetaData(Request $request) {
 
         $this->validate($request,[

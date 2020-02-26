@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\PackageStatus;
+use App\Enums\PackageType;
 use App\Models\City;
 use App\Models\Package;
 use App\Models\PackageTheme;
@@ -17,11 +18,12 @@ class HomeController extends Controller
 
 
         $popularHolidays = Package::where('popular',1)->where('status',PackageStatus::PUBLISHED)->take(15)->get();
-        $recommendedHolidays = Package::where('recommended',1)->where('status',PackageStatus::PUBLISHED)->take(12)->get();
+        $recommendedHolidays = Package::where('package_type_id',PackageType::HOLIDAY)->where('recommended',1)->where('status',PackageStatus::PUBLISHED)->take(12)->get();
+        $recommendedTours = Package::where('package_type_id',PackageType::TOUR)->where('recommended',1)->where('status',PackageStatus::PUBLISHED)->take(12)->get();
 
         $packageThemes = PackageTheme::all();
 
-        return view('layout.view',compact('popularHolidays','recommendedHolidays','packageThemes'));
+        return view('layout.view',compact('popularHolidays','recommendedHolidays','packageThemes','recommendedTours'));
     }
 
     public function autocomplete(){

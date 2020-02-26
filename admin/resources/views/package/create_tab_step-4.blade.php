@@ -3,9 +3,6 @@
 @endphp
 @push('styles')
     <style>
-        .card-body {
-            text-align: center;
-        }
         .package-cover-image {
             background-color: #2CA9FF;
             height: 315px;
@@ -27,6 +24,17 @@
         .package-recomanded .package-recomanded-single img {
             width: 265px !important;
             height: 420px !important;
+            opacity: 1;
+            object-fit: cover;
+        }
+        .package-list-single .btn {
+            position: absolute;
+            bottom: 30%;
+            right: 35%;
+        }
+        .package-list .package-list-single img {
+            width: 200px !important;
+            height: 200px !important;
             opacity: 1;
             object-fit: cover;
         }
@@ -102,7 +110,7 @@
     </div>
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body text-center">
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-12">
@@ -113,6 +121,7 @@
             </div>
             @php
                 $recomanded = $package->getMedia('recomanded_images')->first();
+                $list = $package->getMedia('list_images')->first();
             @endphp
             <div class="row">
                 <div class="col-md-4 col-lg-4 col-xl-4 mb-3 mb-lg-0 package-recomanded">
@@ -134,12 +143,28 @@
                     </div>
 
                 </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 mb-3 mb-lg-0 package-list">
+
+                    <div align="center">
+                        <b>Package Search page Image</b>
+                    </div>
+                    <div class="package-list-single @if(!$list) placeholder @endif">
+                        <!-- Use Class 'placeholder' also, only when any image is not uploaded -->
+                        <img style="width: 200px;height: 200px;" id="package_list_images_preview" @if($list) src="{{url('public'."/".$list->getUrl())}}" @else src="{{ url('public/packageImages/package-fallback.jpg')}}" @endif alt="">
+                        <!--Uploaded image -->
+                        <button type="button" class="btn btn-rounded btn-transparent btn-file">
+                            {{__("Change Photo")}}
+                            <input type="file" accept=".png, .jpg, .jpeg" class="changePhoto" data-name="package_list_images" name="list_images" id="package_list_images">
+                        </button>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
 
     <div class="card package-slider-images">
-        <div class="card-body">
+        <div class="card-body text-center">
             <div class="row">
                 <div class="col-md-12">
                     <h4 class="font-weight-normal mb-3"><b>{{$package->title}}</b> slider Images</h4>
@@ -285,6 +310,7 @@
                 const PACKAGE_SHOWCASE_3 = 'package_showcase_case_3';
                 const PACKAGE_SHOWCASE_4 = 'package_showcase_case_4';
                 const PACKAGE_RECOMAND_IMAGES = 'package_recomanded_images';
+                const PACKAGE_LIST_IMAGES = 'package_list_images';
 
 
                 const CROP_TARGET_CONFIG = {
@@ -318,6 +344,11 @@
                         input_id: '#package_recomanded_images',
                         target_id: '#package_recomanded_images_preview',
                         ...setConfig(265, 420, 265, 420)
+                    },
+                    [PACKAGE_LIST_IMAGES]: {
+                        input_id: '#package_list_images',
+                        target_id: '#package_list_images_preview',
+                        ...setConfig(200, 200, 200, 200)
                     },
                 };
                 let CROPPIE_OBJECT;

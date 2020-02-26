@@ -41,6 +41,11 @@
     }
 
 </style>
+@php
+    $countryBD = \App\Models\Country::select('countries.*')
+              ->where('countries.sort_name','BD')
+              ->get();
+@endphp
 <!-- BEGIN: SEARCH SECTION -->
 <div class="row bottom-search">
     <div class="container clear-padding">
@@ -48,13 +53,13 @@
             <div role="tabpanel">
                 <!-- BEGIN: CATEGORY TAB -->
                 <ul class="nav nav-tabs search-top" role="tablist" id="searchTab">
+{{--                    <li role="presentation" class="text-center">--}}
+{{--                        <a href="#flight" aria-controls="flight" role="tab" data-toggle="tab">--}}
+{{--                            <i class="fa fa-plane"></i>--}}
+{{--                            <span>FLIGHTS</SPAN>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     <li role="presentation" class="text-center active">
-                        <a href="#flight" aria-controls="flight" role="tab" data-toggle="tab">
-                            <i class="fa fa-plane"></i>
-                            <span>FLIGHTS</SPAN>
-                        </a>
-                    </li>
-                    <li role="presentation" class="text-center">
                         <a href="#holiday" aria-controls="holiday" role="tab" data-toggle="tab">
                             <i class="fa fa-suitcase"></i>
                             <span>HOLIDAYS</span>
@@ -72,7 +77,7 @@
                 <!-- BEGIN: TAB PANELS -->
                 <div class="tab-content">
                     <!-- BEGIN: FLIGHT SEARCH -->
-                    <div role="tabpanel" class="tab-pane active" id="flight">
+                    <div role="tabpanel" class="tab-pane" id="flight">
 
                         <form  action="{{route('insertsearchflight')}}" method="post">
                         {{csrf_field()}}
@@ -170,7 +175,7 @@
                     <!-- END: FLIGHT SEARCH -->
 
                     <!-- START: BEGIN HOLIDAY -->
-                    <div role="tabpanel" class="tab-pane" id="holiday">
+                    <div role="tabpanel" class="tab-pane active" id="holiday">
                         <form action="{{route('insertsearchholiday')}}" method="post">
                             {{csrf_field()}}
                             <!--                                <div class="col-md-12 product-search-title">Book Holiday Packages</div>-->
@@ -178,8 +183,12 @@
                                 <label>From</label>
                                 <div class="input-group">
 {{--                                    <input type="text" name="pack_departure_city_from" class="form-control" required placeholder="E.g. New York">--}}
-                                    <select class="form-control select2" id="pack_departure_city_from" required name="pack_departure_city_from" data-placeholder="E.g. London">
-
+                                    <select disabled class="form-control" id="pack_departure_city_from" required name="pack_departure_city_from" data-placeholder="E.g. London">
+                                        @if(!blank($countryBD))
+                                            @foreach($countryBD as $bd)
+                                                <option selected value="{{$bd->id}}">{{$bd->name}}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
@@ -275,8 +284,12 @@
                                 <label>From</label>
                                 <div class="input-group">
 {{--                                    <input type="text" name="pack_departure_city_from" class="form-control" required placeholder="E.g. New York">--}}
-                                    <select class="form-control select2" id="pack_departure_city_from_tour" required name="pack_departure_city_from" data-placeholder="E.g. London">
-
+                                    <select class="form-control" disabled id="pack_departure_city_from_tour" required name="pack_departure_city_from" data-placeholder="E.g. London">
+                                        @if(!blank($countryBD))
+                                            @foreach($countryBD as $bd)
+                                                <option selected value="{{$bd->id}}">{{$bd->name}}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                     <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
                                 </div>
@@ -391,13 +404,7 @@
             'tags' : false
         });
 
-        addSelect2Ajax('#pack_departure_city_from','{{route('ajax.city')}}', null, {
-            'tags' : false
-        });
         addSelect2Ajax('#pack_destination_city_to','{{route('ajax.city')}}', null, {
-            'tags' : false
-        });
-        addSelect2Ajax('#pack_departure_city_from_tour','{{route('ajax.city')}}', null, {
             'tags' : false
         });
 

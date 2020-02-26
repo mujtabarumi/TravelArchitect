@@ -92,6 +92,7 @@ class PackageServices
         $DETAILS = [];
         $ITINERARIES = [];
         $MEDIA = [];
+        $ADDITIONAL = [];
 
         if (blank($step) || $step == PackageStep::BASIC_INFORMATION) {
             $BASIC_INFORMATION = $package->only(['title','package_type_id','theme_map','valid_from','valid_till','recommended','address','meta',
@@ -116,12 +117,16 @@ class PackageServices
         if (blank($step) || $step == PackageStep::MEDIA) {
             $MEDIA = $package->only(['recommended']);
         }
+        if (blank($step) || $step == PackageStep::ADDITIONAL) {
+            $ADDITIONAL = $package->only(['additional_info','terms_and_conditions']);
+        }
 
         return [
             PackageStep::BASIC_INFORMATION => $BASIC_INFORMATION,
             PackageStep::DETAILS => $DETAILS,
             PackageStep::ITINERARIES => $ITINERARIES,
             PackageStep::MEDIA => $MEDIA,
+            PackageStep::ADDITIONAL => $ADDITIONAL,
         ];
     }
 
@@ -254,6 +259,17 @@ class PackageServices
 
     }
 
+    public function updateAdditionalInfo (Package $package, $request) {
+
+        $request = $request->all();
+
+        $data = Arr::only($request,['additional_info','terms_and_conditions']);
+
+        return $package->update($data);
+
+
+    }
+
 //    public function updateMedia(Package $package, $request) {
 //
 //        if($request->hasFile('cover_photo')){
@@ -324,6 +340,10 @@ class PackageServices
         if($request->get('package_recomanded_images')){
 
             $this->addFileMediaToCollection($package, 'recomanded_images', $request->get('package_recomanded_images'));
+        }
+        if($request->get('package_list_images')){
+
+            $this->addFileMediaToCollection($package, 'list_images', $request->get('package_list_images'));
         }
 
         $slider = $package->getMedia('slider_images');

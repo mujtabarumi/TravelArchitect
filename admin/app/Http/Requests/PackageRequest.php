@@ -39,6 +39,9 @@ class PackageRequest extends FormRequest
         ],
         PackageStep::MEDIA => [
 
+        ],
+        PackageStep::ADDITIONAL => [
+
         ]
     ];
 

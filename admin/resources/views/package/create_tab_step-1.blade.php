@@ -345,6 +345,7 @@
             addSelect2AjaxAddress('#country','{{route('ajax.country')}}', null, {
                 'tags' : false,"multiple" : true
             });
+
             addSelect2AjaxAddress('#city','{{route('ajax.allCity')}}', null, {
                 'tags' : false,"multiple" : true
             });

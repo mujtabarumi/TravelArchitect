@@ -14,9 +14,11 @@
         <td>@php
                 $data = json_decode($model->theme_type, true);
             @endphp
-            @foreach($data as $value)
-                {{$value}}
-            @endforeach
+            @if(!blank($data))
+                @foreach($data as $value)
+                    {{$value}}
+                @endforeach
+            @endif
 
         </td>
     </tr>
