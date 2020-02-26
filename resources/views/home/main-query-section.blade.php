@@ -397,18 +397,18 @@
             $("body").toggleClass("noscroll");
         });
 
-        addSelect2Ajax('#From','{{route('ajax.city')}}', null, {
-            'tags' : false
-        });
-        addSelect2Ajax('#To','{{route('ajax.city')}}', null, {
+        {{--addSelect2Ajax('#From','{{route('ajax.city')}}', null, {--}}
+        {{--    'tags' : false--}}
+        {{--});--}}
+        {{--addSelect2Ajax('#To','{{route('ajax.city')}}', null, {--}}
+        {{--    'tags' : false--}}
+        {{--});--}}
+
+        addSelect2Ajax('#pack_destination_city_to','{{route('ajax.getAllActivePackage.city')}}', null, {
             'tags' : false
         });
 
-        addSelect2Ajax('#pack_destination_city_to','{{route('ajax.city')}}', null, {
-            'tags' : false
-        });
-
-        addSelect2Ajax('#pack_destination_city_to_tour','{{route('ajax.city')}}', null, {
+        addSelect2Ajax('#pack_destination_city_to_tour','{{route('ajax.getAllActivePackage.city')}}', null, {
             'tags' : false
         });
 

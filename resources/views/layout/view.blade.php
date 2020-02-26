@@ -11,6 +11,7 @@
     @include('home.main-query-section')
     @include('home.holiday-top-destination', ['popularHolidays' => $popularHolidays])
     @include('home.recomanded-holidays',['recommendedHolidays' => $recommendedHolidays])
+    @include('home.recomanded-tours',['recommendedTours' => $recommendedTours])
 @endsection
 
 

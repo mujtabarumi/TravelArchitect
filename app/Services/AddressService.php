@@ -77,6 +77,31 @@ class AddressService
             ->get();
     }
 
+    public function searchFromAllActivePackagedCity($keyword) {
+
+        $allPackages = Package::where('status',PackageStatus::PUBLISHED)->pluck('meta');
+
+
+        $multiplied = $allPackages->map(function ($item, $key) {
+            $a = json_decode($item);
+            $ci = $a->address->city;
+            return $ci;
+        });
+
+        $activeCities = $multiplied->collapse();
+
+        return $allPackagedCountry = Country::select('cities.*',DB::raw("CONCAT(countries.name,'->',states.name,'->',cities.name) as name"))
+            ->leftJoin('states','states.country_id','countries.id')
+            ->leftJoin('cities','cities.state_id','states.id')
+            ->whereIn('cities.id',$activeCities)
+            ->distinct('countries.id')
+            ->where('cities.name','like',"%$keyword%")
+            ->take($this->searchLimit)
+            ->orderBy('cities.name', 'ASC')
+            ->get();
+
+    }
+
     public function create(array $data)
     {
         Address::create($data);
