@@ -195,9 +195,11 @@ class GlobalSearchController extends Controller
     }
     public function searchholidaygetdata(){
 
-        $model = PeopleSearchPackage::select('people_search_packages.id as searchId','a.name as departurefrom','b.name as departureto', 'departure_from', 'departure_to', 'departure_date','theme_type',  'budget','package_type_id', 'user_id', 'people_search_packages.name as searchname', 'people_search_packages.email as searchemail', 'people_search_packages.mobile_number as searchmobile',  'people_search_packages.created_at as searchcreate_at' , 'users.name as username')
+        $model = PeopleSearchPackage::select('people_search_packages.id as searchId','a.name as departurefrom','b.name as departureto', 'departure_from', 'departure_to',
+            'departure_date','theme_type',  'budget','package_type_id', 'user_id', 'people_search_packages.name as searchname', 'people_search_packages.email as searchemail',
+            'people_search_packages.mobile_number as searchmobile',  'people_search_packages.created_at as searchcreate_at' , 'users.name as username')
             ->leftjoin('users','user_id','users.id' )
-            ->leftjoin('cities as a','departure_from','a.id' )
+            ->leftjoin('countries as a','departure_from','a.id' )
             ->leftjoin('cities as b','departure_to','b.id' )
             ->where('package_type_id' , '1')
             ->get();
@@ -230,7 +232,7 @@ class GlobalSearchController extends Controller
     public function searchholidayview(Request $r){
         $model = PeopleSearchPackage::select('people_search_packages.id as searchId','a.name as departurefrom','b.name as departureto', 'departure_from', 'departure_to', 'departure_date','theme_type','package_type_id','package_types.name as typeName',  'budget','package_type_id', 'user_id', 'people_search_packages.name as searchname', 'people_search_packages.email as searchemail', 'people_search_packages.mobile_number as searchmobile',  'people_search_packages.created_at as searchcreate_at' , 'users.name as username')
             ->leftjoin('users','user_id','users.id' )
-            ->leftjoin('cities as a','departure_from','a.id' )
+            ->leftjoin('countries as a','departure_from','a.id' )
             ->leftjoin('cities as b','departure_to','b.id' )
             ->leftjoin('package_types','package_type_id','package_types.id' )
             ->where('people_search_packages.id', $r->id)
@@ -246,9 +248,11 @@ class GlobalSearchController extends Controller
     }
     public function searchtourgetdata(){
 
-        $model = PeopleSearchPackage::select('people_search_packages.id as searchId','a.name as departurefrom','b.name as departureto', 'departure_from', 'departure_to', 'departure_date','theme_type',  'budget','package_type_id', 'user_id', 'people_search_packages.name as searchname', 'people_search_packages.email as searchemail', 'people_search_packages.mobile_number as searchmobile',  'people_search_packages.created_at as searchcreate_at' , 'users.name as username')
+        $model = PeopleSearchPackage::select('people_search_packages.id as searchId','a.name as departurefrom','b.name as departureto', 'departure_from', 'departure_to',
+            'departure_date','theme_type',  'budget','package_type_id', 'user_id', 'people_search_packages.name as searchname', 'people_search_packages.email as searchemail',
+            'people_search_packages.mobile_number as searchmobile',  'people_search_packages.created_at as searchcreate_at' , 'users.name as username')
             ->leftjoin('users','user_id','users.id' )
-            ->leftjoin('cities as a','departure_from','a.id' )
+            ->leftjoin('countries as a','departure_from','a.id' )
             ->leftjoin('cities as b','departure_to','b.id' )
             ->where('package_type_id' , '2')
             ->get();
@@ -281,7 +285,7 @@ class GlobalSearchController extends Controller
     public function searchtourview(Request $r){
         $model = PeopleSearchPackage::select('people_search_packages.id as searchId','a.name as departurefrom','b.name as departureto', 'departure_from', 'departure_to', 'departure_date','theme_type','package_type_id','package_types.name as typeName',  'budget','package_type_id', 'user_id', 'people_search_packages.name as searchname', 'people_search_packages.email as searchemail', 'people_search_packages.mobile_number as searchmobile',  'people_search_packages.created_at as searchcreate_at' , 'users.name as username')
             ->leftjoin('users','user_id','users.id' )
-            ->leftjoin('cities as a','departure_from','a.id' )
+            ->leftjoin('countries as a','departure_from','a.id' )
             ->leftjoin('cities as b','departure_to','b.id' )
             ->leftjoin('package_types','package_type_id','package_types.id' )
             ->where('people_search_packages.id', $r->id)

@@ -8,5 +8,6 @@ interface PackageStep
     const DETAILS = 2;
     const ITINERARIES = 3;
     const MEDIA = 4;
+    const ADDITIONAL = 5;
 
 }

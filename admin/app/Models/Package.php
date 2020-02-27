@@ -35,6 +35,7 @@ class Package extends Model implements HasMedia
         'inclusion',
         'exclusion',
         'additional_info',
+        'terms_and_conditions',
         'package_type_id',
         'city_id',
         'theme_map',
@@ -79,6 +80,7 @@ class Package extends Model implements HasMedia
     {
         $this->addMediaCollection('cover_photo')->singleFile();
         $this->addMediaCollection('recomanded_images')->singleFile();
+        $this->addMediaCollection('list_images')->singleFile();
         $this->addMediaCollection('slider_images');
     }
 

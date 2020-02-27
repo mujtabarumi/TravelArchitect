@@ -11,9 +11,38 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('layout.view');
-//})->name('home');
+//Route::get('/test', function () {
+//
+//    $allPackages = \App\Models\Package::where('status',\App\Enums\PackageStatus::PUBLISHED)->pluck('meta');
+//
+//
+//    $multiplied = $allPackages->map(function ($item, $key) {
+//        $a = json_decode($item);
+//        $ci = $a->address->city;
+//        return $ci;
+//    });
+//
+//    $activeCities = $multiplied->collapse();
+//
+////    $cityArray = [];
+////
+////    foreach ($allPackages as $ap) {
+////        array_push($cityArray,[])
+////    }
+//
+//
+//
+//    return $allPackagedCountry = \App\Models\Country::select('cities.*',DB::raw("CONCAT(countries.name,'->',states.name,'->',cities.name) as name"))
+//        ->leftJoin('states','states.country_id','countries.id')
+//        ->leftJoin('cities','cities.state_id','states.id')
+//        ->whereIn('cities.id',$activeCities)
+//        ->distinct('countries.id')
+////        ->where('cities.name','like',"%$keyword%")
+////        ->take($this->searchLimit)
+//        ->orderBy('cities.name', 'ASC')
+//        ->get();
+//
+//});
 
     /*
     * Package related routes starts from here
@@ -25,6 +54,8 @@
 
     Route::prefix('ajax')->group(function (){
         Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
+//        Route::get('/BD-city-search','GlobalSearchController@searchFromBdAllCity')->name('ajax.AllBdCity');
+        Route::get('/BD-city-search','GlobalSearchController@searchFromAllActivePackagedCity')->name('ajax.getAllActivePackage.city');
         Route::get('/package-themes','GlobalSearchController@searchPackageThemes')->name('ajax.packageTheme');
     });
 

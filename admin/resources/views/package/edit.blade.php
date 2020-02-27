@@ -72,7 +72,7 @@
                                                 </li>
                                             @endif
                                             <li class="next list-inline-item float-right">
-                                                @if($package->steps == \App\Enums\PackageStep::MEDIA && $package->status == \App\Enums\PackageStatus::DRAFT)
+                                                @if($package->steps >= \App\Enums\PackageStep::MEDIA && $package->status == \App\Enums\PackageStatus::DRAFT)
                                                     <button type="submit" id="publishBtn" name="status" value="{{ \App\Enums\PackageStatus::PUBLISHED }}" class="btn btn-success">{{__("Publish")}}</button>
                                                 @elseif($package->status == \App\Enums\PackageStatus::PUBLISHED)
                                                     <button type="submit" name="status" value="{{ \App\Enums\PackageStatus::ARCHIVED }}" class="btn btn-outline-primary">{{__("Mark As Archive")}}</button>

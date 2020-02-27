@@ -40,9 +40,34 @@ class PackageController extends Controller
         $allthemes = PackageTheme::all();
         $packageTypes = \App\Models\PackageType::all();
 
-        $allPackagedCountry = Country::select('countries.*')->leftJoin('states','states.country_id','countries.id')
-            ->leftJoin('cities','cities.state_id','states.id')
-            ->whereIn('cities.id',$allPackages->pluck('city_id'))->distinct('countries.id')->get();
+//        $allPackagedCountry = Country::select('countries.*')->leftJoin('states','states.country_id','countries.id')
+//            ->leftJoin('cities','cities.state_id','states.id')
+//            ->whereIn('cities.id',$allPackages->pluck('city_id'))->distinct('countries.id')->get();
+
+        /*
+         *
+         *
+         */
+
+        $PackagesCountry = $allPackages->pluck('meta');
+
+
+        $multiCountry = $PackagesCountry->map(function ($item, $key) {
+            $a = json_decode($item);
+            $ci = $a->address->country;
+            return $ci;
+        })->collapse();
+
+        $allPackagedCountry = Country::select('countries.*')
+            ->whereIn('countries.id',$multiCountry)
+            ->distinct('countries.id')
+            ->orderBy('countries.name', 'ASC')
+            ->get();
+
+        /*
+         *
+         *
+         */
 
 
         $package_budget = $request->get('package_budget');

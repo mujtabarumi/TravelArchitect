@@ -4,6 +4,9 @@
         .carousel-inner {
             max-height: 500px !important;
         }
+        .package-detail-nav li {
+            margin-bottom: 5px!important;
+        }
 
     </style>
 @endpush
@@ -24,6 +27,7 @@
         $inclutions = json_decode(data_get($package, 'inclusion'));
         $exclutions = json_decode(data_get($package, 'exclusion'));
         $additional_info = data_get($package, 'additional_info');
+        $terms_and_conditions = data_get($package, 'terms_and_conditions');
         $itineraries = data_get($package,'itineraries',[]);
         $package_themes = json_decode(data_get($package,'theme_map',[]));
         $departureFrom = data_get($package,'departure_from');
@@ -94,11 +98,12 @@
 
             <!-- END: HOLIDAY GALLRY -->
                 <div class="package-complete-detail">
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs package-detail-nav">
                         <li><a data-toggle="tab" href="#overview"><i class="fa fa-suitcase"></i> <span>Detail</span></a></li>
                         <li><a data-toggle="tab" href="#inclusion"><i class="fa fa-check-square"></i> <span>Inclusion / Exclusion</span></a></li>
                         <li class="active"><a data-toggle="tab" href="#itinerary"><i class="fa fa-street-view"></i> <span>Itinerary</span></a></li>
                         <li><a data-toggle="tab" href="#add-info"><i class="fa fa-info-circle"></i> <span>Additional Info</span></a></li>
+                        <li><a data-toggle="tab" href="#terms_and_conditons"><i class="fa fa-info-circle"></i> <span>Terms and Conditions</span></a></li>
                     </ul>
                     <div class="tab-content">
                         <div id="overview" class="tab-pane fade">
@@ -357,6 +362,15 @@
                             {{--                                @endforeach--}}
 
                             {{--                            </p>--}}
+                        </div>
+
+                        <div id="terms_and_conditons" class="tab-pane fade">
+
+                            <h4 class="tab-heading">Terms and Conditions</h4>
+                            <p>
+                                {!! $terms_and_conditions !!}
+                            </p>
+
                         </div>
                     </div>
                 </div>

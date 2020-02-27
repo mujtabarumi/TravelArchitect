@@ -11,13 +11,15 @@
     </tr>
     <tr>
         <td>Trip Type :</td>
-        <td>@php
-          $data = json_decode($model->theme_type, true);
-           @endphp
-            @foreach($data as $value)
-                {{$value}}
+        <td>
+            @php
+              $data = json_decode($model->theme_type, true);
+            @endphp
+            @if(!blank($data))
+                @foreach($data as $value)
+                    {{$value}}
                 @endforeach
-
+            @endif
         </td>
     </tr>
     <tr>
