@@ -5,6 +5,7 @@ return [
         \App\Enums\PackageStatus::PUBLISHED => 'published',
         \App\Enums\PackageStatus::DRAFT => 'draft',
         \App\Enums\PackageStatus::ARCHIVED => 'archived',
+        \App\Enums\PackageStatus::EXPIRED => 'expired',
     ],
     'listing' => [
         'tabs' => [
@@ -19,7 +20,11 @@ return [
             \App\Enums\PackageStatus::ARCHIVED => [
                 'title' => 'Archived Package',
                 'view' => 'package._listing_tab_archived'
-            ]
+            ],
+            \App\Enums\PackageStatus::EXPIRED => [
+                'title' => 'Expired Package',
+                'view' => 'package._listing_tab_expired'
+            ],
         ]
     ]
 ];

@@ -64,10 +64,25 @@ class GlobalSearchController extends Controller
 
     }
 
-    public function searchCity(Request $request, $countryId=null, $stateId=null){
+    public function searchCity(Request $request, $countryId=null, $stateId=null)
+    {
         $addressService = app(AddressService::class);
         $keyword = $request->get('keyword');
         $data = $addressService->searchCity($keyword, $countryId, $stateId)->map(function ($city){
+            return [
+                'id' => $city->id,
+                'name' => $city->name
+            ];
+        });
+        return response()->json($data);
+
+    }
+
+    public function searchFromAllCity(Request $request)
+    {
+        $addressService = app(AddressService::class);
+        $keyword = $request->get('keyword');
+        $data = $addressService->searchFromAllCity($keyword)->map(function ($city){
             return [
                 'id' => $city->id,
                 'name' => $city->name

@@ -43,6 +43,7 @@ Route::prefix('ajax')->group(function (){
     Route::get('/country/code','GlobalSearchController@searchCountryCode')->name('ajax.country_with_code');
     Route::get('/state/{country}','GlobalSearchController@searchState')->name('ajax.state');
     Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
+    Route::get('/city-search','GlobalSearchController@searchFromAllCity')->name('ajax.allCity');
     Route::post('/save/meta-data','GlobalSearchController@saveMetaData')->name('save.meta.data');
     Route::post('/save/settings/image','PackageController@savePackageImage')->name('save.settings.image');
 
@@ -66,3 +67,4 @@ Route::post('/visaguide/getdata','VisaGuideController@visaguidegetdata')->name('
 Route::post('/visaguide/view','VisaGuideController@visaguideview')->name('visaguide.view');
 Route::get('/visaguide/add','VisaGuideController@visaguideadd')->name('visaguide.add');
 Route::post('/visaguide/insert','VisaGuideController@visaguideinsert')->name('visaguide.insert');
+Route::post('/visaguide/edit','VisaGuideController@visaguideedit')->name('visaguide.edit');

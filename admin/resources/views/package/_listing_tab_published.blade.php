@@ -2,6 +2,31 @@
     @include('package._listing_search_add')
     <div class="mt-3 mb-4">
     @foreach($packages as $package)
+
+            @php
+                $package_address = data_get($package,'meta.address',[]);
+                $selectedCountries = array();
+                $selectedCities = array();
+
+                if (!blank($package_address)) {
+                        $country = data_get($package_address,'country',[]);
+                        $city = data_get($package_address,'city',[]);
+                        if (!blank($country)) {
+                            foreach ($country as $co) {
+                                $dataCo = \App\Models\Country::find($co);
+                                array_push($selectedCountries,$dataCo);
+                            }
+                        }
+                        if (!blank($city)) {
+                            foreach ($city as $ci) {
+                                $dataCi = \App\Models\City::find($ci);
+                                array_push($selectedCities,$dataCi);
+                            }
+                        }
+                    }
+
+            @endphp
+
         @if($package->status == \App\Enums\PackageStatus::PUBLISHED)
 
                 <div class="card">
@@ -27,7 +52,29 @@
 {{--                        <h4 class="card-title">{{ $package->title }}</h4>--}}
                         <p class="card-text">
                             <div class="job-list-meta">
-                                <h6 class="job-list-category"><b>City:</b> {{ $package->address->city->name }}</h6>
+                                <h6 class="job-list-category"><b>Country: </b>
+                                    @if(!blank($selectedCountries))
+                                        @foreach($selectedCountries as $sco)
+                                            @if(!$loop->last)
+                                                {{$sco->name}} ,
+                                            @else
+                                                {{$sco->name}}
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </h6>
+                                <h6 class="job-list-category"><b>Country: </b>
+                                    @if(!blank($selectedCities))
+                                        @foreach($selectedCities as $sci)
+                                            @if(!$loop->last)
+                                                {{$sci->name}} ,
+                                            @else
+                                                {{$sci->name}}
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </h6>
+{{--                                <h6 class="job-list-category"><b>City:</b> {{ $package->address->city->name }}</h6>--}}
                                     <span><b>Duration:</b> {{ $package->duration }}</span> &nbsp;&nbsp;
                                     <span><b>Budget:</b> {{ $package->budget }}</span> &nbsp;&nbsp;
                                 <span><b>{{ __("Expiry Date") }}:</b> {{ $package->valid_till->format(config('travelarchitect.user.date_format')) }}</span>

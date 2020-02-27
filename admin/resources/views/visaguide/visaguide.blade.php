@@ -23,10 +23,11 @@
                                 <table id="noticboardTable" class="table table-bordered table-striped ">
                                     <thead>
                                     <tr>
-                                        <th>Departure From</th>
-                                        <th>Departure To</th>
-                                        <th>Departure Date</th>
-                                        <th></th>
+                                        <th>City Name</th>
+                                        <th>Local Time</th>
+                                        <th>Telephone Code</th>
+                                        <th>Bank Time</th>
+                                        <th>Exchange Rate</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -145,16 +146,17 @@
                 stateSave: true,
                 type:"POST",
                 "ajax":{
-                    "url": "{!! route('search.flight.getdata') !!}",
+                    "url": "{!! route('visaguide.getdata') !!}",
                     "type": "POST",
                     "data":{ _token: "{{csrf_token()}}"},
                 },
                 columns: [
 
-                    { data: 'departurefrom', name: 'departure_from'},
-                    { data: 'departureto', name: 'noticeboard.departure_to'},
-                    { data: 'departure_date', name: 'noticeboard.departure_date'},
-                    { title: 'Name', data: 'name', orderable: false, searchable:false },
+                    { data: 'cname', name: 'cname'},
+                    { data: 'local_time', name: 'local_time'},
+                    { data: 'telephone_code', name: 'telephone_code'},
+                    { data: 'bank_time', name: 'bank_time'},
+                    { data: 'exchange_rate', name: 'exchange_rate'},
                     { title: 'Action', data: 'action', orderable: false, searchable:false }
                     // { "data": function(data){
                     //
@@ -184,24 +186,34 @@
         {{--    });--}}
         {{--}--}}
 
-        function searchflightView(x){
+        function editvisaguide(x){
 
-            var id=$(x).data('panel-id');
+            btn = $(x).data('panel-id');
+            alert(btn);
+            {{--btn = $(x).data('panel-id');--}}
+            {{--var url = '{{route("visaguide.edit", ":id") }}';--}}
+            {{--//alert(url);--}}
+            {{--var newUrl=url.replace(':id', btn);--}}
+            {{--window.location.href = newUrl;--}}
 
-            //  alert(id);
+          //  alert("fdsfsdf");
 
+            {{--$.ajax({--}}
+            {{--    type: 'POST',--}}
+            {{--    url: "{!! route('search.flight.view') !!}",--}}
+            {{--    cache: false,--}}
+            {{--    data: {_token: "{{csrf_token()}}",'id': id},--}}
+            {{--    success: function (data) {--}}
+            {{--        $("#editModalBody").html(data);--}}
+            {{--        $('#editModal').modal();--}}
+            {{--        // console.log(data);--}}
+            {{--    }--}}
+            {{--});--}}
+        }
 
-            $.ajax({
-                type: 'POST',
-                url: "{!! route('search.flight.view') !!}",
-                cache: false,
-                data: {_token: "{{csrf_token()}}",'id': id},
-                success: function (data) {
-                    $("#editModalBody").html(data);
-                    $('#editModal').modal();
-                    // console.log(data);
-                }
-            });
+        function deletevisaguide(x) {
+            btn = $(x).data('panel-id');
+            alert(btn);
         }
 
 

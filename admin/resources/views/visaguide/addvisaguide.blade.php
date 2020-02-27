@@ -3,7 +3,11 @@
 @section('css')
 
 @endsection
+@php
+    $selectedCities = array();
 
+
+@endphp
 @section('content')
 
     <div class="content-wrapper">
@@ -22,7 +26,15 @@
                                     {{csrf_field()}}
                                     <div class="form-group">
                                         <label for="eventTitle"> City</label>
-                                        <input type="text" id="nbtitle" name="cityid" class="form-control" placeholder="Enter email">
+{{--                                        <input type="text" id="nbtitle" name="cityid" class="form-control" placeholder="Enter email">--}}
+                                        <select class="form-control select2" id="city" name="cityid" multiple data-placeholder="{{__("Select City")}}">
+                                            @if(!blank($selectedCities))
+                                                @foreach($selectedCities as $sci)
+                                                    <option selected value="{{$sci->id}}">{{$sci->name}}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+
                                     </div>
                                     <div class="form-group">
                                         <label for="eventDetails">Local Time</label>
@@ -104,103 +116,14 @@
 
 @section('js')
 
-    <script>
-        // $(document).ready(function() {
-        //     $('#eventTable').DataTable({
-        //         "paging": true,
-        //         "lengthChange": false,
-        //         "searching": false,
-        //         "ordering": true,
-        //         "info": true,
-        //         "autoWidth": false,
-        //     });
-        //     $('#eventStartDate').datepicker();
-        //     $('#eventDate').datepicker();
-        // } );
 
-        // function eventSubmit(data) {
-        //     var eventTitle = $('#eventTitle').val();
-        //     var eventStartDate = $('#eventStartDate').val();
-        //     var eventDate = $('#eventDate').val();
-        //     var eventTime = $('#eventTime').val();
-        //     var eventVenue = $('#eventVenue').val();
-        //     var eventRegFee = $('#eventRegFee').val();
-        //     var eventStatus = $('#eventStatus').val();
-        //     var eventDetails = $('#eventDetails').val();
-        //     alert(eventTitle);
-        // }
-    </script>
 
     <script>
-        $(document).ready( function () {
-
-            $('#noticboardTable').DataTable({
-                processing: true,
-                serverSide: true,
-                Filter: true,
-                stateSave: true,
-                type:"POST",
-                "ajax":{
-                    "url": "{!! route('search.flight.getdata') !!}",
-                    "type": "POST",
-                    "data":{ _token: "{{csrf_token()}}"},
-                },
-                columns: [
-
-                    { data: 'departurefrom', name: 'departure_from'},
-                    { data: 'departureto', name: 'noticeboard.departure_to'},
-                    { data: 'departure_date', name: 'noticeboard.departure_date'},
-                    { title: 'Name', data: 'name', orderable: false, searchable:false },
-                    { title: 'Action', data: 'action', orderable: false, searchable:false }
-                    // { "data": function(data){
-                    //
-                    //         return '<a class="btn btn-default btn-sm"  data-panel-id="'+data.noticeboardId+'" onclick="editNoticeBoard(this)"><i class="fa fa-edit"></i></a>'
-                    //             ;},
-                    //     "orderable": false, "searchable":false, "name":"selected_rows" },
-                ]
-
-            });
-
-        } );
 
 
-        {{--function editClient(x) {--}}
-        {{--    var id=$(x).data('panel-id');--}}
-
-        {{--    $.ajax({--}}
-        {{--        type: 'POST',--}}
-        {{--        url: "{!! route('client.edit') !!}",--}}
-        {{--        cache: false,--}}
-        {{--        data: {_token: "{{csrf_token()}}",'id': id},--}}
-        {{--        success: function (data) {--}}
-        {{--            $("#editModalBody").html(data);--}}
-        {{--            $('#editModal').modal();--}}
-        {{--            // console.log(data);--}}
-        {{--        }--}}
-        {{--    });--}}
-        {{--}--}}
-
-        function searchflightView(x){
-
-            var id=$(x).data('panel-id');
-
-            //  alert(id);
-
-
-            $.ajax({
-                type: 'POST',
-                url: "{!! route('search.flight.view') !!}",
-                cache: false,
-                data: {_token: "{{csrf_token()}}",'id': id},
-                success: function (data) {
-                    $("#editModalBody").html(data);
-                    $('#editModal').modal();
-                    // console.log(data);
-                }
-            });
-        }
-
-
+        addSelect2AjaxAddress('#city','{{route('ajax.allCity')}}', null, {
+            'tags' : false,"multiple" : false
+        });
     </script>
 
 

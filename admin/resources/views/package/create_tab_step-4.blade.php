@@ -1,8 +1,11 @@
 @php
-
+    $recommended = oldOrElse('recommended', $tabData);
 @endphp
 @push('styles')
     <style>
+        .card-body {
+            text-align: center;
+        }
         .package-cover-image {
             background-color: #2CA9FF;
             height: 315px;
@@ -15,6 +18,17 @@
             position: absolute;
             top: 6%;
             left: 3%;
+        }
+        .package-recomanded-single .btn {
+            position: absolute;
+            bottom: 6%;
+            right: 26%;
+        }
+        .package-recomanded .package-recomanded-single img {
+            width: 265px !important;
+            height: 420px !important;
+            opacity: 1;
+            object-fit: cover;
         }
         .btn-transparent {
             background-color: rgba(23,34,59,.8);
@@ -51,7 +65,12 @@
         .company-details__showcase-single .btn {
             position: absolute;
             bottom: 8%;
-            right: 15px;
+            right: 40px;
+        }
+        .company-details__showcase-single .btn {
+            position: absolute;
+            bottom: 8%;
+            right: 40px;
         }
 
         .modal-lg {
@@ -82,12 +101,49 @@
         </div>
     </div>
 
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <h4 class="font-weight-bold mb-3">Related Images & list images</h4>
+                    </div>
+
+                </div>
+            </div>
+            @php
+                $recomanded = $package->getMedia('recomanded_images')->first();
+            @endphp
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4 mb-3 mb-lg-0 package-recomanded">
+
+                    <div align="center">
+                        <label class="form-check-label" for="recommended">
+                            <input type='hidden' value='0' name='recommended'>
+                            <input type="checkbox" {{ oldOrElse('recommended', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="recommended" id="recommended">
+                            <b>Recomanded</b></label>
+                    </div>
+                    <div class="package-recomanded-single @if(!$recomanded) placeholder @endif">
+                        <!-- Use Class 'placeholder' also, only when any image is not uploaded -->
+                        <img style="width: 265px;height: 420px;" id="package_recomanded_images_preview" @if($recomanded) src="{{url('public'."/".$recomanded->getUrl())}}" @else src="{{ url('public/packageImages/package-fallback.jpg')}}" @endif alt="">
+                        <!--Uploaded image -->
+                        <button type="button" class="btn btn-rounded btn-transparent btn-file">
+                            {{__("Change Photo")}}
+                            <input type="file" accept=".png, .jpg, .jpeg" class="changePhoto" data-name="package_recomanded_images" name="recomanded_images" id="package_recomanded_images">
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="card package-slider-images">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="font-weight-normal mb-3">{{$package->title}} slider Images</h4>
-                    <p>{{__("Upload slider Images & first one will be featured in home page")}}</p>
+                    <h4 class="font-weight-normal mb-3"><b>{{$package->title}}</b> slider Images</h4>
+                    <p>{{__("Upload slider Images")}}</p>
                 </div>
             </div>
             @php
@@ -101,7 +157,7 @@
                 <div class="col-md-6 col-lg-6 col-xl-6 mb-3 mb-lg-0">
                     <div class="company-details__showcase-single @if(!$slider1) placeholder @endif">
                         <!-- Use Class 'placeholder' also, only when any image is not uploaded -->
-                        <img style="width: 500px;height: 300px;" id="package_show_case_1_preview" @if($slider1) src="{{url('public'."/".$slider1->getUrl())}}" @else src="{{ url('public/packageImages/package-fallback.jpg')}}" @endif alt="">
+                        <img style="width: 700px;height: 500px;" id="package_show_case_1_preview" @if($slider1) src="{{url('public'."/".$slider1->getUrl())}}" @else src="{{ url('public/packageImages/package-fallback.jpg')}}" @endif alt="">
                         <!--Uploaded image -->
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">
                             {{__("Change Photo")}}
@@ -111,7 +167,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-6 mb-3 mb-lg-0">
                     <div class="company-details__showcase-single @if(!$slider2) placeholder @endif">
-                        <img style="width: 500px;height: 300px;" id="package_show_case_2_preview" src="@if($slider2) {{ url('public'."/".$slider2->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
+                        <img style="width: 700px;height: 500px;" id="package_show_case_2_preview" src="@if($slider2) {{ url('public'."/".$slider2->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
                         <!--Uploaded image -->
 
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">
@@ -124,7 +180,7 @@
             <div class="row mt-2">
                 <div class="col-md-6 col-lg-6 col-xl-6 mb-3 mb-lg-0">
                     <div class="company-details__showcase-single @if(!$slider3) placeholder @endif">
-                        <img style="width: 500px;height: 300px;" id="package_show_case_3_preview" src="@if($slider3) {{ url('public'."/".$slider3->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
+                        <img style="width: 700px;height: 500px;" id="package_show_case_3_preview" src="@if($slider3) {{ url('public'."/".$slider3->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
                         <!--Uploaded image -->
 
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">
@@ -135,7 +191,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-6 mb-3 mb-lg-0">
                     <div class="company-details__showcase-single @if(!$slider4) placeholder @endif">
-                        <img style="width: 500px;height: 300px;" id="package_show_case_4_preview" src="@if($slider4) {{ url('public'."/".$slider4->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
+                        <img style="width: 700px;height: 500px;" id="package_show_case_4_preview" src="@if($slider4) {{ url('public'."/".$slider4->getUrl())}} @else {{ url('public/packageImages/package-fallback.jpg')}} @endif" alt="">
                         <!--placeHolder image -->
 
                         <button type="button" class="btn btn-rounded btn-transparent btn-file">
@@ -146,35 +202,36 @@
                 </div>
             </div>
 
-            <!-- Modal -->
-            <div class="modal" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content modal-lg">
-                        <div class="modal-header">
-                            <h5 class="modal-title">{{__("Resize Image")}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div id="image-crop-wrapper" class="modal-body">
 
+
+        </div>
+    </div>
+        <!-- Modal -->
+        <div class="modal" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content modal-lg">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{__("Resize Image")}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="image-crop-wrapper" class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="image-modal-loader" style="display: flex; align-items: center">
+                            <div class="loader-title">{{__("Uploading")}}...</div>
+                            <div class="loader-img"><img src="{{ url('public/assets/loader.gif') }}" alt=""></div>
                         </div>
-                        <div class="modal-footer">
-                            <div class="image-modal-loader" style="display: flex; align-items: center">
-                                <div class="loader-title">{{__("Uploading")}}...</div>
-                                <div class="loader-img"><img src="{{ url('public/assets/loader.gif') }}" alt=""></div>
-                            </div>
-                            <div class="image-modal-button">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">{{__("Close")}}</button>
-                                <button type="button" id="cropImageBtn" class="btn btn-primary" data-target="">{{__('Crop')}}</button>
-                            </div>
+                        <div class="image-modal-button">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{{__("Close")}}</button>
+                            <button type="button" id="cropImageBtn" class="btn btn-primary" data-target="">{{__('Crop')}}</button>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
 </div>
 
 
@@ -227,6 +284,7 @@
                 const PACKAGE_SHOWCASE_2 = 'package_showcase_case_2';
                 const PACKAGE_SHOWCASE_3 = 'package_showcase_case_3';
                 const PACKAGE_SHOWCASE_4 = 'package_showcase_case_4';
+                const PACKAGE_RECOMAND_IMAGES = 'package_recomanded_images';
 
 
                 const CROP_TARGET_CONFIG = {
@@ -255,6 +313,11 @@
                         input_id: '#package_show_case_4_input',
                         target_id: '#package_show_case_4_preview',
                         ...setConfig(370, 250, 740, 500)
+                    },
+                    [PACKAGE_RECOMAND_IMAGES]: {
+                        input_id: '#package_recomanded_images',
+                        target_id: '#package_recomanded_images_preview',
+                        ...setConfig(265, 420, 265, 420)
                     },
                 };
                 let CROPPIE_OBJECT;
@@ -286,7 +349,9 @@
 
                 $('#cropImageBtn').click(function () {
                     let target = $(this).attr('data-target');
+
                     var options = CROP_TARGET_CONFIG[target];
+
                     let fileExtention = CROP_TARGET_CONFIG[target].result['format'];
                     CROPPIE_OBJECT.croppie('result', options.result).then((blob) => {
                         fetch(blob).then(e => e.blob()).then((res) => {
@@ -306,6 +371,7 @@
                                     $(options.target_id).attr('src', blob);
                                     hideModalImageLoader();
                                     $('#cropImagePop').modal('hide');
+
 
                                 },
                                 error: (err) => {

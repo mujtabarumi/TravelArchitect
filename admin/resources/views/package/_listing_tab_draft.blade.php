@@ -4,24 +4,71 @@
         <table class="table table-bordered mb-0">
             <thead>
             <tr>
-                <th>{{{__("Title")}}}</th>
-                <th>{{__("City")}}</th>
-                <th>{{__("Duration")}}</th>
-                <th>{{__("Budget")}}</th>
-                <th>{{__("Expiry Date")}}</th>
-                <th>{{__("Action")}}</th>
+                <th style="width: 25%">{{{__("Title")}}}</th>
+                <th style="width: 30%">{{__("Location")}}</th>
+                <th style="width: 15%">{{__("Duration")}}</th>
+                <th style="width: 10%">{{__("Budget")}}</th>
+                <th style="width: 15%">{{__("Expiry Date")}}</th>
+                <th style="width: 5%">{{__("Action")}}</th>
             </tr>
             </thead>
             <tbody>
             @foreach($packages as $package)
+                @php
+                    $package_address = data_get($package,'meta.address',[]);
+                    $selectedCountries = array();
+                    $selectedCities = array();
+
+                    if (!blank($package_address)) {
+                            $country = data_get($package_address,'country',[]);
+                            $city = data_get($package_address,'city',[]);
+                            if (!blank($country)) {
+                                foreach ($country as $co) {
+                                    $dataCo = \App\Models\Country::find($co);
+                                    array_push($selectedCountries,$dataCo);
+                                }
+                            }
+                            if (!blank($city)) {
+                                foreach ($city as $ci) {
+                                    $dataCi = \App\Models\City::find($ci);
+                                    array_push($selectedCities,$dataCi);
+                                }
+                            }
+                        }
+
+                @endphp
+
                 @if($package->status == \App\Enums\PackageStatus::DRAFT)
                     <tr>
-                        <td>
+                        <td class="text-center">
                             {{ $package->title }}
                         </td>
-                        <td class="text-center">{{ $package->address->city->name }}</td>
-                        <td>{{ $package->duration }} </td>
-                        <td>{{ $package->budget }} </td>
+                        <td class="text-center">
+                            <b>Country: </b>
+                            @if(!blank($selectedCountries))
+                                @foreach($selectedCountries as $sco)
+                                    @if(!$loop->last)
+                                        {{$sco->name}} ,
+                                    @else
+                                        {{$sco->name}}
+                                    @endif
+                                @endforeach
+                            @endif
+                            <br>
+                            <b>City: </b>
+                            @if(!blank($selectedCities))
+                                @foreach($selectedCities as $sci)
+                                    @if(!$loop->last)
+                                        {{$sci->name}} ,
+                                    @else
+                                        {{$sci->name}}
+                                    @endif
+                                @endforeach
+                            @endif
+
+                        </td>
+                        <td class="text-center">{{ $package->duration }} </td>
+                        <td class="text-center">{{ $package->budget }} </td>
                         <td class="text-center">
                             {{ $package->valid_till->format(config('travelarchitect.user.date_format')) }}
                         </td>

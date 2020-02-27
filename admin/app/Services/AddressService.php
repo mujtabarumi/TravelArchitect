@@ -6,6 +6,7 @@ use App\Models\Address;
 use App\Models\Country;
 use App\Models\State;
 use App\Models\City;
+use Illuminate\Support\Facades\DB;
 
 class AddressService
 {
@@ -59,6 +60,27 @@ class AddressService
             ->take($this->searchLimit)
             ->orderBy('cities.name', 'ASC')
             ->get();
+    }
+
+    public function searchFromAllCity($keyword)
+    {
+
+//        return City::where('name','like',"$keyword%")
+//            ->take($this->searchLimit)
+//            ->orderBy('name', 'ASC')
+//            ->distinct('name')
+//            ->get();
+
+
+        return City::select('cities.*',DB::raw("CONCAT(countries.name,'->',states.name,'->',cities.name) as name"))
+            ->Join('states','cities.state_id','states.id')
+            ->Join('countries','states.country_id','countries.id')
+            ->where('cities.name','like',"%$keyword%")
+            ->take($this->searchLimit)
+            ->orderBy('cities.name', 'ASC')
+            ->distinct('cities.name')
+            ->get();
+
     }
 
     public function create(array $data)

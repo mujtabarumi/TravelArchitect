@@ -37,24 +37,35 @@ class PackageServices
 
     public function savePackagePost($packageData, $user) {
 
-        $data = Arr::only($packageData,['title','package_type','valid_from','valid_till','recommended','address','duration',
-        'popular','is_everyday_departs','departure_date','air_price_included','budget']);
+        $data = Arr::only($packageData,['title','package_type','valid_from','valid_till','duration',
+        'is_everyday_departs','departure_date','air_price_included','budget']);
 
-        $address = $this->serializeAddressData(data_get($data,'address'));
-        $this->removeSomekeyFromArray($data,['address']);
+//        $address = $this->serializeAddressData(data_get($data,'address'));
+//        $this->removeSomekeyFromArray($data,['address']);
         $this->parseCarbonData($data, [
             'valid_from' => "Y-m-d",
             'valid_till' => "Y-m-d",
             'departure_date' => "Y-m-d",
         ]);
-        $data['city_id'] = data_get($packageData,'address.city');
+//        $data['city_id'] = data_get($packageData,'address.city');
         $data['theme_map'] = json_encode(data_get($packageData,'package_theme'));
         $data['package_type_id'] = $packageData['package_type'];
         $data['created_by'] = $user->id;
         $data['updated_by'] = $user->id;
 
+        $meta = $packageData['meta'];
+
+        $country = data_get($meta,'address.country',[]);
+        $city = data_get($meta,'address.city',[]);
+
+        $meta['address']['country'] = $country;
+        $meta['address']['city'] = $city;
+
+        $data['meta'] = $meta;
+
         $package = Package::create($data);
-        $package->address()->create($address);
+//        $package->address()->create($address);
+
 
         return $package;
     }
@@ -80,9 +91,10 @@ class PackageServices
         $BASIC_INFORMATION = [];
         $DETAILS = [];
         $ITINERARIES = [];
+        $MEDIA = [];
 
         if (blank($step) || $step == PackageStep::BASIC_INFORMATION) {
-            $BASIC_INFORMATION = $package->only(['title','package_type_id','theme_map','valid_from','valid_till','recommended','address',
+            $BASIC_INFORMATION = $package->only(['title','package_type_id','theme_map','valid_from','valid_till','recommended','address','meta',
                 'duration','popular','is_everyday_departs','departure_date','air_price_included','budget']);
             $BASIC_INFORMATION['valid_from'] = $package->valid_from->format('Y/m/d');
             $BASIC_INFORMATION['valid_till'] = $package->valid_till->format('Y/m/d');
@@ -101,11 +113,15 @@ class PackageServices
         if (blank($step) || $step == PackageStep::ITINERARIES) {
             $ITINERARIES['itineraries'] = $package->itineraries->pluck('id')->all();
         }
+        if (blank($step) || $step == PackageStep::MEDIA) {
+            $MEDIA = $package->only(['recommended']);
+        }
 
         return [
             PackageStep::BASIC_INFORMATION => $BASIC_INFORMATION,
             PackageStep::DETAILS => $DETAILS,
-            PackageStep::ITINERARIES => $ITINERARIES
+            PackageStep::ITINERARIES => $ITINERARIES,
+            PackageStep::MEDIA => $MEDIA,
         ];
     }
 
@@ -121,8 +137,8 @@ class PackageServices
     {
         $request = $request->all();
 
-        $data = Arr::only($request,['title','package_type','valid_from','valid_till','recommended','address','duration',
-            'popular','is_everyday_departs','departure_date','air_price_included','budget']);
+        $data = Arr::only($request,['title','package_type','valid_from','valid_till','duration','meta',
+           'is_everyday_departs','departure_date','air_price_included','budget']);
 
         $data['valid_from'] = Carbon::parse($data['valid_from'])->format('Y-m-d');
         $data['valid_till'] = Carbon::parse($data['valid_till'])->format('Y-m-d');
@@ -130,18 +146,29 @@ class PackageServices
 
         $data['updated_by'] = auth()->user('id');
 
-        $data['city_id'] = data_get($request,'address.city');
+//        $data['city_id'] = data_get($request,'address.city');
         $data['theme_map'] = json_encode(data_get($request,'package_theme'));
         $data['package_type_id'] = data_get($request,'package_type');
 
-        $addressData = [
-            'country_id' => data_get($request,'address.country'),
-            'state_id'  => data_get($request,'address.state'),
-            'city_id' => data_get($request,'address.city'),
-        ];
+//        $addressData = [
+//            'country_id' => data_get($request,'address.country'),
+//            'state_id'  => data_get($request,'address.state'),
+//            'city_id' => data_get($request,'address.city'),
+//        ];
+//
+//
+//        $package->address->update($addressData);
 
+        $meta = $package->meta;
 
-        $package->address->update($addressData);
+        $country = data_get($data,'meta.address.country',[]);
+        $city = data_get($data,'meta.address.city',[]);
+
+        $meta['address']['country'] = $country;
+        $meta['address']['city'] = $city;
+
+        $package->meta = $meta;
+
 
         return $package->update($data);
     }
@@ -216,6 +243,17 @@ class PackageServices
         return $package;
     }
 
+    public function updateMediaRelatedInfo (Package $package, $request) {
+
+        $request = $request->all();
+
+        $data = Arr::only($request,['recommended']);
+
+        return $package->update($data);
+
+
+    }
+
 //    public function updateMedia(Package $package, $request) {
 //
 //        if($request->hasFile('cover_photo')){
@@ -282,6 +320,10 @@ class PackageServices
         if($request->get('cover_photo')){
 
             $this->addFileMediaToCollection($package, 'cover_photo', $request->get('cover_photo'));
+        }
+        if($request->get('package_recomanded_images')){
+
+            $this->addFileMediaToCollection($package, 'recomanded_images', $request->get('package_recomanded_images'));
         }
 
         $slider = $package->getMedia('slider_images');
