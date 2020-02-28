@@ -27,12 +27,12 @@
                                     <div class="form-group">
                                         <label for="eventTitle"> City</label>
 {{--                                        <input type="text" id="nbtitle" name="cityid" class="form-control" placeholder="Enter email">--}}
-                                        <select class="form-control select2" id="city" name="cityid" multiple data-placeholder="{{__("Select City")}}">
-                                            @if(!blank($selectedCities))
-                                                @foreach($selectedCities as $sci)
+                                        <select class="form-control select2" id="city" name="countryid"  data-placeholder="{{__("Select City")}}">
+
+                                                @foreach($country as $sci)
                                                     <option selected value="{{$sci->id}}">{{$sci->name}}</option>
                                                 @endforeach
-                                            @endif
+
                                         </select>
 
                                     </div>
@@ -121,9 +121,9 @@
     <script>
 
 
-        addSelect2AjaxAddress('#city','{{route('ajax.allCity')}}', null, {
-            'tags' : false,"multiple" : false
-        });
+        {{--addSelect2AjaxAddress('#city','{{route('ajax.allCity')}}', null, {--}}
+        {{--    'tags' : false,"multiple" : false--}}
+        {{--});--}}
     </script>
 
 

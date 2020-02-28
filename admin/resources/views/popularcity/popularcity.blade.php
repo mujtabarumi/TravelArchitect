@@ -14,8 +14,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Visa Guide</h3>
-                            <a href="{{route('visaguide.add')}}"> <button  class="float-right btn btn-sm btn-primary" > Create</button></a>
-                            Create</button>
+                            <a href="{{route('popularcity.add')}}"> <button  class="float-right btn btn-sm btn-primary" > Create</button></a>
+
                         </div>
 
                         <div class="card-body">
@@ -23,11 +23,7 @@
                                 <table id="noticboardTable" class="table table-bordered table-striped ">
                                     <thead>
                                     <tr>
-                                        <th>Country Name</th>
-                                        <th>Local Time</th>
-                                        <th>Telephone Code</th>
-                                        <th>Bank Time</th>
-                                        <th>Exchange Rate</th>
+                                        <th>City Name</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -146,17 +142,13 @@
                 stateSave: true,
                 type:"POST",
                 "ajax":{
-                    "url": "{!! route('visaguide.getdata') !!}",
+                    "url": "{!! route('popularcity.getdata') !!}",
                     "type": "POST",
                     "data":{ _token: "{{csrf_token()}}"},
                 },
                 columns: [
 
-                    { data: 'cname', name: 'cname'},
-                    { data: 'vlocaltime', name: 'vlocaltime'},
-                    { data: 'telephone_code', name: 'telephone_code'},
-                    { data: 'bank_time', name: 'bank_time'},
-                    { data: 'exchange_rate', name: 'exchange_rate'},
+                    { data: 'name', name: 'name'},
                     { title: 'Action', data: 'action', orderable: false, searchable:false }
                     // { "data": function(data){
                     //
@@ -196,7 +188,7 @@
             {{--var newUrl=url.replace(':id', btn);--}}
             {{--window.location.href = newUrl;--}}
 
-          //  alert("fdsfsdf");
+            //  alert("fdsfsdf");
 
             {{--$.ajax({--}}
             {{--    type: 'POST',--}}

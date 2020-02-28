@@ -68,3 +68,11 @@ Route::post('/visaguide/view','VisaGuideController@visaguideview')->name('visagu
 Route::get('/visaguide/add','VisaGuideController@visaguideadd')->name('visaguide.add');
 Route::post('/visaguide/insert','VisaGuideController@visaguideinsert')->name('visaguide.insert');
 Route::post('/visaguide/edit','VisaGuideController@visaguideedit')->name('visaguide.edit');
+
+
+Route::get('/popularcity','PopularCityController@popularcity')->name('popularcity');
+Route::post('/popularcity/getdata','PopularCityController@popularcitygetdata')->name('popularcity.getdata');
+Route::post('/popularcity/view','PopularCityController@popularcityview')->name('popularcity.view');
+Route::get('/popularcity/add','PopularCityController@popularcityadd')->name('popularcity.add');
+Route::post('/popularcity/insert','PopularCityController@popularcityinsert')->name('popularcity.insert');
+Route::post('/popularcity/edit','PopularCityController@popularcityedit')->name('popularcity.edit');

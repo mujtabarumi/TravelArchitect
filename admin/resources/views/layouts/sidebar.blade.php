@@ -134,7 +134,17 @@
                     <a href="{{route('visaguide')}}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
-                           Visa Guide
+                            Visa Guide
+
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item ">
+                    <a href="{{route('popularcity')}}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Popular City
 
                         </p>
                     </a>

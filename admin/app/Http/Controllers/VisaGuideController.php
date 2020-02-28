@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Country;
 use App\Models\VisaGuide;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -15,13 +16,13 @@ class VisaGuideController extends Controller
     }
     public function visaguideadd(){
 
-        $city = City::get();
-        return view('visaguide.addvisaguide', compact('city'));
+        $country = Country::get();
+        return view('visaguide.addvisaguide', compact('country'));
     }
     public function visaguidegetdata(){
 
-        $model = VisaGuide::select('visa_guides.id as visaid ','cities.name as cname','local_time','telephone_code','bank_time','embassy_address','exchange_rate','created_at')
-            ->leftjoin('cities','city_id','cities.id' )
+        $model = VisaGuide::select('visa_guides.id as visaid ','countries.name as cname','visa_guides.local_time as vlocaltime','telephone_code','bank_time','embassy_address','exchange_rate','created_at')
+            ->leftjoin('countries','country_id','countries.id' )
             ->get();
         return DataTables::of($model)
 
@@ -45,7 +46,7 @@ class VisaGuideController extends Controller
 
     public function visaguideinsert(Request $r){
         $visaguide = new VisaGuide();
-        $visaguide->city_id = $r->cityid;
+        $visaguide->country_id = $r->countryid;
         $visaguide->local_time = $r->localtime;
         $visaguide->telephone_code = $r->tcode;
         $visaguide->bank_time = $r->banktime;
