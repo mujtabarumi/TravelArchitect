@@ -90,6 +90,12 @@
 @endpush
 <div class="tab-pane active" id="step4">
     <div class="card package-cover--regular">
+        <div align="center">
+            <label class="form-check-label" for="recommended">
+                <input type='hidden' value='0' name='home_slider'>
+                <input type="checkbox" {{ oldOrElse('home_slider', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="home_slider" id="home_slider">
+                <b>Add in home Slider</b></label>
+        </div>
         <div class="card-body p-0">
             <div class="row align-items-center">
                 <div class="col-md-12">

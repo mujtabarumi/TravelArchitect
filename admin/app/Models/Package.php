@@ -42,6 +42,7 @@ class Package extends Model implements HasMedia
         'duration',
         'budget',
         'recommended',
+        'home_slider',
         'popular',
         'air_price_included',
         'departure_date',

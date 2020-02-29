@@ -252,7 +252,7 @@ class PackageServices
 
         $request = $request->all();
 
-        $data = Arr::only($request,['recommended']);
+        $data = Arr::only($request,['recommended','home_slider']);
 
         return $package->update($data);
 
