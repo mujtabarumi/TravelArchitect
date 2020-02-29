@@ -246,7 +246,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-md-12 search-col-padding">
-                                <button id="open-box" type="button" class="search-button btn transition-effect">Search Packages</button>
+                                <button id="open-box" type="button" class="search-button btn transition-effect">Submit Query</button>
                             </div>
                             <div class="shot-overlay" style="display:none;">
                                 <a href="#" id="close-box" class="close-overlay">Close</a>
@@ -368,7 +368,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-md-12 search-col-padding">
-                                <button id="open-box" type="button" class="search-button btn transition-effect">Search Tours</button>
+                                <button id="open-box" type="button" class="search-button btn transition-effect">Submit Query</button>
                             </div>
                             <div class="clearfix"></div>
                         </form>
