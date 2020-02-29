@@ -115,7 +115,7 @@ class PackageServices
             $ITINERARIES['itineraries'] = $package->itineraries->pluck('id')->all();
         }
         if (blank($step) || $step == PackageStep::MEDIA) {
-            $MEDIA = $package->only(['recommended']);
+            $MEDIA = $package->only(['recommended','home_slider']);
         }
         if (blank($step) || $step == PackageStep::ADDITIONAL) {
             $ADDITIONAL = $package->only(['additional_info','terms_and_conditions']);
@@ -252,7 +252,7 @@ class PackageServices
 
         $request = $request->all();
 
-        $data = Arr::only($request,['recommended']);
+        $data = Arr::only($request,['recommended','home_slider']);
 
         return $package->update($data);
 

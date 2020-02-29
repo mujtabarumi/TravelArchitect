@@ -15,7 +15,9 @@ class CreateVisaGuidesTable extends Migration
     {
         Schema::create('visa_guides', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('country_id');
+            $table->string('local_time')->nullable();
+            $table->string('telephone_code')->nullable();
             $table->string('bank_time')->nullable();
             $table->string('embassy_address')->nullable();
             $table->double('exchange_rate',7,2)->nullable();
@@ -23,7 +25,7 @@ class CreateVisaGuidesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('country_id')->references('id')->on('countries');
 
         });
     }

@@ -37,7 +37,7 @@
     @endphp
 
     <!-- START: PAGE TITLE -->
-    <div style="background-repeat: no-repeat;background-size: cover;background-image: @if($cover_image) url('{{url('admin'."/".$cover_image->getUrl())}}') @else url('{{url('assets/images/bg-image16.jpg')}}') @endif;" class="row page-title">
+    <div style="background-size: contain;background-repeat: no-repeat;background-image: @if($cover_image) url('{{url('admin'."/".$cover_image->getUrl())}}') @else url('{{url('assets/images/bg-image16.jpg')}}') @endif;" class="row page-title">
         <div class="container clear-padding text-center">
             <h3>{{strtoupper($package->title)}}</h3>
             <h4>{{$package->duration}}</h4>

@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/user-profile', function () {
+    return view('user.profile');
+});
+
 //Route::get('/test', function () {
 //
 //    $allPackages = \App\Models\Package::where('status',\App\Enums\PackageStatus::PUBLISHED)->pluck('meta');

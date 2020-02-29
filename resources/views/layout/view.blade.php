@@ -10,7 +10,7 @@
     </style>
 @endpush
 @section('content')
-    @include('home.main-slider')
+    @include('home.main-slider', ['homeSlider' => $homeSlider])
     @include('home.main-query-section')
     @include('home.holiday-top-destination', ['popularHolidays' => $popularHolidays])
     @include('home.recomanded-holidays',['recommendedHolidays' => $recommendedHolidays])
@@ -19,6 +19,7 @@
 
 
 @push('scripts')
+    <script>
 
-
+    </script>
 @endpush

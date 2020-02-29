@@ -27,6 +27,7 @@ class CreatePackagesTable extends Migration
             $table->string('duration')->nullable();
             $table->integer('budget')->nullable();
             $table->boolean('recommended')->default(0);
+            $table->boolean('home_slider')->default(0);
             $table->boolean('popular')->default(0);
             $table->boolean('air_price_included')->default(0);
             $table->date('departure_date')->nullable();
