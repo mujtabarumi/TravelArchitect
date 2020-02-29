@@ -35,7 +35,7 @@
                                 <div class="clearfix"></div>
                             </li>
                             <li class="dropdown mega">
-                                <a href="{{route('coming-soon')}}"><i class="fa fa-cc-visa"></i> VISA GUIDE</a>
+                                <a href="{{route('visaguide')}}"><i class="fa fa-cc-visa"></i> VISA GUIDE</a>
                                 <div class="clearfix"></div>
                             </li>
                             <li class="dropdown mega">

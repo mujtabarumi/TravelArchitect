@@ -54,6 +54,7 @@
 
     Route::prefix('ajax')->group(function (){
         Route::get('/city/{country?}/{state?}','GlobalSearchController@searchCity')->name('ajax.city');
+        Route::get('/city-search','GlobalSearchController@searchFromAllCity')->name('ajax.allCity');
 //        Route::get('/BD-city-search','GlobalSearchController@searchFromBdAllCity')->name('ajax.AllBdCity');
         Route::get('/BD-city-search','GlobalSearchController@searchFromAllActivePackagedCity')->name('ajax.getAllActivePackage.city');
         Route::get('/package-themes','GlobalSearchController@searchPackageThemes')->name('ajax.packageTheme');
@@ -66,6 +67,10 @@ Route::post('search/autocomplete', 'HomeController@autocomplete')->name('search/
 Route::post('search/insertflightquery', 'SearchController@insertsearchflights')->name('insertsearchflight');
 Route::post('search/insertholidayquery', 'SearchController@insertsearchholiday')->name('insertsearchholiday');
 Route::post('search/inserttourquery', 'SearchController@insertsearchtours')->name('insertsearchtours');
+
+
+Route::get('visaguide', 'VisaGuideController@index')->name('visaguide');
+Route::post('visaguide/view', 'VisaGuideController@viewvisaguide')->name('viewvisaguide');
 
 
 Route::post('contact-us', 'EmailController@contactUs')->name('contactUs');

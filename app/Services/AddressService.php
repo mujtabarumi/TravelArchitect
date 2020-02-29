@@ -121,4 +121,24 @@ class AddressService
             ->with('country')
             ->first();
     }
+    public function searchFromAllCity($keyword)
+    {
+
+//        return City::where('name','like',"$keyword%")
+//            ->take($this->searchLimit)
+//            ->orderBy('name', 'ASC')
+//            ->distinct('name')
+//            ->get();
+
+
+        return City::select('cities.*',DB::raw("CONCAT(countries.name,'->',states.name,'->',cities.name) as name"))
+            ->Join('states','cities.state_id','states.id')
+            ->Join('countries','states.country_id','countries.id')
+            ->where('cities.name','like',"%$keyword%")
+            ->take($this->searchLimit)
+            ->orderBy('cities.name', 'ASC')
+            ->distinct('cities.name')
+            ->get();
+
+    }
 }
