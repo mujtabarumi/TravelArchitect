@@ -39,7 +39,7 @@ class SendEmailForNewSearchPackage
 
        // $to[] = $admins->email;
         $to[] = 'mujtaba.rumi1@gmail.com';
-        $cc[] = 'Md.sakibrahman@gmail.com';
+        $cc[] = 'md.sakibrahman@gmail.com';
 
 
         $mail = Mail::to($to);

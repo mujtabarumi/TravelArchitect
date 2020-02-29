@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="load-full-screen" lang="en">
 
 <head>
     @include('partials.head',[
