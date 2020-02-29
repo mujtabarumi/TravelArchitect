@@ -324,7 +324,7 @@
                     [PACKAGE_COVER_PHOTO]: {
                         input_id: '#upload_cover_photo2',
                         target_id: '#package_cover_photo_preview',
-                        ...setConfig(674, 115, 1348, 230)
+                        ...setConfig(960, 240, 1920, 480)
                     },
                     [PACKAGE_SHOWCASE_1]: {
                         input_id: '#package_show_case_1',
