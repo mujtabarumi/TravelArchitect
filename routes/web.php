@@ -79,3 +79,4 @@ Route::match(array('GET', 'POST'), 'coming-soon', function () {
     return redirect()->back()->with('warning', 'This feature will be available soon');
 })->name('coming-soon');
 
+Route::view('pdf', 'pdf.pdf');
