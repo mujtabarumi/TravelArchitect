@@ -28,6 +28,7 @@ Route::prefix('package')->group(function (){
 
     Route::get('add','PackageController@getPackageCreateFrom')->name('package.add');
     Route::post('add','PackageController@packageCreate')->name('package.add');
+    Route::get('{package}/view','PackageController@packageView')->name('package.view');
     Route::get('{package}/edit','PackageController@getPackageEditFrom')->name('package.edit');
     Route::post('{package}/edit','PackageController@updatePackagePost')->name('package.edit');
     Route::get('{param?}','PackageController@packageListing')->name('package.listing')->defaults('param', 'published');
