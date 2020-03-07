@@ -24,6 +24,7 @@ class PackageRequest extends FormRequest
             'title' => 'required|string|max:255',
             'budget' => 'required|numeric|digits_between:0,999999999',
             'duration' => 'required|string|max:255',
+            'duration_in_days' => 'required|numeric|digits_between:0,99999999',
 //            'address.country' => 'nullable|numeric',
 //            'address.state'   => 'nullable|numeric',
 //            'address.city' => 'required|numeric',

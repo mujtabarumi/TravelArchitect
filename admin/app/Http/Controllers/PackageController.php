@@ -266,6 +266,10 @@ class PackageController extends Controller
         ], 200);
     }
 
+    public function packageView(Package $package, Request $request) {
+        return view('package.fullView',compact('package'));
+    }
+
 
 
 

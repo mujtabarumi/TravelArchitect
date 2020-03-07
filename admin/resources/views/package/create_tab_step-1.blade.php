@@ -1,6 +1,7 @@
 @php
     $title = oldOrElse('title', $tabData);
     $duration = oldOrElse('duration', $tabData);
+    $duration_in_days = old('duration_in_days', data_get($tabData,'meta.duration_in_days'));
     $packageTypeId = old('package_type', data_get($tabData,'package_type_id'));
     $packageTheme = old('package_theme', data_get($tabData,'theme_map'));
     if (!is_array($packageTheme)) {
@@ -138,107 +139,7 @@
             </div>
         </div>
     </div>
-{{--    <div class="row">--}}
-{{--        <div class="col-md-6">--}}
-{{--            <div class="form-group mb-3">--}}
-{{--                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">--}}
-{{--                    <label class="col-form-label">{{__("Country")}}</label>--}}
-{{--                </div>--}}
-{{--                <select class="form-control select2" id="country" name="address[country]" data-placeholder="{{__("Select Country")}}">--}}
-{{--                    @if(!blank($selectedCountry))--}}
-{{--                        <option value="{{ $selectedCountry->id }}"> {{ $selectedCountry->name }}</option>--}}
-{{--                    @endif--}}
-{{--                </select>--}}
-{{--                @component('components.input-validation-error',['field' => 'address.country']) @endcomponent--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="col-md-6">--}}
-{{--            <div class="form-group mb-3">--}}
 
-{{--                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">--}}
-{{--                    <label>{{__("State")}}</label> <small class="pull-right">--}}
-{{--                        <a href="javascript:void(0)" id="addState"--}}
-{{--                           data-meta-modal="#create_meta_data"--}}
-{{--                           data-meta-modal-url="{{ route('save.meta.data') }}"--}}
-{{--                           data-meta-modal-title="{{__("Create new state")}}"--}}
-{{--                           data-meta-modal-placeholder="{{__("New state")}}"--}}
-{{--                           data-meta-modal-type="state"--}}
-{{--                           data-meta-option-id="#state"--}}
-{{--                           data-meta-parent="country"--}}
-{{--                           data-meta-parent-id="#country"--}}
-{{--                           class="text-primary add-category"><i class="ti ti-plus"></i>{{__("Add State")}}</a>--}}
-{{--                    </small>--}}
-{{--                </div>--}}
-
-
-{{--                <select class="form-control select2" id="state" name="address[state]" data-placeholder="{{__("Select State")}}">--}}
-{{--                    @if(!blank($selectedState))--}}
-{{--                        <option value="{{ $selectedState->id }}">{{ $selectedState->name }}</option>--}}
-{{--                    @endif--}}
-{{--                </select>--}}
-{{--                @component('components.input-validation-error',['field' => 'address.state']) @endcomponent--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-md-6">--}}
-{{--            <div class="form-group mb-3">--}}
-{{--                <div class="title-from-input d-flex justify-content-between" style="margin-top: 8px">--}}
-{{--                    <label>{{__("City")}}*</label> <small class="pull-right">--}}
-{{--                        <a href="javascript:void(0)" id="addCity"--}}
-{{--                           data-meta-modal="#create_meta_data"--}}
-{{--                           data-meta-modal-url="{{ route('save.meta.data') }}"--}}
-{{--                           data-meta-modal-title="{{__("Create new city")}}"--}}
-{{--                           data-meta-modal-placeholder="{{__("New city")}}"--}}
-{{--                           data-meta-modal-type="city"--}}
-{{--                           data-meta-option-id="#city"--}}
-{{--                           data-meta-parent="state"--}}
-{{--                           data-meta-parent-id="#state"--}}
-{{--                           class="text-primary add-category"><i class="ti ti-plus"></i>{{__("Add City")}}</a>--}}
-{{--                    </small>--}}
-{{--                </div>--}}
-
-{{--                <select class="form-control select2" required id="city" name="address[city]" data-placeholder="{{__("Select City")}}">--}}
-{{--                    @if(!blank($selectedState) && !blank($cityId))--}}
-{{--                        @foreach($selectedState->cities as $city)--}}
-{{--                            <option value="{{ $city->id }}" {{ ($city->id == $cityId) ? "selected" : "" }}>{{ $city->name }}</option>--}}
-{{--                        @endforeach--}}
-{{--                    @endif--}}
-{{--                </select>--}}
-{{--                @component('components.input-validation-error',['field' => 'address.city']) @endcomponent--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="col-md-6">--}}
-{{--            <div class="title-from-input d-flex justify-content-between">--}}
-{{--                <label class="col-form-label">{{__("Quick Infos")}}</label>--}}
-{{--                @component('components.input-validation-error',['field' => 'recommended']) @endcomponent--}}
-{{--                @component('components.input-validation-error',['field' => 'popular']) @endcomponent--}}
-
-{{--            </div>--}}
-{{--            <div class="table table-responsive quick-info">--}}
-{{--                <table class="table">--}}
-{{--                    <tbody>--}}
-{{--                    <tr>--}}
-{{--                        <td>--}}
-{{--                            <label class="form-check-label" for="recommended">{{__("Is Recomanded")}}</label>--}}
-{{--                        </td>--}}
-{{--                        <td class="border-right">--}}
-{{--                            <input type='hidden' value='0' name='recommended'>--}}
-{{--                            <input type="checkbox" {{ oldOrElse('recommended', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="recommended" id="recommended">--}}
-{{--                        </td>--}}
-{{--                        <td>--}}
-{{--                            <label class="form-check-label" for="popular">{{__("Is Popular")}}</label>--}}
-{{--                        </td>--}}
-{{--                        <td>--}}
-{{--                            <input type='hidden' value='0' name='popular'>--}}
-{{--                            <input type="checkbox" {{ oldOrElse('popular', $tabData) == 1 ? 'checked' : "" }} class="form-check-input" value="1" name="popular" id="popular">--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
-{{--                    </tbody>--}}
-{{--                </table>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
     <div class="row">
         <div class="col-md-6">
             <div class="form-group mb-3">
@@ -261,7 +162,7 @@
         <div class="col-md-6">
             <div class="row">
 
-                <div class="form-group col-md-6 mb-3">
+                <div class="form-group col-md-4 mb-3">
                     <label class="col-form-label" for="departure_date">{{__("Budget")}}*</label>
                     <div style="float: right" class="form-check mt-2">
                         <input type='hidden' value='0' name='air_price_included'>
@@ -278,11 +179,18 @@
                     @component('components.input-validation-error',['field' => 'budget']) @endcomponent
                 </div>
                 <div class="form-group col-md-6 mb-3">
-                    <label class="col-form-label" for="duration">{{__("Duration")}}*</label>
+                    <label class="col-form-label" for="duration">Duration<span style="color: red">(text)</span>*</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" required name="duration" autocomplete="off" value="{{ $duration }}" placeholder="{{__("Duration")}}" id="duration">
+                        <input type="text" class="form-control" required name="duration" autocomplete="off" value="{{ $duration }}" placeholder="{{__("7 days 6 night")}}" id="duration">
                     </div><!-- input-group -->
                     @component('components.input-validation-error',['field' => 'duration']) @endcomponent
+                </div>
+                <div class="form-group col-md-2 mb-3">
+                    <label class="col-form-label" for="duration">Duration<span style="color: red">(days)</span>*</label>
+                    <div class="input-group">
+                        <input type="number" min="0" class="form-control" required name="duration_in_days" autocomplete="off" value="{{ $duration_in_days }}" placeholder="{{__("Duration in days only number")}}" id="duration_in_days">
+                    </div><!-- input-group -->
+                    @component('components.input-validation-error',['field' => 'duration_in_days']) @endcomponent
                 </div>
 
             </div>

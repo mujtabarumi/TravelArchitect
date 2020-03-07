@@ -71,6 +71,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
     Route::prefix('package')->group(function (){
         Route::get('{package}/details','PackageController@getPackageDetails')->name('package.details');
         Route::get('package-lists/{packageType?}','PackageController@getAllPackageLists')->name('package.lists');
+        Route::post('booking','PackageController@saveBooking')->name('package.booking');
     });
 
     Route::prefix('ajax')->group(function (){
