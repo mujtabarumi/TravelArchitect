@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
+use App\Models\Country;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -28,8 +29,15 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
+
     protected $redirectTo = '/home';
 
+    protected function showRegistrationForm(){
+
+        $country = Country::get();
+        return view('auth.register', compact('country'));
+    }
     /**
      * Create a new controller instance.
      *
@@ -52,6 +60,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'numeric', 'min:11']
         ]);
     }
 
@@ -67,6 +76,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'type_id' => '2',
+            'status' => '1',
+            'mobile_number' => $data['phone'],
         ]);
     }
 }
