@@ -38,7 +38,7 @@ class PackageServices
     public function savePackagePost($packageData, $user) {
 
         $data = Arr::only($packageData,['title','package_type','valid_from','valid_till','duration',
-        'is_everyday_departs','departure_date','air_price_included','budget']);
+        'is_everyday_departs','departure_date','air_price_included','budget','duration_in_days']);
 
 //        $address = $this->serializeAddressData(data_get($data,'address'));
 //        $this->removeSomekeyFromArray($data,['address']);
@@ -96,7 +96,7 @@ class PackageServices
 
         if (blank($step) || $step == PackageStep::BASIC_INFORMATION) {
             $BASIC_INFORMATION = $package->only(['title','package_type_id','theme_map','valid_from','valid_till','recommended','address','meta',
-                'duration','popular','is_everyday_departs','departure_date','air_price_included','budget']);
+                'duration','popular','is_everyday_departs','departure_date','air_price_included','budget','duration_in_days']);
             $BASIC_INFORMATION['valid_from'] = $package->valid_from->format('Y/m/d');
             $BASIC_INFORMATION['valid_till'] = $package->valid_till->format('Y/m/d');
             if (!blank($package->departure_date)) {
@@ -142,8 +142,9 @@ class PackageServices
     {
         $request = $request->all();
 
+
         $data = Arr::only($request,['title','package_type','valid_from','valid_till','duration','meta',
-           'is_everyday_departs','departure_date','air_price_included','budget']);
+           'is_everyday_departs','departure_date','air_price_included','budget','duration_in_days']);
 
         $data['valid_from'] = Carbon::parse($data['valid_from'])->format('Y-m-d');
         $data['valid_till'] = Carbon::parse($data['valid_till'])->format('Y-m-d');
@@ -168,11 +169,13 @@ class PackageServices
 
         $country = data_get($data,'meta.address.country',[]);
         $city = data_get($data,'meta.address.city',[]);
+        $duration_in_days = data_get($data,'duration_in_days');
 
         $meta['address']['country'] = $country;
         $meta['address']['city'] = $city;
+        $meta['duration_in_days'] = $duration_in_days;
 
-        $package->meta = $meta;
+        $data['meta'] = $meta;
 
 
         return $package->update($data);

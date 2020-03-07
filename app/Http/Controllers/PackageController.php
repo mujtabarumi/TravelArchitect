@@ -8,10 +8,12 @@ use App\Enums\PackageType;
 use App\Http\Requests\PackageRequest;
 use App\Models\Country;
 use App\Models\Package;
+use App\Models\PackageBookingRequest;
 use App\Models\PackageTheme;
 use App\Services\PackageServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 
@@ -40,23 +42,24 @@ class PackageController extends Controller
         $allthemes = PackageTheme::all();
         $packageTypes = \App\Models\PackageType::all();
 
-//        $allPackagedCountry = Country::select('countries.*')->leftJoin('states','states.country_id','countries.id')
-//            ->leftJoin('cities','cities.state_id','states.id')
-//            ->whereIn('cities.id',$allPackages->pluck('city_id'))->distinct('countries.id')->get();
+        $PackagesMeta = $allPackages->pluck('meta');
+//        dd($PackagesMeta);
 
-        /*
-         *
-         *
-         */
-
-        $PackagesCountry = $allPackages->pluck('meta');
+//        $PackagesCountries = $PackagesMeta->address->country;
 
 
-        $multiCountry = $PackagesCountry->map(function ($item, $key) {
+
+        $multiCountry = $PackagesMeta->map(function ($item, $key) {
             $a = json_decode($item);
             $ci = $a->address->country;
             return $ci;
         })->collapse();
+
+        $allPackagedDuration = $PackagesMeta->map(function ($item, $key) {
+            $a = json_decode($item);
+            $ci = $a->duration_in_days;
+            return $ci;
+        });
 
         $allPackagedCountry = Country::select('countries.*')
             ->whereIn('countries.id',$multiCountry)
@@ -64,13 +67,18 @@ class PackageController extends Controller
             ->orderBy('countries.name', 'ASC')
             ->get();
 
-        /*
-         *
-         *
-         */
 
 
         $package_budget = $request->get('package_budget');
+        if (!blank($package_budget) && $package_budget !="") {
+
+            $budget = explode(',',$package_budget);
+
+            $allPackages = $allPackages->where(function ($query) use ($budget) {
+                $query->where('budget', '>=', $budget[0])
+                    ->Where('budget', '<=', $budget[1]);
+            });
+        }
 
         if (!blank($packageType)) {
             $package_types = $packageType;
@@ -78,44 +86,68 @@ class PackageController extends Controller
             $package_types = $request->get('package_types');
         }
 
-        $package_themes = $request->get('package_themes');
 
-        if (!blank($package_budget) && $package_budget !="") {
-
-            $budget = explode(',',$package_budget);
-
-            $allPackages = $allPackages->where(function ($query) use ($budget) {
-                    $query->where('budget', '>=', $budget[0])
-                        ->Where('budget', '<=', $budget[1]);
-                });
-        }
         if (!blank($package_types) && $package_types !="") {
 
             $allPackages = $allPackages->where('package_type_id',$package_types);
         }
 
+        $package_themes = $request->get('package_themes');
+        $package_countries = $request->get('package_countries');
+        $package_prices = $request->get('package_prices');
+        $duration_filter = $request->get('duration_filter');
+
         if($request->ajax()){
+
             if (!blank($package_themes) && $package_themes !="") {
 
-                $allPackages = $allPackages->where('theme_map', 'like', '%'.$package_themes.'%')->get();
+                $allPackages = $allPackages->where('theme_map', 'like', '%'.$package_themes.'%');
 
             }
+            if (!blank($package_countries) && $package_countries !="") {
 
-            return $allPackages;
+                $allPackages = $allPackages->where('meta->address->country', 'like', '%'.$package_themes.'%');
+
+            }
+            if (!blank($duration_filter) && $duration_filter !="") {
+
+                $allPackages = $allPackages->where('meta->duration_in_days', 'like', '%'.$duration_filter.'%');
+
+            }
+            if (!blank($package_prices) && $package_prices !="") {
+
+                $allPackages = $allPackages->where(function ($query) use ($package_prices) {
+                    $query->where('budget', '>=', $package_prices[0])
+                        ->Where('budget', '<=', $package_prices[1]);
+                });
+            }
+
         }
 
+        $allPackages = $allPackages->latest()->paginate(1)->appends($request->all());
 
-
-
-        $allPackages = $allPackages->latest()->paginate(10)->appends($request->all());
-
-
+        if($request->ajax()){
+            return view('package.package_lists', compact('allPackages'));
+        }
 
         return view('package.lists', compact('allPackages','allthemes','allPackagedCountry',
-            'packageTypes','package_types','package_budget'));
+            'packageTypes','package_types','package_budget','allPackagedDuration'));
 
 
+    }
 
+    public function saveBooking(Request $request) {
+
+        $request = $request->all();
+
+        $data = Arr::only($request,['package_id','departure_date','travel_by','duration','meta']);
+        $data['departure_date'] = Carbon::parse($data['departure_date'])->format("Y-m-d");
+        $data['user_id'] = 1;
+        //dd($data);
+
+        $book = PackageBookingRequest::create($data);
+
+        return redirect()->back()->with('success', 'Booking Request sent Successfully :)');
     }
 
 
