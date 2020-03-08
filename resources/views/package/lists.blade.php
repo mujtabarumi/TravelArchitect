@@ -102,6 +102,7 @@
 
         function getData(page){
 
+            console.log($( "#country_filter" ).val());
             var data = {
                 'package_themes': $( "#search_themes" ).val(),
                 'package_countries': $( "#country_filter" ).val(),

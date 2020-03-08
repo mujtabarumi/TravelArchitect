@@ -35,6 +35,7 @@ Route::prefix('package')->group(function (){
     Route::get('{package}/duplicate','PackageController@duplicatePackage')->name('package.duplicate');
     Route::get('{package}/delete','PackageController@deletePackage')->name('package.delete');
 
+
 });
 
 Route::prefix('ajax')->group(function (){
@@ -77,3 +78,6 @@ Route::post('/popularcity/view','PopularCityController@popularcityview')->name('
 Route::get('/popularcity/add','PopularCityController@popularcityadd')->name('popularcity.add');
 Route::post('/popularcity/insert','PopularCityController@popularcityinsert')->name('popularcity.insert');
 Route::post('/popularcity/edit','PopularCityController@popularcityedit')->name('popularcity.edit');
+
+Route::get('booking-request','PackageBookingController@showBookingRequest')->name('package.booking.request');
+Route::post('booking-request','PackageBookingController@showBookingData')->name('package.booking.request.getdata');

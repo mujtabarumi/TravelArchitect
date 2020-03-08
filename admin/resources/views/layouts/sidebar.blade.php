@@ -94,6 +94,16 @@
 
                     </ul>
                 </li>
+                <li class="nav-item ">
+                    <a href="{{route('package.booking.request')}}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Booking Request
+
+                        </p>
+                    </a>
+
+                </li>
                 <li class="nav-item has-treeview">
                     <a href="" class="nav-link">
                         <i class="nav-icon far fa-image"></i>

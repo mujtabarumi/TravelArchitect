@@ -57,9 +57,11 @@ class PackageServices
 
         $country = data_get($meta,'address.country',[]);
         $city = data_get($meta,'address.city',[]);
+        $duration_in_days = data_get($data,'duration_in_days');
 
         $meta['address']['country'] = $country;
         $meta['address']['city'] = $city;
+        $meta['duration_in_days'] = $duration_in_days;
 
         $data['meta'] = $meta;
 

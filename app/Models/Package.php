@@ -76,6 +76,8 @@ class Package extends Model implements HasMedia
     public function registerMediaCollections()
     {
         $this->addMediaCollection('cover_photo')->singleFile();
+        $this->addMediaCollection('recomanded_images')->singleFile();
+        $this->addMediaCollection('list_images')->singleFile();
         $this->addMediaCollection('slider_images');
     }
 
