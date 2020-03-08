@@ -14,6 +14,7 @@ use App\Services\PackageServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -139,16 +140,22 @@ class PackageController extends Controller
 
     public function saveBooking(Request $request) {
 
-        $request = $request->all();
+        if (Auth::check()) {
 
-        $data = Arr::only($request,['package_id','departure_date','travel_by','duration','meta']);
-        $data['departure_date'] = Carbon::parse($data['departure_date'])->format("Y-m-d");
-        $data['user_id'] = 1;
-        $data['status'] = 0;
+            $request = $request->all();
+            $data = Arr::only($request,['package_id','departure_date','travel_by','duration','meta']);
+            $data['departure_date'] = Carbon::parse($data['departure_date'])->format("Y-m-d");
+            $data['user_id'] = Auth::user()->id;
+            $data['status'] = 0;
 
-        $book = PackageBookingRequest::create($data);
+            $book = PackageBookingRequest::create($data);
 
-        return redirect()->back()->with('success', 'Booking Request sent Successfully :)');
+            return redirect()->back()->with('success', 'Booking Request sent Successfully :)');
+
+        } else {
+
+            return redirect()->back()->with('warning', 'Please sign in before make a request');
+        }
     }
 
 
