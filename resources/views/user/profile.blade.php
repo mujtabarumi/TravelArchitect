@@ -9,14 +9,14 @@
     <div class="row user-profile">
         <div class="container">
             <div class="col-md-12 user-name">
-                <h3>Welcome, Lenore</h3>
+                <h3>Welcome, {{$user->name}}</h3>
             </div>
             <div class="col-md-2 col-sm-2">
                 <div class="user-profile-tabs">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#profile-overview" class="text-center"><i class="fa fa-bolt"></i> <span>Overview</span></a></li>
+                        <li ><a data-toggle="tab" href="#profile-overview" class="text-center"><i class="fa fa-bolt"></i> <span>Overview</span></a></li>
 {{--                        <li><a data-toggle="tab" href="#booking" class="text-center"><i class="fa fa-history"></i> <span>Bookings</span></a></li>--}}
-                        <li ><a data-toggle="tab" href="#profile" class="text-center"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                        <li class="active" ><a data-toggle="tab" href="#profile" class="text-center"><i class="fa fa-user"></i> <span>Profile</span></a></li>
 {{--                        <li><a data-toggle="tab" href="#wishlist" class="text-center"><i class="fa fa-heart-o"></i> <span>Wishlist</span></a></li>--}}
 {{--                        <li><a data-toggle="tab" href="#cards" class="text-center"><i class="fa fa-credit-card"></i> <span>My Cards</span></a></li>--}}
                         <li><a data-toggle="tab" href="#complaint" class="text-center"><i class="fa fa-edit"></i> <span>Complaints</span></a></li>
@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-10 col-sm-10">
                 <div class="tab-content">
-                    <div id="profile-overview" class="tab-pane fade in active">
+                    <div id="profile-overview" class="tab-pane fade in ">
                         <div class="col-md-6">
                             <div class="brief-info">
                                 <div class="col-md-2 col-sm-2 clear-padding">
@@ -344,7 +344,7 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
 {{--                    </div>--}}
-                    <div id="profile" class="tab-pane fade in">
+                    <div id="profile" class="tab-pane fade in active">
                         <div class="col-md-6">
                             <div class="user-personal-info">
                                 <h4>Personal Information</h4>
@@ -352,88 +352,122 @@
                                     <form >
                                         <div class="col-md-6 col-sm-6">
                                             <label>First Name</label>
-                                            <input type="text" name="fname" required placeholder="First Name" class="form-control">
+                                            <input type="text" name="fname" required placeholder="First Name" class="form-control" value="{{$user->first_name}}">
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <label>First Name</label>
-                                            <input type="text" name="lname" required placeholder="Last Name" class="form-control">
+                                            <input type="text" name="lname" required placeholder="Last Name" class="form-control" value="{{$user->last_name}}">
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <label>Name</label>
+                                            <input type="text" name="lname" required placeholder="Last Name" class="form-control" value="{{$user->name}}">
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="col-md-12">
                                             <label>Email-ID</label>
-                                            <input type="email" name="email" required placeholder="lenore@example.com" class="form-control">
+                                            <input type="email" name="email" required placeholder="lenore@example.com" class="form-control" value="{{$user->email}}">
                                         </div>
                                         <div class="col-md-12">
                                             <label>Contact Number</label>
-                                            <input type="text" name="contact" required class="form-control">
+                                            <input type="text" name="contact" required class="form-control" value="{{$user->mobile_number}}">
                                         </div>
                                         <div class="col-md-12">
                                             <label>Date Of Birth</label>
                                             <div class="clearfix"></div>
-                                            <div class="col-md-4 col-sm-4 col-xs-4 clear-padding">
-                                                <select class="form-control" name="day">
-                                                    <option>Day</option>
-                                                    <option>01</option>
-                                                    <option>02</option>
-                                                    <option>03</option>
-                                                    <option>04</option>
-                                                    <option>05</option>
-                                                </select>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 clear-padding">
+                                                <input type="date" name="contact" required class="form-control" value="{{$user->dob}}">
+{{--                                                <select class="form-control" name="day">--}}
+{{--                                                    <option>Day</option>--}}
+{{--                                                    <option>01</option>--}}
+{{--                                                    <option>02</option>--}}
+{{--                                                    <option>03</option>--}}
+{{--                                                    <option>04</option>--}}
+{{--                                                    <option>05</option>--}}
+{{--                                                </select>--}}
                                             </div>
-                                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                                <select class="form-control" name="month">
-                                                    <option>Month</option>
-                                                    <option>01</option>
-                                                    <option>02</option>
-                                                    <option>03</option>
-                                                    <option>04</option>
-                                                    <option>05</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4 col-xs-4 clear-padding">
-                                                <select class="form-control" name="year">
-                                                    <option>Year</option>
-                                                    <option>1990</option>
-                                                    <option>1991</option>
-                                                    <option>1992</option>
-                                                    <option>1993</option>
-                                                    <option>1994</option>
-                                                </select>
-                                            </div>
+{{--                                            <div class="col-md-4 col-sm-4 col-xs-4">--}}
+{{--                                                <select class="form-control" name="month">--}}
+{{--                                                    <option>Month</option>--}}
+{{--                                                    <option>01</option>--}}
+{{--                                                    <option>02</option>--}}
+{{--                                                    <option>03</option>--}}
+{{--                                                    <option>04</option>--}}
+{{--                                                    <option>05</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-4 col-sm-4 col-xs-4 clear-padding">--}}
+{{--                                                <select class="form-control" name="year">--}}
+{{--                                                    <option>Year</option>--}}
+{{--                                                    <option>1990</option>--}}
+{{--                                                    <option>1991</option>--}}
+{{--                                                    <option>1992</option>--}}
+{{--                                                    <option>1993</option>--}}
+{{--                                                    <option>1994</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
                                         </div>
                                         <div class="col-md-12">
-                                            <label>Current Address</label>
-                                            <textarea placeholder="Your Current Address" id="current-address" class="form-control" rows="5"></textarea>
-                                            <div class="col-md-6 col-sm-6 col-xs-6 clear-padding">
-                                                <input type="text" name="zip-code" class="form-control" placeholder="Zip Code">
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <input type="text" name="zip-code" class="form-control" placeholder="City">
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 clear-padding">
-                                                <select class="form-control" name="country">
-                                                    <option>Country</option>
-                                                    <option>Australia</option>
-                                                    <option>India</option>
-                                                    <option>USA</option>
-                                                    <option>UK</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="state">
-                                                    <option>State</option>
-                                                    <option>CA</option>
-                                                    <option>GA</option>
-                                                    <option>NY</option>
-                                                    <option>SA</option>
-                                                    <option>WA</option>
-                                                </select>
-                                            </div>
+                                            <label>Mobile Number</label>
+                                            <input type="text" name="mobile_number" required class="form-control" value="{{$user->mobile_number}}">
                                         </div>
                                         <div class="col-md-12">
-                                            <label>Upload Avatar</label>
-                                            <input type="file" name="profile-pic" class="upload-pic">
+                                            <label>Passport Number</label>
+                                            <input type="text" name="passport_number" required class="form-control" value="{{$user->passport_number}}">
                                         </div>
+                                        <div class="col-md-12">
+                                            <label>Passport Expiry Date</label>
+                                            <input type="text" name="passport_number" required class="form-control" value="{{$user->passport_expiry_date}}">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>National Id Number</label>
+                                            <input type="text" name="national_id_number" required class="form-control" value="{{$user->national_id_number}}">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Gender</label>
+                                            <input type="text" name="gender" required class="form-control" value="{{$user->gender}}">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Spouse Name</label>
+                                            <input type="text" name="spouse_name" required class="form-control" value="{{$user->spouse_name}}">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Occupation</label>
+                                            <input type="text" name="occupation" required class="form-control" value="{{$user->occupation}}">
+                                        </div>
+
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <label>Current Address</label>--}}
+{{--                                            <textarea placeholder="Your Current Address" id="current-address" class="form-control" rows="5"></textarea>--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6 clear-padding">--}}
+{{--                                                <input type="text" name="zip-code" class="form-control" placeholder="Zip Code">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <input type="text" name="zip-code" class="form-control" placeholder="City">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-6 col-sm-6 clear-padding">--}}
+{{--                                                <select class="form-control" name="country">--}}
+{{--                                                    <option>Country</option>--}}
+{{--                                                    <option>Australia</option>--}}
+{{--                                                    <option>India</option>--}}
+{{--                                                    <option>USA</option>--}}
+{{--                                                    <option>UK</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-6 col-sm-6">--}}
+{{--                                                <select class="form-control" name="state">--}}
+{{--                                                    <option>State</option>--}}
+{{--                                                    <option>CA</option>--}}
+{{--                                                    <option>GA</option>--}}
+{{--                                                    <option>NY</option>--}}
+{{--                                                    <option>SA</option>--}}
+{{--                                                    <option>WA</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <label>Upload Avatar</label>--}}
+{{--                                            <input type="file" name="profile-pic" class="upload-pic">--}}
+{{--                                        </div>--}}
                                         <div class="clearfix"></div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 text-center">
                                             <button type="submit">SAVE CHANGES</button>

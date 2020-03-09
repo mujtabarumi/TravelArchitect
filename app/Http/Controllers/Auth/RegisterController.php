@@ -31,7 +31,7 @@ class RegisterController extends Controller
      */
 
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/user/profile';
 
     protected function showRegistrationForm(){
 

@@ -42,7 +42,7 @@
 @endphp
 <html>
 <body>
-<table width="100%" style="padding: 40px 40px">
+<table width="100%" style="padding: 40px 40px"  >
 
     <tr>
         <td ><h2><b> {{$title}} </b></h2>
@@ -51,10 +51,10 @@
     </tr>
     <tr >
         <td width="100%">
-            <table width="100%"  >
-                <tr>
-                    <td width="50%">
-                        <table width="100%">
+            <table width="100%" style="height: 150px" >
+                <tr >
+                    <td width="60%">
+                        <table width="100%"  >
                             <tr>
                                 <td >Travel Type:</td>
                                 <td >
@@ -105,22 +105,25 @@
 {{--                                <td>Accommodation in hotel: </td>--}}
 {{--                                <td>4 Star</td>--}}
 {{--                            </tr>--}}
+
                         </table>
                     </td>
                     <td width="50%" >
-                        <img align="left" style="background-color: #4c110f" width="300px" height="200px" src="{{url('public/image/Travelers-Logo-4.png')}}">
+                        <img align="left" style="background-color: #4c110f" width="300px" height="150px" src="{{url('public/image/Travelers-Logo-4.png')}}">
                     </td>
                 </tr>
-
+                <tr height="100%"><td></td></tr>
+                <tr height="100%"><td></td></tr>
             </table>
         </td>
 
     </tr>
-    <tr>
-        <td><h3 style=" text-decoration: underline; ">{{$title}}</h3></td>
+
+    <tr >
+        <td width="50%"><h3 style=" text-decoration: underline;">{{$title}}</h3></td>
     </tr>
     <tr >
-        <td><h3 style=" color: coral;margin-top: -20px">
+        <td width="50%"><h3 style=" color: coral;margin-top: -20px">
 
                 @if (!blank($package_places))
                     (
@@ -138,10 +141,11 @@
                         @endforeach
 
 
-                )
+                    )
                 @endif
             </h3></td>
     </tr>
+    <tr height="100%"><td></td></tr>
     <tr >
         <td ><h3 align="center" style="color: #4c110f">Tentative Itinerary</h3></td>
     </tr>
