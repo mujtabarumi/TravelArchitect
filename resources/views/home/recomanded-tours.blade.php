@@ -11,7 +11,7 @@
                 <div class="" id="post-list">
                     @foreach($recommendedTours as $recoTour)
                         @php
-                            $recoImage = $recoTour->getMedia('slider_images');
+                            $recoImage = $recoTour->getMedia('recomanded_images')->first();
                             $slider1  = $recoImage->where('order_column', 1)->first();
                             $package_meta = json_decode($recoTour->meta);
                             $package_costs = data_get($package_meta,'package_cost',[]);
@@ -20,7 +20,7 @@
 
                                         <div class="room-grid-view wow slideInUp" style="margin-right: 30px;width: 262px" data-wow-delay="0.{{$loop->iteration}}s">
                                            <div class="holiday-custom"
-                                                style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl())}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif;
+                                                style="background-image: @if($recoImage) url('{{url('admin'."/".$recoImage->getUrl())}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif;
                                                     background-repeat: no-repeat;
                                                     background-size: cover;">
                                                     <div class="text">

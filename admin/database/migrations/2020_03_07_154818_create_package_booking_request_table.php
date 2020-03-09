@@ -23,6 +23,7 @@ class CreatePackageBookingRequestTable extends Migration
             $table->longText('details')->nullable();
             $table->longText('meta')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->tinyInteger('status')->default(0);
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

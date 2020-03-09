@@ -29,11 +29,13 @@ Route::prefix('package')->group(function (){
     Route::get('add','PackageController@getPackageCreateFrom')->name('package.add');
     Route::post('add','PackageController@packageCreate')->name('package.add');
     Route::get('{package}/view','PackageController@packageView')->name('package.view');
+    Route::get('{package}/pdf-download','PackageController@packagePdfDownload')->name('package.download.pdf');
     Route::get('{package}/edit','PackageController@getPackageEditFrom')->name('package.edit');
     Route::post('{package}/edit','PackageController@updatePackagePost')->name('package.edit');
     Route::get('{param?}','PackageController@packageListing')->name('package.listing')->defaults('param', 'published');
     Route::get('{package}/duplicate','PackageController@duplicatePackage')->name('package.duplicate');
     Route::get('{package}/delete','PackageController@deletePackage')->name('package.delete');
+
 
 });
 
@@ -77,3 +79,6 @@ Route::post('/popularcity/view','PopularCityController@popularcityview')->name('
 Route::get('/popularcity/add','PopularCityController@popularcityadd')->name('popularcity.add');
 Route::post('/popularcity/insert','PopularCityController@popularcityinsert')->name('popularcity.insert');
 Route::post('/popularcity/edit','PopularCityController@popularcityedit')->name('popularcity.edit');
+
+Route::get('booking-request','PackageBookingController@showBookingRequest')->name('package.booking.request');
+Route::post('booking-request','PackageBookingController@showBookingData')->name('package.booking.request.getdata');

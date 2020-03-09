@@ -123,6 +123,7 @@
                                         {{--                                </div>--}}
                                         {{--                            </li>--}}
                                         <a class="btn btn-sm btn-primary" href="{{ route('package.view', $package->id) }}">{{__('View')}}</a>
+                                        <a class="btn btn-sm btn-primary" href="{{ route('package.download.pdf', $package->id) }}">{{__('Download Pdf')}}</a>
                                         <a class="btn btn-sm btn-primary" href="{{ route('package.edit', $package->id) }}">{{__('Edit')}}</a>
                                         <a class="btn btn-sm btn-default" href="{{ route('package.duplicate', $package->id) }}" onclick="return confirm('{{__("Are you sure, you want to duplicate this package?")}}')">{{__('Duplicate')}}</a>
                                         <a class="btn btn-sm btn-danger" href="{{ route('package.delete', $package->id) }}" onclick="return confirm('{{__("Are you sure, you want to delete this package?")}}')" >{{__('Delete')}}</a>

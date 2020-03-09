@@ -48,21 +48,25 @@ class PackageCityIdToMeta extends Migration
     {
         Schema::table('packages', function (Blueprint $table) {
 
-            $table->unsignedBigInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('cities');
-        });
+            if (!Schema::hasColumn('packages','city_id')){
 
-        $city = \App\Models\City::all()->each(function ($c){
+                $table->unsignedBigInteger('city_id');
+                $table->foreign('city_id')->references('id')->on('cities');
 
-            $meta = data_get($c,'meta');
-            $city_Id = data_get($meta,'address.city.0');
+                $city = \App\Models\City::all()->each(function ($c){
 
-            if (data_get($meta,'address')) {
-                unset($meta['address']);
-                $c->meta = $meta;
+                    $meta = data_get($c,'meta');
+                    $city_Id = data_get($meta,'address.city.0');
+
+                    if (data_get($meta,'address')) {
+                        unset($meta['address']);
+                        $c->meta = $meta;
+                    }
+
+                    $c->save();
+                });
+
             }
-
-            $c->save();
         });
     }
 }

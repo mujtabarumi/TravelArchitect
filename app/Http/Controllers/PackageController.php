@@ -14,6 +14,7 @@ use App\Services\PackageServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -101,17 +102,18 @@ class PackageController extends Controller
 
             if (!blank($package_themes) && $package_themes !="") {
 
-                $allPackages = $allPackages->where('theme_map', 'like', '%'.$package_themes.'%');
+                $allPackages = $allPackages->whereJsonContains('theme_map', $package_themes);
 
             }
             if (!blank($package_countries) && $package_countries !="") {
 
-                $allPackages = $allPackages->where('meta->address->country', 'like', '%'.$package_themes.'%');
+                $allPackages = $allPackages->whereJsonContains("meta->address->country",$package_countries);
+
 
             }
             if (!blank($duration_filter) && $duration_filter !="") {
 
-                $allPackages = $allPackages->where('meta->duration_in_days', 'like', '%'.$duration_filter.'%');
+                $allPackages = $allPackages->whereJsonContains('meta->duration_in_days', $duration_filter);
 
             }
             if (!blank($package_prices) && $package_prices !="") {
@@ -138,16 +140,22 @@ class PackageController extends Controller
 
     public function saveBooking(Request $request) {
 
-        $request = $request->all();
+        if (Auth::check()) {
 
-        $data = Arr::only($request,['package_id','departure_date','travel_by','duration','meta']);
-        $data['departure_date'] = Carbon::parse($data['departure_date'])->format("Y-m-d");
-        $data['user_id'] = 1;
-        //dd($data);
+            $request = $request->all();
+            $data = Arr::only($request,['package_id','departure_date','travel_by','duration','meta']);
+            $data['departure_date'] = Carbon::parse($data['departure_date'])->format("Y-m-d");
+            $data['user_id'] = Auth::user()->id;
+            $data['status'] = 0;
 
-        $book = PackageBookingRequest::create($data);
+            $book = PackageBookingRequest::create($data);
 
-        return redirect()->back()->with('success', 'Booking Request sent Successfully :)');
+            return redirect()->back()->with('success', 'Booking Request sent Successfully :)');
+
+        } else {
+
+            return redirect()->back()->with('warning', 'Please sign in before make a request');
+        }
     }
 
 

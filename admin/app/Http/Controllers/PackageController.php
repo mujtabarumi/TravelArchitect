@@ -8,6 +8,7 @@ use App\Enums\PackageType;
 use App\Http\Requests\PackageRequest;
 use App\Models\Package;
 use App\Services\PackageServices;
+use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\Models\Media;
@@ -268,6 +269,15 @@ class PackageController extends Controller
 
     public function packageView(Package $package, Request $request) {
         return view('package.fullView',compact('package'));
+    }
+
+    public function packagePdfDownload(Package $package, Request $request) {
+
+
+        $pdf = PDF::loadView('package.fullView', compact('package'));
+
+        return $pdf->download('package.pdf');
+
     }
 
 

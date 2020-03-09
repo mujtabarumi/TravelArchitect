@@ -15,7 +15,6 @@
                         <div class="card-header">
                             <h3 class="card-title">Visa Guide</h3>
                             <a href="{{route('visaguide.add')}}"> <button  class="float-right btn btn-sm btn-primary" > Create</button></a>
-                            Create</button>
                         </div>
 
                         <div class="card-body">
