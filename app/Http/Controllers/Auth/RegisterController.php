@@ -79,6 +79,15 @@ class RegisterController extends Controller
             'type_id' => '2',
             'status' => '1',
             'mobile_number' => $data['phone'],
+            'country_id' => $data['country_id'],
+            'passport_number' => $data['passport_number'],
+            'passport_expiry_date' => $data['passport_expiry_date'],
+            'national_id_number' => $data['national_id_number'],
+            'dob' => $data['dob'],
+            'gender' => $data['gender'],
+            'marital_status' => $data['marital_status'],
+            'spouse_name' => $data['spouse_name'],
+            'occupation' => $data['occupation'],
         ]);
     }
 }

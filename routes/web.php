@@ -15,7 +15,7 @@ Route::get('/user-profile', function () {
     return view('user.profile');
 });
 
-//Auth::routes();
+Auth::routes(['verify' =>true]);
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
