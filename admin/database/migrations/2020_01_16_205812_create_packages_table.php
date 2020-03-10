@@ -17,13 +17,13 @@ class CreatePackagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->longText('details')->nullable();
-            $table->json('inclusion')->nullable();
-            $table->json('exclusion')->nullable();
+            $table->longText('inclusion')->nullable();
+            $table->longText('exclusion')->nullable();
             $table->longText('additional_info')->nullable();
             $table->unsignedBigInteger('package_type_id');
             $table->unsignedBigInteger('city_id');
-            $table->json('theme_map')->nullable();
-            $table->json('meta')->nullable();
+            $table->longText('theme_map')->nullable();
+            $table->longText('meta')->nullable();
             $table->string('duration')->nullable();
             $table->integer('budget')->nullable();
             $table->boolean('recommended')->default(0);
