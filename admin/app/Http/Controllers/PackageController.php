@@ -37,9 +37,14 @@ class PackageController extends Controller
             "step" => "step-4",
             'disabled' => false
         ],
+        PackageStep::OFFERS => [
+            "title" => "Offers",
+            "step" => "step-5",
+            'disabled' => false
+        ],
         PackageStep::ADDITIONAL => [
             "title" => "Additional",
-            "step" => "step-5",
+            "step" => "step-6",
             'disabled' => false
         ],
     ];
@@ -134,6 +139,9 @@ class PackageController extends Controller
                 break;
             case PackageStep::MEDIA:
                 $this->packageService->updateMediaRelatedInfo($package, $request);
+                break;
+            case PackageStep::OFFERS:
+                $this->packageService->updateOffersRelatedInfo($package, $request);
                 break;
             case PackageStep::ADDITIONAL:
                 $this->packageService->updateAdditionalInfo($package, $request);

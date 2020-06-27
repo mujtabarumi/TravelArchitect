@@ -430,38 +430,111 @@
                         </div>
                     </div>
 
-                    <div class="sidebar-booking-box">
-                        <h3 class="text-center">MAKE A BOOKING</h3>
-                        <div class="booking-box-body">
-                            <form method="post" action="{{route('package.booking')}}">
-                                @csrf
-                                <input type="hidden" readonly value="{{$package->id}}" name="package_id">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label>Start</label>
-                                    <div class="input-group margin-bottom-sm">
-                                        <input type="text" required id="check_in" autocomplete="off" name="departure_date" class="form-control" placeholder="DD/MM/YYYY">
-                                        <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
-                                    </div>
+                    <!-- show offer !-->
+                    @php
+                      //dd($package->offers);
+                      $allOffers = [];
+                      $allOffers = $package->offers;
+
+                    @endphp
+                    @if(!blank($allOffers))
+                        @foreach($allOffers as $aO)
+                    <div class="package-summary sidebar-item">
+                        <h4><i class="fa fa-bookmark"></i> Package Offer</h4>
+                        <div class="package-summary-body">
+                            <h5 style="font-weight: bold;text-align: center">Departure Time: {{$aO->departure_time}}</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Valid From</h5>
+                                    {{Carbon\Carbon::parse($aO->valid_from)->format('Y-m-d')}}
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label>Duration</label>
-                                    <select class="selectpicker" name="duration">
-                                        <option value="3">3 Days</option>
-                                        <option value="5">5 Days</option>
-                                        <option value="7">1 Week</option>
-                                        <option value="10">10 Days</option>
-                                        <option value="14">2 Week</option>
-                                        <option value="21">3 Week</option>
-                                    </select>
+                                <div class="col-md-6">
+                                    <h5>Valid Till</h5>
+                                    {{Carbon\Carbon::parse($aO->valid_till)->format('Y-m-d')}}
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label>Travel By</label>
-                                    <select class="selectpicker" name="travel_by">
-                                        <option>BUS</option>
-                                        <option>TRAIN</option>
-                                        <option selected>AIRPLANE</option>
-                                    </select>
-                                </div>
+                            </div>
+                            @php
+                                $roomCost = $aO->hotel_room_cost_info;
+                           // dd($roomCost);
+                            @endphp
+                            @if(!blank($roomCost))
+
+                            <div class="row">
+
+                                @foreach($roomCost as $key=>$value)
+                                    @if($key == 'single')
+                                        <div class="col-md-6">
+                                            <h5>per perosn Single</h5>
+                                            BDT {{$value}}
+                                        </div>
+                                    @elseif($key == 'double')
+                                        <div class="col-md-6">
+                                            <h5>per perosn Double</h5>
+                                            BDT {{$value}}
+                                        </div>
+                                    @elseif($key == 'twin')
+                                        <div class="col-md-6">
+                                            <h5>per perosn Twin</h5>
+                                            BDT {{$value}}
+                                        </div>
+                                    @elseif($key == 'triple')
+                                        <div class="col-md-6">
+                                            <h5>per perosn Triple</h5>
+                                            BDT {{$value}}
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                            @endif
+
+
+                        </div>
+                        <div class="package-summary-footer text-center">
+                            <div class="col-md-6 col-sm-6 col-xs-6 price">
+
+                                    <h5>Departs</h5>
+                                    <h5>{{$aO->departure_date}}</h5>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 book">
+                                <a href="{{route('coming-soon')}}">BOOK NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                        @endforeach
+                    @endif
+
+{{--                    <div class="sidebar-booking-box">--}}
+{{--                        <h3 class="text-center">MAKE A BOOKING</h3>--}}
+{{--                        <div class="booking-box-body">--}}
+{{--                            <form method="post" action="{{route('package.booking')}}">--}}
+{{--                                @csrf--}}
+{{--                                <input type="hidden" readonly value="{{$package->id}}" name="package_id">--}}
+{{--                                <div class="col-md-12 col-sm-12 col-xs-12">--}}
+{{--                                    <label>Start</label>--}}
+{{--                                    <div class="input-group margin-bottom-sm">--}}
+{{--                                        <input type="text" required id="check_in" autocomplete="off" name="departure_date" class="form-control" placeholder="DD/MM/YYYY">--}}
+{{--                                        <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-md-12 col-sm-12 col-xs-12">--}}
+{{--                                    <label>Duration</label>--}}
+{{--                                    <select class="selectpicker" name="duration">--}}
+{{--                                        <option value="3">3 Days</option>--}}
+{{--                                        <option value="5">5 Days</option>--}}
+{{--                                        <option value="7">1 Week</option>--}}
+{{--                                        <option value="10">10 Days</option>--}}
+{{--                                        <option value="14">2 Week</option>--}}
+{{--                                        <option value="21">3 Week</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-md-12 col-sm-12 col-xs-12">--}}
+{{--                                    <label>Travel By</label>--}}
+{{--                                    <select class="selectpicker" name="travel_by">--}}
+{{--                                        <option>BUS</option>--}}
+{{--                                        <option>TRAIN</option>--}}
+{{--                                        <option selected>AIRPLANE</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 {{--                                <div class="col-md-6 col-sm-6 col-xs-6">--}}
 {{--                                    <label>Adult</label>--}}
 {{--                                    <select class="selectpicker" name="adult">--}}
@@ -485,55 +558,55 @@
 {{--                                    </select>--}}
 {{--                                </div>--}}
 
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <label>Single Room</label>
-                                    <select class="selectpicker" name="meta[rooms][single_room]">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <label>Double Room</label>
-                                    <select class="selectpicker" name="meta[rooms][double_room]">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                    </select>
-                                </div>
+{{--                                <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                    <label>Single Room</label>--}}
+{{--                                    <select class="selectpicker" name="meta[rooms][single_room]">--}}
+{{--                                        <option>0</option>--}}
+{{--                                        <option>1</option>--}}
+{{--                                        <option>2</option>--}}
+{{--                                        <option>3</option>--}}
+{{--                                        <option>4</option>--}}
+{{--                                        <option>5</option>--}}
+{{--                                        <option>6</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                    <label>Double Room</label>--}}
+{{--                                    <select class="selectpicker" name="meta[rooms][double_room]">--}}
+{{--                                        <option>0</option>--}}
+{{--                                        <option>1</option>--}}
+{{--                                        <option>2</option>--}}
+{{--                                        <option>3</option>--}}
+{{--                                        <option>4</option>--}}
+{{--                                        <option>5</option>--}}
+{{--                                        <option>6</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <label>Twin Room</label>
-                                    <select class="selectpicker" name="meta[rooms][twin_room]">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <label>Tripple Room</label>
-                                    <select class="selectpicker" name="meta[rooms][tripple_room]">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                    </select>
-                                </div>
+{{--                                <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                    <label>Twin Room</label>--}}
+{{--                                    <select class="selectpicker" name="meta[rooms][twin_room]">--}}
+{{--                                        <option>0</option>--}}
+{{--                                        <option>1</option>--}}
+{{--                                        <option>2</option>--}}
+{{--                                        <option>3</option>--}}
+{{--                                        <option>4</option>--}}
+{{--                                        <option>5</option>--}}
+{{--                                        <option>6</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                    <label>Tripple Room</label>--}}
+{{--                                    <select class="selectpicker" name="meta[rooms][tripple_room]">--}}
+{{--                                        <option>0</option>--}}
+{{--                                        <option>1</option>--}}
+{{--                                        <option>2</option>--}}
+{{--                                        <option>3</option>--}}
+{{--                                        <option>4</option>--}}
+{{--                                        <option>5</option>--}}
+{{--                                        <option>6</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 {{--                                <div class="room-price">--}}
 {{--                                    <div class="col-md-8 col-sm-8 col-xs-8">--}}
 {{--                                        <label><input type="checkbox" name="single"><span>Deluxe Single Room</span></label>--}}
@@ -560,21 +633,21 @@
 {{--                                        <h5>$299/Night</h5>--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
-                                <div class="clearfix"></div>
-                                <div class="grand-total text-center">
+{{--                                <div class="clearfix"></div>--}}
+{{--                                <div class="grand-total text-center">--}}
 {{--                                    <div class="col-md-6 col-sm-6 col-xs-6">--}}
 {{--                                        <h4>Total $599</h4>--}}
 {{--                                    </div>--}}
 {{--                                    <div class="col-md-6 col-sm-6 col-xs-6">--}}
 {{--                                        <button type="submit">BOOK</button>--}}
 {{--                                    </div>--}}
-                                    <div align="center" class="col-md-12 col-sm-12 col-xs-12">
-                                        <button type="submit">BOOK REQUEST</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+{{--                                    <div align="center" class="col-md-12 col-sm-12 col-xs-12">--}}
+{{--                                        <button type="submit">BOOK REQUEST</button>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="assistance-box sidebar-item">
                         <h4><i class="fa fa-phone"></i> Need Assistance</h4>
