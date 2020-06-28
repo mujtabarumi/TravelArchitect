@@ -483,7 +483,7 @@
                             <div class="user-change-password">
                                 <h4>Change Password</h4>
                                 <div class="change-password-body">
-                                    <form >
+                                    <form>
                                         <div class="col-md-12">
                                             <label>Old Password</label>
                                             <input type="password" placeholder="Old Password" class="form-control" name="old-password">
