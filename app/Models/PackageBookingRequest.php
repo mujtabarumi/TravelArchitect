@@ -28,6 +28,7 @@ class PackageBookingRequest extends Model
         'travel_by',
         'duration',
         'package_id',
+        'offer_id',
         'price',
         'details',
         'meta',

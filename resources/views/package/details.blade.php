@@ -8,6 +8,22 @@
             margin-bottom: 5px!important;
         }
 
+        .shot-overlay .form-control {
+            background-color: transparent;
+            border: 1px solid #BEC4C8;
+            border-radius: 0;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+            /* color: #07253F; */
+            color: #fff;
+            display: block;
+            font-size: 15px;
+            height: 40px;
+            line-height: 1.42857;
+            padding: 6px 12px;
+            transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+            width: 100%;
+        }
+
     </style>
 @endpush
 @section('content')
@@ -121,15 +137,7 @@
                                         <i class="fa fa-check-circle"></i>{{$inc}}<br>
                                     @endforeach
                                 @endif
-                                {{--                                <i class="fa fa-check-circle"></i> Welcome drinks at hotel<br>--}}
-                                {{--                                <i class="fa fa-check-circle"></i> Stay in 3 star hotel<br>--}}
-                                {{--                                <i class="fa fa-check-circle"></i> Guided tour<br>--}}
-                                {{--                                <i class="fa fa-check-circle"></i> Sighseeing<br>--}}
-                                {{--                                <i class="fa fa-check-circle"></i> Airport transport<br>--}}
-                                {{--                                <i class="fa fa-check-circle"></i> Buffet breakfast<br>--}}
-                                {{--                                <i class="fa fa-check-circle"></i> Return Economy economy class airfare<br>--}}
-                                {{--                                <i class="fa fa-check-circle"></i> Welcome drinks at hotel<br>--}}
-                                {{--                                <i class="fa fa-check-circle"></i> Stay in 3 star hotel<br>--}}
+
                             </p>
                             <h4 class="tab-heading">Exclusion</h4>
                             <p class="inc">
@@ -140,100 +148,8 @@
                                     @endforeach
 
                                 @endif
-                                {{--                                <i class="fa fa-times-circle-o"></i> Travel insurance<br>--}}
-                                {{--                                <i class="fa fa-times-circle-o"></i> Increase in airfare<br>--}}
-                                {{--                                <i class="fa fa-times-circle-o"></i> Airport fees<br>--}}
-                                {{--                                <i class="fa fa-times-circle-o"></i> Travel insurance<br>--}}
-                                {{--                                <i class="fa fa-times-circle-o"></i> Increase in airfare<br>--}}
-                                {{--                                <i class="fa fa-times-circle-o"></i> Airport fees<br>--}}
-                            </p>
 
-                            {{--                            <div class="inclusion-wrapper">--}}
-                            {{--                                <div class="inclusion-title">--}}
-                            {{--                                    <p><span><i class="fa fa-bed"></i></span>Hotel</p>--}}
-                            {{--                                </div>--}}
-                            {{--                                <div class="inclusion-body">--}}
-                            {{--                                    <h4>Paris, 2 Nights</h4>--}}
-                            {{--                                    <div class="col-md-3 col-sm-3 clear-padding">--}}
-                            {{--                                        <img src="assets/images/offer1.jpg" alt="cruise">--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="col-md-9 col-sm-9">--}}
-                            {{--                                        <h5>Grand Lilly, London <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></h5>--}}
-                            {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="clearfix"></div>--}}
-                            {{--                                    <h4>London, 2 Nights</h4>--}}
-                            {{--                                    <div class="col-md-3 col-sm-3 clear-padding">--}}
-                            {{--                                        <img src="assets/images/offer2.jpg" alt="cruise">--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="col-md-9 col-sm-9">--}}
-                            {{--                                        <h5>Grand Lilly, London <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></h5>--}}
-                            {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="clearfix"></div>--}}
-                            {{--                                    <h4>Amsterdam, 2 Nights</h4>--}}
-                            {{--                                    <div class="col-md-3 col-sm-3 clear-padding">--}}
-                            {{--                                        <img src="assets/images/offer3.jpg" alt="cruise">--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="col-md-9 col-sm-9">--}}
-                            {{--                                        <h5>Grand Lilly, London <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></h5>--}}
-                            {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="clearfix"></div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
-                            {{--                            <div class="inclusion-wrapper">--}}
-                            {{--                                <div class="inclusion-title">--}}
-                            {{--                                    <p><span><i class="fa fa-plane"></i></span>Transport</p>--}}
-                            {{--                                </div>--}}
-                            {{--                                <div class="inclusion-body">--}}
-                            {{--                                    <h4>Return Flight Included</h4>--}}
-                            {{--                                    <div class="flight-inclusion">--}}
-                            {{--                                        <div class="col-md-2 col-sm-2 col-xs-2 text-center">--}}
-                            {{--                                            <img src="assets/images/airline/vistara-2x.png" alt="cruise">--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-3 col-sm-3 col-xs-3 text-center">--}}
-                            {{--                                            <p>New Delhi</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">--}}
-                            {{--                                            <i class="fa fa-long-arrow-right"></i>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-3 col-sm-3 col-xs-3 text-center">--}}
-                            {{--                                            <p>Paris</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="clearfix"></div>--}}
-                            {{--                                    <div class="flight-inclusion">--}}
-                            {{--                                        <div class="col-md-2 col-sm-2 col-xs-2 text-center">--}}
-                            {{--                                            <img src="assets/images/airline/indigo-2x.png" alt="cruise">--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-3 col-sm-3 col-xs-3 text-center">--}}
-                            {{--                                            <p>Paris</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">--}}
-                            {{--                                            <i class="fa fa-long-arrow-right"></i>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-3 col-sm-3 col-xs-3 text-center">--}}
-                            {{--                                            <p>New Delhi</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
-                            {{--                            <div class="inclusion-wrapper">--}}
-                            {{--                                <div class="inclusion-title">--}}
-                            {{--                                    <p><span><i class="fa fa-suitcase"></i></span>Other Inclusion</p>--}}
-                            {{--                                </div>--}}
-                            {{--                                <div class="inclusion-body">--}}
-                            {{--                                    <p class="inc">--}}
-                            {{--                                        <i class="fa fa-check-circle"></i> Return Economy economy class airfare<br>--}}
-                            {{--                                        <i class="fa fa-check-circle"></i> Welcome drinks at hotel<br>--}}
-                            {{--                                        <i class="fa fa-check-circle"></i> Stay in 3 star hotel<br>--}}
-                            {{--                                        <i class="fa fa-check-circle"></i> Guided tour<br>--}}
-                            {{--                                        <i class="fa fa-check-circle"></i> Sighseeing<br>--}}
-                            {{--                                        <i class="fa fa-check-circle"></i> Airport transport<br>--}}
-                            {{--                                    </p>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
+                            </p>
                         </div>
                         <div id="itinerary" class="tab-pane fade in active">
                             <h4 class="tab-heading">Package Itinerary</h4>
@@ -244,12 +160,7 @@
                                         <p><span>{{$iti->title}}</span></p>
                                     </div>
                                     <div class="daily-schedule-body">
-                                        {{--                                    <div class="col-md-4 col-sm-4">--}}
-                                        {{--                                        <img src="assets/images/tour1.jpg" alt="cruise">--}}
-                                        {{--                                    </div>--}}
-                                        {{--                                    <div class="col-md-8 col-sm-8">--}}
-                                        {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>--}}
-                                        {{--                                    </div>--}}
+
                                         <div class="col-md-12 col-sm-12">
                                             {!! $iti->details !!}
                                         </div>
@@ -261,86 +172,12 @@
                                                     <p><i class="fa fa-check-square"></i> {{$include->text}}</p>
                                                 </div>
                                             @endforeach
-                                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                                            {{--                                            <p><i class="fa fa-check-square"></i> Taxi transfer from airport</p>--}}
-                                            {{--                                        </div>--}}
-                                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                                            {{--                                            <p><i class="fa fa-check-square"></i> Welcome drinks at hotel</p>--}}
-                                            {{--                                        </div>--}}
-                                            {{--                                        <div class="clearfix"></div>--}}
-                                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                                            {{--                                            <p><i class="fa fa-check-square"></i> Buffet dinner</p>--}}
-                                            {{--                                        </div>--}}
-                                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                                            {{--                                            <p><i class="fa fa-check-square"></i> Guided city tour</p>--}}
-                                            {{--                                        </div>--}}
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
-                            {{--                            <div class="daily-schedule">--}}
-                            {{--                                <div class="title">--}}
-                            {{--                                    <p><span>Day 2</span>Paris City Tour</p>--}}
-                            {{--                                </div>--}}
-                            {{--                                <div class="daily-schedule-body">--}}
-                            {{--                                    <div class="col-md-4 col-sm-4">--}}
-                            {{--                                        <img src="assets/images/tour2.jpg" alt="cruise">--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="col-md-8 col-sm-8">--}}
-                            {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="clearfix"></div>--}}
-                            {{--                                    <div class="col-md-12 activity">--}}
-                            {{--                                        <h4>Included</h4>--}}
-                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                            {{--                                            <p><i class="fa fa-check-square"></i> Taxi transfer from airport</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                            {{--                                            <p><i class="fa fa-check-square"></i> Welcome drinks at hotel</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="clearfix"></div>--}}
-                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                            {{--                                            <p><i class="fa fa-check-square"></i> Buffet dinner</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                            {{--                                            <p><i class="fa fa-check-square"></i> Guided city tour</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="clearfix"></div>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
-                            {{--                            <div class="daily-schedule">--}}
-                            {{--                                <div class="title">--}}
-                            {{--                                    <p><span>Day 3</span>Amsterdam</p>--}}
-                            {{--                                </div>--}}
-                            {{--                                <div class="daily-schedule-body">--}}
-                            {{--                                    <div class="col-md-4 col-sm-4">--}}
-                            {{--                                        <img src="assets/images/tour3.jpg" alt="cruise">--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="col-md-8 col-sm-8">--}}
-                            {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="clearfix"></div>--}}
-                            {{--                                    <div class="col-md-12 activity">--}}
-                            {{--                                        <h4>Included</h4>--}}
-                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                            {{--                                            <p><i class="fa fa-check-square"></i> Taxi transfer from airport</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                            {{--                                            <p><i class="fa fa-check-square"></i> Welcome drinks at hotel</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="clearfix"></div>--}}
-                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                            {{--                                            <p><i class="fa fa-check-square"></i> Buffet dinner</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="col-md-6 col-sm-6">--}}
-                            {{--                                            <p><i class="fa fa-check-square"></i> Guided city tour</p>--}}
-                            {{--                                        </div>--}}
-                            {{--                                        <div class="clearfix"></div>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
+
                         </div>
                         <div id="add-info" class="tab-pane fade">
                             <h4 class="tab-heading">Additional Info</h4>
@@ -496,12 +333,277 @@
                                     <h5>{{$aO->departure_date}}</h5>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-6 book">
-                                <a href="{{route('coming-soon')}}">BOOK NOW</a>
+                                <a href="#" data-offer-id="{{$aO->id}}" data-package-id="{{$aO->package_id}}" class="book-offer" id="">BOOK NOW</a>
                             </div>
                         </div>
                     </div>
                         @endforeach
                     @endif
+
+
+                    <div class="shot-overlay" style="display:none;">
+                        <a href="#" id="close-box" class="close-overlay">Close</a>
+                        <div class="close-outside" style="display:none;"></div>
+                        <div class="overlay-content" style="background-color: #FFDE59">
+                            <div class="main-content">
+                                <form action="{{route('package.booking')}}" method="post">
+                                    @csrf
+                                            <input type="hidden" readonly required value="{{$package->id}}" id="package_id" name="package_id">
+                                            <input type="hidden" readonly required value="" id="offer_id" name="offer_id">
+
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                    <label>Start</label>
+                                                    <div class="input-group margin-bottom-sm">
+                                                        <input type="text" required id="check_in" autocomplete="off" name="departure_date" class="form-control" placeholder="DD/MM/YYYY">
+                                                        <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                    <label>Duration</label>
+                                                    <select class="selectpicker" name="duration">
+                                                        <option value="3">3 Days</option>
+                                                        <option value="5">5 Days</option>
+                                                        <option value="7">1 Week</option>
+                                                        <option value="10">10 Days</option>
+                                                        <option value="14">2 Week</option>
+                                                        <option value="21">3 Week</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                    <label>Travel By</label>
+                                                    <select class="selectpicker" name="travel_by">
+                                                        <option>BUS</option>
+                                                        <option>TRAIN</option>
+                                                        <option selected>AIRPLANE</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                    <label>Adult</label>
+                                                    <select class="selectpicker" name="adult">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                    <label>Child</label>
+                                                    <select class="selectpicker" name="child">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                    <label>Single Room</label>
+                                                    <select class="selectpicker" name="meta[rooms][single_room]">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                    <label>Double Room</label>
+                                                    <select class="selectpicker" name="meta[rooms][double_room]">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                    <label>Twin Room</label>
+                                                    <select class="selectpicker" name="meta[rooms][twin_room]">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                    <label>Tripple Room</label>
+                                                    <select class="selectpicker" name="meta[rooms][tripple_room]">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <button onclick="return confirm('Are you sure you want to submit this request?')" style="float: right" class="btn btn-success" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+{{--                    <div class="modal modal--setting fade" id="bookOfferModal" tabindex="-1" role="dialog" aria-hidden="true">--}}
+{{--                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">--}}
+{{--                            <form action="{{route('package.booking')}}" method="post">--}}
+{{--                                @csrf--}}
+{{--                                <div class="modal-content">--}}
+{{--                                    <div class="modal-header">--}}
+{{--                                        <h5 class="modal-title" id="modalTitle"></h5>--}}
+{{--                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                                            <span aria-hidden="true"><i class="ti-close"></i></span>--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="modal-body">--}}
+{{--                                        <input type="hidden" readonly required value="{{$package->id}}" id="package_id" name="package_id">--}}
+{{--                                        <input type="hidden" readonly required value="" id="offer_id" name="offer_id">--}}
+
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <label>Start</label>--}}
+{{--                                                <div class="input-group margin-bottom-sm">--}}
+{{--                                                    <input type="text" required id="check_in" autocomplete="off" name="departure_date" class="form-control" placeholder="DD/MM/YYYY">--}}
+{{--                                                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <label>Duration</label>--}}
+{{--                                                <select class="selectpicker" name="duration">--}}
+{{--                                                    <option value="3">3 Days</option>--}}
+{{--                                                    <option value="5">5 Days</option>--}}
+{{--                                                    <option value="7">1 Week</option>--}}
+{{--                                                    <option value="10">10 Days</option>--}}
+{{--                                                    <option value="14">2 Week</option>--}}
+{{--                                                    <option value="21">3 Week</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+
+{{--                                        </div>--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-md-12 col-sm-12 col-xs-12">--}}
+{{--                                                <label>Travel By</label>--}}
+{{--                                                <select class="selectpicker" name="travel_by">--}}
+{{--                                                    <option>BUS</option>--}}
+{{--                                                    <option>TRAIN</option>--}}
+{{--                                                    <option selected>AIRPLANE</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <label>Adult</label>--}}
+{{--                                                <select class="selectpicker" name="adult">--}}
+{{--                                                    <option>1</option>--}}
+{{--                                                    <option>2</option>--}}
+{{--                                                    <option>3</option>--}}
+{{--                                                    <option>4</option>--}}
+{{--                                                    <option>5</option>--}}
+{{--                                                    <option>6</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <label>Child</label>--}}
+{{--                                                <select class="selectpicker" name="child">--}}
+{{--                                                    <option>1</option>--}}
+{{--                                                    <option>2</option>--}}
+{{--                                                    <option>3</option>--}}
+{{--                                                    <option>4</option>--}}
+{{--                                                    <option>5</option>--}}
+{{--                                                    <option>6</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <label>Single Room</label>--}}
+{{--                                                <select class="selectpicker" name="meta[rooms][single_room]">--}}
+{{--                                                    <option>0</option>--}}
+{{--                                                    <option>1</option>--}}
+{{--                                                    <option>2</option>--}}
+{{--                                                    <option>3</option>--}}
+{{--                                                    <option>4</option>--}}
+{{--                                                    <option>5</option>--}}
+{{--                                                    <option>6</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <label>Double Room</label>--}}
+{{--                                                <select class="selectpicker" name="meta[rooms][double_room]">--}}
+{{--                                                    <option>0</option>--}}
+{{--                                                    <option>1</option>--}}
+{{--                                                    <option>2</option>--}}
+{{--                                                    <option>3</option>--}}
+{{--                                                    <option>4</option>--}}
+{{--                                                    <option>5</option>--}}
+{{--                                                    <option>6</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <label>Twin Room</label>--}}
+{{--                                                <select class="selectpicker" name="meta[rooms][twin_room]">--}}
+{{--                                                    <option>0</option>--}}
+{{--                                                    <option>1</option>--}}
+{{--                                                    <option>2</option>--}}
+{{--                                                    <option>3</option>--}}
+{{--                                                    <option>4</option>--}}
+{{--                                                    <option>5</option>--}}
+{{--                                                    <option>6</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-6 col-sm-6 col-xs-6">--}}
+{{--                                                <label>Tripple Room</label>--}}
+{{--                                                <select class="selectpicker" name="meta[rooms][tripple_room]">--}}
+{{--                                                    <option>0</option>--}}
+{{--                                                    <option>1</option>--}}
+{{--                                                    <option>2</option>--}}
+{{--                                                    <option>3</option>--}}
+{{--                                                    <option>4</option>--}}
+{{--                                                    <option>5</option>--}}
+{{--                                                    <option>6</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+
+
+{{--                                    </div>--}}
+{{--                                    <div class="modal-footer">--}}
+{{--                                        <button type="button" class="btn btn-outline-dark btn-rounded" data-dismiss="modal">{{__("Cancel")}}</button>--}}
+{{--                                        <button type="submit" class="btn btn-primary btn-rounded btn-save">{{__("Submit")}}</button>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 {{--                    <div class="sidebar-booking-box">--}}
 {{--                        <h3 class="text-center">MAKE A BOOKING</h3>--}}
@@ -714,6 +816,36 @@
 
 
 @push('scripts')
+    <script>
+        $(document).ready(function(){
+
+
+            $('.book-offer').click(function(){
+
+                var offerId = $(this).attr('data-offer-id');
+
+                $('#modalTitle').html('Booking Request');
+                $('#offer_id').val(offerId);
+
+                $(".shot-overlay, .close-outside").toggle();
+                $("body").toggleClass("noscroll");
+            });
+            $('#close-box').click(function(){
+
+                $('#modalTitle').html('Booking Request');
+                $('#offer_id').val();
+
+                $(".shot-overlay, .close-outside").toggle();
+                $("body").toggleClass("noscroll");
+            });
+
+            $('.close-outside').click(function(){
+                $(".shot-overlay, .close-outside").toggle();
+                $("body").toggleClass("noscroll");
+            });
+
+        });
+    </script>
 
 @endpush
 
