@@ -41,6 +41,9 @@ class PackageRequest extends FormRequest
         PackageStep::MEDIA => [
 
         ],
+        PackageStep::OFFERS => [
+
+        ],
         PackageStep::ADDITIONAL => [
 
         ]

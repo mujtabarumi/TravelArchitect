@@ -138,5 +138,10 @@ class Package extends Model implements HasMedia
         return $this->popular == 1;
     }
 
+    public function offers()
+    {
+        return $this->hasMany(PackageOffers::class);
+    }
+
 
 }

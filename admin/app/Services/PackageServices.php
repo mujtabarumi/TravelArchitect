@@ -9,6 +9,7 @@ use App\Models\Country;
 use App\Models\Package;
 use App\Models\PackageItinerary;
 use App\Models\PackageItineraryInclude;
+use App\Models\PackageOffers;
 use App\Models\PackageType;
 use App\Models\State;
 use App\Models\User;
@@ -95,6 +96,7 @@ class PackageServices
         $ITINERARIES = [];
         $MEDIA = [];
         $ADDITIONAL = [];
+        $OFFERS = [];
 
         if (blank($step) || $step == PackageStep::BASIC_INFORMATION) {
             $BASIC_INFORMATION = $package->only(['title','package_type_id','theme_map','valid_from','valid_till','recommended','address','meta',
@@ -119,6 +121,11 @@ class PackageServices
         if (blank($step) || $step == PackageStep::MEDIA) {
             $MEDIA = $package->only(['recommended','home_slider']);
         }
+        if (blank($step) || $step == PackageStep::OFFERS) {
+            $OFFERS['offers'] = $package->offers->pluck('id')->all();
+//            $OFFERS = $package->only(['valid_from','valid_till','departure_date','departure_time','package_id',
+//                'hotel_room_cost_info']);
+        }
         if (blank($step) || $step == PackageStep::ADDITIONAL) {
             $ADDITIONAL = $package->only(['additional_info','terms_and_conditions']);
         }
@@ -128,6 +135,7 @@ class PackageServices
             PackageStep::DETAILS => $DETAILS,
             PackageStep::ITINERARIES => $ITINERARIES,
             PackageStep::MEDIA => $MEDIA,
+            PackageStep::OFFERS => $OFFERS,
             PackageStep::ADDITIONAL => $ADDITIONAL,
         ];
     }
@@ -260,6 +268,37 @@ class PackageServices
         $data = Arr::only($request,['recommended','home_slider']);
 
         return $package->update($data);
+
+
+    }
+    public function updateOffersRelatedInfo (Package $package, $request) {
+
+        $request = $request->all();
+
+        $oldOffersIds = $package->offers->pluck('id')->toArray();
+        $count = 0;
+
+        foreach ($request['offer'] as $offer) {
+            $dataOffer = [
+                'valid_from' => $offer['valid_from'],
+                'valid_till' => $offer['valid_till'],
+                'departure_date' => $offer['departure_date'],
+                'departure_time' => $offer['departure_time'],
+                'hotel_room_cost_info' => $offer['hotel_room_cost'],
+                'package_id' => $package->id,
+            ];
+
+            if (array_key_exists($count,$oldOffersIds)) {
+                //  dd(1);
+                $it = PackageOffers::updateOrCreate(['id' => $oldOffersIds[$count]],$dataOffer);
+            } else {
+                // dd(2);
+                $it = PackageOffers::create($dataOffer);
+            }
+            $count++;
+        }
+
+        return $package;
 
 
     }
