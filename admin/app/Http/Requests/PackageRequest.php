@@ -42,7 +42,7 @@ class PackageRequest extends FormRequest
 
         ],
         PackageStep::OFFERS => [
-
+            'offer' => 'required'
         ],
         PackageStep::ADDITIONAL => [
 
@@ -75,7 +75,7 @@ class PackageRequest extends FormRequest
     public function messages()
     {
         return [
-
+            'offer.required' => 'At list one offer is required',
         ];
     }
 }

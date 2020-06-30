@@ -216,6 +216,8 @@ class PackageServices
 //        PackageItineraryInclude::whereIn('package_itinerary_id',$package->itineraries->pluck('id')->all())->delete();
 //        PackageItinerary::where('package_id',$package->id)->delete();
 //
+        $updatedItineraryIds = [];
+        $updatedItineraryIncludeIds = [];
         $count = 0;
         foreach ($request->get('itinerary') as $iti) {
             $dataItinerary = [
@@ -226,9 +228,11 @@ class PackageServices
             if (array_key_exists($count,$oldItineraryIds)) {
               //  dd(1);
                 $it = PackageItinerary::updateOrCreate(['id' => $oldItineraryIds[$count]],$dataItinerary);
+                array_push($updatedItineraryIds, $it->id);
             } else {
                // dd(2);
                 $it = PackageItinerary::create($dataItinerary);
+                array_push($updatedItineraryIds, $it->id);
             }
 
             if (array_key_exists('includes', $iti)) {
@@ -244,13 +248,14 @@ class PackageServices
 
                     if (array_key_exists($incCount,$itiIncIds)) {
                         //  dd(1);
-                        PackageItineraryInclude::updateOrCreate(['id' => $itiIncIds[$incCount]],$dataIncludes);
+                        $itI = PackageItineraryInclude::updateOrCreate(['id' => $itiIncIds[$incCount]],$dataIncludes);
+                        array_push($updatedItineraryIncludeIds, $itI->id);
                     } else {
                         // dd(2);
-                        PackageItineraryInclude::create($dataIncludes);
+                        $itI = PackageItineraryInclude::create($dataIncludes);
+                        array_push($updatedItineraryIncludeIds, $itI->id);
                     }
-//
-//                    PackageItineraryInclude::create($dataIncludes);
+
                     $incCount++;
                 }
 
@@ -258,6 +263,8 @@ class PackageServices
             $count++;
         }
 
+        PackageItineraryInclude::whereNotIn('id', $updatedItineraryIncludeIds)->delete();
+        PackageItinerary::whereNotIn('id', $updatedItineraryIds)->delete();
         return $package;
     }
 
@@ -277,7 +284,7 @@ class PackageServices
 
         $oldOffersIds = $package->offers->pluck('id')->toArray();
         $count = 0;
-
+        $updatedIds = [];
         foreach ($request['offer'] as $offer) {
             $dataOffer = [
                 'valid_from' => $offer['valid_from'],
@@ -291,13 +298,15 @@ class PackageServices
             if (array_key_exists($count,$oldOffersIds)) {
                 //  dd(1);
                 $it = PackageOffers::updateOrCreate(['id' => $oldOffersIds[$count]],$dataOffer);
+                array_push($updatedIds, $it->id);
             } else {
                 // dd(2);
                 $it = PackageOffers::create($dataOffer);
+                array_push($updatedIds, $it->id);
             }
             $count++;
         }
-
+        PackageOffers::whereNotIn('id',$updatedIds)->delete();
         return $package;
 
 

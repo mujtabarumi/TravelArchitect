@@ -143,7 +143,7 @@ class PackageController extends Controller
         if (Auth::check()) {
 
             $request = $request->all();
-            $data = Arr::only($request,['package_id','departure_date','travel_by','duration','meta']);
+            $data = Arr::only($request,['offer_id','package_id','departure_date','travel_by','duration','meta']);
             $data['departure_date'] = Carbon::parse($data['departure_date'])->format("Y-m-d");
             $data['user_id'] = Auth::user()->id;
             $data['status'] = 0;
