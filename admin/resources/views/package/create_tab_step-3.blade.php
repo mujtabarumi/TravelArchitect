@@ -58,8 +58,9 @@ $itineraries = [];
                                 </div>
                             </div> <!-- end col -->
                         </div>
-                        <hr id="line{{$loop->index}}">
-
+                        @if(!$loop->last)
+                            <hr id="line{{$loop->index}}">
+                        @endif
                     </div>
                 @endforeach
             @else
@@ -97,7 +98,7 @@ $itineraries = [];
                         </div>
                     </div> <!-- end col -->
                 </div>
-                <hr id="line0">
+
             @endif
 
             <div id="itineraryWrapper"></div>
@@ -156,7 +157,7 @@ $itineraries = [];
 
             @if(!blank($itineraries))
                 var index = "{{$itineraries->count()}}";
-                $('#line'+(index-1)).hide();
+               // $('#line'+(index-1)).hide();
 
                 for(var i = 0; i < index; i++) {
 
@@ -174,7 +175,7 @@ $itineraries = [];
                 }
             @else
                 var index = 0;
-                $('#line'+index).hide();
+                //$('#line'+index).hide();
 
             new Quill("#snow-editor"+index, {
                 theme: "snow",
@@ -201,6 +202,7 @@ $itineraries = [];
                 $(itineraryWrapper).append(
                     `
                 <div id="itineraryDiv${index}" class="">
+                <hr id="line${index}">
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group mb-3">
@@ -236,13 +238,13 @@ $itineraries = [];
                         </div>
                     </div>
                 </div>
-                <hr id="line${index}">
+
                 </div>
             `
                 );
 
-                $('#line'+index).hide();
-                $('#line'+(index-1)).show();
+                // $('#line'+index).hide();
+                // $('#line'+(index-1)).show();
 
                 new Quill("#snow-editor"+index, {
                     theme: "snow",
@@ -262,6 +264,7 @@ $itineraries = [];
                 event.preventDefault();
                 var divId = $(this).data('div-id');
                 $('#itineraryDiv'+divId).remove();
+                $('#line'+(divId-1)).hide();
             });
         });
         function removeItinerary(x) {

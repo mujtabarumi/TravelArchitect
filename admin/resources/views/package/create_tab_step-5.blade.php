@@ -7,21 +7,6 @@
 
 @endphp
 
-@php
-    $inclusions = json_decode(old('inclusion',data_get($tabData,'inclusion')));
-    $exclusions = json_decode(old('exclusion',data_get($tabData,'exclusion')));
-    $details = old('details',data_get($tabData,'details'));
-
-    $package_costs = data_get($tabData,'meta.package_cost',[]);
-    $package_places = data_get($tabData,'meta.places',[]);
-
-    if (empty($inclusions)) {
-        $inclusions = [];
-    }
-    if (empty($exclusions)) {
-        $exclusions = [];
-    }
-@endphp
 
 <style>
     /* Thick red border */
@@ -40,11 +25,9 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label class="col-form-label" for="expiry_date">{{__("Valid From")}}*</label>
-                                    @if($loop->index != 0)
-                                        <button class="btn btn-danger btn-sm removeItinerary" id="RemoveItinerary" data-div-id="{{$loop->index}}" style="float: right">Remove</button>
-                                    @endif
+
                                     <div class="input-group">
-                                        <input type="text" required class="form-control date" name="offer[{{$loop->index}}][valid_from]" autocomplete="off" value="{{ $offers->valid_from }}" placeholder="{{__("yyyy/mm/dd")}}">
+                                        <input type="text" required class="form-control date" name="offer[{{$loop->index}}][valid_from]" autocomplete="off" value="{{ Carbon\Carbon::parse($offers->valid_from)->format("y/m/d") }}" placeholder="{{__("yyyy/mm/dd")}}">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="ti-notepad"></i></span>
                                         </div>
@@ -55,8 +38,11 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label class="col-form-label" for="expiry_date">{{__("Valid Till")}}*</label>
+                                    @if($loop->count > 1 || $loop->index != 0)
+                                        <button class="btn btn-danger btn-sm removeItinerary" id="RemoveItinerary" data-div-id="{{$loop->index}}" style="float: right">Remove</button>
+                                    @endif
                                     <div class="input-group">
-                                        <input type="text" required class="form-control date" name="offer[{{$loop->index}}][valid_till]" autocomplete="off" value="{{ $offers->valid_till }}" placeholder="{{__("yyyy/mm/dd")}}">
+                                        <input type="text" required class="form-control date" name="offer[{{$loop->index}}][valid_till]" autocomplete="off" value="{{ Carbon\Carbon::parse($offers->valid_till)->format("y/m/d") }}" placeholder="{{__("yyyy/mm/dd")}}">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="ti-notepad"></i></span>
                                         </div>
@@ -103,7 +89,7 @@
                                 <div class="form-group mb-3">
                                     <label class="col-form-label" for="expiry_date">{{__("Single")}}*</label>
                                     <div class="input-group">
-                                        <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[{{$loop->index}}][hotel_room_cost][single]" autocomplete="off" placeholder="cost">
+                                        <input type="number" min="1" required class="form-control col-md-5" id="cost" value="{{$offers->hotel_room_cost_info['single']}}" name="offer[{{$loop->index}}][hotel_room_cost][single]" autocomplete="off" placeholder="cost">
                                     </div><!-- input-group -->
                                 </div>
                             </div>
@@ -111,7 +97,7 @@
                                 <div class="form-group mb-3">
                                     <label class="col-form-label" for="expiry_date">{{__("Double")}}*</label>
                                     <div class="input-group">
-                                        <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[{{$loop->index}}][hotel_room_cost][double]" autocomplete="off" placeholder="cost">
+                                        <input type="number" min="1" required class="form-control col-md-5" id="cost" value="{{$offers->hotel_room_cost_info['double']}}" name="offer[{{$loop->index}}][hotel_room_cost][double]" autocomplete="off" placeholder="cost">
                                     </div><!-- input-group -->
                                 </div>
                             </div>
@@ -119,7 +105,7 @@
                                 <div class="form-group mb-3">
                                     <label class="col-form-label" for="expiry_date">{{__("Twin")}}*</label>
                                     <div class="input-group">
-                                        <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[{{$loop->index}}][hotel_room_cost][twin]" autocomplete="off" placeholder="cost">
+                                        <input type="number" min="1" required class="form-control col-md-5" id="cost" value="{{$offers->hotel_room_cost_info['twin']}}" name="offer[{{$loop->index}}][hotel_room_cost][twin]" autocomplete="off" placeholder="cost">
                                     </div><!-- input-group -->
                                 </div>
                             </div>
@@ -127,7 +113,7 @@
                                 <div class="form-group mb-3">
                                     <label class="col-form-label" for="expiry_date">{{__("Triple")}}*</label>
                                     <div class="input-group">
-                                        <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[{{$loop->index}}][hotel_room_cost][triple]" autocomplete="off" placeholder="cost">
+                                        <input type="number" min="1" required class="form-control col-md-5" id="cost" value="{{$offers->hotel_room_cost_info['triple']}}" name="offer[{{$loop->index}}][hotel_room_cost][triple]" autocomplete="off" placeholder="cost">
                                     </div><!-- input-group -->
                                 </div>
                             </div> <!-- end col -->
@@ -162,7 +148,9 @@
 {{--                                </ul>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-                        <hr id="line{{$loop->index}}">
+                        @if(!$loop->last)
+                            <hr id="line{{$loop->index}}">
+                        @endif
 
                     </div>
                 @endforeach
@@ -232,7 +220,7 @@
                         <div class="form-group mb-3">
                             <label class="col-form-label" for="expiry_date">{{__("Single")}}*</label>
                             <div class="input-group">
-                                <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[0][hotel_room_cost][single]" autocomplete="off" placeholder="cost">
+                                <input type="number" min="1" required class="form-control col-md-5" id="cost" value="" name="offer[0][hotel_room_cost][single]" autocomplete="off" placeholder="cost">
                             </div><!-- input-group -->
                         </div>
                     </div>
@@ -240,7 +228,7 @@
                         <div class="form-group mb-3">
                             <label class="col-form-label" for="expiry_date">{{__("Double")}}*</label>
                             <div class="input-group">
-                                <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[0][hotel_room_cost][double]" autocomplete="off" placeholder="cost">
+                                <input type="number" min="1" required class="form-control col-md-5" id="cost" value="" name="offer[0][hotel_room_cost][double]" autocomplete="off" placeholder="cost">
                             </div><!-- input-group -->
                         </div>
                     </div>
@@ -248,7 +236,7 @@
                         <div class="form-group mb-3">
                             <label class="col-form-label" for="expiry_date">{{__("Twin")}}*</label>
                             <div class="input-group">
-                                <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[0][hotel_room_cost][twin]" autocomplete="off" placeholder="cost">
+                                <input type="number" min="1" required class="form-control col-md-5" id="cost" value="" name="offer[0][hotel_room_cost][twin]" autocomplete="off" placeholder="cost">
                             </div><!-- input-group -->
                         </div>
                     </div>
@@ -256,7 +244,7 @@
                         <div class="form-group mb-3">
                             <label class="col-form-label" for="expiry_date">{{__("Triple")}}*</label>
                             <div class="input-group">
-                                <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[0][hotel_room_cost][triple]" autocomplete="off" placeholder="cost">
+                                <input type="number" min="1" required class="form-control col-md-5" id="cost" value="" name="offer[0][hotel_room_cost][triple]" autocomplete="off" placeholder="cost">
                             </div><!-- input-group -->
                         </div>
                     </div> <!-- end col -->
@@ -291,7 +279,7 @@
 {{--                        </ul>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
-                <hr id="line0">
+{{--                <hr id="line0">--}}
             @endif
 
             <div id="itineraryWrapper"></div>
@@ -318,66 +306,68 @@
                 format: 'yyyy/mm/dd',
             });
 
+            @if(session()->get('errors'))
+                toastr.error("{{ session()->get('errors')->first() }}");
+            @endif
+
             var itineraryWrapper = $('#itineraryWrapper');
             var btnRemoveItinerary = '.ti-close';
 
             @if(!blank($offers))
-            var index = "{{$offers->count()}}";
-            $('#line'+(index-1)).hide();
 
+            var index = "{{$offers->count()}}";
+                // $('#line'+(index-1)).hide();
             @else
             var index = 0;
-            $('#line'+index).hide();
+                // $('#line'+index).hide();
             @endif
 
+            {{--var btnRemovePackageCost = '.ti-close';--}}
+            {{--bindRemovePackageCost();--}}
+            {{--var packagege_cost_count = "{{count($package_costs)}}";--}}
 
-            var packageCostWrapper = $('#package-costWrapper');
-            var btnRemovePackageCost = '.ti-close';
-            bindRemovePackageCost();
-            var packagege_cost_count = "{{count($package_costs)}}";
-
-            $('#addHotelAdditionalCost'+index).click(function () {
-                event.preventDefault();
-                var log = $(this).data('log-id');
-                var inputTtile = $('#title'+log);
-                var inputCost = $('#cost'+log);
-                var title = $(inputTtile).val();
-                var cost = $(inputCost).val();
+            {{--$('#addHotelAdditionalCost'+index).click(function () {--}}
+            {{--    event.preventDefault();--}}
+            {{--    var log = $(this).data('log-id');--}}
+            {{--    var inputTtile = $('#title'+log);--}}
+            {{--    var inputCost = $('#cost'+log);--}}
+            {{--    var title = $(inputTtile).val();--}}
+            {{--    var cost = $(inputCost).val();--}}
 
 
 
-                $('#package-costWrapper'+log).append(packageCostTemplates.replace(/:title/g,title)
-                    .replace(/:cost/g,cost).replace(/:count/g,packagege_cost_count));
-                $(inputTtile).val("");
-                $(inputCost).val("");
-                bindRemovePackageCost();
-                packagege_cost_count++;
+            {{--    $('#package-costWrapper'+log).append(packageCostTemplates.replace(/:title/g,title)--}}
+            {{--        .replace(/:cost/g,cost).replace(/:count/g,packagege_cost_count));--}}
+            {{--    $(inputTtile).val("");--}}
+            {{--    $(inputCost).val("");--}}
+            {{--    bindRemovePackageCost();--}}
+            {{--    packagege_cost_count++;--}}
 
 
-            });
+            {{--});--}}
 
-            function bindRemovePackageCost(){
-                $(btnRemovePackageCost).unbind('click').click(function (e) {
-                    e.preventDefault();
-                    $(this).closest('.package-cost-list').remove();
-                });
-            }
+            {{--function bindRemovePackageCost(){--}}
+            {{--    $(btnRemovePackageCost).unbind('click').click(function (e) {--}}
+            {{--        e.preventDefault();--}}
+            {{--        $(this).closest('.package-cost-list').remove();--}}
+            {{--    });--}}
+            {{--}--}}
 
-            var packageCostTemplates = `
-                <li class="benefit-list-item">
-                    <span>:title</span> <b>- BDT:</b> <span>:cost</span>
-                    <input type="hidden" value=":title" name="hotel[additional_cost][:count][title]">
-                    <input type="hidden" value=":cost" name="hotel[additional_cost][:count][cost]">
-                    <i class="fa fa-trash-o pointer ml-1"></i>
-                </li>
-            `;
+            {{--var packageCostTemplates = `--}}
+            {{--    <li class="benefit-list-item">--}}
+            {{--        <span>:title</span> <b>- BDT:</b> <span>:cost</span>--}}
+            {{--        <input type="hidden" value=":title" name="hotel[additional_cost][:count][title]">--}}
+            {{--        <input type="hidden" value=":cost" name="hotel[additional_cost][:count][cost]">--}}
+            {{--        <i class="fa fa-trash-o pointer ml-1"></i>--}}
+            {{--    </li>--}}
+            {{--`;--}}
 
             $('#addMoreItinerary').click(function () {
                 index++;
                 $(itineraryWrapper).append(
                     `
                 <div id="itineraryDiv${index}" class="">
-                <button class="btn btn-danger btn-sm removeItinerary" onclick="removeItinerary(this)" id="RemoveItinerary" data-div-id="${index}" style="float: right">Remove</button>
+                    <hr id="line${index}">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group mb-3">
@@ -394,6 +384,7 @@
                     <div class="col-md-6">
                     <div class="form-group mb-3">
                     <label class="col-form-label" for="expiry_date">Valid Till*</label>
+                    <button class="btn btn-danger btn-sm removeItinerary" onclick="removeItinerary(this)" id="RemoveItinerary" data-div-id="${index}" style="float: right">Remove</button>
                     <div class="input-group">
                     <input type="text" required class="form-control date" id="offer[${index}][valid_till]" name="offer[${index}][valid_till]" autocomplete="off" value="" placeholder="yyyy/mm/dd">
                     <div class="input-group-append">
@@ -442,7 +433,7 @@
                     <div class="form-group mb-3">
                     <label class="col-form-label" for="expiry_date">Single*</label>
                     <div class="input-group">
-                    <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[${index}][hotel_room_cost][single]" autocomplete="off" placeholder="cost">
+                    <input type="number" min="1" required class="form-control col-md-5" id="cost" value="" name="offer[${index}][hotel_room_cost][single]" autocomplete="off" placeholder="cost">
                     </div>
                     </div>
                     </div>
@@ -450,15 +441,15 @@
                     <div class="form-group mb-3">
                     <label class="col-form-label" for="expiry_date">Double*</label>
                     <div class="input-group">
-                    <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[${index}][hotel_room_cost][double]" autocomplete="off" placeholder="cost">
+                    <input type="number" min="1" required class="form-control col-md-5" id="cost" value="" name="offer[${index}][hotel_room_cost][double]" autocomplete="off" placeholder="cost">
                     </div>
                     </div>
                     </div>
                     <div class="col-md-6">
                     <div class="form-group mb-3">
-                    <label class="col-form-label" for="expiry_date"Twin*</label>
+                    <label class="col-form-label" for="expiry_date">Twin*</label>
                     <div class="input-group">
-                    <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[${index}][hotel_room_cost][twin]" autocomplete="off" placeholder="cost">
+                    <input type="number" min="1" required class="form-control col-md-5" id="cost" value="" name="offer[${index}][hotel_room_cost][twin]" autocomplete="off" placeholder="cost">
                     </div>
                     </div>
                     </div>
@@ -466,18 +457,17 @@
                     <div class="form-group mb-3">
                     <label class="col-form-label" for="expiry_date">Triple*</label>
                     <div class="input-group">
-                    <input type="number" min="1" class="form-control col-md-5" id="cost" value="" name="offer[${index}][hotel_room_cost][triple]" autocomplete="off" placeholder="cost">
+                    <input type="number" min="1" required class="form-control col-md-5" id="cost" value="" name="offer[${index}][hotel_room_cost][triple]" autocomplete="off" placeholder="cost">
                     </div>
                     </div>
                     </div>
                     </div>
 
-                <hr id="line${index}">
                 </div>
             `
                 );
-                $('#line'+index).hide();
-                $('#line'+(index-1)).show();
+
+
 
                 let date = new Date();
                 date.setDate(date.getDate() + 1);
@@ -504,45 +494,43 @@
 
             var divId = $(x).data('div-id');
             $('#itineraryDiv'+divId).remove();
-            $('#line'+(divId-1)).hide();
+            //$('#line'+(divId-1)).hide();
         }
 
-        function globalBindRemovePackageCost(){
-            $(btnRemovePackageCost).unbind('click').click(function (e) {
-                e.preventDefault();
-                $(this).closest('.package-cost-list').remove();
-            });
-        }
+        // function globalBindRemovePackageCost(){
+        //     $(btnRemovePackageCost).unbind('click').click(function (e) {
+        //         e.preventDefault();
+        //         $(this).closest('.package-cost-list').remove();
+        //     });
+        // }
 
-        var globalPackageCostTemplates = `
-                <li class="benefit-list-item">
-                    <span>:title</span> <b>- BDT:</b> <span>:cost</span>
-                    <input type="hidden" value=":title" name="hotel[additional_cost][:count][title]">
-                    <input type="hidden" value=":cost" name="hotel[additional_cost][:count][cost]">
-                    <i class="fa fa-trash-o pointer ml-1"></i>
-                </li>
-            `;
-
-        function addHotelAdditionalCost(x) {
-
-            event.preventDefault();
-
-            var inputTtile = $('#title'+x);
-            var inputCost = $('#cost'+x);
-            var title = $(inputTtile).val();
-            var cost = $(inputCost).val();
-
-
-
-            $('#package-costWrapper'+x).append(globalPackageCostTemplates.replace(/:title/g,title)
-                .replace(/:cost/g,cost).replace(/:count/g,packagege_cost_count));
-            $(inputTtile).val("");
-            $(inputCost).val("");
-            globalBindRemovePackageCost();
-            packagege_cost_count++;
-        }
-
-
+        // var globalPackageCostTemplates = `
+        //         <li class="benefit-list-item">
+        //             <span>:title</span> <b>- BDT:</b> <span>:cost</span>
+        //             <input type="hidden" value=":title" name="hotel[additional_cost][:count][title]">
+        //             <input type="hidden" value=":cost" name="hotel[additional_cost][:count][cost]">
+        //             <i class="fa fa-trash-o pointer ml-1"></i>
+        //         </li>
+        //     `;
+        //
+        // function addHotelAdditionalCost(x) {
+        //
+        //     event.preventDefault();
+        //
+        //     var inputTtile = $('#title'+x);
+        //     var inputCost = $('#cost'+x);
+        //     var title = $(inputTtile).val();
+        //     var cost = $(inputCost).val();
+        //
+        //
+        //
+        //     $('#package-costWrapper'+x).append(globalPackageCostTemplates.replace(/:title/g,title)
+        //         .replace(/:cost/g,cost).replace(/:count/g,packagege_cost_count));
+        //     $(inputTtile).val("");
+        //     $(inputCost).val("");
+        //     globalBindRemovePackageCost();
+        //     packagege_cost_count++;
+        // }
 
     </script>
 @endpush
