@@ -178,15 +178,13 @@
         {{--    });--}}
         {{--}--}}
 
-        function editvisaguide(x){
+        function editpopularcity(x){
+
 
             btn = $(x).data('panel-id');
-            alert(btn);
-            {{--btn = $(x).data('panel-id');--}}
-            {{--var url = '{{route("visaguide.edit", ":id") }}';--}}
-            {{--//alert(url);--}}
-            {{--var newUrl=url.replace(':id', btn);--}}
-            {{--window.location.href = newUrl;--}}
+            var url = '{{route("popularcity.edit", ":id") }}';
+            var newUrl=url.replace(':id', btn);
+            window.location.href = newUrl;
 
             //  alert("fdsfsdf");
 

@@ -169,31 +169,18 @@
         } );
 
 
-        {{--function editClient(x) {--}}
-        {{--    var id=$(x).data('panel-id');--}}
 
-        {{--    $.ajax({--}}
-        {{--        type: 'POST',--}}
-        {{--        url: "{!! route('client.edit') !!}",--}}
-        {{--        cache: false,--}}
-        {{--        data: {_token: "{{csrf_token()}}",'id': id},--}}
-        {{--        success: function (data) {--}}
-        {{--            $("#editModalBody").html(data);--}}
-        {{--            $('#editModal').modal();--}}
-        {{--            // console.log(data);--}}
-        {{--        }--}}
-        {{--    });--}}
-        {{--}--}}
 
-        function editvisaguide(x){
+        function editvisaguidefunc(x){
 
+
+            // btn = $(x).data('panel-id');
+            // alert(btn);
             btn = $(x).data('panel-id');
-            alert(btn);
-            {{--btn = $(x).data('panel-id');--}}
-            {{--var url = '{{route("visaguide.edit", ":id") }}';--}}
-            {{--//alert(url);--}}
-            {{--var newUrl=url.replace(':id', btn);--}}
-            {{--window.location.href = newUrl;--}}
+            var url = '{{route("editvisaguide", ":id") }}';
+            //alert(url);
+            var newUrl=url.replace(':id', btn);
+            window.location.href = newUrl;
 
           //  alert("fdsfsdf");
 
@@ -210,7 +197,7 @@
             {{--});--}}
         }
 
-        function deletevisaguide(x) {
+        function deletevisaguidefunc(x) {
             btn = $(x).data('panel-id');
             alert(btn);
         }

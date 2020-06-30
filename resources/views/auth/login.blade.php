@@ -1,6 +1,14 @@
 @extends('layout.main')
+@push('styles')
+    <style>
+        card-body{
+            background: #0a6aa1;
+        }
 
+    </style>
+@endpush
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -9,6 +17,7 @@
 
                 <br><br><br>
                 <div class="card-body" >
+
 
                     <div align="center">
                     <form method="POST" action="{{ route('login') }}">
