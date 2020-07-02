@@ -14,12 +14,12 @@
             <div class="col-md-2 col-sm-2">
                 <div class="user-profile-tabs">
                     <ul class="nav nav-tabs">
-                        <li ><a data-toggle="tab" href="#profile-overview" class="text-center"><i class="fa fa-bolt"></i> <span>Overview</span></a></li>
+{{--                        <li ><a data-toggle="tab" href="#profile-overview" class="text-center"><i class="fa fa-bolt"></i> <span>Overview</span></a></li>--}}
 {{--                        <li><a data-toggle="tab" href="#booking" class="text-center"><i class="fa fa-history"></i> <span>Bookings</span></a></li>--}}
                         <li class="active" ><a data-toggle="tab" href="#profile" class="text-center"><i class="fa fa-user"></i> <span>Profile</span></a></li>
 {{--                        <li><a data-toggle="tab" href="#wishlist" class="text-center"><i class="fa fa-heart-o"></i> <span>Wishlist</span></a></li>--}}
 {{--                        <li><a data-toggle="tab" href="#cards" class="text-center"><i class="fa fa-credit-card"></i> <span>My Cards</span></a></li>--}}
-                        <li><a data-toggle="tab" href="#complaint" class="text-center"><i class="fa fa-edit"></i> <span>Complaints</span></a></li>
+{{--                        <li><a data-toggle="tab" href="#complaint" class="text-center"><i class="fa fa-edit"></i> <span>Complaints</span></a></li>--}}
                     </ul>
                 </div>
             </div>
@@ -349,33 +349,23 @@
                             <div class="user-personal-info">
                                 <h4>Personal Information</h4>
                                 <div class="user-info-body">
-                                    <form >
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>First Name</label>
-                                            <input type="text" name="fname" required placeholder="First Name" class="form-control" value="{{$user->first_name}}">
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>First Name</label>
-                                            <input type="text" name="lname" required placeholder="Last Name" class="form-control" value="{{$user->last_name}}">
-                                        </div>
+                                    <form method="post" action="{{route('profile.update')}}" >
+                                        @csrf
                                         <div class="col-md-6 col-sm-6">
                                             <label>Name</label>
-                                            <input type="text" name="lname" required placeholder="Last Name" class="form-control" value="{{$user->name}}">
+                                            <input type="text" name="name" required placeholder="Last Name" class="form-control" value="{{$user->name}}">
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="col-md-12">
                                             <label>Email-ID</label>
                                             <input type="email" name="email" required placeholder="lenore@example.com" class="form-control" value="{{$user->email}}">
                                         </div>
-                                        <div class="col-md-12">
-                                            <label>Contact Number</label>
-                                            <input type="text" name="contact" required class="form-control" value="{{$user->mobile_number}}">
-                                        </div>
+
                                         <div class="col-md-12">
                                             <label>Date Of Birth</label>
                                             <div class="clearfix"></div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 clear-padding">
-                                                <input type="date" name="contact" required class="form-control" value="{{$user->dob}}">
+                                                <input type="date" name="dob" required class="form-control" value="{{$user->dob}}">
 {{--                                                <select class="form-control" name="day">--}}
 {{--                                                    <option>Day</option>--}}
 {{--                                                    <option>01</option>--}}
@@ -416,7 +406,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label>Passport Expiry Date</label>
-                                            <input type="text" name="passport_number" required class="form-control" value="{{$user->passport_expiry_date}}">
+                                            <input type="date" name="passport_expiry_date" required class="form-control" value="{{$user->passport_expiry_date}}">
                                         </div>
                                         <div class="col-md-12">
                                             <label>National Id Number</label>
@@ -424,7 +414,29 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label>Gender</label>
-                                            <input type="text" name="gender" required class="form-control" value="{{$user->gender}}">
+{{--                                            <input type="text" name="gender" required class="form-control" value="{{$user->gender}}">--}}
+                                            <select id="gender" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender">
+                                                <option>Select a gender</option>
+                                                <option value="1" @if($user->gender == "1") selected @endif >Male</option>
+                                                <option value="0" @if($user->gender == "0") selected @endif>Female</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Marital Status</label>
+                                            <select id="marital_status" type="text" class="form-control @error('marital_status') is-invalid @enderror" name="marital_status" value="{{ old('marital_status') }}"  autocomplete="marital_status">
+                                                <option>Select a gender</option>
+                                                <option value="1" @if($user->gender == "1") selected @endif>Single</option>
+                                                <option value="2" @if($user->gender == "2") selected @endif>Married</option>
+                                                <option value="3" @if($user->gender == "3") selected @endif>Divorced</option>
+                                                <option value="4" @if($user->gender == "4") selected @endif>widow</option>
+
+                                            </select>
+                                            @error('Marital Status')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
                                         </div>
                                         <div class="col-md-12">
                                             <label>Spouse Name</label>
@@ -502,92 +514,92 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="user-preference">
-                                <h4 data-toggle="collapse" data-target="#flight-preference" aria-expanded="false" aria-controls="flight-preference">
-                                    <i class="fa fa-plane"></i> Flight Preference <span class="pull-right"><i class="fa fa-chevron-down"></i></span>
-                                </h4>
-                                <div class="collapse" id="flight-preference">
-                                    <form >
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>Price Range</label>
-                                            <select class="form-control" name="flight-price-range">
-                                                <option>Upto $199</option>
-                                                <option>Upto $250</option>
-                                                <option>Upto $499</option>
-                                                <option>Upto $599</option>
-                                                <option>Upto $1000</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>Food Preference</label>
-                                            <select class="form-control" name="flight-food">
-                                                <option>Indian</option>
-                                                <option>Chineese</option>
-                                                <option>Sea Food</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>Airline</label>
-                                            <select class="form-control" name="flight-airline">
-                                                <option>Indigo</option>
-                                                <option>Vistara</option>
-                                                <option>Spicejet</option>
-                                            </select>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="col-md-12 text-center">
-                                            <button type="submit">SAVE CHANGES</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="user-preference">
-                                <h4 data-toggle="collapse" data-target="#hotel-preference" aria-expanded="false" aria-controls="hotel-preference">
-                                    <i class="fa fa-bed"></i> Hotel Preference <span class="pull-right"><i class="fa fa-chevron-down"></i></span>
-                                </h4>
-                                <div class="collapse" id="hotel-preference">
-                                    <form >
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>Price Range</label>
-                                            <select class="form-control" name="hotel-price-range">
-                                                <option>Upto $199</option>
-                                                <option>Upto $250</option>
-                                                <option>Upto $499</option>
-                                                <option>Upto $599</option>
-                                                <option>Upto $1000</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>Food Preference</label>
-                                            <select class="form-control" name="hotel-food">
-                                                <option>Indian</option>
-                                                <option>Chineese</option>
-                                                <option>Sea Food</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>Facilities</label>
-                                            <select class="form-control" name="hotel-facilities">
-                                                <option>WiFi</option>
-                                                <option>Bar</option>
-                                                <option>Restaurant</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label>Rating</label>
-                                            <select class="form-control" name="hotel-facilities">
-                                                <option>5</option>
-                                                <option>4</option>
-                                                <option>3</option>
-                                            </select>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="col-md-12 text-center">
-                                            <button type="submit">SAVE CHANGES</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+{{--                            <div class="user-preference">--}}
+{{--                                <h4 data-toggle="collapse" data-target="#flight-preference" aria-expanded="false" aria-controls="flight-preference">--}}
+{{--                                    <i class="fa fa-plane"></i> Flight Preference <span class="pull-right"><i class="fa fa-chevron-down"></i></span>--}}
+{{--                                </h4>--}}
+{{--                                <div class="collapse" id="flight-preference">--}}
+{{--                                    <form >--}}
+{{--                                        <div class="col-md-6 col-sm-6">--}}
+{{--                                            <label>Price Range</label>--}}
+{{--                                            <select class="form-control" name="flight-price-range">--}}
+{{--                                                <option>Upto $199</option>--}}
+{{--                                                <option>Upto $250</option>--}}
+{{--                                                <option>Upto $499</option>--}}
+{{--                                                <option>Upto $599</option>--}}
+{{--                                                <option>Upto $1000</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6 col-sm-6">--}}
+{{--                                            <label>Food Preference</label>--}}
+{{--                                            <select class="form-control" name="flight-food">--}}
+{{--                                                <option>Indian</option>--}}
+{{--                                                <option>Chineese</option>--}}
+{{--                                                <option>Sea Food</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6 col-sm-6">--}}
+{{--                                            <label>Airline</label>--}}
+{{--                                            <select class="form-control" name="flight-airline">--}}
+{{--                                                <option>Indigo</option>--}}
+{{--                                                <option>Vistara</option>--}}
+{{--                                                <option>Spicejet</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="clearfix"></div>--}}
+{{--                                        <div class="col-md-12 text-center">--}}
+{{--                                            <button type="submit">SAVE CHANGES</button>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="user-preference">--}}
+{{--                                <h4 data-toggle="collapse" data-target="#hotel-preference" aria-expanded="false" aria-controls="hotel-preference">--}}
+{{--                                    <i class="fa fa-bed"></i> Hotel Preference <span class="pull-right"><i class="fa fa-chevron-down"></i></span>--}}
+{{--                                </h4>--}}
+{{--                                <div class="collapse" id="hotel-preference">--}}
+{{--                                    <form >--}}
+{{--                                        <div class="col-md-6 col-sm-6">--}}
+{{--                                            <label>Price Range</label>--}}
+{{--                                            <select class="form-control" name="hotel-price-range">--}}
+{{--                                                <option>Upto $199</option>--}}
+{{--                                                <option>Upto $250</option>--}}
+{{--                                                <option>Upto $499</option>--}}
+{{--                                                <option>Upto $599</option>--}}
+{{--                                                <option>Upto $1000</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6 col-sm-6">--}}
+{{--                                            <label>Food Preference</label>--}}
+{{--                                            <select class="form-control" name="hotel-food">--}}
+{{--                                                <option>Indian</option>--}}
+{{--                                                <option>Chineese</option>--}}
+{{--                                                <option>Sea Food</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6 col-sm-6">--}}
+{{--                                            <label>Facilities</label>--}}
+{{--                                            <select class="form-control" name="hotel-facilities">--}}
+{{--                                                <option>WiFi</option>--}}
+{{--                                                <option>Bar</option>--}}
+{{--                                                <option>Restaurant</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6 col-sm-6">--}}
+{{--                                            <label>Rating</label>--}}
+{{--                                            <select class="form-control" name="hotel-facilities">--}}
+{{--                                                <option>5</option>--}}
+{{--                                                <option>4</option>--}}
+{{--                                                <option>3</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="clearfix"></div>--}}
+{{--                                        <div class="col-md-12 text-center">--}}
+{{--                                            <button type="submit">SAVE CHANGES</button>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
 {{--                    <div id="wishlist" class="tab-pane fade in">--}}

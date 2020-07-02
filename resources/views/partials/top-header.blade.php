@@ -2,7 +2,7 @@
     <div class="container clear-padding">
         <div class="navbar-contact">
             <div class=" text-right clear-padding user-logged">
-                <a  href="#" class="transition-effect">
+                <a  href="{{route('user.profile')}}" class="transition-effect">
 {{--                    <img src="{{asset("/assets/images/user.jpg")}}" alt="cruise">--}}
 
                     @if(!empty(\Illuminate\Support\Facades\Auth::user()))

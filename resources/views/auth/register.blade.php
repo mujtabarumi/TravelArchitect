@@ -156,9 +156,9 @@
                                 <select id="marital_status" type="text" class="form-control @error('marital_status') is-invalid @enderror" name="marital_status" value="{{ old('marital_status') }}"  autocomplete="marital_status">
                                     <option>Select a gender</option>
                                     <option value="1">Single</option>
-                                    <option value="0">Married</option>
-                                    <option value="0">Divorced</option>
-                                    <option value="0">widow</option>
+                                    <option value="2">Married</option>
+                                    <option value="3">Divorced</option>
+                                    <option value="4">widow</option>
 
                                 </select>
                                 @error('Marital Status')

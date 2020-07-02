@@ -122,11 +122,11 @@
                     {{--                                    </div>--}}
 
                     {{--                                </div>--}}
-                    <div class="room-book-box">
-                        <div class="book">
-                            <a href="{{route('coming-soon')}}">BOOK</a>
-                        </div>
-                    </div>
+{{--                    <div class="room-book-box">--}}
+{{--                        <div class="book">--}}
+{{--                            <a href="{{route('coming-soon')}}">BOOK</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
