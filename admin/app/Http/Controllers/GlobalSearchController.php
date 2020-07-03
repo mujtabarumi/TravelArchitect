@@ -21,6 +21,20 @@ class GlobalSearchController extends Controller
         $keyword = $request->get('keyword');
         return response()->json($packageService->searchPackageType($keyword));
     }
+    public function searchPackageOffers(Request $request, $packageId)
+    {
+        $packageService = app(PackageServices::class);
+        $keyword = $request->get('keyword');
+
+        $data = $packageService->searchPackageOffers($keyword,$packageId)->map(function ($offer){
+            return [
+                'id' => $offer->id,
+                'name' => $offer->name
+            ];
+        });
+        return response()->json($data);
+
+    }
     public function searchPackageTheme(Request $request)
     {
         $keyword = $request->get('keyword');

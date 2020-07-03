@@ -8,6 +8,15 @@ class PackageBookingRequest extends Model
 {
     protected $table = 'package_booking_request';
 
+    public function package()
+    {
+        return $this->belongsTo(Package::class,'package_id','id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+
     protected $dates = [
         'departure_date'
     ];
@@ -20,6 +29,7 @@ class PackageBookingRequest extends Model
         'travel_by',
         'duration',
         'package_id',
+        'offer_id',
         'price',
         'details',
         'meta',

@@ -35,6 +35,18 @@ class PackageServices
             ->orderBy('name', 'ASC')
             ->get();
     }
+    public function searchPackageOffers($keyword,$packageId)
+    {
+        $package = Package::find($packageId);
+
+        $offerIds = $package->offers->pluck('id')->all();
+
+        return PackageOffers::where('name','like',"%$keyword%")
+            ->take($this->searchLimit)
+            ->orderBy('name', 'ASC')
+            ->whereIn('id',$offerIds)
+            ->get();
+    }
 
     public function savePackagePost($packageData, $user) {
 
@@ -289,6 +301,7 @@ class PackageServices
             $dataOffer = [
                 'valid_from' => $offer['valid_from'],
                 'valid_till' => $offer['valid_till'],
+                'name' => $offer['name'],
                 'departure_date' => $offer['departure_date'],
                 'departure_time' => $offer['departure_time'],
                 'hotel_room_cost_info' => $offer['hotel_room_cost'],

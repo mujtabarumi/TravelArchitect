@@ -1,6 +1,8 @@
 <?php
 
 
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return redirect('/login');
 });
@@ -41,6 +43,7 @@ Route::prefix('package')->group(function (){
 
 Route::prefix('ajax')->group(function (){
     Route::get('/package/type','GlobalSearchController@searchPackageType')->name('ajax.package.type');
+    Route::get('/package/{package_id}/all-offers','GlobalSearchController@searchPackageOffers')->name('ajax.package.alloffer');
     Route::get('/package/theme','GlobalSearchController@searchPackageTheme')->name('ajax.package.theme');
     Route::get('/country','GlobalSearchController@searchCountry')->name('ajax.country');
     Route::get('/country/code','GlobalSearchController@searchCountryCode')->name('ajax.country_with_code');
@@ -86,3 +89,5 @@ Route::post('/popularcity/update','PopularCityController@popularcityupdate')->na
 
 Route::get('booking-request','PackageBookingController@showBookingRequest')->name('package.booking.request');
 Route::post('booking-request','PackageBookingController@showBookingData')->name('package.booking.request.getdata');
+Route::get('edit-booking-request/{id}','PackageBookingController@editBookingData')->name('package.booking.request.edit');
+Route::post('update-package-booking','PackageBookingController@updateBookingData')->name('package.booking.update');

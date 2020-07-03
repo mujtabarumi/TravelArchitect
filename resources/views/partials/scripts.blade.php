@@ -93,6 +93,35 @@
         });
 
     }
+
+    function addSelect2AjaxAddress($element, $url, $changeCallback, data) {
+        var placeHolder = $($element).data('placeholder');
+
+        if (typeof $changeCallback == 'function') {
+            $($element).change($changeCallback)
+        }
+
+        return $($element).select2({
+            ...data,
+            placeholder: placeHolder,
+            ajax: {
+                url: $url,
+                data: function (params) {
+                    return {
+                        keyword: params.term,
+                    }
+                },
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (obj, index) {
+                            return {id: obj.id, text: obj.name};
+                        })
+                    };
+                }
+            }
+        });
+
+    }
 </script>
 <!-- /GetButton.io widget -->
 

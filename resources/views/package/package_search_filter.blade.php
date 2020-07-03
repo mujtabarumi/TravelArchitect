@@ -18,22 +18,32 @@
             margin-top: 4px;
             vertical-align: middle;
         }
+        .select2-container--default .select2-selection--single .select2-selection__clear {
+            float: left;
+        }
     </style>
 @endpush
+@php
+    use App\Models\City;
+    $selectedCity = null;
+    if($cityId && !blank($cityId)) {
+        $selectedCity = City::find($cityId);
+    }
+@endphp
 <!-- START: FILTER AREA -->
-<div class="col-md-3 clear-padding">
+<div class="col-md-4 clear-padding">
     <div class="filter-head text-center">
-        <h4>25 Result Found Matching Your Search.</h4>
+        <h4>Filter your choice</h4>
     </div>
     <div class="filter-area">
-        <div class="price-filter filter">
-            <h5><i class="fa fa-usd"></i> Price</h5>
-            <p>
-                <label></label>
-                <input type="text" id="amount" readonly>
-            </p>
-            <div id="price-range"></div>
-        </div>
+{{--        <div class="price-filter filter">--}}
+{{--            <h5><i class="fa fa-usd"></i> Price</h5>--}}
+{{--            <p>--}}
+{{--                <label></label>--}}
+{{--                <input type="text" id="amount" readonly>--}}
+{{--            </p>--}}
+{{--            <div id="price-range"></div>--}}
+{{--        </div>--}}
         <div class="star-filter filter">
             <h5><i class="fa fa-calendar"></i> Duration</h5>
             <select id="duration_filter" class="selectpicker">
@@ -43,13 +53,27 @@
                 @endforeach
             </select>
         </div>
+{{--        <div class="location-filter filter">--}}
+{{--            <h5><i class="fa fa-globe"></i> Country</h5>--}}
+{{--            <select class="select2 form-control" id="country_filter" name="country_filter" data-placeholder="{{__("Select Country")}}">--}}
+{{--                <option value="">Any</option>--}}
+{{--                @foreach($allPackagedCountry as $country)--}}
+{{--                    <option value="{{$country->id}}">{{$country->name}}</option>--}}
+{{--                @endforeach--}}
+{{--            </select>--}}
+{{--        </div>--}}
+{{--        <div class="location-filter filter">--}}
+{{--            <h5><i class="fa fa-globe"></i> State</h5>--}}
+{{--            <select class="select2 form-control" id="state_filter" name="state_filter">--}}
+
+{{--            </select>--}}
+{{--        </div>--}}
         <div class="location-filter filter">
-            <h5><i class="fa fa-globe"></i> Country</h5>
-            <select class="select2 form-control" id="country_filter" name="country_filter">
-                <option value="">Any</option>
-                @foreach($allPackagedCountry as $country)
-                    <option value="{{$country->id}}">{{$country->name}}</option>
-                @endforeach
+            <h5><i class="fa fa-globe"></i> City</h5>
+            <select class="form-control select2" id="city_filter" name=city_filter" data-placeholder="{{__("Select City")}}">
+                @if(!blank($selectedCity))
+                    <option selected value="{{$selectedCity->id}}">{{$selectedCity->name}}</option>
+                @endif
             </select>
         </div>
         <div class="filter">
@@ -61,17 +85,7 @@
                 @endforeach
             </select>
         </div>
-{{--        <div class="facilities-filter filter">--}}
-{{--            <h5><i class="fa fa-list"></i> Inclusion</h5>--}}
-{{--            <select class="selectpicker">--}}
-{{--                <option>Any</option>--}}
-{{--                <option>Flight</option>--}}
-{{--                <option>Transportation</option>--}}
-{{--                <option>Sightseeing</option>--}}
-{{--                <option>Meals</option>--}}
-{{--                <option>Drinks</option>--}}
-{{--            </select>--}}
-{{--        </div>--}}
+
     </div>
 </div>
 <!-- END: FILTER AREA -->
@@ -81,47 +95,44 @@
         /* Price Range Slider */
 
         $(function() {
-            "use strict";
-            $( "#price-range" ).slider({
-                range: true,
-                min: 0,
-                max: 200000,
-                values: [ 0, 50000 ],
-                slide: function( event, ui ) {
-                    $( "#amount" ).val( "৳ " + ui.values[ 0 ] + " - ৳ " + ui.values[ 1 ] );
 
-                    if (window.location.hash) {
-                        var page = window.location.hash.replace('#', '');
-                        if (page == Number.NaN || page <= 0) {
-                            return false;
-                        }else{
-                            getData(page);
-                        }
-                    } else {
-                        var page = 1;
-                        getData(page);
-                    }
+            // $( "#price-range" ).slider({
+            //     range: true,
+            //     min: 0,
+            //     max: 200000,
+            //     values: [ 0, 50000 ],
+            //     slide: function( event, ui ) {
+            //         $( "#amount" ).val( "৳ " + ui.values[ 0 ] + " - ৳ " + ui.values[ 1 ] );
+            //
+            //         if (window.location.hash) {
+            //             var page = window.location.hash.replace('#', '');
+            //             if (page == Number.NaN || page <= 0) {
+            //                 return false;
+            //             }else{
+            //               //  getData(page);
+            //             }
+            //         } else {
+            //             var page = 1;
+            //            // getData(page);
+            //         }
+            //
+            //     }
+            // });
+            //
+            // $( "#amount" ).val( "৳ " + $( "#price-range" ).slider( "values", 0 ) +
+            //     " - ৳ " + $( "#price-range" ).slider( "values", 1 ) );
 
-                }
-            });
-            $( "#amount" ).val( "৳ " + $( "#price-range" ).slider( "values", 0 ) +
-                " - ৳ " + $( "#price-range" ).slider( "values", 1 ) );
-
-            let select2Poka = $('#country_filter').select2({
-                placeholder : "Select a Country",
-                // allowClear : true,
-                closeOnSelect : true,
-
-            });
 
             $( "#search_themes" ).change(function() {
 
                 if (window.location.hash) {
                     var page = window.location.hash.replace('#', '');
                     if (page == Number.NaN || page <= 0) {
+
                         return false;
                     }else{
                         getData(page);
+
                     }
                 } else {
                     var page = 1;
@@ -145,8 +156,7 @@
                 }
 
             });
-
-            $( "#duration_filter" ).change(function() {
+            $( "#city_filter" ).change(function() {
 
                 if (window.location.hash) {
                     var page = window.location.hash.replace('#', '');
@@ -160,6 +170,34 @@
                     getData(page);
                 }
 
+            });
+
+            $( "#duration_filter" ).change(function() {
+
+                if (window.location.hash) {
+                    var page = window.location.hash.replace('#', '');
+                    if (page == Number.NaN || page <= 0) {
+                        return false;
+                    }else{
+                        var page = 1;
+                        getData(page);
+                    }
+                } else {
+                    var page = 1;
+                    getData(page);
+                }
+
+            });
+
+            $('.select2').select2({
+                placeholder: 'This is my placeholder',
+                allowClear: true
+            });
+
+            addSelect2AjaxAddress('#city_filter','{{route('ajax.allCity')}}', null, {
+                'tags' : false,"multiple" : false,
+                'placeholder': 'This is my placeholder',
+                'allowClear': true
             });
 
         });

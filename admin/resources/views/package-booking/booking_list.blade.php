@@ -2,6 +2,7 @@
 
 @section('css')
 
+
 @endsection
 
 @section('content')
@@ -68,10 +69,12 @@
                     { data: 'price', name: 'price'},
                     { "data": function(data){
 
-                            if (data.status === 0) {
+                            if (data.status == "0") {
                                 return '<span style="color: red">New Booking Request</span>';
-                            } else if (data.status === 1) {
-                                return '<span style="color: green">Booking Confirmed</span>';
+                            } else if (data.status == "1") {
+                                return '<span style="color: green">Pending</span>';
+                            } else if (data.status == "2") {
+                                return '<span style="color: blue">Booking Confirmed</span>';
                             }
                         },
                         "orderable": false, "searchable":false, "name":"selected_rows"
@@ -83,6 +86,16 @@
             });
 
         } );
+
+        function editBookingRequest(x){
+
+
+            btn = $(x).data('panel-id');
+            var url = '{{route("package.booking.request.edit", ":id") }}';
+            var newUrl=url.replace(':id', btn);
+            window.location.href = newUrl;
+
+        }
 
 
     </script>

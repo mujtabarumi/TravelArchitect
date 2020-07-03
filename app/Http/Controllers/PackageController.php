@@ -36,7 +36,7 @@ class PackageController extends Controller
         return view('package.details', compact('package'));
     }
 
-    public function getAllPackageLists(Request $request,$packageType = null) {
+    public function getAllPackageLists(Request $request, $cityId = null, $packageType = null) {
 
         $allPackages = Package::where('status',PackageStatus::PUBLISHED);
 
@@ -44,11 +44,6 @@ class PackageController extends Controller
         $packageTypes = \App\Models\PackageType::all();
 
         $PackagesMeta = $allPackages->pluck('meta');
-//        dd($PackagesMeta);
-
-//        $PackagesCountries = $PackagesMeta->address->country;
-
-
 
         $multiCountry = $PackagesMeta->map(function ($item, $key) {
             $a = json_decode($item);
@@ -94,7 +89,7 @@ class PackageController extends Controller
         }
 
         $package_themes = $request->get('package_themes');
-        $package_countries = $request->get('package_countries');
+        $package_cities = $request->get('package_cities');
         $package_prices = $request->get('package_prices');
         $duration_filter = $request->get('duration_filter');
 
@@ -105,17 +100,19 @@ class PackageController extends Controller
                 $allPackages = $allPackages->whereJsonContains('theme_map', $package_themes);
 
             }
-            if (!blank($package_countries) && $package_countries !="") {
 
-                $allPackages = $allPackages->whereJsonContains("meta->address->country",$package_countries);
+            if (!blank($package_cities) && $package_cities !="") {
 
+                $allPackages = $allPackages->whereJsonContains("meta->address->city",$package_cities);
 
             }
             if (!blank($duration_filter) && $duration_filter !="") {
 
-                $allPackages = $allPackages->whereJsonContains('meta->duration_in_days', $duration_filter);
+                $allPackages = $allPackages->whereJsonContains('meta->duration_in_days', [$duration_filter]);
+
 
             }
+
             if (!blank($package_prices) && $package_prices !="") {
 
                 $allPackages = $allPackages->where(function ($query) use ($package_prices) {
@@ -126,14 +123,14 @@ class PackageController extends Controller
 
         }
 
-        $allPackages = $allPackages->latest()->paginate(1)->appends($request->all());
+        $allPackages = $allPackages->latest()->paginate(10);
 
         if($request->ajax()){
             return view('package.package_lists', compact('allPackages'));
         }
 
         return view('package.lists', compact('allPackages','allthemes','allPackagedCountry',
-            'packageTypes','package_types','package_budget','allPackagedDuration'));
+            'packageTypes','package_types','package_budget','allPackagedDuration','cityId'));
 
 
     }

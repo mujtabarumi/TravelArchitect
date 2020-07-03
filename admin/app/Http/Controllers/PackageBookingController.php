@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\PackageBookingRequest;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Yajra\DataTables\DataTables;
 
 class PackageBookingController extends Controller
@@ -45,14 +47,43 @@ class PackageBookingController extends Controller
                     '<div class="btn-group">
 					<button type="button" class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">Action<span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
 					<div class="dropdown-menu" role="menu" x-placement="top-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-1px, -3px, 0px);">
-                        <a class="dropdown-item" href="javascript:void(0)" data-panel-id='.$action->id.' onclick="editvisaguide(this)"><i class="fa fa-eye"></i> Edit</a>
-                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)" data-panel-id='.$action->id.' onclick="deletevisaguide(this)"><i class="fa fa-trash"></i> Delete</a>
+                        <a class="dropdown-item" href="javascript:void(0)" data-panel-id='.$action->id.' onclick="editBookingRequest(this)"><i class="fa fa-eye"></i> Edit</a>
+                  
                       </div>
 				</div>';
             })
             ->rawColumns(['action'])
             ->toJson();
+
+    }
+
+    public function editBookingData($id) {
+
+        $bookingInfo = PackageBookingRequest::find($id);
+
+        return view('package-booking.edit_booking', compact('bookingInfo'));
+    }
+    public function updateBookingData(Request $request) {
+
+        $request = $request->all();
+        $data = Arr::only($request,['offer_id','package_id','departure_date','travel_by','duration','meta','status','id']);
+
+        $data['departure_date'] = Carbon::parse($data['departure_date'])->format("Y-m-d");
+
+        $bookRequest = PackageBookingRequest::find($data['id']);
+
+        $bookRequest->offer_id = $data['offer_id'];
+        $bookRequest->package_id = $data['package_id'];
+        $bookRequest->departure_date = $data['departure_date'];
+        $bookRequest->travel_by = $data['travel_by'];
+        $bookRequest->duration = $data['duration'];
+        $bookRequest->meta = $data['meta'];
+        $bookRequest->status = $data['status'];
+
+        $bookRequest->save();
+
+
+        return redirect()->route('package.booking.request')->with('success', 'Booking Request Updated Successfully :)');
 
     }
 }

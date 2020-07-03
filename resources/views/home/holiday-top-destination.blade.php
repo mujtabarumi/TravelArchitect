@@ -1,3 +1,7 @@
+@php
+    use App\Models\City;
+@endphp
+
 <!-- START: PRODUCT SECTION-->
 <section class="home-topdestinations">
     <div class="container clear-padding">
@@ -10,8 +14,10 @@
                 @if(!blank($popularHolidays))
                     @foreach($popularHolidays as $ph)
                         @php
-                            $phImage = $ph->getMedia('slider_images');
-                            $slider1  = $phImage->where('order_column', 1)->first();
+
+                        $city = City::find($ph->city_id);
+                           /* $phImage = $ph->getMedia('slider_images');
+                            $slider1  = $phImage->where('order_column', 1)->first();*/
 
     /*                        dd(url('admin'."/".$slider1->getUrl())) */
                             //dd(data_get($reco,'meta.package_costing'));
@@ -19,13 +25,13 @@
                         @endphp
 
                         <div class="col-md-3">
-                            <div onclick="location.href = '{{route('package.details',['package' => $ph->id])}}' ;" class="block fw hh"
-                                 style="background-image: @if($slider1) url('{{url('admin'."/".$slider1->getUrl())}}') @else url('{{url('assets/images/tour1.jpg')}}') @endif;
+                            <div onclick="location.href = '{{route('package.lists',['city' => $city->id])}}' ;" class="block fw hh"
+                                 style="background-image: @if(!blank($ph->imageLink)) url('{{url('admin/public/popularcityImage'."/".$ph->imageLink)}}') @else url('{{url('assets/images/tour1.jpg')}}') @endif;
                                      background-repeat: no-repeat;
                                      background-size: cover;
                                 ">
                                 <div class="city overlay">
-                                    <div class="text"><p> {{$ph->address->city->name}} </p>
+                                    <div class="text"><p> {{$city->name}} </p>
                                     </div>
                                 </div>
                             </div>
@@ -33,94 +39,7 @@
 
                     @endforeach
                 @endif
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour2.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour3.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour4.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour5.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour6.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour7.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour8.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour10.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour11.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour12.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="block fw hh" style="background-image: url('assets/images/tour1.jpg');">--}}
-{{--                        <div class="city">--}}
-{{--                            <div class="text"><p>Kuala Lumpur </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+
             </div>
         </div>
     </div>

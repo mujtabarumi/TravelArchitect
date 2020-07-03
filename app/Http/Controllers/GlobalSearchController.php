@@ -18,6 +18,12 @@ class GlobalSearchController extends Controller
         $keyword = $request->get('keyword');
         return response()->json($packageService->searchPackageType($keyword));
     }
+    public function searchPackageOffers(Request $request)
+    {
+        $packageService = app(PackageServices::class);
+        $keyword = $request->get('keyword');
+        return response()->json($packageService->searchPackageOffers($keyword));
+    }
     public function searchPackageTheme(Request $request)
     {
         $keyword = $request->get('keyword');
@@ -26,6 +32,7 @@ class GlobalSearchController extends Controller
     }
 
     public function searchCountry(Request $request){
+
         $addressService = app(AddressService::class);
         $keyword = $request->get('keyword');
         return response()->json($addressService->searchCountry($keyword));

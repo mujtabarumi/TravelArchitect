@@ -18,7 +18,8 @@
                             $package_places = data_get($package_meta,'places',[]);
                         @endphp
 
-                                        <div class="room-grid-view wow slideInUp" style="margin-right: 30px;width: 262px" data-wow-delay="0.{{$loop->iteration}}s">
+                                        <div class="room-grid-view wow slideInUp" style="margin-right: 30px;width: 262px"
+                                             data-wow-delay="0.{{$loop->iteration}}s">
                                            <div class="holiday-custom"
                                                 style="background-image: @if($recoImage) url('{{url('admin'."/".$recoImage->getUrl())}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif;
                                                     background-repeat: no-repeat;
@@ -92,7 +93,6 @@
         $(document).ready(function() {
 
             var owl = $('#post-list');
-
             owl.owlCarousel({
                 items : 4,
                 loop:true,

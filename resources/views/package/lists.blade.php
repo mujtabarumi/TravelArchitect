@@ -23,25 +23,25 @@
             @include('package.package_search_filter')
 
             <!-- START: INDIVIDUAL LISTING AREA -->
-                <div class="col-md-9 hotel-listing">
+                <div class="col-md-8 hotel-listing">
 
                     <!-- START: SORT AREA -->
-                    <div class="sort-area col-sm-10">
-                        <div class="col-md-3 col-sm-3 col-xs-6 sort">
-                            <select class="selectpicker">
-                                <option>Price</option>
-                                <option> Low to High</option>
-                                <option> High to Low</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6 sort">
-                            <select class="selectpicker">
-                                <option>Name</option>
-                                <option> Ascending</option>
-                                <option> Descending</option>
-                            </select>
-                        </div>
-                    </div>
+{{--                    <div class="sort-area col-sm-10">--}}
+{{--                        <div class="col-md-3 col-sm-3 col-xs-6 sort">--}}
+{{--                            <select class="selectpicker">--}}
+{{--                                <option>Price</option>--}}
+{{--                                <option> Low to High</option>--}}
+{{--                                <option> High to Low</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-3 col-sm-3 col-xs-6 sort">--}}
+{{--                            <select class="selectpicker">--}}
+{{--                                <option>Name</option>--}}
+{{--                                <option> Ascending</option>--}}
+{{--                                <option> Descending</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <!-- END: SORT AREA -->
                     <div class="clearfix visible-xs-block"></div>
 
@@ -98,19 +98,25 @@
                 getData(page);
             });
 
+{{--            @if($cityId && !blank($cityId))--}}
+{{--                var cityId = "{{$cityId}}";--}}
+{{--                $('#city_filter').val(cityId).trigger('change');--}}
+{{--            @endif--}}
+
         });
 
         function getData(page){
 
-            console.log($( "#country_filter" ).val());
             var data = {
                 'package_themes': $( "#search_themes" ).val(),
-                'package_countries': $( "#country_filter" ).val(),
-                'package_prices': $('#price-range').slider('values'),
+
+                'package_cities': $( "#city_filter" ).val(),
+                // 'package_prices': $('#price-range').slider('values'),
                 'package_types': $('#package_types').val(),
-                'package_budget': $('#package_budget').val(),
                 'duration_filter': $('#duration_filter').val(),
             };
+
+            console.log(data);
 
             $.ajax(
                 {

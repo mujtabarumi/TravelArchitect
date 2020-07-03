@@ -386,7 +386,7 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6 col-sm-6 col-xs-6">
                                                     <label>Adult</label>
-                                                    <select class="selectpicker" name="adult">
+                                                    <select class="selectpicker" name="meta[person][adult]">
                                                         <option>1</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -397,7 +397,8 @@
                                                 </div>
                                                 <div class="form-group col-md-6 col-sm-6 col-xs-6">
                                                     <label>Child</label>
-                                                    <select class="selectpicker" name="child">
+                                                    <select class="selectpicker" name="meta[person][child]">
+                                                        <option>0</option>
                                                         <option>1</option>
                                                         <option>2</option>
                                                         <option>3</option>

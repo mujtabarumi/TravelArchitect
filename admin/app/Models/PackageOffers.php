@@ -15,6 +15,7 @@ class PackageOffers extends Model
     protected $fillable = [
         'valid_from',
         'valid_till',
+        'name',
         'departure_date',
         'departure_time',
         'package_id',

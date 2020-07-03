@@ -9,6 +9,7 @@ use App\Models\Country;
 use App\Models\Package;
 use App\Models\PackageItinerary;
 use App\Models\PackageItineraryInclude;
+use App\Models\PackageOffers;
 use App\Models\PackageType;
 use App\Models\State;
 use App\Models\User;
@@ -29,6 +30,14 @@ class PackageServices
     public function searchPackageType($keyword)
     {
         return PackageType::where('name','like',"%$keyword%")
+            ->take($this->searchLimit)
+            ->orderBy('name', 'ASC')
+            ->get();
+    }
+
+    public function searchPackageOffers($keyword)
+    {
+        return PackageOffers::where('name','like',"%$keyword%")
             ->take($this->searchLimit)
             ->orderBy('name', 'ASC')
             ->get();

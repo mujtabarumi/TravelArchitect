@@ -31,7 +31,8 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="ti-notepad"></i></span>
                                         </div>
-                                    </div><!-- input-group -->
+                                    </div>
+                                    <!-- input-group -->
                                     @component('components.input-validation-error',['field' => 'offer[{{$loop->index}}][valid_from]']) @endcomponent
                                 </div>
                             </div>
@@ -48,6 +49,17 @@
                                         </div>
                                     </div><!-- input-group -->
                                     @component('components.input-validation-error',['field' => 'offer[{{$loop->index}}][valid_till]']) @endcomponent
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label" for="expiry_date">Name*</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" required value="{{ $offers->name }}" name="offer[{{$loop->index}}][name]" placeholder="">
+                                    </div><!-- input-group -->
+                                    @component('components.input-validation-error',['field' => 'offer[{{$loop->index}}][name]']) @endcomponent
                                 </div>
                             </div>
                         </div>
@@ -179,6 +191,17 @@
                                 </div>
                             </div><!-- input-group -->
                             @component('components.input-validation-error',['field' => 'offer[0][valid_till]']) @endcomponent
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group mb-3">
+                            <label class="col-form-label" for="expiry_date">Name*</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" required value="" name="offer[0][name]" placeholder="">
+                            </div><!-- input-group -->
+                            @component('components.input-validation-error',['field' => 'offer[0][name]']) @endcomponent
                         </div>
                     </div>
                 </div>
@@ -391,6 +414,17 @@
                     <span class="input-group-text"><i class="ti-notepad"></i></span>
                     </div>
                     </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group mb-3">
+                            <label class="col-form-label" for="expiry_date">Name</label>
+                            <div class="input-group">
+                                <input type="text" required class="form-control"  value="" name="offer[${index}][name]" placeholder="">
+                            </div>
+
                     </div>
                     </div>
                     </div>
