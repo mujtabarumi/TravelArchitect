@@ -36,7 +36,20 @@ class PackageController extends Controller
         return view('package.details', compact('package'));
     }
 
-    public function getAllPackageLists(Request $request, $cityId = null, $packageType = null) {
+    public function getAllPackageLists(Request $request) {
+
+        if ($request->has('city')) {
+            $cityId = $request->get('city');
+            $packageType = null;
+        }
+        if ($request->has('package-type')) {
+            $packageType = $request->get('package-type');
+            $cityId = null;
+        }
+        if (!$request->has('package-type') && !$request->has('city')) {
+            $packageType = null; $cityId = null;
+        }
+
 
         $allPackages = Package::where('status',PackageStatus::PUBLISHED);
 
@@ -93,11 +106,24 @@ class PackageController extends Controller
         $package_prices = $request->get('package_prices');
         $duration_filter = $request->get('duration_filter');
 
+
         if($request->ajax()){
 
             if (!blank($package_themes) && $package_themes !="") {
 
                 $allPackages = $allPackages->whereJsonContains('theme_map', $package_themes);
+
+            }
+
+            if ($request->has('package_types')) {
+
+                $package_types = $request->get('package_types');
+
+            }
+
+            if (!blank($package_types) && $package_types !="") {
+
+                $allPackages = $allPackages->where('package_type_id',$package_types);
 
             }
 
@@ -130,7 +156,7 @@ class PackageController extends Controller
         }
 
         return view('package.lists', compact('allPackages','allthemes','allPackagedCountry',
-            'packageTypes','package_types','package_budget','allPackagedDuration','cityId'));
+            'packageTypes','package_types','package_budget','allPackagedDuration','cityId','packageType'));
 
 
     }

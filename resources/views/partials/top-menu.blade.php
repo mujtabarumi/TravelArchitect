@@ -27,7 +27,7 @@
                             </li>
                             <li class="mega">
 
-                                <a href="{{route('package.lists',['packageType' => \App\Enums\PackageType::HOLIDAY])}}"><i class="fa fa-suitcase"></i> HOLIDAY</a>
+                                <a href="{{route('package.lists',['package-type' => \App\Enums\PackageType::HOLIDAY])}}"><i class="fa fa-suitcase"></i> HOLIDAY</a>
                                 <div class="clearfix"></div>
                             </li>
                             <li class="mega">

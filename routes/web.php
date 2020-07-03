@@ -75,7 +75,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
     Route::prefix('package')->group(function (){
         Route::get('{package}/details','PackageController@getPackageDetails')->name('package.details');
 //        Route::get('package-lists/{packageType?}','PackageController@getAllPackageLists')->name('package.lists');
-        Route::get('package-lists/{city_id?}','PackageController@getAllPackageLists')->name('package.lists');
+        Route::get('package-lists','PackageController@getAllPackageLists')->name('package.lists');
 
         Route::post('package-booking','PackageController@saveBooking')->name('package.booking');
     });

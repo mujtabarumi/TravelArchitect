@@ -127,6 +127,7 @@
                 }).done(function(data){
 
                 $("#package-listing").empty().html(data);
+                console.log(data)
 
                 location.hash = page;
             }).fail(function(jqXHR, ajaxOptions, thrownError){
