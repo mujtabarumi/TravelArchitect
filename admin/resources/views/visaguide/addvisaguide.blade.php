@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="eventDetails">Visa Requirements</label>
-                                        <textarea type="text" id="localtime" name="visarequirements" class="form-control"></textarea>
+                                        <textarea type="text" rows="5" id="localtime" name="visarequirements" class="form-control snow-editor"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="eventVenue">Status</label>
@@ -119,6 +119,53 @@
 
 
     <script>
+
+        $(function () {
+
+            var editorToolbar = [
+                [{
+                    font: []
+                }, {
+                    size: []
+                }],
+                ["bold", "italic", "underline", "strike"],
+                [{
+                    color: []
+                }, {
+                    background: []
+                }],
+                [{
+                    script: "super"
+                }, {
+                    script: "sub"
+                }],
+                [{
+                    header: [!1, 1, 2, 3, 4, 5, 6]
+                }, "blockquote", "code-block"],
+                [{
+                    list: "ordered"
+                }, {
+                    list: "bullet"
+                }, {
+                    indent: "-1"
+                }, {
+                    indent: "+1"
+                }],
+                ["direction", {
+                    align: []
+                }],
+                ["link", "image", "video", "formula"],
+                ["clean"]
+            ];
+
+            new Quill(".snow-editor", {
+                theme: "snow",
+                modules: {
+                    toolbar: editorToolbar
+                }
+            });
+        });
+
 
 
         {{--addSelect2AjaxAddress('#city','{{route('ajax.allCity')}}', null, {--}}

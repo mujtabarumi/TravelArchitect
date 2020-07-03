@@ -247,7 +247,7 @@
                             </p>
                         </div>
                         <div class="package-summary-footer text-center">
-                            <div class="col-md-6 col-sm-6 col-xs-6 price">
+                            <div class="col-md-12 col-sm-12 col-xs-12 price">
                                 @if (!blank($package_costs))
                                     @foreach($package_costs as $pa)
                                         @if($loop->first)
@@ -261,9 +261,9 @@
                                 @endif
 
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6 book">
-                                <a href="{{route('coming-soon')}}">BOOK NOW</a>
-                            </div>
+{{--                            <div class="col-md-6 col-sm-6 col-xs-6 book">--}}
+{{--                                <a href="{{route('coming-soon')}}">BOOK NOW</a>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
 
