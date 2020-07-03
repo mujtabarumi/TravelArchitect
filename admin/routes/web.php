@@ -75,6 +75,7 @@ Route::get('/visaguide/add','VisaGuideController@visaguideadd')->name('visaguide
 Route::post('/visaguide/insert','VisaGuideController@visaguideinsert')->name('visaguide.insert');
 //Route::post('/visaguide/edit','VisaGuideController@visaguideedit')->name('visaguide.edit');
 Route::get('visaguide/edit/{id}', 'VisaGuideController@editvisaguide')->name('editvisaguide');
+Route::get('visaguide/delete/{id}', 'VisaGuideController@deletevisaguide')->name('deletevisaguide');
 Route::post('visaguide/update', 'VisaGuideController@updatevisaguide')->name('visaguide.update');
 
 
@@ -85,6 +86,7 @@ Route::post('/popularcity/view','PopularCityController@popularcityview')->name('
 Route::get('/popularcity/add','PopularCityController@popularcityadd')->name('popularcity.add');
 Route::post('/popularcity/insert','PopularCityController@popularcityinsert')->name('popularcity.insert');
 Route::get('/popularcity/edit/{id}','PopularCityController@popularcityedit')->name('popularcity.edit');
+Route::get('/popularcity/delete/{id}','PopularCityController@popularcitydelete')->name('popularcity.delete');
 Route::post('/popularcity/update','PopularCityController@popularcityupdate')->name('popularcity.update');
 
 Route::get('booking-request','PackageBookingController@showBookingRequest')->name('package.booking.request');

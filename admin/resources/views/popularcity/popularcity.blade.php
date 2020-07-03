@@ -201,9 +201,11 @@
             {{--});--}}
         }
 
-        function deletevisaguide(x) {
+        function deletepopularcity(x) {
             btn = $(x).data('panel-id');
-            alert(btn);
+            var url = '{{route("popularcity.delete", ":id") }}';
+            var newUrl=url.replace(':id', btn);
+            window.location.href = newUrl;
         }
 
 

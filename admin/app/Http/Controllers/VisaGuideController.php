@@ -82,4 +82,8 @@ class VisaGuideController extends Controller
 
 
     }
+    public function deletevisaguide($id){
+        VisaGuide::findOrFail($id)->delete();
+        return back()->with('success', __('Visa Guide Deleted successfully. :) '));
+    }
 }

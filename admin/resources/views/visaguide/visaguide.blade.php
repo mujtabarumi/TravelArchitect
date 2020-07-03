@@ -199,7 +199,10 @@
 
         function deletevisaguidefunc(x) {
             btn = $(x).data('panel-id');
-            alert(btn);
+            var url = '{{route("deletevisaguide", ":id") }}';
+            //alert(url);
+            var newUrl=url.replace(':id', btn);
+            window.location.href = newUrl;
         }
 
 

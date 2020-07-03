@@ -18,6 +18,7 @@ Route::get('/user-profile', function () {
 Auth::routes(['verify' =>true]);
 
 Route::get('/user/profile', 'UserController@index')->name('user.profile');
+Route::post('/user/profile/update', 'UserController@updateprofile')->name('profile.update');
 
 
 // Authentication Routes...

@@ -86,4 +86,9 @@ class PopularCityController extends Controller
         $popularcity->save();
         return back()->with('success', __('Popularcity Update successfully. :) '));
     }
+
+    public function popularcitydelete($id){
+        PopularCity::findOrFail($id)->delete();
+        return back()->with('success', __('Popularcity Deleted successfully. :) '));
+    }
 }
