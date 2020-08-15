@@ -67,7 +67,7 @@
 <link rel="stylesheet" href="{{url('public/assets/libs/toastr/toastr.min.css')}}">
 <style>
     #st-2 {
-        top: 350px !important;
+        top: 500px !important;
     }
 
 </style>
