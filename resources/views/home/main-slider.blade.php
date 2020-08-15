@@ -10,7 +10,7 @@
                 <li data-target="#room-gallery" data-slide-to="0" class="active"></li>
             @endif
         </ol>
-        <div class="carousel-inner" role="listbox">
+        <div style="max-height: 460px" class="carousel-inner" role="listbox">
             @if(!blank($homeSlider))
                 @foreach ($homeSlider as $hs)
                     @php
@@ -20,19 +20,19 @@
                     @endphp
                 <div style="background-repeat: no-repeat;background-size: cover;background-image: @if($cover_image) url('{{url('admin'."/".$cover_image->getUrl())}}') @else url('{{url('assets/images/bg-image16.jpg')}}') @endif;"
                      class="item @if($loop->first) active @endif">
-                    <img style="height: 230px;width: 1850px;object-fit: cover" src="@if($cover_image) {{url('admin'."/".$cover_image->getUrl())}} @else {{url('assets/images/bg-image16.jpg')}} @endif" alt="Cruise">
-                    <div class="carousel-caption">
+                    <img style="height: 460px;width: 1850px;object-fit: cover" src="@if($cover_image) {{url('admin'."/".$cover_image->getUrl())}} @else {{url('assets/images/bg-image16.jpg')}} @endif" alt="Cruise">
+                    <div style="top: 70%" class="carousel-caption">
                         <div class="wrapper">
-                            <h2><span> {{$hs->title}} </span></h2>
-                            @if (!blank($package_costs))
-                                @foreach($package_costs as $pa)
-                                    @if($loop->first)
-                                        <h4> Starts From <span>BDT {{$pa->cost}}/{{$pa->person}} Person</span></h4>
-                                    @endif
-                                @endforeach
-                            @else
-                                <h4><span>BDT {{$hs->budget}}</span></h4>
-                            @endif
+{{--                            <h2><span> {{$hs->title}} </span></h2>--}}
+{{--                            @if (!blank($package_costs))--}}
+{{--                                @foreach($package_costs as $pa)--}}
+{{--                                    @if($loop->first)--}}
+{{--                                        <h4> Starts From <span>BDT {{$pa->cost}}/{{$pa->person}} Person</span></h4>--}}
+{{--                                    @endif--}}
+{{--                                @endforeach--}}
+{{--                            @else--}}
+{{--                                <h4><span>BDT {{$hs->budget}}</span></h4>--}}
+{{--                            @endif--}}
     {{--                        <h4>DUBAI TOURS STARTING FROM <span>$499/PERSON</span></h4>--}}
                             <a href="{{route('package.details',['package' => $hs->id])}}">VIEW DETAILS</a>
                         </div>

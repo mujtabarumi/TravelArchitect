@@ -5,6 +5,12 @@
     .holiday-custom .text .bottom h4 span{
         font-weight: 700;
     }
+    .owl-stage{
+        width: 410px;
+    }
+    .owl-item{
+        width: 410px;
+    }
 </style>
 <!-- BEGIN: Recomanded holidays -->
 <section id="recent-blog">
@@ -26,7 +32,7 @@
                                 $package_places = data_get($package_meta,'places',[]);
                         @endphp
 
-                   <div class="room-grid-view wow slideInUp" style="margin-right: 30px;width: 262px" data-wow-delay="0.{{$loop->iteration}}s">
+                   <div class="room-grid-view wow slideInUp" style="margin-right: 30px;width: 410px" data-wow-delay="0.{{$loop->iteration}}s">
                    <div class="holiday-custom"
                         style="background-image: @if($recoImage) url('{{url('admin'."/".$recoImage->getUrl())}}') @else url('{{url('assets/images/holiday-slide3.jpg')}}') @endif;
                             background-repeat: no-repeat;

@@ -5,7 +5,7 @@
     <style>
         .package-cover-image {
             background-color: #2CA9FF;
-            height: 315px;
+            height: 460px;
         }
         .package-cover-image img{
             width: 100%;
@@ -324,7 +324,7 @@
                     [PACKAGE_COVER_PHOTO]: {
                         input_id: '#upload_cover_photo2',
                         target_id: '#package_cover_photo_preview',
-                        ...setConfig(960, 240, 1920, 480)
+                        ...setConfig(960, 500, 1920, 500)
                     },
                     [PACKAGE_SHOWCASE_1]: {
                         input_id: '#package_show_case_1',
@@ -349,7 +349,7 @@
                     [PACKAGE_RECOMAND_IMAGES]: {
                         input_id: '#package_recomanded_images',
                         target_id: '#package_recomanded_images_preview',
-                        ...setConfig(265, 420, 265, 420)
+                        ...setConfig(410, 420, 410, 420)
                     },
                     [PACKAGE_LIST_IMAGES]: {
                         input_id: '#package_list_images',

@@ -3,24 +3,6 @@
     <div class="container">
         <div class="col-md-12 col-md-offset-3">
             <form method="get" action="{{route('package.lists')}}">
-                {{--            <div class="col-md-3 col-sm-6">--}}
-                {{--                <div class="form-gp">--}}
-                {{--                    <label>Starting From</label>--}}
-                {{--                    <div class="input-group margin-bottom-sm">--}}
-                {{--                        <input type="text" name="departure_city" class="form-control" required placeholder="E.g. London">--}}
-                {{--                        <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
-                {{--            </div>--}}
-                {{--            <div class="col-md-3 col-sm-6">--}}
-                {{--                <div class="form-gp">--}}
-                {{--                    <label>Going To</label>--}}
-                {{--                    <div class="input-group margin-bottom-sm">--}}
-                {{--                        <input type="text" name="destination_city" class="form-control" required placeholder="E.g. Paris">--}}
-                {{--                        <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
-                {{--            </div>--}}
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="form-gp">
                         <label>Package Type</label>

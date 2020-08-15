@@ -52,7 +52,9 @@
 <link href="{{asset("/assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet">
 
 <!-- make site yellow -->
-<link href="{{asset("/assets/css/color/yellow.css")}}" rel="stylesheet">
+{{--<link href="{{asset("/assets/css/color/yellow.css")}}" rel="stylesheet">--}}
+<link href="{{url("/public/assets/css/color/travel_blue_css.css")}}" rel="stylesheet">
+
 <link href="{{asset("/assets/css/light.css")}}" rel="stylesheet">
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600' rel='stylesheet' type='text/css'>
