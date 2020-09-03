@@ -116,3 +116,6 @@ Route::view('pdf', 'pdf.pdf');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/* testing new home */
+Route::get('/new-home', 'HomeController@newHome')->name('newHome');

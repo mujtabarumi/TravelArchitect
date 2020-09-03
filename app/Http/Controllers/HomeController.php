@@ -49,4 +49,9 @@ class HomeController extends Controller
         }
         return response()->json($results);
     }
+
+    public function newHome() {
+
+        return view('new_theme.home');
+    }
 }
