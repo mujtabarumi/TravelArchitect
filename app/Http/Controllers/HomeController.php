@@ -52,6 +52,10 @@ class HomeController extends Controller
 
     public function newHome() {
 
-        return view('new_theme.home');
+        return view('new_theme.layout.view');
+    }
+    public function newSearch() {
+
+        return view('new_theme.search');
     }
 }

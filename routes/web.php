@@ -119,3 +119,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /* testing new home */
 Route::get('/new-home', 'HomeController@newHome')->name('newHome');
+Route::get('/new-search', 'HomeController@newSearch')->name('newHSearch');

@@ -826,9 +826,9 @@
                                 <h2 class="main-title">Trips in Popular Cities</h2>
                                 <div class="right">
                                     <strong>SEE ALL</strong>
-                                    <span class="slick-nav">
-                                        <a class="next-arrow"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                                    </span>
+{{--                                    <span class="slick-nav">--}}
+{{--                                        <a class="next-arrow"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>--}}
+{{--                                    </span>--}}
                                 </div>
                             </div>
                             <div class="hotels-content margin-top70">
@@ -1016,72 +1016,72 @@
                     </div>
                 </section>
 
-                <section class="a-fact padding-top padding-bottom">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="group-title">
-                                    <div class="sub-title">
-                                        <p class="text">PROUD NUMBERS</p>
-                                        <i class="icons flaticon-people"></i>
-                                    </div>
-                                    <h2 class="main-title">a fact of Travel Architect</h2>
-                                </div>
-                                <div class="a-fact-wrapper">
-                                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, by injected humour. </p>
-                                    <div class="a-fact-list">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <p class="text">1456 flight in the world.</p>
-                                            </li>
-                                            <li>
-                                                <p class="text">2385 happy customer enjoy jouneys with Explooer.</p>
-                                            </li>
-                                            <li>
-                                                <p class="text">356 best destinational we explore.</p>
-                                            </li>
-                                            <li>
-                                                <p class="text">2345 package tours every year.</p>
-                                            </li>
-                                            <li>
-                                                <p class="text">top 10 best tourism services.</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="#" class="btn btn-maincolor">read more</a>
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="a-fact-image-wrapper">
-                                    <div class="a-fact-image">
-                                        <a href="#" class="icons icons-1">
-                                            <i class="fa fa-plane"></i>
-                                        </a>
-                                        <img src="{{url('public/newtheme/assets/images/homepage/area-1.png')}}" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="a-fact-image">
-                                        <a href="#" class="icons icons-2">
-                                            <i class="fa fa-map-marker"></i>
-                                        </a>
-                                        <img src="{{url('public/newtheme/assets/images/homepage/area-2.png')}}" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="a-fact-image">
-                                        <a href="#" class="icons icons-3">
-                                            <i class="fa fa-users"></i>
-                                        </a>
-                                        <img src="{{url('public/newtheme/assets/images/homepage/area-3.png')}}" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="a-fact-image">
-                                        <a href="#" class="icons icons-4">
-                                            <i class="fa fa-suitcase"></i>
-                                        </a>
-                                        <img src="{{url('public/newtheme/assets/images/homepage/area-4.png')}}" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+{{--                <section class="a-fact padding-top padding-bottom">--}}
+{{--                    <div class="container">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-5">--}}
+{{--                                <div class="group-title">--}}
+{{--                                    <div class="sub-title">--}}
+{{--                                        <p class="text">PROUD NUMBERS</p>--}}
+{{--                                        <i class="icons flaticon-people"></i>--}}
+{{--                                    </div>--}}
+{{--                                    <h2 class="main-title">a fact of Travel Architect</h2>--}}
+{{--                                </div>--}}
+{{--                                <div class="a-fact-wrapper">--}}
+{{--                                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, by injected humour. </p>--}}
+{{--                                    <div class="a-fact-list">--}}
+{{--                                        <ul class="list-unstyled">--}}
+{{--                                            <li>--}}
+{{--                                                <p class="text">1456 flight in the world.</p>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <p class="text">2385 happy customer enjoy jouneys with Explooer.</p>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <p class="text">356 best destinational we explore.</p>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <p class="text">2345 package tours every year.</p>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <p class="text">top 10 best tourism services.</p>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                    <a href="#" class="btn btn-maincolor">read more</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-7">--}}
+{{--                                <div class="a-fact-image-wrapper">--}}
+{{--                                    <div class="a-fact-image">--}}
+{{--                                        <a href="#" class="icons icons-1">--}}
+{{--                                            <i class="fa fa-plane"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <img src="{{url('public/newtheme/assets/images/homepage/area-1.png')}}" alt="" class="img-responsive">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="a-fact-image">--}}
+{{--                                        <a href="#" class="icons icons-2">--}}
+{{--                                            <i class="fa fa-map-marker"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <img src="{{url('public/newtheme/assets/images/homepage/area-2.png')}}" alt="" class="img-responsive">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="a-fact-image">--}}
+{{--                                        <a href="#" class="icons icons-3">--}}
+{{--                                            <i class="fa fa-users"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <img src="{{url('public/newtheme/assets/images/homepage/area-3.png')}}" alt="" class="img-responsive">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="a-fact-image">--}}
+{{--                                        <a href="#" class="icons icons-4">--}}
+{{--                                            <i class="fa fa-suitcase"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <img src="{{url('public/newtheme/assets/images/homepage/area-4.png')}}" alt="" class="img-responsive">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </section>--}}
                 <section class="contact style-1">
                     <div class="container">
                         <div class="row">
@@ -1350,8 +1350,7 @@
 <script src="{{url('public/newtheme/assets/libs/fancybox/js/jquery.fancybox-buttons.js')}}"></script>
 <script src="{{url('public/newtheme/assets/libs/fancybox/js/jquery.fancybox-thumbs.js')}}"></script>
 <!--script(src="assets/libs/parallax/jquery.data-parallax.min.js")-->
-<!-- MAIN JS-->
-<script src="{{url('public/newtheme/assets/js/main.js')}}"></script>
+
 <!-- LOADING JS FOR PAGE-->
 <script src="{{url('public/newtheme/assets/js/pages/home-page.js')}}"></script>
 <script src="{{url('public/newtheme/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
